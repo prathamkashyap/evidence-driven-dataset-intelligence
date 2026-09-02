@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "experiment_id": "m0-compute-budget-v1",
+  "dataset_record_target": 10,
+  "source_access_combination_target": 5,
+  "query_target": 3,
+  "runs_per_query": {
+    "cold_cache": 1,
+    "warm_cache": 1
+  },
+  "candidate_discovery": {
+    "initial_candidates_per_source": 20,
+    "ranking_implementation_required": false
+  },
+  "sample_cap": {
+    "max_records_per_dataset": 32,
+    "max_bytes_per_dataset": 67108864
+  },
+  "measurement_requirements": [
+    "candidate_retrieval_time",
+    "evidence_collection_time",
+    "sample_acquisition_feasibility",
+    "probe_runtime",
+    "peak_memory",
+    "repository_access_failure_rate"
+  ],
+  "failure_categories": [
+    "authentication_or_gating",
+    "unavailable_endpoint",
+    "incompatible_format",
+    "rate_limit",
+    "timeout",
+    "policy_refusal",
+    "unknown"
+  ],
+  "reproducibility": {
+    "seed": 20260902,
+    "record_runtime_context": true,
+    "record_source_timestamps": true,
+    "record_cache_state": true,
+    "record_configuration_hash": true
+  },
+  "output_directory": "experiments/m0"
+}

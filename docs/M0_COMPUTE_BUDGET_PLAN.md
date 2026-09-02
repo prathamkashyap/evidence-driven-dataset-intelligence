@@ -36,3 +36,5 @@ Also record Python/package versions, operating-system and CPU description, netwo
 After observing the pilot, set conservative budgets from the slowest stable source/modality, not the median alone. Candidate-pool size must satisfy the measured interactive latency target and peak-memory headroom on the target laptop. Probe depth must remain inside a per-candidate wall-clock cap and memory cap, while preserving a separately budgeted long-tail pool. If any source's access-failure rate is high or unstable, keep its metadata-only path, mark its sample state as `Unknown`, and do not silently remove it from evaluation.
 
 M0 completes only when the protocol configuration, raw logs, summary table, selected budgets, and a rationale are committed. No retrieval engine, evidence resolver, content fingerprinting suite, or ranker is introduced as part of this bootstrap commit.
+
+The committed protocol configuration is [`configs/m0_compute_budget.json`](../configs/m0_compute_budget.json). Its bootstrap validator performs no network activity and does not execute the experiment.
