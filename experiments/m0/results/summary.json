@@ -1,0 +1,124 @@
+{
+  "access": {
+    "huggingface": {
+      "attempts": 16,
+      "failure_categories": [
+        "unknown"
+      ],
+      "failure_rate": 0.125,
+      "failures": 2
+    },
+    "kaggle": {
+      "attempts": 8,
+      "failure_categories": [
+        "authentication_or_gating",
+        "policy_refusal"
+      ],
+      "failure_rate": 0.75,
+      "failures": 6
+    },
+    "openml": {
+      "attempts": 8,
+      "failure_categories": [],
+      "failure_rate": 0.0,
+      "failures": 0
+    },
+    "uci": {
+      "attempts": 8,
+      "failure_categories": [],
+      "failure_rate": 0.0,
+      "failures": 0
+    }
+  },
+  "by_condition": {
+    "cold": {
+      "network_requests": 25,
+      "operations": 40,
+      "successful_operations": 30
+    },
+    "warm": {
+      "network_requests": 0,
+      "operations": 40,
+      "successful_operations": 30
+    }
+  },
+  "by_phase": {
+    "candidate_retrieval:cold": {
+      "attempts": 7,
+      "max_peak_rss_bytes": 37994496,
+      "median_duration_ms": 536.917625,
+      "network_requests": 7,
+      "successes": 7
+    },
+    "candidate_retrieval:not_applicable": {
+      "attempts": 6,
+      "max_peak_rss_bytes": 37994496,
+      "median_duration_ms": 0.0,
+      "network_requests": 0,
+      "successes": 0
+    },
+    "candidate_retrieval:warm": {
+      "attempts": 7,
+      "max_peak_rss_bytes": 37994496,
+      "median_duration_ms": 0.0,
+      "network_requests": 0,
+      "successes": 7
+    },
+    "diagnostic:not_applicable": {
+      "attempts": 20,
+      "max_peak_rss_bytes": 37994496,
+      "median_duration_ms": 0.057333499999999996,
+      "network_requests": 0,
+      "successes": 14
+    },
+    "evidence_collection:cold": {
+      "attempts": 10,
+      "max_peak_rss_bytes": 37994496,
+      "median_duration_ms": 459.7792915,
+      "network_requests": 10,
+      "successes": 9
+    },
+    "evidence_collection:warm": {
+      "attempts": 10,
+      "max_peak_rss_bytes": 37994496,
+      "median_duration_ms": 0.0,
+      "network_requests": 0,
+      "successes": 9
+    },
+    "sample_acquisition:cold": {
+      "attempts": 8,
+      "max_peak_rss_bytes": 37994496,
+      "median_duration_ms": 819.6613335,
+      "network_requests": 8,
+      "successes": 7
+    },
+    "sample_acquisition:not_applicable": {
+      "attempts": 4,
+      "max_peak_rss_bytes": 37994496,
+      "median_duration_ms": 0.0,
+      "network_requests": 0,
+      "successes": 0
+    },
+    "sample_acquisition:warm": {
+      "attempts": 8,
+      "max_peak_rss_bytes": 37994496,
+      "median_duration_ms": 0.0,
+      "network_requests": 0,
+      "successes": 7
+    }
+  },
+  "record_count": 80,
+  "runtime": {
+    "config_sha256": "c01a7042ba0007ae35aa66c2bfb4e1e66d79cf4124c9908e3e228e1429b4b854",
+    "machine": "arm64",
+    "package_versions": {
+      "runtime_dependencies": []
+    },
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python_version": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "rss_unit": "bytes (macOS ru_maxrss)",
+    "seed": 20260902,
+    "timestamp_utc": "2026-09-02T04:27:38.416011+00:00"
+  }
+}

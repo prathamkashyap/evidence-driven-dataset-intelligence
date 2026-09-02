@@ -1,0 +1,36 @@
+{
+  "decision_id": "m0-budget-decision-2026-09-02",
+  "basis": {
+    "run_id": "m0-20260902T042719Z",
+    "config_sha256": "c01a7042ba0007ae35aa66c2bfb4e1e66d79cf4124c9908e3e228e1429b4b854",
+    "measured_peak_rss_bytes": 37994496,
+    "cold_network_requests": 25,
+    "warm_network_requests": 0
+  },
+  "derived_budgets": {
+    "source_candidate_pool_per_programmatic_source": 20,
+    "combined_pre_evidence_pool_cap": 60,
+    "evidence_analysis_pool_per_query": 10,
+    "direct_content_probe_pool_per_query": 6,
+    "sample_records_per_dataset": 32,
+    "sample_soft_byte_budget_per_dataset": 1048576,
+    "sample_hard_byte_cap_per_dataset": 67108864,
+    "cold_per_query_time_budget_ms": 20000,
+    "provisional_m1_process_memory_ceiling_bytes": 134217728,
+    "maximum_direct_content_path_failure_rate": 0.2
+  },
+  "interpretation": {
+    "combined_pre_evidence_pool_cap": "A source-level candidate-generation cap only; it is not a claim that 60 candidates can receive evidence analysis.",
+    "direct_content_probe_pool_per_query": "Six leaves room for the one transient viewer failure observed among eight public direct attempts and excludes credential-limited Kaggle sampling.",
+    "sample_soft_byte_budget_per_dataset": "A conservative future default; the largest successful M0 retained response was 22898 bytes. The 64 MiB protocol cap remains a safety limit, not a target.",
+    "provisional_m1_process_memory_ceiling_bytes": "A 128 MiB operational ceiling derived with headroom above the 37,994,496-byte M0 peak. It must be revalidated when M1 adds parsing/caching logic.",
+    "maximum_direct_content_path_failure_rate": "Sources above 20% direct-path failure remain metadata-only until a documented, permitted access path is established."
+  },
+  "not_established_by_m0": [
+    "BM25 or dense-retrieval latency",
+    "end-to-end recommendation latency",
+    "dataset utility or quality",
+    "license compatibility or legal clearance",
+    "whole-dataset representativeness of any sample"
+  ]
+}
