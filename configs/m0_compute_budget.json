@@ -4,6 +4,32 @@
   "dataset_record_target": 10,
   "source_access_combination_target": 5,
   "query_target": 3,
+  "queries": [
+    {
+      "id": "q_text_sentiment",
+      "description": "supervised sentiment classification for short review text",
+      "source_terms": {
+        "huggingface": "sentiment",
+        "kaggle": "sentiment"
+      }
+    },
+    {
+      "id": "q_image_classification",
+      "description": "small multiclass image classification experiment",
+      "source_terms": {
+        "huggingface": "image classification",
+        "kaggle": "image classification"
+      }
+    },
+    {
+      "id": "q_tabular_classification",
+      "description": "supervised tabular multiclass classification",
+      "source_terms": {
+        "huggingface": "tabular classification",
+        "kaggle": "classification"
+      }
+    }
+  ],
   "runs_per_query": {
     "cold_cache": 1,
     "warm_cache": 1
@@ -14,7 +40,8 @@
   },
   "sample_cap": {
     "max_records_per_dataset": 32,
-    "max_bytes_per_dataset": 67108864
+    "max_bytes_per_dataset": 67108864,
+    "stream_prefix_bytes": 65536
   },
   "measurement_requirements": [
     "candidate_retrieval_time",
@@ -40,5 +67,138 @@
     "record_cache_state": true,
     "record_configuration_hash": true
   },
-  "output_directory": "experiments/m0"
+  "output_directory": "experiments/m0",
+  "sources": [
+    {
+      "id": "huggingface",
+      "name": "Hugging Face Dataset Viewer",
+      "policy_url": "https://huggingface.co/docs/dataset-viewer/rows",
+      "candidate_discovery": {
+        "url_template": "https://huggingface.co/api/datasets?search={term}&limit=20",
+        "mode": "public_api_search"
+      }
+    },
+    {
+      "id": "openml",
+      "name": "OpenML REST API",
+      "policy_url": "https://docs.openml.org/ecosystem/Rest/",
+      "candidate_discovery": {
+        "url_template": "https://www.openml.org/api/v1/json/data/list?limit=20&status=active",
+        "mode": "public_catalog_snapshot_not_semantic"
+      }
+    },
+    {
+      "id": "uci",
+      "name": "UCI Machine Learning Repository",
+      "policy_url": "https://uci-ics-mlr-prod.aws.uci.edu/privacy",
+      "candidate_discovery": {
+        "mode": "not_measured_no_documented_programmatic_search_endpoint"
+      }
+    },
+    {
+      "id": "kaggle",
+      "name": "Kaggle Public API",
+      "policy_url": "https://www.kaggle.com/getting-started/524433",
+      "candidate_discovery": {
+        "url_template": "https://www.kaggle.com/api/v1/datasets/list?search={term}&pageSize=20",
+        "mode": "public_api_search"
+      }
+    }
+  ],
+  "dataset_records": [
+    {
+      "id": "hf_rotten_tomatoes",
+      "source": "huggingface",
+      "access_combination": "dataset_viewer_text_rows",
+      "name": "Rotten Tomatoes",
+      "url": "https://huggingface.co/datasets/cornell-movie-review-data/rotten_tomatoes",
+      "metadata_url": "https://huggingface.co/api/datasets/cornell-movie-review-data/rotten_tomatoes",
+      "sample": {"kind": "json_rows", "url": "https://datasets-server.huggingface.co/rows?dataset=cornell-movie-review-data%2Frotten_tomatoes&config=default&split=train&offset=0&length=32", "method": "documented_dataset_viewer_rows"}
+    },
+    {
+      "id": "hf_cifar100",
+      "source": "huggingface",
+      "access_combination": "dataset_viewer_image_rows",
+      "name": "CIFAR-100",
+      "url": "https://huggingface.co/datasets/uoft-cs/cifar100",
+      "metadata_url": "https://huggingface.co/api/datasets/uoft-cs/cifar100",
+      "sample": {"kind": "json_rows", "url": "https://datasets-server.huggingface.co/rows?dataset=uoft-cs%2Fcifar100&config=cifar100&split=train&offset=0&length=32", "method": "documented_dataset_viewer_rows"}
+    },
+    {
+      "id": "hf_ag_news",
+      "source": "huggingface",
+      "access_combination": "dataset_viewer_text_rows",
+      "name": "AG News",
+      "url": "https://huggingface.co/datasets/fancyzhx/ag_news",
+      "metadata_url": "https://huggingface.co/api/datasets/fancyzhx/ag_news",
+      "sample": {"kind": "json_rows", "url": "https://datasets-server.huggingface.co/rows?dataset=fancyzhx%2Fag_news&config=default&split=train&offset=0&length=32", "method": "documented_dataset_viewer_rows"}
+    },
+    {
+      "id": "hf_beans",
+      "source": "huggingface",
+      "access_combination": "dataset_viewer_image_rows",
+      "name": "Beans",
+      "url": "https://huggingface.co/datasets/AI-Lab-Makerere/beans",
+      "metadata_url": "https://huggingface.co/api/datasets/AI-Lab-Makerere/beans",
+      "sample": {"kind": "json_rows", "url": "https://datasets-server.huggingface.co/rows?dataset=AI-Lab-Makerere%2Fbeans&config=default&split=train&offset=0&length=32", "method": "documented_dataset_viewer_rows"}
+    },
+    {
+      "id": "openml_61_iris",
+      "source": "openml",
+      "access_combination": "metadata_then_bounded_arff_stream",
+      "name": "iris",
+      "url": "https://www.openml.org/d/61",
+      "metadata_url": "https://www.openml.org/api/v1/json/data/61",
+      "sample": {"kind": "arff_lines", "url": "https://openml.org/data/v1/download/61/iris.arff", "method": "documented_metadata_link_bounded_stream"}
+    },
+    {
+      "id": "openml_187_wine",
+      "source": "openml",
+      "access_combination": "metadata_then_bounded_arff_stream",
+      "name": "wine",
+      "url": "https://www.openml.org/d/187",
+      "metadata_url": "https://www.openml.org/api/v1/json/data/187",
+      "sample": {"kind": "arff_lines", "url": "https://openml.org/data/v1/download/3624/wine.arff", "method": "documented_metadata_link_bounded_stream"}
+    },
+    {
+      "id": "uci_iris",
+      "source": "uci",
+      "access_combination": "public_flat_file_bounded_stream",
+      "name": "Iris",
+      "url": "https://archive.ics.uci.edu/dataset/53/iris",
+      "metadata_url": "https://archive.ics.uci.edu/dataset/53/iris",
+      "sample": {"kind": "text_lines", "url": "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", "method": "public_repository_flat_file_bounded_stream"}
+    },
+    {
+      "id": "uci_wine",
+      "source": "uci",
+      "access_combination": "public_flat_file_bounded_stream",
+      "name": "Wine",
+      "url": "https://archive.ics.uci.edu/dataset/109/wine",
+      "metadata_url": "https://archive.ics.uci.edu/dataset/109/wine",
+      "sample": {"kind": "text_lines", "url": "https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data", "method": "public_repository_flat_file_bounded_stream"}
+    },
+    {
+      "id": "kaggle_uciml_iris",
+      "source": "kaggle",
+      "access_combination": "public_metadata_no_credentialed_sample",
+      "name": "Iris Species",
+      "url": "https://www.kaggle.com/datasets/uciml/iris",
+      "metadata_url": "https://www.kaggle.com/api/v1/datasets/view/uciml/iris",
+      "sample": {"kind": "not_attempted", "method": "no_credential_or_confirmed_anonymous_bounded_file_access"}
+    },
+    {
+      "id": "kaggle_pima_diabetes",
+      "source": "kaggle",
+      "access_combination": "public_metadata_no_credentialed_sample",
+      "name": "Pima Indians Diabetes Database",
+      "url": "https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database",
+      "metadata_url": "https://www.kaggle.com/api/v1/datasets/view/uciml/pima-indians-diabetes-database",
+      "sample": {"kind": "not_attempted", "method": "no_credential_or_confirmed_anonymous_bounded_file_access"}
+    }
+  ],
+  "diagnostic": {
+    "id": "record_shape_digest_v1",
+    "description": "Counts only the bounded acquired records, reports serialized-record byte lengths, and computes a SHA-256 digest. It is not a quality or utility score."
+  }
 }

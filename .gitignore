@@ -24,3 +24,5 @@ indexes/bm25/*
 !indexes/bm25/.gitkeep
 indexes/dense/*
 !indexes/dense/.gitkeep
+experiments/m0/cache/*
+!experiments/m0/cache/.gitkeep
