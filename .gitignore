@@ -1,0 +1,26 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.coverage
+build/
+dist/
+*.egg-info/
+
+# Cached or generated research artifacts are local by default; curated, frozen
+# benchmark fixtures may be added deliberately in a later milestone.
+data/raw/*
+!data/raw/.gitkeep
+data/normalized/*
+!data/normalized/.gitkeep
+data/evidence/*
+!data/evidence/.gitkeep
+data/fingerprints/*
+!data/fingerprints/.gitkeep
+data/benchmarks/*
+!data/benchmarks/.gitkeep
+indexes/bm25/*
+!indexes/bm25/.gitkeep
+indexes/dense/*
+!indexes/dense/.gitkeep

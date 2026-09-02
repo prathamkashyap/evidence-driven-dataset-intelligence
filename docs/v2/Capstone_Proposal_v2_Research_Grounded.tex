@@ -1,0 +1,1157 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+\usepackage{longtable}
+
+% ---------- Colors ----------
+\definecolor{codebg}{RGB}{245,245,247}
+\definecolor{darkblue}{RGB}{20,40,90}
+\definecolor{accent}{RGB}{120,40,140}
+
+% ---------- Listings style ----------
+\lstset{
+  backgroundcolor=\color{codebg},
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black!20},
+  columns=fullflexible,
+  showstringspaces=false,
+  xleftmargin=4pt,
+  xrightmargin=4pt,
+  aboveskip=8pt,
+  belowskip=8pt
+}
+
+% ---------- Section styling ----------
+\titleformat{\section}{\normalfont\Large\bfseries\color{darkblue}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries\color{darkblue}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalfont\bfseries}{\thesubsubsection}{0.6em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Evidence-Driven Dataset Intelligence System --- Research-Grounded Proposal (v2)}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% New tag box for "NEW / REVISED" markers
+\newcommand{\newtag}{\textcolor{accent}{\textbf{[NEW]}}\ }
+\newcommand{\revtag}{\textcolor{accent}{\textbf{[REVISED]}}\ }
+
+\title{\vspace{-1.5cm}\textbf{\Large Evidence-Driven Dataset Intelligence and Recommendation System}\\[4pt]
+\large LLM-assisted discovery, content-aware suitability estimation, long-tail exploration,\\ provenance, calibrated confidence, and explainable ranking\\[10pt]
+\normalsize\textit{Research-Grounded Proposal --- Version 2 (Review-Integrated Revision)}}
+\author{Pratham Kashyap \\ \small Reg.\ No.\ 23BAI10455 \\ \small B.Tech.\ CSE (AI/ML), School of Computer Science and Engineering (SCAI) \\ \small VIT Bhopal University}
+\date{September 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{center}
+\fbox{\parbox{0.92\textwidth}{\small
+\textbf{Status of this document.} This is Version 2 of the Capstone Project 1 research-grounded proposal.
+It incorporates a structured technical review of the Version 1 proposal and closes nine identified gaps:
+(1) a formalized evidence-resolution algorithm, (2) quantitative bias and calibration metrics,
+(3) an LLM zero-shot baseline, (4) a cold-start transfer-estimation fallback, (5) a human evaluation
+protocol for trust and explanation quality, (6) an early compute-budget validation milestone,
+(7) explicit team ownership across five to six engineers, (8) a legal/ToS compliance checklist
+for automated sample acquisition, and (9) a minimum-viable CLI moved into core scope. Sections carrying
+\newtag or \revtag are new or materially revised relative to Version 1; unmarked sections are retained
+with light editorial changes for consistency.}}
+\end{center}
+
+\vspace{0.3cm}
+\tableofcontents
+\newpage
+
+% =========================================================================
+\section{Executive Summary}
+% =========================================================================
+The project is an evidence-driven dataset intelligence system for Machine Learning (ML), Deep Learning
+(DL), and Computer Vision (CV) practitioners. A user supplies a natural-language description of a project.
+The system converts the description into a structured task specification, discovers candidate datasets
+across multiple public repositories, gathers evidence about those datasets, performs lightweight analysis
+of accessible samples where feasible, estimates task-specific utility, mitigates popularity bias, and
+produces a diversified, explainable recommendation set.
+
+Version~1 of this proposal established that a metadata-plus-retrieval recommender is, by itself,
+insufficiently differentiated: dataset recommendation is already a studied information-retrieval problem,
+and a trained bi-encoder retriever (DataFinder) already demonstrates strong gains over keyword search
+\cite{datafinder}. Version~1 therefore repositioned the project around \emph{evidence-backed selection}
+rather than retrieval alone, introducing an evidence ledger, content-aware fingerprinting, task-utility
+probing, and popularity-bias mitigation.
+
+This revision (Version~2) closes the remaining gap between that design intent and a defensible,
+gradable, and potentially publishable research artifact. The single highest-leverage addition is a
+\textbf{formal evidence-resolution algorithm} (Section~\ref{sec:resolver}) that derives the system's
+trust labels (\emph{Verified}, \emph{Corroborated}, \emph{Single-source claim}, \emph{Conflicting},
+\emph{Unknown}) from a Dempster--Shafer belief-combination rule over source reliabilities, rather than
+assigning them heuristically. This is the part of the system that is not a re-application of DataFinder,
+DataPerf, Cleanlab, Croissant, or GIST --- it is new, mathematically specified, and independently
+evaluable. Around this core, Version~2 adds quantitative bias and calibration metrics
+(Section~\ref{sec:bias-calibration}), a cold-start fallback for datasets that cannot be sampled
+(Section~\ref{sec:coldstart}), a human trust-evaluation protocol (Section~\ref{sec:human-eval}), an
+LLM zero-shot baseline (Section~\ref{sec:ablation}), and practical project-management additions
+(Sections~\ref{sec:m0} and~\ref{sec:raci}) needed to execute the plan with a five-to-six-person team on
+Apple Silicon hardware.
+
+\textbf{Central thesis (unchanged).} A dataset recommender should answer not only ``What datasets look
+relevant?'' but ``Which datasets are most defensibly useful for this task, what evidence supports that
+judgment, how uncertain is it, and what useful alternatives would otherwise be missed?''
+
+% =========================================================================
+\section{Project Foundation Retained from Version 1}
+% =========================================================================
+The system continues to target ML/DL/CV users, accepts natural-language project descriptions, operates
+across multiple public dataset repositories (Kaggle, Hugging Face Hub, UCI, OpenML, and others), avoids
+requiring complete dataset downloads in the default path, and returns a ranked, explained set of
+recommendations rather than an unranked search-result list.
+
+% =========================================================================
+\section{Research Gap and Problem Definition}
+% =========================================================================
+
+\subsection{Why a metadata-only recommender is insufficient}
+Dataset recommendation is already established as an information-retrieval problem. DataFinder constructs
+a benchmark from research needs and evaluates BM25, nearest-neighbor, and dense bi-encoder retrieval,
+reporting substantial gains from a trained bi-encoder over generic search approaches~\cite{datafinder}.
+A project whose main novelty is ``LLM extraction + vector retrieval + metadata scoring'' would risk
+reproducing an existing direction. The system's role is therefore shifted from pure retrieval toward
+evidence-backed selection: metadata supports fast candidate generation and constraint filtering, while
+additional evidence is drawn from dataset structure, documentation, provenance, and small accessible
+samples before stronger suitability claims are made.
+
+\subsection{Why repository metadata cannot be treated as ground truth}
+Repository metadata is publisher-supplied. Documentation quality is uneven, and dataset visibility can
+itself correlate with documentation quality. Licensing is especially sensitive: public reporting on
+dataset licensing quality documents substantial rates of missing or incorrectly stated licenses across
+widely used public ML datasets~\cite{licensing-audit}. The system therefore distinguishes a repository
+\emph{claim} from a verified or cross-supported \emph{fact}. ``License: CC~BY~4.0'' may be reported as a
+repository claim; it must not be silently translated into ``commercially safe.'' \revtag Version~2 makes
+this distinction computable rather than descriptive --- see Section~\ref{sec:resolver}.
+
+\subsection{Why popularity must not define suitability}
+Downloads, stars, ratings, and citations are useful community evidence but are not equivalent to task
+fitness. A popularity-driven ranking favors datasets with stronger ecosystem visibility and richer
+metadata, creating a feedback loop in which well-known datasets become increasingly discoverable while
+specialized or smaller datasets remain underexposed. The final ranking treats popularity as contextual
+evidence, not core quality; a long-tail exploration mechanism searches for relevant candidates that are
+not dominant on popularity signals, and the final set is diversified so that several near-identical
+popular datasets do not crowd out useful alternatives. \revtag Version~2 requires this claim to be
+measured, not merely designed for --- see Section~\ref{sec:bias-calibration}.
+
+% =========================================================================
+\section{Research Questions and Objectives}
+% =========================================================================
+\begin{enumerate}[leftmargin=*]
+\item Build a normalized multi-source dataset corpus with stable identifiers and provenance pointers.
+\item Extract structured task requirements using an LLM or a deterministic parser constrained by a schema.
+\item Generate candidates through hybrid retrieval and hard-constraint filtering.
+\item Assemble an evidence ledger for metadata, documentation, provenance, license claims, repository
+      signals, and sample findings, resolved by a \textbf{formal combination rule} (\newtag
+      Section~\ref{sec:resolver}) rather than by heuristic labeling.
+\item Compute content-aware dataset fingerprints from small accessible samples when technically and
+      legally feasible, with an explicit \textbf{transfer-estimate fallback} (\newtag
+      Section~\ref{sec:coldstart}) when sampling is infeasible.
+\item Estimate task-specific utility using lightweight probes rather than full model training.
+\item Rank candidates with an evidence-aware, uncertainty-aware scoring model and diversify the final set,
+      reporting the resulting \textbf{exposure disparity} (\newtag Section~\ref{sec:bias-calibration})
+      relative to a non-diversified baseline.
+\item Produce explanations that separate claims, measured evidence, assumptions, unknowns, and
+      limitations, and validate that these explanations measurably change user trust (\newtag
+      Section~\ref{sec:human-eval}).
+\item Evaluate the system against strong retrieval baselines --- including a zero-shot LLM baseline
+      (\newtag Section~\ref{sec:ablation}) --- robustness tests, calibration analysis, and a
+      purpose-built long-tail benchmark.
+\end{enumerate}
+
+% =========================================================================
+\section{Final Design Principles}
+% =========================================================================
+\begin{itemize}[leftmargin=*]
+\item \textbf{Evidence over assertion:} a recommendation factor must be traceable to a source,
+      observation, computed metric, or explicit assumption.
+\item \textbf{Suitability over popularity:} popularity can inform confidence or community evidence but
+      should not dominate task-specific utility.
+\item \textbf{Long-tail discovery is intentional:} the system must preserve a candidate path for relevant
+      datasets with weak visibility.
+\item \textbf{Content when available:} actual sample evidence supplements repository descriptions instead
+      of requiring complete downloads.
+\item \textbf{Hard constraints are filters:} mandatory requirements (modality, minimum size, usage
+      constraints) are not merely score penalties.
+\item \textbf{Unknown is a valid state:} missing evidence lowers confidence rather than silently becoming
+      a neutral or favorable value.
+\item \textbf{Recommendations are sets, not only rankings:} the top five should be useful together and
+      avoid redundant dataset families.
+\item \textbf{Local-first and reproducible:} the core pipeline runs with open-source components and
+      modest local compute, with optional acceleration where available.
+\item \newtag \textbf{Confidence must be calibrated, not decorative:} an ``Evidence strength: High'' label
+      is only meaningful if it is empirically shown to correlate with correctness. See
+      Section~\ref{sec:bias-calibration}.
+\end{itemize}
+
+% =========================================================================
+\section{Final System Architecture}
+% =========================================================================
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+USER PROJECT DESCRIPTION
+        |
+        v
+[Requirement Analyst]            LLM / structured parser
+        |
+        v
+[Task Specification]             task, domain, modality, target, labels, constraints
+        |
+        +-----------------------------+
+        |                             |
+        v                             v
+[Hard Constraint Filter]      [Semantic Query Expansion]
+        |                             |
+        +---------------+-------------+
+                        v
+              [Hybrid Candidate Retrieval]      BM25 + dense embeddings
+                        |
+                        v
+              [Candidate Pool: 30-100]
+                        |
+             +----------+-----------+
+             |                      |
+             v                      v
+       [Evidence Layer]      [Content Evidence Layer]
+       metadata/docs         sample access when possible
+       provenance/license    fingerprints/quality/probes
+             |                      |
+             +----------+-----------+
+                        v
+      [Evidence Resolver: Dempster-Shafer Fusion]      NEW - Section 9.2
+      -> Verified / Corroborated / Single-source /
+         Conflicting / Unknown, with belief intervals
+                        v
+              [Task Utility Scoring]        (+ Cold-start transfer estimate, Section 12.1)
+                        |
+                        v
+          [Long-Tail Exploration Pool]
+                        |
+                        v
+          [Diversified Multi-Objective Reranking]   (+ Exposure-disparity audit, Section 13.1)
+                        |
+                        v
+            [FINAL RECOMMENDATION SET]
+     best overall | quality | efficient | hidden gem | alternative
+                        |
+                        v
+              [Evidence-backed, Calibration-checked Report]
+\end{lstlisting}
+
+\subsection{Candidate-pool strategy}
+The system retrieves a broader candidate pool than the final recommendation set. A recommended default is
+50--100 candidates after retrieval and hard filtering, followed by deeper evidence analysis on a smaller
+subset. This keeps the expensive content-aware stages bounded, and its feasibility is validated explicitly
+in Milestone~M0 (Section~\ref{sec:m0}) before the team commits engineering effort around this number.
+
+% =========================================================================
+\section{Canonical Dataset Representation}
+% =========================================================================
+The dataset corpus uses a canonical internal record so that Kaggle, Hugging Face, UCI, OpenML, and other
+repositories can be compared without pretending that their native schemas are identical. Croissant is used
+where available as a standards-aligned metadata representation, while repository-specific fields remain
+attached to their source rather than being flattened away.
+
+% =========================================================================
+\section{Evidence Ledger and Trust Model}
+% =========================================================================
+The evidence ledger is a core project component. Each important dataset claim is stored with its source,
+observation time, evidence type, confidence, and any contradiction, preventing the explanation layer from
+turning uncertain metadata into authoritative-sounding statements.
+
+\textbf{License principle.} The system does not present automated license parsing as legal clearance. It
+classifies, compares, flags conflicts, and exposes the evidence path; legal interpretation remains outside
+the model's authority.
+
+\subsection{Evidence states (Version 1 design)}
+Version~1 specified five qualitative states: \emph{Verified}, \emph{Corroborated}, \emph{Single-source
+claim}, \emph{Conflicting}, and \emph{Unknown}. These states were not previously derived from a stated
+combination rule.
+
+\subsection{\newtag Formal Evidence Resolution via Dempster--Shafer Fusion}
+\label{sec:resolver}
+
+This is the primary technical contribution of the project and the component most distinct from prior work
+(DataFinder, DataPerf, Cleanlab, Croissant, GIST each address a different sub-problem; none formalizes
+multi-source claim resolution for dataset trust). We adopt Dempster--Shafer evidence theory
+\cite{shafer1976,dempster1968} because, unlike a simple weighted average, it natively represents
+\emph{ignorance} as a first-class quantity distinct from disagreement --- which matches the system's
+requirement that ``Unknown'' and ``Conflicting'' be different states rather than both collapsing to a
+mid-range score.
+
+\subsubsection{Frame of discernment and basic probability assignment}
+For a single claim $c$ about a dataset $d$ (for example, ``license $=$ CC~BY~4.0'', or ``modality $=$
+image''), define the binary frame of discernment $\Theta = \{\top, \bot\}$ (claim true / claim false).
+Let $\mathcal{S}(c)$ be the set of evidence sources that address $c$ (a source that is silent on $c$
+contributes nothing and is excluded). Each source $i \in \mathcal{S}(c)$ has a prior reliability
+$r_i \in (0,1)$ (Table~\ref{tab:reliability}) and a stance $\sigma_i \in \{\text{assert-true},
+\text{assert-false}\}$. Its basic probability assignment (BPA) over $2^\Theta$ is:
+\begin{equation}
+m_i(\top) = \begin{cases} r_i & \sigma_i = \text{assert-true} \\ 0 & \sigma_i = \text{assert-false}\end{cases}
+\qquad
+m_i(\bot) = \begin{cases} 0 & \sigma_i = \text{assert-true} \\ r_i & \sigma_i = \text{assert-false}\end{cases}
+\end{equation}
+\begin{equation}
+m_i(\Theta) = 1 - r_i
+\end{equation}
+The mass placed on $\Theta$ represents the source's acknowledged unreliability: a source is never treated
+as fully authoritative, so $r_i < 1$ strictly.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}llc@{}}
+\toprule
+\textbf{Source type} & \textbf{Example claim it can support} & \textbf{Prior $r_i$} \\
+\midrule
+Directly measured from sample & modality, approximate class count, format & $0.90$ \\
+Peer-reviewed paper describing the dataset & task, domain, collection method & $0.85$ \\
+Croissant-validated metadata record & license, schema, splits & $0.80$ \\
+Official dataset card (repository-hosted) & license, size, task, modality & $0.70$ \\
+Bare repository metadata field & license, tags, size & $0.60$ \\
+Unverified community description (forum, README of unclear origin) & any & $0.35$ \\
+\bottomrule
+\end{tabular}
+\caption{Default source-reliability priors. These are hand-set initial values for the prototype and are
+tuned post hoc using the calibration procedure in Section~\ref{sec:bias-calibration}.}
+\label{tab:reliability}
+\end{table}
+
+\subsubsection{Combination rule}
+Sources are combined pairwise using Dempster's rule of combination. For two BPAs $m_1, m_2$ over $\Theta$:
+\begin{equation}
+m_{12}(A) = \frac{1}{1-K}\sum_{\substack{B,C \subseteq \Theta \\ B \cap C = A}} m_1(B)\,m_2(C), \qquad A \neq \emptyset
+\end{equation}
+\begin{equation}
+K = \sum_{\substack{B,C \subseteq \Theta \\ B \cap C = \emptyset}} m_1(B)\,m_2(C)
+\end{equation}
+where $K$ is the \emph{conflict mass} produced by combining $m_1$ and $m_2$. Sources in $\mathcal{S}(c)$
+are combined iteratively; Dempster's rule is commutative and associative, so the combination order does
+not affect the final result, though numerical care (accumulating $\log(1-K)$ terms) is used to avoid
+underflow when $|\mathcal{S}(c)|$ is large. After combining all sources, the system retains:
+\begin{itemize}[leftmargin=*]
+\item \textbf{Belief:} $\mathrm{Bel}(\top) = m(\top)$ --- the mass of evidence directly supporting the claim.
+\item \textbf{Plausibility:} $\mathrm{Pl}(\top) = m(\top) + m(\Theta) = 1 - m(\bot)$ --- the upper bound
+consistent with the evidence.
+\item \textbf{Uncertainty interval:} $[\mathrm{Bel}(\top), \mathrm{Pl}(\top)]$.
+\item \textbf{Cumulative conflict:} $K_{\text{total}}$, the total conflict mass accumulated across all
+pairwise combinations, capturing how much the sources actively disagreed (as opposed to one source simply
+being silent).
+\end{itemize}
+
+\subsubsection{Mapping to trust states}
+The qualitative labels used throughout the system's explanations are now \emph{derived} quantities rather
+than assigned labels:
+\begin{align}
+\text{Verified} &\iff \mathrm{Bel}(\top) \geq \tau_v \ \wedge\ K_{\text{total}} \leq \kappa_{\text{low}} \ \wedge\ |\mathcal{S}(c)| \geq 2 \\
+\text{Corroborated} &\iff \tau_c \leq \mathrm{Bel}(\top) < \tau_v \ \wedge\ K_{\text{total}} \leq \kappa_{\text{low}} \ \wedge\ |\mathcal{S}(c)| \geq 2 \\
+\text{Single-source claim} &\iff |\mathcal{S}(c)| = 1 \\
+\text{Conflicting} &\iff K_{\text{total}} > \kappa_{\text{high}} \\
+\text{Unknown} &\iff |\mathcal{S}(c)| = 0
+\end{align}
+with default thresholds $\tau_v = 0.85$, $\tau_c = 0.60$, $\kappa_{\text{low}} = 0.10$,
+$\kappa_{\text{high}} = 0.30$ (tunable; see calibration in Section~\ref{sec:bias-calibration}).
+
+\begin{algorithm}[h]
+\caption{Evidence Resolution for a Single Claim}
+\label{alg:resolver}
+\begin{algorithmic}[1]
+\Function{ResolveClaim}{$c$, sources $\mathcal{S}(c)$}
+  \If{$|\mathcal{S}(c)| = 0$}
+    \State \Return (\textsc{Unknown}, $\mathrm{Bel}=0$, $\mathrm{Pl}=1$)
+  \EndIf
+  \State $m \gets$ BPA of the first source in $\mathcal{S}(c)$
+  \State $K_{\text{total}} \gets 0$
+  \For{each remaining source $i \in \mathcal{S}(c)$}
+    \State $m_i \gets$ BPA($i$) \Comment{using $r_i$ from Table~\ref{tab:reliability}}
+    \State $K \gets$ conflict mass of combining $m$ with $m_i$
+    \State $m \gets$ Dempster-combine($m$, $m_i$)
+    \State $K_{\text{total}} \gets K_{\text{total}} + K \cdot (1 - K_{\text{total}})$
+    \Comment{running conflict, bounded in $[0,1)$}
+  \EndFor
+  \State $\mathrm{Bel} \gets m(\top)$; \quad $\mathrm{Pl} \gets 1 - m(\bot)$
+  \If{$|\mathcal{S}(c)| = 1$}
+    \State \Return (\textsc{SingleSourceClaim}, $\mathrm{Bel}$, $\mathrm{Pl}$)
+  \ElsIf{$K_{\text{total}} > \kappa_{\text{high}}$}
+    \State \Return (\textsc{Conflicting}, $\mathrm{Bel}$, $\mathrm{Pl}$)
+  \ElsIf{$\mathrm{Bel} \geq \tau_v$ \textbf{and} $K_{\text{total}} \leq \kappa_{\text{low}}$}
+    \State \Return (\textsc{Verified}, $\mathrm{Bel}$, $\mathrm{Pl}$)
+  \ElsIf{$\mathrm{Bel} \geq \tau_c$ \textbf{and} $K_{\text{total}} \leq \kappa_{\text{low}}$}
+    \State \Return (\textsc{Corroborated}, $\mathrm{Bel}$, $\mathrm{Pl}$)
+  \Else
+    \State \Return (\textsc{SingleSourceClaim}, $\mathrm{Bel}$, $\mathrm{Pl}$) \Comment{low-confidence fallback label}
+  \EndIf
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+A fully worked numeric example (three sources disagreeing on a license claim) is given in
+Appendix~\ref{app:worked-example}. This algorithm feeds directly into the Evidence term $\gamma \cdot
+\mathrm{Evidence}$ of the ranking model in Section~\ref{sec:ranking-model}: \textbf{Evidence}$(d)$ is
+defined as the mean $\mathrm{Bel}(\top)$ across all claims resolved for $d$, penalized by mean
+$K_{\text{total}}$, giving a single computed number rather than a qualitative impression.
+
+% =========================================================================
+\section{Content-Aware Dataset Fingerprinting}
+% =========================================================================
+When a repository permits lightweight sample access, the system creates a Dataset Fingerprint: not a
+single vector claiming to summarize the entire dataset, but a compact evidence package describing what was
+actually observed in the inspected sample. Sample size is adaptive rather than fixed --- a small initial
+sample establishes feasibility, and the system expands the sample only when a signal is unstable and the
+additional computation is justified.
+
+% =========================================================================
+\section{Data Quality Analysis}
+% =========================================================================
+Cleanlab-style model-assisted checks are included as a tool, not as the definition of correctness.
+Cleanlab's confident-learning workflow requires suitable out-of-sample model probabilities and can
+identify examples with suspicious labels~\cite{cleanlab}. These outputs are aggregated into evidence
+features such as estimated label-issue rate or the share of high-risk examples.
+
+\begin{enumerate}[leftmargin=*]
+\item Obtain a task-appropriate sample and preserve the dataset's original labels.
+\item Create out-of-sample prediction probabilities using cross-validation or a held-out procedure.
+\item Run label-issue detection and record suspicious-example counts rather than silently deleting data.
+\item Compute duplicate and near-duplicate statistics using hashes and embedding similarity.
+\item Compute modality-specific structural diagnostics.
+\item Store all measurements in the evidence ledger with sample size and procedure, feeding the
+      \textsc{DirectlyMeasured} source type in Table~\ref{tab:reliability}.
+\item Use the resulting features as quality evidence with uncertainty bounds, not as ground truth.
+\end{enumerate}
+
+% =========================================================================
+\section{Task-Specific Utility Estimation}
+% =========================================================================
+The key extension beyond conventional dataset recommendation is a lightweight estimate of whether a
+dataset appears useful for the stated ML task. DataPerf demonstrates the value of evaluating data
+selection through downstream task performance~\cite{dataperf}; the system adapts that principle under
+local-compute constraints. A probe score is an estimate under a chosen probe model, sample, and evaluation
+split --- it is not a guarantee that the full dataset will produce the same downstream performance.
+
+\subsection{\newtag Cold-Start Fallback via Transfer Estimation}
+\label{sec:coldstart}
+Section~17.5 (Sample Acquisition Procedure) already triages several sampling strategies, but Version~1 did
+not specify a behavior when \emph{none} succeed --- a common outcome for paywalled, gated, or
+terms-restricted repositories. Rather than silently dropping such datasets from utility scoring (which
+would bias the system back toward easily-scraped, and therefore already-popular, datasets), Version~2
+defines a transfer estimate.
+
+For an unsampled candidate $d$, let $\mathcal{N}_k(d)$ be its $k$ nearest already-probed datasets in
+metadata/description embedding space (using the same encoder as retrieval). Define an RBF similarity
+weight $w(d,d') = \exp\!\big(-\lVert e(d)-e(d')\rVert^2 / (2\sigma^2)\big)$ and estimate:
+\begin{equation}
+\hat{u}(d) = \frac{\sum_{d' \in \mathcal{N}_k(d)} w(d,d') \cdot u(d')}{\sum_{d' \in \mathcal{N}_k(d)} w(d,d')}
+\end{equation}
+with an inflated uncertainty band that widens as the nearest probed neighbor becomes less similar:
+\begin{equation}
+\sigma_{\hat{u}}(d) = \sigma_{\text{base}} + \lambda \left(1 - \max_{d' \in \mathcal{N}_k(d)} w(d,d')\right)
+\end{equation}
+Transfer estimates are explicitly tagged \textsc{TransferredEstimate---NotDirectlyObserved} in the
+evidence ledger and the explanation card, are excluded from ever producing a \textsc{Verified} content
+label, and are down-weighted (not discarded) in the final ranking. This keeps restricted-but-relevant
+datasets in contention without overstating what was actually measured.
+
+% =========================================================================
+\section{Popularity Bias and Long-Tail Discovery}
+% =========================================================================
+Popularity is separated from suitability. The retrieval stage reserves candidate slots for datasets that
+meet task requirements but are not dominant on repository popularity signals; this exploration pool is
+then evaluated by the same evidence and utility criteria as mainstream candidates. The objective is not to
+reward obscurity --- a lesser-known dataset reaches the final recommendation only when its evidence
+supports utility, diversity, efficiency, specialization, or another user-relevant advantage.
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+candidate_score = task_fit + evidence_quality + content_utility + feasibility
+long_tail_pool  = relevant_candidates
+                  filtered to non-dominant popularity percentiles
+                  while preserving hard constraints
+final_set = diversified_selection(main_pool + long_tail_pool)
+\end{lstlisting}
+
+\subsection{\newtag Quantifying Bias: Exposure Disparity and Reliability Calibration}
+\label{sec:bias-calibration}
+Version~1 asserted that diversification would reduce popularity bias and targeted ``diversity metric
+improves by more than 20\%.'' A diversity increase alone does not prove that popularity bias was reduced
+--- it proves that the top-$k$ set spread out. Version~2 adds two measurements that are actually tied to
+the stated research claims.
+
+\subsubsection{Exposure Disparity Index (EDI)}
+Using the benchmark of Section~\ref{sec:hidden-gem}, bucket the full retrieved candidate pool for each
+query into popularity deciles $j \in \{1,\dots,10\}$ (by downloads/stars, log-scaled). Let
+$R_j$ be the fraction of \emph{human-judged-relevant} candidates falling in decile $j$, and let $E_j$ be
+the fraction of \emph{final recommendation slots} (aggregated over the benchmark) drawn from decile $j$.
+Define:
+\begin{equation}
+\mathrm{EDI} = \frac{1}{2}\sum_{j=1}^{10} \left| E_j - R_j \right|
+\end{equation}
+This is the total variation distance between where recommendations actually land and where relevance says
+they should land. $\mathrm{EDI} = 0$ means exposure exactly tracks relevance, regardless of popularity;
+$\mathrm{EDI} \to 1$ means exposure is maximally distorted by popularity. The system reports
+$\mathrm{EDI}$ for (a) bi-encoder-only ranking, and (b) the full system with long-tail exploration and
+diversified reranking, and the hypothesis is $\mathrm{EDI}_{\text{full}} < \mathrm{EDI}_{\text{baseline}}$.
+A secondary sanity-check statistic, the Gini coefficient of the popularity-decile distribution of
+recommended items, is reported alongside EDI but is not the primary claim, since a lower Gini coefficient
+alone does not distinguish ``spread evenly across relevant items'' from ``spread evenly regardless of
+relevance.''
+
+\subsubsection{Calibration of confidence labels}
+\label{sec:calibration}
+The design principle ``confidence must be calibrated, not decorative'' is tested using standard
+calibration diagnostics against the benchmark's human relevance/quality judgments. Predicted confidence
+$\mathrm{Bel}(\top)$ values (Section~\ref{sec:resolver}) are grouped into $B$ equal-width bins; within each
+bin $b$, $\mathrm{acc}(b)$ is the observed fraction of claims confirmed correct by the benchmark's ground
+truth, and $\mathrm{conf}(b)$ is the mean predicted belief in that bin. Expected Calibration Error:
+\begin{equation}
+\mathrm{ECE} = \sum_{b=1}^{B} \frac{n_b}{N} \left| \mathrm{acc}(b) - \mathrm{conf}(b) \right|
+\end{equation}
+and, for continuous utility scores $p_i \in [0,1]$ against binary outcomes $o_i$ (dataset judged suitable
+or not by a probe/human), the Brier score:
+\begin{equation}
+\mathrm{BS} = \frac{1}{N}\sum_{i=1}^{N} (p_i - o_i)^2
+\end{equation}
+Both are reported as reliability diagrams (predicted confidence vs.\ observed accuracy) in the final
+report, following standard practice for calibration evaluation of predictive models~\cite{guo-calibration}.
+Low ECE and low Brier score are required before ``Evidence strength: High'' is allowed to appear in any
+user-facing explanation card; if calibration is poor, the source-reliability priors in
+Table~\ref{tab:reliability} are the first tuning target.
+
+% =========================================================================
+\section{Diversified Recommendation with Utility and Diversity}
+% =========================================================================
+GIST formulates a max-min diversification problem that balances submodular utility with diversity and
+provides a $1/2$-approximation guarantee for the stated optimization problem~\cite{gist}. The project
+adopts the principle rather than requiring full-scale implementation over millions of items. After
+candidate analysis, the system operates on a bounded pool and uses a GIST-inspired greedy procedure or a
+computationally lighter farthest-first/submodular alternative. Dataset-family similarity is considered in
+diversification: mirrors, versions, and closely derived datasets should not occupy multiple final slots
+when they offer effectively the same evidence and coverage.
+
+% =========================================================================
+\section{Final Multi-Objective Recommendation Model}
+\label{sec:ranking-model}
+% =========================================================================
+The final recommendation model is multi-objective rather than a single metadata-weighted average:
+\begin{equation}
+R(D \mid Q) = \alpha \cdot \mathrm{Fit} + \beta \cdot \mathrm{Utility} + \gamma \cdot \mathrm{Evidence}
+  + \delta \cdot \mathrm{Coverage} + \varepsilon \cdot \mathrm{Novelty} - \lambda \cdot \mathrm{Risk}
+\end{equation}
+where \textbf{Fit} captures explicit requirements, \textbf{Utility} captures content-aware task evidence
+(with transfer estimates from Section~\ref{sec:coldstart} where direct probing is infeasible),
+\textbf{Evidence} is now the computed quantity $\mathrm{Bel}(\top)$ averaged across claims and penalized
+by $K_{\text{total}}$ (Section~\ref{sec:resolver}), \textbf{Coverage} captures diversity and
+representativeness, \textbf{Novelty} rewards useful long-tail discovery, and \textbf{Risk} captures
+uncertainty, contradiction, missing governance information, or operational problems.
+
+The coefficients $(\alpha,\beta,\gamma,\delta,\varepsilon,\lambda)$ are not assumed universally correct.
+Initial values are hand-designed for the prototype and subsequently tuned on the benchmark
+(Section~\ref{sec:hidden-gem}) using pairwise human relevance judgments and a simple learning-to-rank
+model (logistic regression over the six components, or gradient-boosted pairwise ranking if enough
+judgment pairs are collected). Popularity is intentionally excluded from the core suitability term; it may
+enter only as contextual evidence, long-tail stratification, or a controlled bias-audit variable (as used
+directly in Section~\ref{sec:bias-calibration}).
+
+% =========================================================================
+\section{Explanation and Recommendation Output}
+% =========================================================================
+Each recommended dataset produces an evidence-backed recommendation card rather than a single score:
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+Dataset: <name>
+Overall recommendation: 91/100 (illustrative structure)
+Best for: <task/domain/modality>
+Evidence strength: High / Medium / Low      (derived from Bel(true), Section 9.2 - calibrated, Section 13.1)
+
+Why it fits
+- Task: measured / corroborated / source claim
+- Domain: ...
+- Modality: ...
+- Labels: ...
+- Observed sample quality: ...
+
+Why it is not perfect
+- Unknown or conflicting evidence: ...
+- Operational limitations: ...
+- [If applicable] Utility is a transferred estimate, not directly observed (Section 12.1)
+
+Why it appears here
+- More diverse than the top popular alternatives
+- Smaller but cleaner / better balanced
+
+Sources and timestamps
+- Repository metadata
+- Dataset documentation / paper
+- Sample analysis
+\end{lstlisting}
+This card is the artifact evaluated directly in the human trust study (Section~\ref{sec:human-eval}).
+
+% =========================================================================
+\section{Local Implementation Strategy}
+% =========================================================================
+The core implementation targets ordinary personal computers, specifically the team's available hardware
+(MacBook Air M1, 8\,GB RAM). The system is CPU-first, memory-conscious, cache-heavy, and modular. Optional
+acceleration can be enabled when a supported local device provides it. The project does not depend on
+proprietary APIs for its central pipeline.
+
+\subsection{Environment setup procedure}
+\begin{lstlisting}[language=bash]
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+
+pip install pandas numpy scipy scikit-learn
+pip install sentence-transformers
+pip install faiss-cpu
+pip install cleanlab
+pip install mlcroissant
+# Optional retrieval / diversification components
+pip install pyserini
+pip install submodlib
+\end{lstlisting}
+Package versions are pinned after the first successful environment build. The repository contains a
+requirements/lock file and a small environment-validation script.
+
+\subsection{Repository ingestion procedure}
+\begin{enumerate}[leftmargin=*]
+\item Create one source adapter per repository; never let repository-specific JSON fields leak directly
+      into downstream ranking logic.
+\item Assign a stable internal dataset identifier and retain the native source identifier.
+\item Normalize task, modality, format, class count, sample count, license claim, documentation links,
+      timestamps, and popularity signals into the canonical schema.
+\item Retain raw source snapshots or request/response files for reproducibility where licensing and
+      storage terms permit (see Section~\ref{sec:legal} below).
+\item Attempt Croissant parsing when a valid record is available; retain provenance links and validation
+      results.
+\item Generate the retrieval document from a controlled concatenation of name, description, tags, task
+      semantics, and structured textual fields.
+\item Precompute dense embeddings and store them in the local vector index.
+\item Build a BM25 index over the same normalized textual representation.
+\item Cache every source fetch so experiments do not repeatedly hit external services.
+\end{enumerate}
+
+\subsection{\newtag Legal and ToS Compliance Checklist for Automated Sample Acquisition}
+\label{sec:legal}
+Section~17.5's sample-acquisition ordering (streaming/range requests, sample endpoints, previews, manual
+acquisition) is a technical strategy; Version~1 did not separately confirm that each strategy is
+permitted by the relevant platform. Before any automated fetch of a repository, the ingestion adapter for
+that source must record:
+\begin{enumerate}[leftmargin=*]
+\item Whether the platform's API terms of service permit automated/programmatic access for the intended
+      use (research/educational, non-redistributive).
+\item The platform's documented rate limits, and a corresponding client-side rate limiter (never inferred
+      empirically by trial and error against the live service).
+\item Whether \texttt{robots.txt} or an equivalent access policy restricts the specific endpoints used.
+\item Whether the dataset's own license permits the sampling/inspection the system performs, independent
+      of the platform's API terms (a dataset can be API-accessible but license-restricted).
+\end{enumerate}
+This checklist is stored per source adapter (not per dataset) and is reviewed once per repository
+integration, not once per request. The caching-first policy already specified in Version~1 additionally
+serves this compliance purpose: every source fetch is cached so experiments do not repeatedly re-request
+the same resource.
+
+\subsection{Requirement extraction procedure}
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+{
+  "task": "image classification",
+  "domain": "plant disease",
+  "modality": "image",
+  "learning_type": "supervised",
+  "label_type": "multiclass",
+  "min_samples": 5000,
+  "required_classes": null,
+  "license_requirement": "academic_use",
+  "hard_constraints": [],
+  "soft_preferences": []
+}
+\end{lstlisting}
+The schema rejects unknown fields or places them into an explicit ``unresolved constraints'' field. This
+makes requirement-extraction errors measurable rather than invisible.
+
+\subsection{Hybrid retrieval procedure}
+\begin{enumerate}[leftmargin=*]
+\item Run BM25 for exact terms such as disease names, modalities, target variables, file formats, or
+      domain-specific vocabulary.
+\item Run dense retrieval on the full natural-language and structured query representation.
+\item Fuse the candidate lists using reciprocal-rank fusion or calibrated score normalization.
+\item Apply hard constraints after candidate generation so recall is not unnecessarily lost during the
+      first lexical/dense pass.
+\item Deduplicate mirrors and obvious dataset-family duplicates before deeper analysis.
+\item Retain 30--100 candidates for the evidence stage and log the retrieval source that contributed each
+      candidate.
+\end{enumerate}
+
+\subsection{Sample acquisition procedure}
+The system avoids indiscriminate full downloads. Preferred order: direct streaming or repository viewer
+APIs; small file/range requests where supported; public sample endpoints; repository-provided previews;
+finally, limited manual acquisition for benchmark datasets. Every sample-analysis record states the number
+of observations inspected and the acquisition method, and is checked against
+Section~\ref{sec:legal} before use.
+
+\subsection{Probe computation procedure}
+\begin{enumerate}[leftmargin=*]
+\item Feasibility check: can the candidate be sampled within a bounded size and time budget
+      (validated empirically in Milestone~M0, Section~\ref{sec:m0})?
+\item If infeasible, invoke the transfer-estimate fallback (Section~\ref{sec:coldstart}) instead of
+      dropping the candidate.
+\item Create a task-appropriate representation: image embeddings, text embeddings, or normalized tabular
+      features.
+\item Compute structural and distributional diagnostics.
+\item If labels are available, train a small probe model with stratified validation and obtain
+      out-of-sample predictions.
+\item Run Cleanlab-style label-issue estimation where assumptions are satisfied.
+\item Compute class coverage and representation diversity.
+\item Persist all intermediate metrics so ranking can be rerun without recomputing samples.
+\end{enumerate}
+
+\subsection{Provenance and license workflow}
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+Repository claim ----+
+Dataset card --------+--> Evidence Resolver (Alg. 1) --> state: verified / corroborated /
+Paper / source ------+                                    single-source / conflicting / unknown
+Croissant ------------+                                    with Bel(true), Pl(true), K_total
+\end{lstlisting}
+Automated license parsing remains a classification aid, not legal advice. Croissant~1.1 adds
+machine-actionable provenance concepts, vocabulary links, and usage-policy mechanisms~\cite{croissant11};
+the implementation adopts these structures where present and retains raw provenance references rather than
+flattening everything into a single ``reliability score.''
+
+% =========================================================================
+\section{End-to-End Recommendation Algorithm}
+% =========================================================================
+\begin{lstlisting}[language=Python]
+def recommend(query, k=5):
+    spec = extract_requirements(query)
+
+    lexical = bm25_retrieve(spec.text_query, top_n=100)
+    dense = dense_retrieve(spec.embedding_query, top_n=100)
+    candidates = fuse_and_deduplicate(lexical, dense)
+    candidates = hard_filter(candidates, spec.hard_constraints)
+
+    raw_evidence = collect_evidence(candidates)               # per-claim sources
+    evidence = {d: resolve_claims(raw_evidence[d]) for d in candidates}   # NEW: Algorithm 1
+
+    feasible = select_sample_accessible(candidates, budget=probe_budget)
+    content = analyze_samples(feasible, spec)
+    unsampled = [d for d in candidates if d not in feasible]
+    transferred = transfer_estimate(unsampled, content)       # NEW: Section 12.1
+
+    for d in candidates:
+        d.fit = requirement_fit(d, spec)
+        d.utility = content.get(d.id, transferred.get(d.id))
+        d.evidence = mean_belief(evidence[d.id])               # from Algorithm 1
+        d.risk = uncertainty_and_conflict(evidence[d.id])
+        d.novelty = long_tail_value(d)
+        d.coverage = coverage_value(d, spec)
+
+    pool = multi_objective_rank(candidates)          # R(D|Q), Section 15
+    main, long_tail = split_exploration_pool(pool)
+    final = diversified_select(main + long_tail, k=k)
+    audit_exposure_disparity(pool, final)             # NEW: Section 13.1, logged not blocking
+    return explain_with_evidence(final, evidence, content)
+\end{lstlisting}
+
+% =========================================================================
+\section{Evaluation Framework}
+% =========================================================================
+Evaluation is treated as a first-class research artifact. The system is not considered successful merely
+because recommendations appear plausible; it must demonstrate where each additional component changes
+retrieval, ranking, discovery, or trustworthiness.
+
+\subsection{Hidden-Gem benchmark}
+\label{sec:hidden-gem}
+A dedicated benchmark contains queries for which expert-approved datasets include at least one
+lesser-known candidate. The benchmark records relevance judgments and popularity strata before the final
+system is run. A hidden gem is not defined as ``low downloads''; it is a dataset with useful relevance or
+task evidence whose visibility is lower than dominant alternatives. This benchmark is also the ground
+truth used for the EDI and calibration measurements in Section~\ref{sec:bias-calibration}.
+
+\subsection{Robustness benchmark}
+Synthetic corruption tests remove or contradict selected metadata fields. For example, class counts are
+removed, licenses are marked unknown, and descriptions are weakened. The system should not collapse
+because one metadata source is incomplete; it should lower confidence, rely on other evidence where
+available, and expose uncertainty. With the formal resolver (Section~\ref{sec:resolver}), this becomes a
+directly testable property: removing a corroborating source should shift a claim from
+\textsc{Verified} to \textsc{Corroborated} or \textsc{Single-source claim} in a predictable direction,
+which can be asserted as a unit test on Algorithm~\ref{alg:resolver} rather than only observed
+qualitatively.
+
+\subsection{Avoiding fabricated result claims}
+No performance values are assumed in advance. Any target (e.g., a percentage gain) is a research
+hypothesis, not a result. Final tables are populated only after experiments are run. The project reports
+confidence intervals or repeated-run variability where appropriate.
+
+\subsection{\newtag Human Evaluation of Trust and Explanation Quality}
+\label{sec:human-eval}
+The system's central thesis is a claim about \emph{defensibility and trust}, which automated IR and
+diversity metrics cannot directly validate. A small human study is added as a required, not optional,
+evaluation component.
+
+\textbf{Design.} Recruit 10--15 participants (peers/labmates with ML background). For a fixed set of
+8--10 query--dataset pairs drawn from the benchmark, each participant sees, in randomized order: (a) a
+plain metadata card (name, description, raw license field, download count), and (b) the evidence-backed
+recommendation card from Section~\ref{sec:resolver}/12 for the same dataset. For each, participants rate
+on a 5-point Likert scale: (i) ``I would trust this recommendation enough to start using the dataset,''
+and (ii) ``I understand why this dataset was or was not a good fit.'' Participants are also asked a
+forced-choice question: ``which card would you act on faster?''
+
+\textbf{Analysis.} Report mean Likert scores per card type with a paired comparison (e.g., Wilcoxon
+signed-rank test given the small, non-normal sample), and the forced-choice win rate. This directly tests
+the ``evidence over assertion'' design principle rather than asserting it.
+
+% =========================================================================
+\section{Baselines and Ablation Plan}
+\label{sec:ablation}
+% =========================================================================
+\begin{enumerate}[leftmargin=*]
+\item \newtag \textbf{LLM zero-shot recommendation} --- ask a general-purpose LLM directly for dataset
+      recommendations with no retrieval, evidence, or probing. This is the practical alternative most
+      users would otherwise reach for, and the project must show measurable gains over it (particularly
+      on hidden-gem recall, license correctness, and hallucination rate --- does the LLM recommend
+      datasets that do not exist or misstate their license?).
+\item BM25-only retrieval.
+\item Dense embedding-only retrieval.
+\item DataFinder-style trained bi-encoder retrieval.
+\item Hybrid retrieval without evidence scoring.
+\item Hybrid + metadata suitability scoring.
+\item Hybrid + evidence ledger + Dempster--Shafer resolution, no uncertainty-aware ranking.
+\item Hybrid + content-aware utility estimation (including transfer estimates).
+\item Full system without diversification.
+\item Full system with long-tail exploration and diversified reranking.
+\end{enumerate}
+This sequence isolates whether each design layer contributes independently and prevents the final system
+from being presented as a monolithic black box.
+
+% =========================================================================
+\section{Scope and Development Roadmap}
+% =========================================================================
+
+\subsection{Scope control}
+\begin{itemize}[leftmargin=*]
+\item The core MVP does not require training a large language model.
+\item The core MVP does not require complete downloads of every candidate dataset.
+\item Bi-encoder fine-tuning is optional until baseline retrieval is established.
+\item Full GIST reproduction at web-scale is not required; the project uses a bounded implementation or an
+      efficient approximation.
+\item A single modality is used for initial content-probing validation, then extended to a second
+      modality for research completeness.
+\item \revtag A minimal command-line interface that prints the evidence-backed recommendation card is
+      moved into core MVP scope (previously an optional extension). With five to six engineers available,
+      its cost is small relative to its value for demonstration, grading, and the human evaluation study
+      in Section~\ref{sec:human-eval}, which needs a real artifact for participants to react to.
+\item The final system prefers reproducibility and measurable gains over adding many loosely integrated
+      features.
+\end{itemize}
+
+\subsection{\newtag Milestone M0: Compute-Budget Validation Spike}
+\label{sec:m0}
+Before any subsystem is built at scale, the team runs one full evidence-collection-plus-probe cycle on
+approximately 10 real datasets, on the target hardware (MacBook Air M1, 8\,GB RAM), and records:
+\begin{itemize}[leftmargin=*]
+\item wall-clock time per candidate for retrieval, evidence resolution, sampling, and probing;
+\item peak memory usage per stage;
+\item failure rate of sample acquisition per repository.
+\end{itemize}
+These numbers directly determine whether the 50--100 candidate-pool default (Section~5.1) and the
+30--100 candidate range in the retrieval procedure are realistic, \emph{before} the team commits a
+milestone schedule around them. If per-candidate probe cost exceeds a set budget (e.g., 15 seconds),
+the candidate pool size or probe depth is revised at this point rather than discovered during M4--M5.
+M0 is scheduled for the first 1--2 days of the project, in parallel with environment setup (M1).
+
+\subsection{\newtag Team Ownership (Five to Six Engineers)}
+\label{sec:raci}
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{3.4cm}p{6.8cm}p{2.6cm}@{}}
+\toprule
+\textbf{Subsystem} & \textbf{Scope} & \textbf{Consumes / Produces} \\
+\midrule
+Retrieval \& Ingestion & Source adapters, canonical schema, BM25/dense indices, M0 spike &
+  Produces: candidate pool \\
+Evidence \& Probing & Evidence Resolver (Alg.~1), Cleanlab integration, fingerprinting,
+  cold-start transfer estimate & Consumes: candidate pool; Produces: resolved evidence + utility \\
+Ranking \& Diversification & Multi-objective model $R(D\mid Q)$, GIST-inspired reranking,
+  long-tail pool, EDI audit & Consumes: evidence + utility; Produces: final set \\
+Evaluation \& Calibration & Hidden-gem/robustness benchmarks, ablations, ECE/Brier, human study
+  (owns Section~\ref{sec:human-eval}) & Consumes: full pipeline outputs \\
+Reporting \& CLI/UI & Explanation card rendering, minimal CLI, documentation, final report &
+  Consumes: final set + evidence \\
+\bottomrule
+\end{tabular}
+\caption{Suggested subsystem ownership for a five-to-six-person team. Interfaces between rows are explicit
+data contracts (e.g., the schema of a ``resolved evidence'' record) agreed before implementation begins,
+so subsystems can be built and tested independently.}
+\end{table}
+
+% =========================================================================
+\section{Risks, Limitations, and Safeguards}
+% =========================================================================
+\begin{itemize}[leftmargin=*]
+\item \textbf{Licensing risk.} Automated license parsing can be wrong or incomplete; mitigated by treating
+      license fields as claims subject to Evidence Resolution (Section~\ref{sec:resolver}), never as
+      legal clearance.
+\item \textbf{Privacy risk.} Sample inspection could surface sensitive content in poorly documented
+      datasets; mitigated by restricting to publicly listed datasets and sanitizing any logged samples.
+\item \textbf{Popularity feedback loop.} Left unchecked, ranking would reinforce already-popular datasets;
+      mitigated by the long-tail pool and measured directly via EDI (Section~\ref{sec:bias-calibration}).
+\item \newtag \textbf{Compliance risk in automated sampling.} Programmatic access to third-party platforms
+      can violate API terms if unmanaged; mitigated by the per-source compliance checklist
+      (Section~\ref{sec:legal}) and caching-first fetch policy.
+\item \textbf{Compute risk.} Probe-based utility estimation is the most compute-intensive stage on
+      constrained hardware; mitigated by the M0 validation spike (Section~\ref{sec:m0}) and the transfer
+      fallback (Section~\ref{sec:coldstart}), which avoids forcing every candidate through a full probe.
+\item \textbf{Overclaiming risk.} A system that reports high-sounding confidence without empirical support
+      is worse than one that reports honest uncertainty; mitigated by the calibration requirement
+      (Section~\ref{sec:calibration}), which gates any ``High'' confidence label on measured ECE/Brier
+      performance.
+\end{itemize}
+
+% =========================================================================
+\section{Expected Project Contribution}
+% =========================================================================
+The project's contribution is not a new language model or a generic RAG interface. It is an integrated
+methodology for moving from dataset retrieval toward evidence-driven dataset selection, with a specific,
+independently citable technical core: a \textbf{Dempster--Shafer evidence-resolution algorithm for
+multi-source dataset trust claims} (Section~\ref{sec:resolver}), evaluated for both bias reduction
+(Section~\ref{sec:bias-calibration}) and calibration, and validated against a human trust study
+(Section~\ref{sec:human-eval}) rather than automated metrics alone. This combination --- a formal fusion
+rule, a measured bias-reduction claim, and a human-validated trust claim --- is what distinguishes the
+project from a re-application of DataFinder, Cleanlab, Croissant, and GIST, and is the part most suitable
+for framing as a short paper or workshop submission beyond the capstone deliverable itself.
+
+% =========================================================================
+\section{Expected User-Facing Result}
+% =========================================================================
+For a query such as ``I want to build a CNN model for classifying plant diseases from leaf images; I need
+a multi-class dataset,'' the system returns a recommendation set with different roles (best overall,
+highest quality, most efficient, hidden gem, notable alternative). Every recommendation includes source
+links, calibrated evidence strength, main reasons, limitations, and the specific factors that caused it to
+outrank or differ from nearby alternatives.
+
+% =========================================================================
+\section{References and Research Sources}
+% =========================================================================
+\begin{thebibliography}{99}
+
+\bibitem{datafinder} Lin, V.\ et al. ``DataFinder: Scientific Dataset Recommendation from Natural
+Language.'' \textit{WSDM 2023}. \url{https://arxiv.org/abs/2305.16636}. Official implementation:
+\url{https://github.com/viswavi/datafinder}.
+
+\bibitem{dataperf} Mazumder, M.\ et al. ``DataPerf: Benchmarks for Data-Centric AI Development.''
+\textit{arXiv:2207.10062}. Official repository: \url{https://github.com/mlcommons/dataperf}.
+
+\bibitem{cleanlab} Northcutt, C.\ et al. ``Confident Learning: Estimating Uncertainty in Dataset
+Labels.'' \textit{NeurIPS 2021}. Implementation and documentation: \url{https://github.com/cleanlab/cleanlab},
+\url{https://docs.cleanlab.ai/}.
+
+\bibitem{croissant11} MLCommons. Croissant Dataset Metadata Format Specification, including the
+Croissant~1.1 provenance and usage-policy extensions. \url{https://docs.mlcommons.org/croissant/}.
+
+\bibitem{gist} Zadimoghaddam, M.\ et al. ``GIST: Greedy Independent Set Thresholding for Max-Min
+Diversification with Submodular Utility.'' \textit{arXiv:2405.18754}, NeurIPS 2025.
+\url{https://arxiv.org/abs/2405.18754}.
+
+\bibitem{gist-blog} Google Research. ``Introducing GIST: The Next Stage in Smart Sampling.''
+\url{https://research.google/blog/introducing-gist-the-next-stage-in-smart-sampling/}.
+
+\bibitem{licensing-audit} Public reporting and the Data Provenance Initiative on dataset licensing and
+provenance quality in widely used public ML datasets, used to justify verification and uncertainty
+rather than treating repository license fields as ground truth.
+
+\bibitem{dataset-search} Google Dataset Search research and dataset discovery literature, used as
+contextual background for large-scale dataset discovery and heterogeneous source indexing.
+
+\bibitem{hf-hub} Hugging Face Hub dataset documentation, Dataset Cards, and dataset viewer
+documentation, used as practical evidence-source patterns for dataset context and sample inspection.
+
+\bibitem{shafer1976} Shafer, G. \textit{A Mathematical Theory of Evidence.} Princeton University Press,
+1976.
+
+\bibitem{dempster1968} Dempster, A.\ P. ``A Generalization of Bayesian Inference.'' \textit{Journal of the
+Royal Statistical Society, Series B}, 1968.
+
+\bibitem{guo-calibration} Guo, C.\ et al. ``On Calibration of Modern Neural Networks.'' \textit{ICML
+2017}. Used as the methodological basis for the reliability-diagram and Expected Calibration Error
+evaluation in Section~\ref{sec:calibration}.
+
+\end{thebibliography}
+
+\newpage
+\appendix
+\section*{Appendices}
+\addcontentsline{toc}{section}{Appendices}
+
+% =========================================================================
+\section{Practical Repository Structure}
+% =========================================================================
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+capstone-dataset-intelligence/
+|-- data/
+|   |-- raw/                 # source snapshots where permitted
+|   |-- normalized/          # canonical dataset records
+|   |-- evidence/            # evidence ledger records (incl. Bel/Pl/K_total per claim)
+|   |-- fingerprints/        # cached sample-level features
+|   `-- benchmarks/          # queries + relevance judgments (hidden-gem, robustness)
+|-- indexes/
+|   |-- bm25/
+|   `-- dense/
+|-- src/
+|   |-- ingestion/           # per-source adapters + ToS/compliance metadata (Sec. 17.2)
+|   |-- normalization/
+|   |-- retrieval/
+|   |-- evidence/            # Dempster-Shafer resolver (Algorithm 1)
+|   |-- probing/             # incl. cold-start transfer estimator (Sec. 12.1)
+|   |-- ranking/
+|   |-- diversification/
+|   `-- reporting/           # explanation cards + CLI (moved into MVP scope)
+|-- experiments/
+|   |-- baselines/           # incl. LLM zero-shot baseline (Sec. 20)
+|   |-- ablations/
+|   |-- robustness/
+|   |-- calibration/         # NEW: ECE / Brier / reliability diagrams
+|   |-- bias_audit/          # NEW: EDI / Gini
+|   `-- long_tail/
+|-- human_study/             # NEW: protocol, consent notes, Likert data (Sec. 19.4)
+|-- configs/
+|-- scripts/
+|-- tests/                   # incl. resolver unit tests (robustness corruption cases)
+|-- requirements.txt
+`-- README.md
+\end{lstlisting}
+
+% =========================================================================
+\section{Minimum Viable System vs.\ Research System}
+% =========================================================================
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{5.2cm}p{5.2cm}@{}}
+\toprule
+\textbf{Minimum Viable System (M1--M6)} & \textbf{Full Research System (M7--M8+)} \\
+\midrule
+Single modality, hybrid retrieval, metadata evidence, basic Dempster--Shafer resolution with default
+priors, greedy diversification, CLI output. &
+Second modality, tuned reliability priors via calibration, full ablation suite including LLM baseline,
+EDI/Gini bias audit, human trust study, GIST-inspired reranking, tuned $R(D\mid Q)$ coefficients. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% =========================================================================
+\section{Implementation Stop Conditions}
+% =========================================================================
+\begin{itemize}[leftmargin=*]
+\item If dense retrieval does not beat the lexical baseline, stop tuning downstream ranking and revisit
+      corpus normalization/query formulation.
+\item If sample acquisition is unreliable across repositories, keep metadata/provenance evidence as the
+      fallback and clearly label content evidence as unavailable (or transferred, Section~\ref{sec:coldstart}).
+\item If probe models consume excessive local compute, reduce the candidate pool and sample size before
+      reducing evaluation rigor --- guided by the M0 measurements (Section~\ref{sec:m0}).
+\item If long-tail diversification decreases human relevance materially, tune the exploration quota rather
+      than forcing low-quality novelty.
+\item If license/provenance evidence is contradictory, the system lowers confidence or flags the dataset
+      (the \textsc{Conflicting} state, Section~\ref{sec:resolver}) rather than inventing a resolution.
+\item If the full multi-modal pipeline becomes too large for Capstone~1, freeze one modality for the
+      end-to-end experiment and retain the second modality as a validated extension.
+\item \newtag If the reliability priors in Table~\ref{tab:reliability} produce poor calibration (high ECE)
+      even after tuning, fall back to reporting raw evidence counts and source lists without a synthesized
+      confidence label, rather than presenting an uncalibrated number as if it were meaningful.
+\end{itemize}
+
+% =========================================================================
+\section{\newtag Worked Example: Evidence Resolution for a License Claim}
+\label{app:worked-example}
+% =========================================================================
+Consider the claim $c = $ ``license of dataset $d$ is CC~BY~4.0,'' with three sources:
+
+\begin{itemize}[leftmargin=*]
+\item $s_1$: bare repository metadata field, asserts true, $r_1 = 0.60$.
+\item $s_2$: official dataset card, asserts true, $r_2 = 0.70$.
+\item $s_3$: an unverified community mirror README, asserts \emph{false} (claims ``All Rights Reserved''),
+      $r_3 = 0.35$.
+\end{itemize}
+
+\textbf{Step 1 --- BPAs.}
+$m_1(\top)=0.60,\ m_1(\Theta)=0.40$.
+$m_2(\top)=0.70,\ m_2(\Theta)=0.30$.
+$m_3(\bot)=0.35,\ m_3(\Theta)=0.65$.
+
+\textbf{Step 2 --- Combine $m_1, m_2$.} No conflict yet since both support $\top$:
+$m_{12}(\top) = m_1(\top)m_2(\top) + m_1(\top)m_2(\Theta) + m_1(\Theta)m_2(\top) = 0.60(0.70) + 0.60(0.30)
++ 0.40(0.70) = 0.42+0.18+0.28 = 0.88$.
+$m_{12}(\Theta) = m_1(\Theta)m_2(\Theta) = 0.40(0.30) = 0.12$. $K_{12}=0$.
+
+\textbf{Step 3 --- Combine with $m_3$.} Conflict mass:
+$K = m_{12}(\top)\,m_3(\bot) = 0.88 \times 0.35 = 0.308$.
+$m_{123}(\top) = \dfrac{m_{12}(\top)m_3(\Theta)}{1-K} = \dfrac{0.88 \times 0.65}{1-0.308} = \dfrac{0.572}{0.692}
+\approx 0.827$.
+$m_{123}(\bot) = \dfrac{m_{12}(\Theta)m_3(\bot)}{1-K} = \dfrac{0.12 \times 0.35}{0.692} = \dfrac{0.042}{0.692}
+\approx 0.061$.
+$m_{123}(\Theta) = \dfrac{m_{12}(\Theta)m_3(\Theta)}{1-K} = \dfrac{0.12 \times 0.65}{0.692} \approx 0.113$.
+
+\textbf{Step 4 --- Interpret.} $\mathrm{Bel}(\top) \approx 0.827$, $\mathrm{Pl}(\top) \approx 0.940$,
+$K_{\text{total}} \approx 0.308$. Since $K_{\text{total}} = 0.308 > \kappa_{\text{high}} = 0.30$, Algorithm~1
+returns \textsc{Conflicting} \emph{despite} $\mathrm{Bel}(\top)$ being high --- correctly surfacing that
+one credible-enough source actively disputes the claim, rather than averaging the dispute away. This is
+the behavior a simple weighted mean cannot reproduce: a naive average of $\{0.60,0.70,(1-0.35)\!=\!0.65\}$
+would report $\approx 0.65$ and hide that the sources are in outright disagreement rather than moderately
+uncertain.
+
+% =========================================================================
+\section{\newtag Changelog: Version 1 to Version 2}
+% =========================================================================
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{1.1cm}p{5.6cm}p{5.6cm}@{}}
+\toprule
+\textbf{\#} & \textbf{Gap identified in review} & \textbf{Resolution in Version 2} \\
+\midrule
+1 & Evidence states were assigned heuristically, no combination rule. &
+    Dempster--Shafer resolver, Algorithm~1, Section~\ref{sec:resolver}. \\
+2 & Bias/diversity claims were asserted, not measured. &
+    Exposure Disparity Index and calibration metrics, Section~\ref{sec:bias-calibration}. \\
+3 & No comparison against the ``just ask an LLM'' alternative. &
+    LLM zero-shot baseline added as ablation \#1, Section~\ref{sec:ablation}. \\
+4 & No defined behavior when a dataset cannot be sampled at all. &
+    Transfer-estimate fallback, Section~\ref{sec:coldstart}. \\
+5 & Trust/explanation quality was a design principle, not evaluated. &
+    Human trust study, Section~\ref{sec:human-eval}. \\
+6 & M1-Air compute feasibility of the 30--100 candidate pool was assumed. &
+    Milestone M0 validation spike, Section~\ref{sec:m0}. \\
+7 & No task ownership across the 5--6 person team. &
+    Subsystem ownership table, Section~\ref{sec:raci}. \\
+8 & Automated sampling had no explicit ToS/compliance step. &
+    Legal/ToS compliance checklist, Section~\ref{sec:legal}. \\
+9 & CLI/demo interface was an optional extension (M6). &
+    Moved into core MVP scope, Section~21.1. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Final project definition.} This system is a local, research-oriented dataset intelligence
+pipeline that retrieves candidate datasets, resolves their evidence through a formal, testable fusion
+rule, estimates task-specific usefulness (with an explicit fallback when direct measurement is
+infeasible), measurably mitigates popularity bias, diversifies recommendations, calibrates its own
+confidence, and validates its explanations against human judgment. Retrieval remains necessary, but
+retrieval is no longer the endpoint --- and the system's claims about evidence, bias, and trust are now
+each individually falsifiable.
+
+\end{document}
