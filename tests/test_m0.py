@@ -29,13 +29,13 @@ class M0ConfigurationTests(unittest.TestCase):
 class M0RecordTests(unittest.TestCase):
     def test_failure_category_and_cache_state_are_validated(self) -> None:
         valid = MeasurementRecord(
-            run_id="run", phase="sample_acquisition", source="source", started_at="2026-01-01T00:00:00+00:00",
+            run_id="run", condition="cold", phase="sample_acquisition", source="source", started_at="2026-01-01T00:00:00+00:00",
             duration_ms=1.0, peak_rss_bytes=1, cache_state="cold", success=False, failure_category="policy_refusal",
         )
         valid.validate()
         with self.assertRaises(ValueError):
             MeasurementRecord(
-                run_id="run", phase="sample_acquisition", source="source", started_at="now", duration_ms=0,
+                run_id="run", condition="cold", phase="sample_acquisition", source="source", started_at="now", duration_ms=0,
                 peak_rss_bytes=0, cache_state="invalid", success=True,
             ).validate()
 
@@ -49,13 +49,14 @@ class M0RecordTests(unittest.TestCase):
 class M0AggregationTests(unittest.TestCase):
     def test_summary_aggregates_latency_and_failures(self) -> None:
         records = [
-            MeasurementRecord("run", "evidence_collection", "openml", "now", 10.0, 100, "cold", True, dataset_id="a"),
-            MeasurementRecord("run", "sample_acquisition", "openml", "now", 20.0, 120, "cold", False, dataset_id="a", failure_category="timeout"),
+            MeasurementRecord("run", "cold", "evidence_collection", "openml", "now", 10.0, 100, "cold", True, dataset_id="a"),
+            MeasurementRecord("run", "cold", "sample_acquisition", "openml", "now", 20.0, 120, "cold", False, dataset_id="a", failure_category="timeout"),
         ]
         summary = summarise(records, {"seed": 1})
         self.assertEqual(summary["by_phase"]["evidence_collection:cold"]["median_duration_ms"], 10.0)
         self.assertEqual(summary["access"]["openml"]["failure_rate"], 0.5)
         self.assertEqual(summary["access"]["openml"]["failure_categories"], ["timeout"])
+        self.assertEqual(summary["by_condition"]["cold"]["network_requests"], 0)
 
     def test_runtime_metadata_has_stable_config_hash_and_seed(self) -> None:
         path = ROOT / "configs" / "m0_compute_budget.json"

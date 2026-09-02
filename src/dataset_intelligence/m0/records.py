@@ -11,6 +11,7 @@ FAILURE_CATEGORIES = frozenset({
     "rate_limit", "timeout", "policy_refusal", "unknown",
 })
 CACHE_STATES = frozenset({"cold", "warm", "not_applicable"})
+RUN_CONDITIONS = frozenset({"cold", "warm"})
 PHASES = frozenset({"candidate_retrieval", "evidence_collection", "sample_acquisition", "diagnostic"})
 
 
@@ -19,6 +20,7 @@ class MeasurementRecord:
     """One observable M0 operation; unknown values are represented as null."""
 
     run_id: str
+    condition: str
     phase: str
     source: str
     started_at: str
@@ -40,6 +42,8 @@ class MeasurementRecord:
     def validate(self) -> None:
         if self.phase not in PHASES:
             raise ValueError(f"Unsupported phase: {self.phase}")
+        if self.condition not in RUN_CONDITIONS:
+            raise ValueError(f"Unsupported run condition: {self.condition}")
         if self.cache_state not in CACHE_STATES:
             raise ValueError(f"Unsupported cache state: {self.cache_state}")
         if self.failure_category and self.failure_category not in FAILURE_CATEGORIES:

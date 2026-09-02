@@ -77,7 +77,7 @@ def candidate_events(run_id: str, condition: str, config: dict[str, Any], cache:
             started = now()
             if "url_template" not in discovery:
                 records.append(event(
-                    run_id=run_id, phase="candidate_retrieval", source=source["id"], started_at=started,
+                    run_id=run_id, condition=condition, phase="candidate_retrieval", source=source["id"], started_at=started,
                     duration_ms=0.0, cache_state="not_applicable", success=False,
                     query_id=query["id"] if query else None, failure_category="unavailable_endpoint",
                     details={"discovery_mode": discovery["mode"], "policy_url": source["policy_url"]},
@@ -88,7 +88,7 @@ def candidate_events(run_id: str, condition: str, config: dict[str, Any], cache:
             outcome = fetch(url, cache, 1_048_576)
             ok = success_from_status(outcome.response.status_code)
             records.append(event(
-                run_id=run_id, phase="candidate_retrieval", source=source["id"], started_at=started,
+                run_id=run_id, condition=condition, phase="candidate_retrieval", source=source["id"], started_at=started,
                 duration_ms=outcome.duration_ms, cache_state=outcome.cache_state,
                 success=ok, query_id=query["id"] if query else None, bytes_acquired=len(outcome.response.body),
                 network_requests=outcome.network_requests, status_code=outcome.response.status_code,
@@ -106,7 +106,7 @@ def evidence_events(run_id: str, condition: str, config: dict[str, Any], cache: 
         outcome = fetch(dataset["metadata_url"], cache, 1_048_576)
         ok = success_from_status(outcome.response.status_code)
         records.append(event(
-            run_id=run_id, phase="evidence_collection", source=dataset["source"], started_at=started,
+            run_id=run_id, condition=condition, phase="evidence_collection", source=dataset["source"], started_at=started,
             duration_ms=outcome.duration_ms, cache_state=outcome.cache_state,
             success=ok, dataset_id=dataset["id"], dataset_url=dataset["url"],
             bytes_acquired=len(outcome.response.body), network_requests=outcome.network_requests,
@@ -122,7 +122,7 @@ def sample_event(run_id: str, condition: str, dataset: dict[str, Any], cache: Re
     started = now()
     if sample["kind"] == "not_attempted":
         return event(
-            run_id=run_id, phase="sample_acquisition", source=dataset["source"], started_at=started,
+            run_id=run_id, condition=condition, phase="sample_acquisition", source=dataset["source"], started_at=started,
             duration_ms=0.0, cache_state="not_applicable", success=False, dataset_id=dataset["id"],
             dataset_url=dataset["url"], acquisition_method=sample["method"], failure_category="policy_refusal",
             details={"reason": "M0 uses no credentials and no confirmed anonymous bounded file endpoint was configured."},
@@ -136,7 +136,7 @@ def sample_event(run_id: str, condition: str, dataset: dict[str, Any], cache: Re
             payload, items = {}, []
         ok = bool(items)
         return event(
-            run_id=run_id, phase="sample_acquisition", source=dataset["source"], started_at=started,
+            run_id=run_id, condition=condition, phase="sample_acquisition", source=dataset["source"], started_at=started,
             duration_ms=outcome.duration_ms, cache_state=outcome.cache_state,
             success=ok, dataset_id=dataset["id"], dataset_url=dataset["url"], acquisition_method=sample["method"],
             records_acquired=len(items), bytes_acquired=len(outcome.response.body), network_requests=outcome.network_requests,
@@ -149,7 +149,7 @@ def sample_event(run_id: str, condition: str, dataset: dict[str, Any], cache: Re
     items = [line.decode("utf-8", errors="replace").rstrip("\r\n") for line in outcome.response.body.splitlines() if line.strip()]
     ok = bool(items) and success_from_status(outcome.response.status_code)
     return event(
-        run_id=run_id, phase="sample_acquisition", source=dataset["source"], started_at=started,
+        run_id=run_id, condition=condition, phase="sample_acquisition", source=dataset["source"], started_at=started,
         duration_ms=outcome.duration_ms, cache_state=outcome.cache_state,
         success=ok, dataset_id=dataset["id"], dataset_url=dataset["url"], acquisition_method=sample["method"],
         records_acquired=len(items), bytes_acquired=len(outcome.response.body), network_requests=outcome.network_requests,
@@ -165,13 +165,13 @@ def diagnostic_event(run_id: str, condition: str, dataset: dict[str, Any], items
     elapsed = (perf_counter_ns() - started_ns) / 1_000_000
     if not canonical:
         return event(
-            run_id=run_id, phase="diagnostic", source=dataset["source"], started_at=started, duration_ms=elapsed,
+            run_id=run_id, condition=condition, phase="diagnostic", source=dataset["source"], started_at=started, duration_ms=elapsed,
             cache_state="not_applicable", success=False, dataset_id=dataset["id"], dataset_url=dataset["url"],
             failure_category="incompatible_format", details={"diagnostic": diagnostic_id, "reason": "No bounded sample records available."},
         )
     sizes = [len(value) for value in canonical]
     return event(
-        run_id=run_id, phase="diagnostic", source=dataset["source"], started_at=started, duration_ms=elapsed,
+        run_id=run_id, condition=condition, phase="diagnostic", source=dataset["source"], started_at=started, duration_ms=elapsed,
         cache_state="not_applicable", success=True, dataset_id=dataset["id"], dataset_url=dataset["url"],
         records_acquired=len(canonical), bytes_acquired=sum(sizes), details={
             "diagnostic": diagnostic_id, "serialized_record_bytes": {"min": min(sizes), "max": max(sizes), "mean": sum(sizes) / len(sizes)},
@@ -195,6 +195,14 @@ def summarise(records: list[MeasurementRecord], metadata: dict[str, Any]) -> dic
                 "max_peak_rss_bytes": max(item["peak_rss_bytes"] for item in group),
                 "network_requests": sum(item["network_requests"] for item in group),
             }
+    summary["by_condition"] = {
+        condition: {
+            "operations": sum(item["condition"] == condition for item in values),
+            "network_requests": sum(item["network_requests"] for item in values if item["condition"] == condition),
+            "successful_operations": sum(item["success"] for item in values if item["condition"] == condition),
+        }
+        for condition in sorted({item["condition"] for item in values})
+    }
     for source in sorted({item["source"] for item in values}):
         group = [item for item in values if item["source"] == source and item["phase"] in {"evidence_collection", "sample_acquisition"}]
         failures = [item for item in group if not item["success"]]
