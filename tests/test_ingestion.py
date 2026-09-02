@@ -17,6 +17,7 @@ class CanonicalSchemaTests(unittest.TestCase):
             record.validate(); self.assertEqual(record.schema_version, "1.0")
             self.assertTrue(record.claims); self.assertTrue(record.provenance)
             self.assertTrue(all(value is None for value in record.observed_content.values()))
+        self.assertEqual(records[0].governance["croissant_url"], "https://example.test/croissant.jsonld")
     def test_normalization_is_conservative_and_deterministic(self):
         self.assertEqual(normalize_url("HTTPS://Example.COM/path/?a=1#x"), "https://example.com/path")
         self.assertEqual(normalize_count("1,200"), 1200); self.assertIsNone(normalize_count("unknown"))
