@@ -4,13 +4,16 @@ This Capstone Project 1 builds a local-first system that recommends a small, use
 
 The implementation follows [the project specification](docs/PROJECT_SPEC.md) and [research foundation](docs/RESEARCH_FOUNDATION.md). Repository metadata is treated as evidence rather than unquestioned fact; unknown and conflicting evidence must remain visible.
 
-## Current milestone: M0 — bootstrap and compute-budget validation planning
+## Current milestone: M1 — canonical corpus and source adapters
 
-The repository is bootstrapped for measured, incremental implementation. M0 does **not** implement retrieval, evidence resolution, probing, or ranking. Its next execution will run a bounded experiment over roughly ten real datasets to set feasible candidate-pool and probe budgets before expensive functionality is built.
+M0 measured the local access and compute envelope. M1 now provides a deterministic, source-independent ten-record development corpus with preserved source claims and explicit access capabilities. It does **not** implement retrieval, evidence resolution, probing, ranking, or recommendations.
 
 - [Implementation architecture and roadmap](docs/IMPLEMENTATION_PLAN.md)
 - [M0 experiment protocol](docs/M0_COMPUTE_BUDGET_PLAN.md)
 - [Bootstrap reconnaissance and gap report](docs/BOOTSTRAP_RECONNAISSANCE.md)
+- [Canonical schema](docs/CANONICAL_SCHEMA.md)
+- [Source adapters](docs/SOURCE_ADAPTERS.md)
+- [M1 results](docs/M1_RESULTS.md)
 
 ## Local setup
 
@@ -19,6 +22,7 @@ M0 uses only the Python standard library. Python 3.10 or later is required; Pyth
 ```bash
 python3 -m unittest discover -s tests -v
 python3 scripts/validate_bootstrap.py
+python3 scripts/build_m1_corpus.py
 ```
 
 No dataset retrieval or remote source calls occur during bootstrap validation. Future optional dependencies are selected only after M0 measures their need and cost.
