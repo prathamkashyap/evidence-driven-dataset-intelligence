@@ -72,24 +72,25 @@ def candidate_events(run_id: str, condition: str, config: dict[str, Any], cache:
     records: list[MeasurementRecord] = []
     for source in config["sources"]:
         discovery = source["candidate_discovery"]
-        for query in config["queries"]:
+        queries = [None] if discovery["mode"] == "public_catalog_snapshot_not_semantic" else config["queries"]
+        for query in queries:
             started = now()
             if "url_template" not in discovery:
                 records.append(event(
                     run_id=run_id, phase="candidate_retrieval", source=source["id"], started_at=started,
                     duration_ms=0.0, cache_state="not_applicable", success=False,
-                    query_id=query["id"], failure_category="unavailable_endpoint",
+                    query_id=query["id"] if query else None, failure_category="unavailable_endpoint",
                     details={"discovery_mode": discovery["mode"], "policy_url": source["policy_url"]},
                 ))
                 continue
-            term = query.get("source_terms", {}).get(source["id"], "")
+            term = query.get("source_terms", {}).get(source["id"], "") if query else ""
             url = discovery["url_template"].format(term=quote_plus(term))
             outcome = fetch(url, cache, 1_048_576)
             ok = success_from_status(outcome.response.status_code)
             records.append(event(
                 run_id=run_id, phase="candidate_retrieval", source=source["id"], started_at=started,
-                duration_ms=outcome.duration_ms, cache_state=outcome.cache_state if condition == "warm" else "cold",
-                success=ok, query_id=query["id"], bytes_acquired=len(outcome.response.body),
+                duration_ms=outcome.duration_ms, cache_state=outcome.cache_state,
+                success=ok, query_id=query["id"] if query else None, bytes_acquired=len(outcome.response.body),
                 network_requests=outcome.network_requests, status_code=outcome.response.status_code,
                 failure_category=None if ok else failure_from_response(outcome.response.status_code, outcome.response.error_kind),
                 details={"discovery_mode": discovery["mode"], "policy_url": source["policy_url"], "endpoint": url},
@@ -106,7 +107,7 @@ def evidence_events(run_id: str, condition: str, config: dict[str, Any], cache: 
         ok = success_from_status(outcome.response.status_code)
         records.append(event(
             run_id=run_id, phase="evidence_collection", source=dataset["source"], started_at=started,
-            duration_ms=outcome.duration_ms, cache_state=outcome.cache_state if condition == "warm" else "cold",
+            duration_ms=outcome.duration_ms, cache_state=outcome.cache_state,
             success=ok, dataset_id=dataset["id"], dataset_url=dataset["url"],
             bytes_acquired=len(outcome.response.body), network_requests=outcome.network_requests,
             status_code=outcome.response.status_code,
@@ -136,7 +137,7 @@ def sample_event(run_id: str, condition: str, dataset: dict[str, Any], cache: Re
         ok = bool(items)
         return event(
             run_id=run_id, phase="sample_acquisition", source=dataset["source"], started_at=started,
-            duration_ms=outcome.duration_ms, cache_state=outcome.cache_state if condition == "warm" else "cold",
+            duration_ms=outcome.duration_ms, cache_state=outcome.cache_state,
             success=ok, dataset_id=dataset["id"], dataset_url=dataset["url"], acquisition_method=sample["method"],
             records_acquired=len(items), bytes_acquired=len(outcome.response.body), network_requests=outcome.network_requests,
             status_code=outcome.response.status_code, failure_category=None if ok else (failure_from_response(outcome.response.status_code, outcome.response.error_kind) if outcome.response.status_code else "incompatible_format"),
@@ -149,7 +150,7 @@ def sample_event(run_id: str, condition: str, dataset: dict[str, Any], cache: Re
     ok = bool(items) and success_from_status(outcome.response.status_code)
     return event(
         run_id=run_id, phase="sample_acquisition", source=dataset["source"], started_at=started,
-        duration_ms=outcome.duration_ms, cache_state=outcome.cache_state if condition == "warm" else "cold",
+        duration_ms=outcome.duration_ms, cache_state=outcome.cache_state,
         success=ok, dataset_id=dataset["id"], dataset_url=dataset["url"], acquisition_method=sample["method"],
         records_acquired=len(items), bytes_acquired=len(outcome.response.body), network_requests=outcome.network_requests,
         status_code=outcome.response.status_code, failure_category=None if ok else failure_from_response(outcome.response.status_code, outcome.response.error_kind),

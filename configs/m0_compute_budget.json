@@ -40,8 +40,7 @@
   },
   "sample_cap": {
     "max_records_per_dataset": 32,
-    "max_bytes_per_dataset": 67108864,
-    "stream_prefix_bytes": 65536
+    "max_bytes_per_dataset": 67108864
   },
   "measurement_requirements": [
     "candidate_retrieval_time",
@@ -83,7 +82,7 @@
       "name": "OpenML REST API",
       "policy_url": "https://docs.openml.org/ecosystem/Rest/",
       "candidate_discovery": {
-        "url_template": "https://www.openml.org/api/v1/json/data/list?limit=20&status=active",
+        "url_template": "https://www.openml.org/api/v1/json/data/list/limit/20",
         "mode": "public_catalog_snapshot_not_semantic"
       }
     },
