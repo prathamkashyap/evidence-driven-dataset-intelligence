@@ -23,6 +23,7 @@ class M0ConfigurationTests(unittest.TestCase):
         config = load_config(ROOT / "configs" / "m0_compute_budget.json")
         self.assertEqual(len(config["dataset_records"]), 10)
         self.assertEqual(len(config["queries"]), 3)
+        self.assertEqual(len({record["access_combination"] for record in config["dataset_records"]}), 5)
         self.assertEqual(config["sample_cap"]["max_records_per_dataset"], 32)
 
 

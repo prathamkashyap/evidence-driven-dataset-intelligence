@@ -15,6 +15,9 @@ def load_config(path: Path) -> dict[str, Any]:
         raise ValueError("query_target must match the configured query count.")
     if len(config.get("dataset_records", [])) != config.get("dataset_record_target"):
         raise ValueError("dataset_record_target must match the configured dataset count.")
+    access_combinations = {record.get("access_combination") for record in config["dataset_records"]}
+    if len(access_combinations) != config.get("source_access_combination_target"):
+        raise ValueError("source_access_combination_target must match the configured access combinations.")
     if config["sample_cap"]["max_records_per_dataset"] != 32:
         raise ValueError("M0 must cap acquired records at 32.")
     if config["sample_cap"]["max_bytes_per_dataset"] != 64 * 1024 * 1024:
