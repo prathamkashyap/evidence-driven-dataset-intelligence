@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "adapter_versions": {"huggingface": "1.0", "openml": "1.0", "uci": "1.0", "kaggle": "1.0"},
+  "limits_from_m0": {
+    "records_per_programmatic_source": 20,
+    "combined_pre_evidence_records": 60,
+    "evidence_analysis_records": 10,
+    "direct_content_probe_records": 6,
+    "sample_records": 32,
+    "sample_soft_bytes": 1048576,
+    "sample_hard_bytes": 67108864,
+    "cold_query_budget_ms": 20000,
+    "process_memory_ceiling_bytes": 134217728,
+    "maximum_direct_path_failure_rate": 0.2
+  },
+  "fixture_corpus": "tests/fixtures/m1_records.json",
+  "output_corpus": "experiments/m1/results/development_corpus.jsonl"
+}
