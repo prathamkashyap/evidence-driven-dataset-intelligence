@@ -1,0 +1,122 @@
+{
+  "reference_tasks": {
+    "task_sentiment_binary": {
+      "task_type": "classification",
+      "primary_modality": "text",
+      "domain": "movie_reviews",
+      "target_requirements": {
+        "target_type": "binary",
+        "expected_classes": 2
+      },
+      "input_constraints": {
+        "max_tokens": 512
+      },
+      "governance_constraints": {
+        "allowed_licenses": ["mit", "apache-2.0"]
+      },
+      "access_constraints": {
+        "public_access_required": true
+      },
+      "raw_query": "movie review sentiment analysis binary classification text"
+    },
+    "task_news_multiclass": {
+      "task_type": "classification",
+      "primary_modality": "text",
+      "domain": "news",
+      "target_requirements": {
+        "target_type": "multiclass",
+        "expected_classes": 4
+      },
+      "input_constraints": {
+        "max_tokens": 256
+      },
+      "governance_constraints": {},
+      "access_constraints": {
+        "public_access_required": true
+      },
+      "raw_query": "news topic classification"
+    },
+    "task_tabular_iris": {
+      "task_type": "classification",
+      "primary_modality": "tabular",
+      "domain": "botany",
+      "target_requirements": {
+        "target_type": "multiclass",
+        "expected_classes": 3
+      },
+      "input_constraints": {
+        "min_features": 4
+      },
+      "governance_constraints": {},
+      "access_constraints": {
+        "public_access_required": true
+      },
+      "raw_query": "tabular flower classification species"
+    },
+    "task_image_cifar": {
+      "task_type": "classification",
+      "primary_modality": "image",
+      "domain": "general_objects",
+      "target_requirements": {
+        "target_type": "multiclass",
+        "expected_classes": 100
+      },
+      "input_constraints": {},
+      "governance_constraints": {},
+      "access_constraints": {
+        "public_access_required": true
+      },
+      "raw_query": "multiclass natural image classification"
+    }
+  },
+  "reference_compatibility_judgments": {
+    "task_sentiment_binary": {
+      "ds_c9a42d9bd6268ce4a4cf6061": {"level": 3, "rationale": "Rotten Tomatoes: exact text sentiment binary classification."},
+      "ds_3e424a817c66aab45e96797a": {"level": 1, "rationale": "AG News: text classification, but news domain mismatch with 4 classes."},
+      "ds_40356f676278cb9903556c6e": {"level": 0, "rationale": "CIFAR-100: incompatible image modality."},
+      "ds_4e61d125afd0915cf8dcb4c6": {"level": 0, "rationale": "Beans: incompatible image modality."},
+      "ds_69f0f69749316e8b5768ef79": {"level": 0, "rationale": "OpenML Iris: incompatible tabular modality."},
+      "ds_a7472dc830bfc6394941b2f7": {"level": 0, "rationale": "OpenML Wine: incompatible tabular modality."},
+      "ds_773a4c155a583474a0222bdf": {"level": 0, "rationale": "UCI Iris: incompatible tabular modality."},
+      "ds_9f128b3a604eed483953e7f8": {"level": 0, "rationale": "UCI Wine: incompatible tabular modality."},
+      "ds_c39f4b8a33e1fd6fecbf4bdc": {"level": 0, "rationale": "Kaggle Pima: incompatible tabular modality."},
+      "ds_3c522d9aa8b9ec84e3b73660": {"level": 0, "rationale": "Kaggle Heart: incompatible tabular modality."}
+    },
+    "task_news_multiclass": {
+      "ds_3e424a817c66aab45e96797a": {"level": 3, "rationale": "AG News: exact 4-class news topic text classification."},
+      "ds_c9a42d9bd6268ce4a4cf6061": {"level": 1, "rationale": "Rotten Tomatoes: text modality, but binary movie sentiment domain mismatch."},
+      "ds_40356f676278cb9903556c6e": {"level": 0, "rationale": "CIFAR-100: incompatible image modality."},
+      "ds_4e61d125afd0915cf8dcb4c6": {"level": 0, "rationale": "Beans: incompatible image modality."},
+      "ds_69f0f69749316e8b5768ef79": {"level": 0, "rationale": "OpenML Iris: incompatible tabular modality."},
+      "ds_a7472dc830bfc6394941b2f7": {"level": 0, "rationale": "OpenML Wine: incompatible tabular modality."},
+      "ds_773a4c155a583474a0222bdf": {"level": 0, "rationale": "UCI Iris: incompatible tabular modality."},
+      "ds_9f128b3a604eed483953e7f8": {"level": 0, "rationale": "UCI Wine: incompatible tabular modality."},
+      "ds_c39f4b8a33e1fd6fecbf4bdc": {"level": 0, "rationale": "Kaggle Pima: incompatible tabular modality."},
+      "ds_3c522d9aa8b9ec84e3b73660": {"level": 0, "rationale": "Kaggle Heart: incompatible tabular modality."}
+    },
+    "task_tabular_iris": {
+      "ds_69f0f69749316e8b5768ef79": {"level": 3, "rationale": "OpenML Iris: exact 3-class 4-feature botanical flower classification."},
+      "ds_773a4c155a583474a0222bdf": {"level": 3, "rationale": "UCI Iris: exact 3-class 4-feature botanical flower classification."},
+      "ds_a7472dc830bfc6394941b2f7": {"level": 1, "rationale": "OpenML Wine: tabular classification, but chemistry/wine domain with 13 features."},
+      "ds_9f128b3a604eed483953e7f8": {"level": 1, "rationale": "UCI Wine: tabular classification, but wine domain with 13 features."},
+      "ds_c39f4b8a33e1fd6fecbf4bdc": {"level": 1, "rationale": "Kaggle Pima: tabular classification, but medical domain and unsupported access."},
+      "ds_3c522d9aa8b9ec84e3b73660": {"level": 1, "rationale": "Kaggle Heart: tabular classification, but medical domain and unsupported access."},
+      "ds_c9a42d9bd6268ce4a4cf6061": {"level": 0, "rationale": "Rotten Tomatoes: incompatible text modality."},
+      "ds_3e424a817c66aab45e96797a": {"level": 0, "rationale": "AG News: incompatible text modality."},
+      "ds_40356f676278cb9903556c6e": {"level": 0, "rationale": "CIFAR-100: incompatible image modality."},
+      "ds_4e61d125afd0915cf8dcb4c6": {"level": 0, "rationale": "Beans: incompatible image modality."}
+    },
+    "task_image_cifar": {
+      "ds_40356f676278cb9903556c6e": {"level": 3, "rationale": "CIFAR-100: 100-class natural image multiclass classification."},
+      "ds_4e61d125afd0915cf8dcb4c6": {"level": 1, "rationale": "Beans: image modality, but 3-class leaf disease domain with HTTP 502 endpoint failure."},
+      "ds_c9a42d9bd6268ce4a4cf6061": {"level": 0, "rationale": "Rotten Tomatoes: incompatible text modality."},
+      "ds_3e424a817c66aab45e96797a": {"level": 0, "rationale": "AG News: incompatible text modality."},
+      "ds_69f0f69749316e8b5768ef79": {"level": 0, "rationale": "OpenML Iris: incompatible tabular modality."},
+      "ds_a7472dc830bfc6394941b2f7": {"level": 0, "rationale": "OpenML Wine: incompatible tabular modality."},
+      "ds_773a4c155a583474a0222bdf": {"level": 0, "rationale": "UCI Iris: incompatible tabular modality."},
+      "ds_9f128b3a604eed483953e7f8": {"level": 0, "rationale": "UCI Wine: incompatible tabular modality."},
+      "ds_c39f4b8a33e1fd6fecbf4bdc": {"level": 0, "rationale": "Kaggle Pima: incompatible tabular modality."},
+      "ds_3c522d9aa8b9ec84e3b73660": {"level": 0, "rationale": "Kaggle Heart: incompatible tabular modality."}
+    }
+  }
+}

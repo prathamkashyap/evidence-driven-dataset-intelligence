@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "input_corpus": "experiments/m1/results/development_corpus.jsonl",
+  "input_ledger": "experiments/m3/results/evidence_ledger.jsonl",
+  "input_fingerprints": "experiments/m4/results/dataset_fingerprints.jsonl",
+  "output_directory": "experiments/m5/results",
+  "baseline_weights": {
+    "task_compatibility": 0.142857,
+    "modality_compatibility": 0.142857,
+    "target_compatibility": 0.142857,
+    "structural_compatibility": 0.142857,
+    "quality_compatibility": 0.142857,
+    "governance_compatibility": 0.142857,
+    "access_feasibility": 0.142857
+  },
+  "limits_from_m0": {
+    "cold_query_budget_ms": 20000,
+    "process_memory_ceiling_bytes": 134217728
+  },
+  "reference_tasks_fixture": "tests/fixtures/m5_fixtures.json"
+}
