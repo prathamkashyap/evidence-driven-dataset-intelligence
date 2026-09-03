@@ -1,0 +1,46 @@
+{
+  "by_primary_modality": {
+    "failed": 1,
+    "image": 1,
+    "tabular": 4,
+    "text": 2,
+    "unsupported": 2
+  },
+  "fingerprint_count": 10,
+  "quality_heuristics_distribution": {
+    "mean_duplicate_rate": 0.0,
+    "mean_null_rate": 0.0,
+    "samples_evaluated": 7,
+    "total_constant_columns_detected": 2
+  },
+  "runtime_metrics": {
+    "m0_ceiling_bytes": 134217728,
+    "m0_ceiling_mib": 128.0,
+    "peak_rss_bytes": 25378816,
+    "peak_rss_mib": 24.2,
+    "wall_clock_ms": 9.31,
+    "within_m0_memory_ceiling": true
+  },
+  "schema_version": "1.0",
+  "target_diagnostic_coverage": {
+    "targets_identified": 6,
+    "total_evaluated": 10
+  },
+  "unsupported_and_failed_cases": [
+    {
+      "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+      "modality": "failed",
+      "reason": "HTTP 502 from sample endpoint (https://datasets-server.huggingface.co/rows?dataset=AI-Lab-Makerere%2Fbeans&config=default&split=train&offset=0&length=32)"
+    },
+    {
+      "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+      "modality": "unsupported",
+      "reason": "Kaggle bounded sample access unsupported without credentials under M0 policy."
+    },
+    {
+      "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+      "modality": "unsupported",
+      "reason": "Kaggle bounded sample access unsupported without credentials under M0 policy."
+    }
+  ]
+}
