@@ -1,0 +1,45 @@
+{
+  "synthetic_profiles": {
+    "hf_high_pop": {
+      "dataset_id": "ds_synth_hf_1",
+      "source_name": "huggingface",
+      "raw_signals": {"downloads": 50000, "stars": 300},
+      "expected_measurement_state": "measured",
+      "expected_stratum": "very_high"
+    },
+    "hf_low_pop": {
+      "dataset_id": "ds_synth_hf_2",
+      "source_name": "huggingface",
+      "raw_signals": {"downloads": 10, "stars": 0},
+      "expected_measurement_state": "measured",
+      "expected_stratum": "very_low"
+    },
+    "openml_unmeasured": {
+      "dataset_id": "ds_synth_openml_1",
+      "source_name": "openml",
+      "raw_signals": {"downloads": null, "stars": null},
+      "expected_measurement_state": "under_observed",
+      "expected_stratum": "unknown"
+    }
+  },
+  "family_linkage_test_cases": [
+    {
+      "name": "iris_openml_vs_uci",
+      "dataset_id_1": "ds_69f0f69749316e8b5768ef79",
+      "dataset_id_2": "ds_773a4c155a583474a0222bdf",
+      "expected_linkage": "same_family"
+    },
+    {
+      "name": "wine_openml_vs_uci",
+      "dataset_id_1": "ds_a7472dc830bfc6394941b2f7",
+      "dataset_id_2": "ds_9f128b3a604eed483953e7f8",
+      "expected_linkage": "same_family"
+    },
+    {
+      "name": "rotten_tomatoes_vs_cifar",
+      "dataset_id_1": "ds_c9a42d9bd6268ce4a4cf6061",
+      "dataset_id_2": "ds_40356f676278cb9903556c6e",
+      "expected_linkage": "different_family"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "input_corpus": "experiments/m1/results/development_corpus.jsonl",
+  "input_m2_benchmark": "experiments/m2/results/benchmark.json",
+  "input_m5_utility": "experiments/m5/results/utility_estimates.jsonl",
+  "output_directory": "experiments/m6/results",
+  "strata_cutoffs": {
+    "very_high": 0.80,
+    "high": 0.60,
+    "medium": 0.40,
+    "low": 0.20
+  },
+  "exploration_parameters": {
+    "retrieval_top_k": 3,
+    "min_exploration_utility": 0.50,
+    "min_hidden_gem_utility": 0.70,
+    "min_access_score": 0.80,
+    "min_quality_score": 0.70,
+    "max_exploration_additions": 5
+  },
+  "limits_from_m0": {
+    "combined_pre_evidence_records": 60,
+    "cold_query_budget_ms": 20000,
+    "process_memory_ceiling_bytes": 134217728
+  }
+}
