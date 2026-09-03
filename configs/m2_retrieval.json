@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "corpus": "experiments/m1/results/development_corpus.jsonl",
+  "index_directory": "indexes/retrieval/m2",
+  "limits_from_m0": {"records_per_programmatic_source": 20, "combined_pre_evidence_records": 60, "cold_query_budget_ms": 20000, "process_memory_ceiling_bytes": 134217728},
+  "bm25": {"k1": 1.2, "b": 0.75},
+  "dense": {"model_id": "sentence-transformers/all-MiniLM-L6-v2", "model_revision": "main", "normalize_embeddings": true},
+  "hybrid": {"rrf_k": 60},
+  "document_fields": ["dataset_name", "description", "task", "domain", "modality", "target", "label_type", "tags", "intended_use"]
+}

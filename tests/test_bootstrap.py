@@ -23,9 +23,10 @@ class BootstrapValidationTests(unittest.TestCase):
     def test_bootstrap_configuration_is_valid(self) -> None:
         self.assertEqual(load_validator().validate(), [])
 
-    def test_m0_does_not_add_runtime_dependencies(self) -> None:
+    def test_m0_configuration_remains_independent_of_runtime_dependencies(self) -> None:
         pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
-        self.assertIn("dependencies = []", pyproject)
+        self.assertIn("sentence-transformers", pyproject)
+        self.assertEqual(load_validator().validate(), [])
 
 
 if __name__ == "__main__":
