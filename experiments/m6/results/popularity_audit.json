@@ -1,0 +1,190 @@
+{
+  "disclaimer": "Development simulation on 10 datasets across 4 queries; does not claim generalized web-scale popularity bias.",
+  "query_audits": {
+    "q_image_leaf": {
+      "corpus_datasets_count": 10,
+      "exposed_datasets_count": 3,
+      "exposure_disparity_ratio": {
+        "high": 0.0,
+        "low": 3.3333,
+        "medium": "not_estimable (zero corpus share)",
+        "unknown": 0.0,
+        "very_high": 1.6667,
+        "very_low": 3.3333
+      },
+      "mean_utility_by_stratum_corpus": {
+        "high": 0.0,
+        "low": 0.8857,
+        "medium": "not_estimable (no candidates in stratum)",
+        "unknown": 0.0,
+        "very_high": 0.0,
+        "very_low": 0.6714
+      },
+      "mean_utility_by_stratum_exposed": {
+        "high": "not_estimable (no candidates in stratum)",
+        "low": 0.8857,
+        "medium": "not_estimable (no candidates in stratum)",
+        "unknown": "not_estimable (no candidates in stratum)",
+        "very_high": 0.0,
+        "very_low": 0.6714
+      },
+      "query_id": "q_image_leaf",
+      "stratum_exposure_share": {
+        "high": 0.0,
+        "low": 0.3333,
+        "medium": 0.0,
+        "unknown": 0.0,
+        "very_high": 0.3333,
+        "very_low": 0.3333
+      },
+      "top_k": 3,
+      "utility_weighted_exposure": {
+        "high": 0.0,
+        "low": 0.5688,
+        "medium": 0.0,
+        "unknown": 0.0,
+        "very_high": 0.0,
+        "very_low": 0.4312
+      }
+    },
+    "q_news": {
+      "corpus_datasets_count": 10,
+      "exposed_datasets_count": 3,
+      "exposure_disparity_ratio": {
+        "high": 3.3333,
+        "low": 3.3333,
+        "medium": "not_estimable (zero corpus share)",
+        "unknown": 0.0,
+        "very_high": 1.6667,
+        "very_low": 0.0
+      },
+      "mean_utility_by_stratum_corpus": {
+        "high": 0.85,
+        "low": 0.0,
+        "medium": "not_estimable (no candidates in stratum)",
+        "unknown": 0.0,
+        "very_high": 0.425,
+        "very_low": 0.0
+      },
+      "mean_utility_by_stratum_exposed": {
+        "high": 0.85,
+        "low": 0.0,
+        "medium": "not_estimable (no candidates in stratum)",
+        "unknown": "not_estimable (no candidates in stratum)",
+        "very_high": 0.85,
+        "very_low": "not_estimable (no candidates in stratum)"
+      },
+      "query_id": "q_news",
+      "stratum_exposure_share": {
+        "high": 0.3333,
+        "low": 0.3333,
+        "medium": 0.0,
+        "unknown": 0.0,
+        "very_high": 0.3333,
+        "very_low": 0.0
+      },
+      "top_k": 3,
+      "utility_weighted_exposure": {
+        "high": 0.5,
+        "low": 0.0,
+        "medium": 0.0,
+        "unknown": 0.0,
+        "very_high": 0.5,
+        "very_low": 0.0
+      }
+    },
+    "q_tabular_wine": {
+      "corpus_datasets_count": 10,
+      "exposed_datasets_count": 3,
+      "exposure_disparity_ratio": {
+        "high": 0.0,
+        "low": 3.3333,
+        "medium": "not_estimable (zero corpus share)",
+        "unknown": 1.3333,
+        "very_high": 0.0,
+        "very_low": 0.0
+      },
+      "mean_utility_by_stratum_corpus": {
+        "high": 0.0,
+        "low": 0.0,
+        "medium": "not_estimable (no candidates in stratum)",
+        "unknown": 0.6857,
+        "very_high": 0.0,
+        "very_low": 0.0
+      },
+      "mean_utility_by_stratum_exposed": {
+        "high": "not_estimable (no candidates in stratum)",
+        "low": 0.0,
+        "medium": "not_estimable (no candidates in stratum)",
+        "unknown": 0.8214,
+        "very_high": "not_estimable (no candidates in stratum)",
+        "very_low": "not_estimable (no candidates in stratum)"
+      },
+      "query_id": "q_tabular_wine",
+      "stratum_exposure_share": {
+        "high": 0.0,
+        "low": 0.3333,
+        "medium": 0.0,
+        "unknown": 0.6667,
+        "very_high": 0.0,
+        "very_low": 0.0
+      },
+      "top_k": 3,
+      "utility_weighted_exposure": {
+        "high": 0.0,
+        "low": 0.0,
+        "medium": 0.0,
+        "unknown": 1.0,
+        "very_high": 0.0,
+        "very_low": 0.0
+      }
+    },
+    "q_text_sentiment": {
+      "corpus_datasets_count": 10,
+      "exposed_datasets_count": 3,
+      "exposure_disparity_ratio": {
+        "high": 3.3333,
+        "low": 3.3333,
+        "medium": "not_estimable (zero corpus share)",
+        "unknown": 0.0,
+        "very_high": 1.6667,
+        "very_low": 0.0
+      },
+      "mean_utility_by_stratum_corpus": {
+        "high": 0.8929,
+        "low": 0.0,
+        "medium": "not_estimable (no candidates in stratum)",
+        "unknown": 0.0,
+        "very_high": 0.4465,
+        "very_low": 0.0
+      },
+      "mean_utility_by_stratum_exposed": {
+        "high": 0.8929,
+        "low": 0.0,
+        "medium": "not_estimable (no candidates in stratum)",
+        "unknown": "not_estimable (no candidates in stratum)",
+        "very_high": 0.8929,
+        "very_low": "not_estimable (no candidates in stratum)"
+      },
+      "query_id": "q_text_sentiment",
+      "stratum_exposure_share": {
+        "high": 0.3333,
+        "low": 0.3333,
+        "medium": 0.0,
+        "unknown": 0.0,
+        "very_high": 0.3333,
+        "very_low": 0.0
+      },
+      "top_k": 3,
+      "utility_weighted_exposure": {
+        "high": 0.5,
+        "low": 0.0,
+        "medium": 0.0,
+        "unknown": 0.0,
+        "very_high": 0.5,
+        "very_low": 0.0
+      }
+    }
+  },
+  "schema_version": "1.0"
+}

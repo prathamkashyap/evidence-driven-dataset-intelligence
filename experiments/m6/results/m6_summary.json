@@ -1,0 +1,115 @@
+{
+  "exploration_simulation_summary": {
+    "q_image_leaf": {
+      "condition_a_main_pool": [
+        "ds_4e61d125afd0915cf8dcb4c6",
+        "ds_40356f676278cb9903556c6e",
+        "ds_c39f4b8a33e1fd6fecbf4bdc"
+      ],
+      "condition_a_mean_utility": 0.519,
+      "condition_b_augmented_pool": [
+        "ds_4e61d125afd0915cf8dcb4c6",
+        "ds_40356f676278cb9903556c6e",
+        "ds_c39f4b8a33e1fd6fecbf4bdc"
+      ],
+      "condition_b_mean_utility": 0.519,
+      "eligible_exploration_count": 0,
+      "hidden_gems_found": [],
+      "redundant_family_variants_detected": {},
+      "selected_exploration_additions_count": 0,
+      "task_name": "task_image_cifar",
+      "under_exposed_candidates_count": 0,
+      "under_observed_high_utility_found": []
+    },
+    "q_news": {
+      "condition_a_main_pool": [
+        "ds_3e424a817c66aab45e96797a",
+        "ds_c9a42d9bd6268ce4a4cf6061",
+        "ds_40356f676278cb9903556c6e"
+      ],
+      "condition_a_mean_utility": 0.5667,
+      "condition_b_augmented_pool": [
+        "ds_3e424a817c66aab45e96797a",
+        "ds_c9a42d9bd6268ce4a4cf6061",
+        "ds_40356f676278cb9903556c6e"
+      ],
+      "condition_b_mean_utility": 0.5667,
+      "eligible_exploration_count": 0,
+      "hidden_gems_found": [],
+      "redundant_family_variants_detected": {},
+      "selected_exploration_additions_count": 0,
+      "task_name": "task_news_multiclass",
+      "under_exposed_candidates_count": 0,
+      "under_observed_high_utility_found": []
+    },
+    "q_tabular_wine": {
+      "condition_a_main_pool": [
+        "ds_9f128b3a604eed483953e7f8",
+        "ds_a7472dc830bfc6394941b2f7",
+        "ds_40356f676278cb9903556c6e"
+      ],
+      "condition_a_mean_utility": 0.5476,
+      "condition_b_augmented_pool": [
+        "ds_9f128b3a604eed483953e7f8",
+        "ds_a7472dc830bfc6394941b2f7",
+        "ds_40356f676278cb9903556c6e",
+        "ds_773a4c155a583474a0222bdf",
+        "ds_69f0f69749316e8b5768ef79"
+      ],
+      "condition_b_mean_utility": 0.6857,
+      "eligible_exploration_count": 2,
+      "hidden_gems_found": [],
+      "redundant_family_variants_detected": {},
+      "selected_exploration_additions_count": 2,
+      "task_name": "task_tabular_iris",
+      "under_exposed_candidates_count": 2,
+      "under_observed_high_utility_found": [
+        "ds_69f0f69749316e8b5768ef79",
+        "ds_773a4c155a583474a0222bdf"
+      ]
+    },
+    "q_text_sentiment": {
+      "condition_a_main_pool": [
+        "ds_c9a42d9bd6268ce4a4cf6061",
+        "ds_3e424a817c66aab45e96797a",
+        "ds_40356f676278cb9903556c6e"
+      ],
+      "condition_a_mean_utility": 0.5953,
+      "condition_b_augmented_pool": [
+        "ds_c9a42d9bd6268ce4a4cf6061",
+        "ds_3e424a817c66aab45e96797a",
+        "ds_40356f676278cb9903556c6e"
+      ],
+      "condition_b_mean_utility": 0.5953,
+      "eligible_exploration_count": 0,
+      "hidden_gems_found": [],
+      "redundant_family_variants_detected": {},
+      "selected_exploration_additions_count": 0,
+      "task_name": "task_sentiment_binary",
+      "under_exposed_candidates_count": 0,
+      "under_observed_high_utility_found": []
+    }
+  },
+  "measured_popularity_count": 5,
+  "popularity_strata_distribution": {
+    "high": 1,
+    "low": 1,
+    "unknown": 5,
+    "very_high": 2,
+    "very_low": 1
+  },
+  "runtime_metrics": {
+    "m0_ceiling_bytes": 134217728,
+    "m0_ceiling_mib": 128.0,
+    "peak_rss_bytes": 26296320,
+    "peak_rss_mib": 25.08,
+    "wall_clock_ms": 12.29,
+    "within_m0_memory_ceiling": true
+  },
+  "schema_version": "1.0",
+  "total_hidden_gems_identified": 0,
+  "total_profiles_generated": 10,
+  "total_queries_audited": 4,
+  "total_under_observed_high_utility_identified": 2,
+  "under_observed_popularity_count": 5
+}
