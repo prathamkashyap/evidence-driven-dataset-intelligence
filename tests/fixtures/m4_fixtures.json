@@ -1,0 +1,49 @@
+{
+  "tabular": {
+    "iris": [
+      {"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa"},
+      {"sepal_length": 4.9, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa"},
+      {"sepal_length": 7.0, "sepal_width": 3.2, "petal_length": 4.7, "petal_width": 1.4, "species": "versicolor"},
+      {"sepal_length": 6.3, "sepal_width": 3.3, "petal_length": 6.0, "petal_width": 2.5, "species": "virginica"}
+    ],
+    "wine": [
+      {"alcohol": 14.23, "malic_acid": 1.71, "ash": 2.43, "class": "1"},
+      {"alcohol": 13.20, "malic_acid": 1.78, "ash": 2.14, "class": "1"},
+      {"alcohol": 13.16, "malic_acid": 2.36, "ash": 2.67, "class": "1"},
+      {"alcohol": 12.37, "malic_acid": 0.94, "ash": 1.36, "class": "2"}
+    ],
+    "mixed_and_degenerate": [
+      {"id": 1, "constant_col": "fixed_val", "mixed_col": 42, "nullable_col": "present", "flag": true, "date": "2026-01-01"},
+      {"id": 2, "constant_col": "fixed_val", "mixed_col": "string_val", "nullable_col": null, "flag": false, "date": "2026-01-02"},
+      {"id": 3, "constant_col": "fixed_val", "mixed_col": 99.5, "nullable_col": "", "flag": true, "date": "2026-01-03"},
+      {"id": 4, "constant_col": "fixed_val", "mixed_col": "another_str", "nullable_col": null, "flag": false, "date": "2026-01-04"}
+    ],
+    "with_duplicates_and_empty": [
+      {"feat1": 10, "feat2": "alpha"},
+      {"feat1": 10, "feat2": "alpha"},
+      {"feat1": null, "feat2": null}
+    ]
+  },
+  "text": {
+    "reviews": [
+      {"text": "A genuine masterpiece of modern cinema.", "label": "positive"},
+      {"text": "Utterly predictable and completely uninspired.", "label": "negative"},
+      {"text": "Strong performances rescue an otherwise thin plot.", "label": "positive"},
+      {"text": "", "label": "neutral"},
+      {"text": "   ", "label": "neutral"},
+      {"text": "A genuine masterpiece of modern cinema.", "label": "positive"}
+    ],
+    "news": [
+      {"headline": "Tech Stocks Surge Amid Breakthroughs", "topic": "business"},
+      {"headline": "Championship Finals Set for Sunday", "topic": "sports"},
+      {"headline": "New Discoveries in Deep Ocean Exploration", "topic": "science"}
+    ]
+  },
+  "image": {
+    "metadata_records": [
+      {"image_id": "img_001.jpg", "width": 640, "height": 480, "channels": 3, "format": "JPEG"},
+      {"image_id": "img_002.jpg", "width": 800, "height": 600, "channels": 3, "format": "JPEG"},
+      {"image_id": "img_003.jpg", "width": 1024, "height": 768, "channels": 3, "format": "JPEG"}
+    ]
+  }
+}
