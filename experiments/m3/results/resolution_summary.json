@@ -1,0 +1,1713 @@
+{
+  "input_corpus_records": 10,
+  "ledger_summary": {
+    "by_evidence_type": {
+      "access_probe": 20,
+      "content_observation": 10,
+      "croissant_claim": 13,
+      "documentation_claim": 10,
+      "metadata_claim": 54
+    },
+    "by_observation_state": {
+      "failed": 6,
+      "observed": 23,
+      "single_source_claim": 67,
+      "unknown": 9,
+      "unsupported": 2
+    },
+    "by_source": {
+      "huggingface": 44,
+      "kaggle": 19,
+      "openml": 22,
+      "uci": 22
+    },
+    "total_entries": 107,
+    "unique_datasets": 10
+  },
+  "resolution_summary": {
+    "by_resolution_state": {
+      "conflicting": 1,
+      "unknown": 15,
+      "unresolved": 90
+    },
+    "total_resolutions": 106
+  },
+  "resolutions_by_dataset": {
+    "ds_3c522d9aa8b9ec84e3b73660": [
+      {
+        "claim_type": "access_capability",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "evidence_entry_ids": [
+          "ev_2f7a50211158f193adc8080b"
+        ],
+        "explanation": "Single source observation (kaggle: access_probe); uncorroborated.",
+        "resolution_id": "res_621eee6752fe7b33749d69fa",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "access_type": "public_metadata_only",
+          "authentication_required": true,
+          "bounded_sampling": false,
+          "limitations": [
+            "M0 observed metadata HTTP 403 for one record; no credentials or anonymous-download workaround"
+          ],
+          "metadata_discovery": true,
+          "metadata_retrieval": true,
+          "programmatic_access": "metadata_only_under_m0_policy",
+          "rate_limits": "unknown",
+          "sample_accessible": "unsupported_or_policy_limited",
+          "sample_retrieval": false,
+          "sampling_method": null,
+          "streaming": false,
+          "viewer_access": false
+        }
+      },
+      {
+        "claim_type": "access_policy",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "evidence_entry_ids": [
+          "ev_d31743f988e391d2b99f78c7"
+        ],
+        "explanation": "Single source observation (kaggle: access_probe); uncorroborated.",
+        "resolution_id": "res_cd809cb121c8080e7fa971fc",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "status": "metadata_only_no_credentials",
+          "url": "https://www.kaggle.com/getting-started/524433"
+        }
+      },
+      {
+        "claim_type": "croissant_metadata",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "evidence_entry_ids": [
+          "ev_c7b236a988886893efd501e8"
+        ],
+        "explanation": "No substantive observations available for this claim.",
+        "resolution_id": "res_8dc971af3a6d4fc68faf1e7e",
+        "resolution_state": "unknown",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "dataset_name",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "evidence_entry_ids": [
+          "ev_12244ddef7163a6677e35c25"
+        ],
+        "explanation": "Single source observation (kaggle: metadata_claim); uncorroborated.",
+        "resolution_id": "res_7b6e3f39dd868866621d4f1d",
+        "resolution_state": "unresolved",
+        "resolved_value": "Pima Indians Diabetes Database"
+      },
+      {
+        "claim_type": "description",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "evidence_entry_ids": [
+          "ev_d4831bdaaf58d0e786e40581"
+        ],
+        "explanation": "Single source observation (kaggle: metadata_claim); uncorroborated.",
+        "resolution_id": "res_48592f338434b81e0ae7f860",
+        "resolution_state": "unresolved",
+        "resolved_value": "Diabetes prediction data."
+      },
+      {
+        "claim_type": "documentation_link",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "evidence_entry_ids": [
+          "ev_08d8cfb24836d96181df4441"
+        ],
+        "explanation": "Single source observation (kaggle: documentation_claim); uncorroborated.",
+        "resolution_id": "res_aa43aa2c056139308448a90a",
+        "resolution_state": "unresolved",
+        "resolved_value": "https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database"
+      },
+      {
+        "claim_type": "modality",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "evidence_entry_ids": [
+          "ev_2c0836b16ac4dce6f1758b2f"
+        ],
+        "explanation": "Single source observation (kaggle: metadata_claim); uncorroborated.",
+        "resolution_id": "res_a083e019c676c7bf97a89650",
+        "resolution_state": "unresolved",
+        "resolved_value": []
+      },
+      {
+        "claim_type": "sample_inspection",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "evidence_entry_ids": [
+          "ev_ebbd70670d5e45f7d4c89cd8"
+        ],
+        "explanation": "Single source observation (kaggle: content_observation); uncorroborated.",
+        "resolution_id": "res_6e47f42675a6796bc69b6dcd",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "reason": "Kaggle bounded sample access unsupported without credentials under M0 policy.",
+          "status": "unsupported"
+        }
+      },
+      {
+        "claim_type": "version_id",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "evidence_entry_ids": [
+          "ev_e79b5328acf3be1c401ddad8"
+        ],
+        "explanation": "Single source observation (kaggle: metadata_claim); uncorroborated.",
+        "resolution_id": "res_fe111a40a83421bff181e74a",
+        "resolution_state": "unresolved",
+        "resolved_value": "1"
+      }
+    ],
+    "ds_3e424a817c66aab45e96797a": [
+      {
+        "claim_type": "access_capability",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "evidence_entry_ids": [
+          "ev_7ea3881f38662be0ce845889"
+        ],
+        "explanation": "Single source observation (huggingface: access_probe); uncorroborated.",
+        "resolution_id": "res_b22bebd41ee105fc9a96be33",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "access_type": "public_api_and_viewer",
+          "authentication_required": false,
+          "bounded_sampling": true,
+          "limitations": [
+            "viewer availability can fail; M0 observed HTTP 502"
+          ],
+          "metadata_discovery": true,
+          "metadata_retrieval": true,
+          "programmatic_access": "allowed_public",
+          "rate_limits": "unknown",
+          "sample_accessible": "conditional",
+          "sample_retrieval": true,
+          "sampling_method": "documented_dataset_viewer_rows",
+          "streaming": false,
+          "viewer_access": true
+        }
+      },
+      {
+        "claim_type": "access_policy",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "evidence_entry_ids": [
+          "ev_981c97ceebd9f9b00f889e0d"
+        ],
+        "explanation": "Single source observation (huggingface: access_probe); uncorroborated.",
+        "resolution_id": "res_2907c6c671a10bf944bea49d",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "status": "documented_public_viewer",
+          "url": "https://huggingface.co/docs/dataset-viewer/rows"
+        }
+      },
+      {
+        "claim_type": "croissant_metadata",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "evidence_entry_ids": [
+          "ev_a856d4a3a5072a79137ebcd7"
+        ],
+        "explanation": "No substantive observations available for this claim.",
+        "resolution_id": "res_67c1e9abf6304a1ef56f6e3b",
+        "resolution_state": "unknown",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "dataset_name",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "evidence_entry_ids": [
+          "ev_fa46209f7ba1bd50a31806c9"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_3301b39e3189f2f918f3519b",
+        "resolution_state": "unresolved",
+        "resolved_value": "fancyzhx/ag_news"
+      },
+      {
+        "claim_type": "description",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "evidence_entry_ids": [
+          "ev_90e3332583d370a5064fbdb6"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_8b083a4bca0399bc9eb45b8e",
+        "resolution_state": "unresolved",
+        "resolved_value": "News topic classification."
+      },
+      {
+        "claim_type": "documentation_link",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "evidence_entry_ids": [
+          "ev_c51ae91a4b517666e3966447"
+        ],
+        "explanation": "Single source observation (huggingface: documentation_claim); uncorroborated.",
+        "resolution_id": "res_7fccd86c26599817318759b9",
+        "resolution_state": "unresolved",
+        "resolved_value": "https://huggingface.co/datasets/fancyzhx/ag_news"
+      },
+      {
+        "claim_type": "modality",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "evidence_entry_ids": [
+          "ev_edc6326950da5ad8aac92213"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_6e7288854a9bb5ab903279d6",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "text"
+        ]
+      },
+      {
+        "claim_type": "sample_inspection",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "evidence_entry_ids": [
+          "ev_67cf22ad77900b0caf7764c2"
+        ],
+        "explanation": "All observations for this claim encountered operational failures.",
+        "resolution_id": "res_5cc63de9da48529810733cdf",
+        "resolution_state": "unknown",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "task",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "evidence_entry_ids": [
+          "ev_04dd295014e12608f6080500"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_f52abe20fbd9f86f57fbe357",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "text-classification"
+        ]
+      },
+      {
+        "claim_type": "version_id",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "evidence_entry_ids": [
+          "ev_abaeb4c68afe99c93f349bb6"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_d4a261c139be44da3a7553e0",
+        "resolution_state": "unresolved",
+        "resolved_value": "ag-v1"
+      }
+    ],
+    "ds_40356f676278cb9903556c6e": [
+      {
+        "claim_type": "access_capability",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "evidence_entry_ids": [
+          "ev_99c4cc5382682b3e9051b1dc"
+        ],
+        "explanation": "Single source observation (huggingface: access_probe); uncorroborated.",
+        "resolution_id": "res_c44805802ab6f0e022a285e7",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "access_type": "public_api_and_viewer",
+          "authentication_required": false,
+          "bounded_sampling": true,
+          "limitations": [
+            "viewer availability can fail; M0 observed HTTP 502"
+          ],
+          "metadata_discovery": true,
+          "metadata_retrieval": true,
+          "programmatic_access": "allowed_public",
+          "rate_limits": "unknown",
+          "sample_accessible": "conditional",
+          "sample_retrieval": true,
+          "sampling_method": "documented_dataset_viewer_rows",
+          "streaming": false,
+          "viewer_access": true
+        }
+      },
+      {
+        "claim_type": "access_policy",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "evidence_entry_ids": [
+          "ev_aa467d4d452a8be44b7b8f60"
+        ],
+        "explanation": "Single source observation (huggingface: access_probe); uncorroborated.",
+        "resolution_id": "res_638018de789c8b13b2a4f877",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "status": "documented_public_viewer",
+          "url": "https://huggingface.co/docs/dataset-viewer/rows"
+        }
+      },
+      {
+        "claim_type": "croissant_metadata",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "evidence_entry_ids": [
+          "ev_e053792ce9c665f8ca3b5652"
+        ],
+        "explanation": "No substantive observations available for this claim.",
+        "resolution_id": "res_72c1fb71f42ba0cfc01780fc",
+        "resolution_state": "unknown",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "dataset_name",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "evidence_entry_ids": [
+          "ev_6e1232aa9a65873d4f88211c"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_c23f7f154158137d1e3e5001",
+        "resolution_state": "unresolved",
+        "resolved_value": "uoft-cs/cifar100"
+      },
+      {
+        "claim_type": "description",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "evidence_entry_ids": [
+          "ev_0a3c77d2ca8e73fc2d777119"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_3553e900b610d1c57b2cbd93",
+        "resolution_state": "unresolved",
+        "resolved_value": "100-class image dataset."
+      },
+      {
+        "claim_type": "documentation_link",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "evidence_entry_ids": [
+          "ev_f482885de30db223e5df31f4"
+        ],
+        "explanation": "Single source observation (huggingface: documentation_claim); uncorroborated.",
+        "resolution_id": "res_40577dcd8e7a97dd7b147f56",
+        "resolution_state": "unresolved",
+        "resolved_value": "https://huggingface.co/datasets/uoft-cs/cifar100"
+      },
+      {
+        "claim_type": "modality",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "evidence_entry_ids": [
+          "ev_dd7bcd42f319969258f8d382"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_8f9aecff0b823cc6448f13ed",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "image"
+        ]
+      },
+      {
+        "claim_type": "sample_inspection",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "evidence_entry_ids": [
+          "ev_b6faf7ca903dbe398d2be607"
+        ],
+        "explanation": "All observations for this claim encountered operational failures.",
+        "resolution_id": "res_042a1e7b646a8b31a2b0415d",
+        "resolution_state": "unknown",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "task",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "evidence_entry_ids": [
+          "ev_ddbfb5eddaef9b7068d29ae7"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_2000547ac6b15fa368d9f6c5",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "image-classification"
+        ]
+      },
+      {
+        "claim_type": "version_id",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "evidence_entry_ids": [
+          "ev_33f3d5e3cb2c7eef5af277c8"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_1e8d1395df6699483e45b35c",
+        "resolution_state": "unresolved",
+        "resolved_value": "cifar-v1"
+      }
+    ],
+    "ds_4e61d125afd0915cf8dcb4c6": [
+      {
+        "claim_type": "access_capability",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "evidence_entry_ids": [
+          "ev_e0b2bc2bf365fe322c1aaa24"
+        ],
+        "explanation": "Single source observation (huggingface: access_probe); uncorroborated.",
+        "resolution_id": "res_23b368382a6cb2002212f302",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "access_type": "public_api_and_viewer",
+          "authentication_required": false,
+          "bounded_sampling": true,
+          "limitations": [
+            "viewer availability can fail; M0 observed HTTP 502"
+          ],
+          "metadata_discovery": true,
+          "metadata_retrieval": true,
+          "programmatic_access": "allowed_public",
+          "rate_limits": "unknown",
+          "sample_accessible": "conditional",
+          "sample_retrieval": true,
+          "sampling_method": "documented_dataset_viewer_rows",
+          "streaming": false,
+          "viewer_access": true
+        }
+      },
+      {
+        "claim_type": "access_policy",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "evidence_entry_ids": [
+          "ev_e1e22bb9b116f5d019cf764e"
+        ],
+        "explanation": "Single source observation (huggingface: access_probe); uncorroborated.",
+        "resolution_id": "res_33e9e10abf0b0975872426ed",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "status": "documented_public_viewer",
+          "url": "https://huggingface.co/docs/dataset-viewer/rows"
+        }
+      },
+      {
+        "claim_type": "croissant_metadata",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "evidence_entry_ids": [
+          "ev_689305f85f115cf223e8d6da"
+        ],
+        "explanation": "No substantive observations available for this claim.",
+        "resolution_id": "res_4b73cb752ed8e0716a49bdf3",
+        "resolution_state": "unknown",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "dataset_name",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "evidence_entry_ids": [
+          "ev_aeb5aef29b0fc36f736a74c1"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_37480aba251d1e264140106a",
+        "resolution_state": "unresolved",
+        "resolved_value": "AI-Lab-Makerere/beans"
+      },
+      {
+        "claim_type": "description",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "evidence_entry_ids": [
+          "ev_8897e7b277eac07d81666df2"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_6fc73528ee5d32b4eff9e0d2",
+        "resolution_state": "unresolved",
+        "resolved_value": "Bean leaf image labels."
+      },
+      {
+        "claim_type": "documentation_link",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "evidence_entry_ids": [
+          "ev_e533915eefd2e7345f6044b7"
+        ],
+        "explanation": "Single source observation (huggingface: documentation_claim); uncorroborated.",
+        "resolution_id": "res_f84c2ef5d2376f57a51c2a8c",
+        "resolution_state": "unresolved",
+        "resolved_value": "https://huggingface.co/datasets/AI-Lab-Makerere/beans"
+      },
+      {
+        "claim_type": "modality",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "evidence_entry_ids": [
+          "ev_debe0ccc049d461fc0d6809d"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_57ab933dc4e39748990e4464",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "image"
+        ]
+      },
+      {
+        "claim_type": "sample_inspection",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "evidence_entry_ids": [
+          "ev_62f58f92726f4c1bc1338647"
+        ],
+        "explanation": "All observations for this claim encountered operational failures.",
+        "resolution_id": "res_4e3a71037e29f5173e5e066a",
+        "resolution_state": "unknown",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "task",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "evidence_entry_ids": [
+          "ev_3f61f1ebbd50d21b73f1dda2"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_a53bef92a02bffffc3627391",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "image-classification"
+        ]
+      },
+      {
+        "claim_type": "version_id",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "evidence_entry_ids": [
+          "ev_87ad1095d2a97b317d75d6af"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_6cac7ffcf89fb620b162e779",
+        "resolution_state": "unresolved",
+        "resolved_value": "beans-v1"
+      }
+    ],
+    "ds_69f0f69749316e8b5768ef79": [
+      {
+        "claim_type": "access_capability",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "evidence_entry_ids": [
+          "ev_43b7e9bbd3fc5440c0f11ae9"
+        ],
+        "explanation": "Single source observation (openml: access_probe); uncorroborated.",
+        "resolution_id": "res_0d8d867cbb87d4edb00f7ac8",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "access_type": "public_rest",
+          "authentication_required": false,
+          "bounded_sampling": true,
+          "limitations": [],
+          "metadata_discovery": true,
+          "metadata_retrieval": true,
+          "programmatic_access": "allowed_public",
+          "rate_limits": "unknown",
+          "sample_accessible": "conditional",
+          "sample_retrieval": true,
+          "sampling_method": "metadata_link_bounded_stream",
+          "streaming": false,
+          "viewer_access": false
+        }
+      },
+      {
+        "claim_type": "access_policy",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "evidence_entry_ids": [
+          "ev_56ad629067ffbf3c216c098e"
+        ],
+        "explanation": "Single source observation (openml: access_probe); uncorroborated.",
+        "resolution_id": "res_c6294d77d33065e30d705baf",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "status": "documented_public_rest",
+          "url": "https://docs.openml.org/ecosystem/Rest/"
+        }
+      },
+      {
+        "claim_type": "class_count",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "evidence_entry_ids": [
+          "ev_b093a50d6cf19ac48a79b4d0"
+        ],
+        "explanation": "Single source observation (openml: metadata_claim); uncorroborated.",
+        "resolution_id": "res_a45fc4d7821bf76826e8efac",
+        "resolution_state": "unresolved",
+        "resolved_value": "3"
+      },
+      {
+        "claim_type": "croissant_metadata",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "evidence_entry_ids": [
+          "ev_244eba64d57137b4e9608536"
+        ],
+        "explanation": "No substantive observations available for this claim.",
+        "resolution_id": "res_eff6ac07219fe52af7418650",
+        "resolution_state": "unknown",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "dataset_name",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "evidence_entry_ids": [
+          "ev_216155a9cfdff8027a149c53"
+        ],
+        "explanation": "Single source observation (openml: metadata_claim); uncorroborated.",
+        "resolution_id": "res_a6a3e7cbdba680d9504ab524",
+        "resolution_state": "unresolved",
+        "resolved_value": "iris"
+      },
+      {
+        "claim_type": "description",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "evidence_entry_ids": [
+          "ev_ae0bf5a7f2924af4815249d8"
+        ],
+        "explanation": "Single source observation (openml: metadata_claim); uncorroborated.",
+        "resolution_id": "res_b7a9a2ca8bfa94926ecf0b05",
+        "resolution_state": "unresolved",
+        "resolved_value": "Iris flower measurements."
+      },
+      {
+        "claim_type": "documentation_link",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "evidence_entry_ids": [
+          "ev_7d05d10cd1c81d1190facdd8"
+        ],
+        "explanation": "Single source observation (openml: documentation_claim); uncorroborated.",
+        "resolution_id": "res_da50368bf5dbd7469946c802",
+        "resolution_state": "unresolved",
+        "resolved_value": "https://www.openml.org/d/61"
+      },
+      {
+        "claim_type": "modality",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "evidence_entry_ids": [
+          "ev_a39b5f5f16a98a23bc148a3a"
+        ],
+        "explanation": "Single source observation (openml: metadata_claim); uncorroborated.",
+        "resolution_id": "res_1d896a25a927ed5e9d709e50",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "ARFF"
+        ]
+      },
+      {
+        "claim_type": "sample_count",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "evidence_entry_ids": [
+          "ev_62053303faf20170c8901595"
+        ],
+        "explanation": "Single source observation (openml: metadata_claim); uncorroborated.",
+        "resolution_id": "res_f0d954f0b88e8679cddbbdc2",
+        "resolution_state": "unresolved",
+        "resolved_value": "150"
+      },
+      {
+        "claim_type": "sample_inspection",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "evidence_entry_ids": [
+          "ev_aaf72d152fde7c156c710a16"
+        ],
+        "explanation": "Single source observation (openml: content_observation); uncorroborated.",
+        "resolution_id": "res_f826b2174813c55ec4d22355",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "column_names": [
+            "petal_length",
+            "petal_width",
+            "sepal_length",
+            "sepal_width",
+            "species"
+          ],
+          "column_types": {
+            "petal_length": "numeric",
+            "petal_width": "numeric",
+            "sepal_length": "numeric",
+            "sepal_width": "numeric",
+            "species": "string"
+          },
+          "duplicate_rate": 0.0,
+          "null_rate": 0.0,
+          "records_observed": 4,
+          "sample_sha256": "5aa82117dcbd69658ab63a030f3e8fba5627200882af61865805d910aa00d46a"
+        }
+      },
+      {
+        "claim_type": "version_id",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "evidence_entry_ids": [
+          "ev_9b2804e5140f41a64008e62b"
+        ],
+        "explanation": "Single source observation (openml: metadata_claim); uncorroborated.",
+        "resolution_id": "res_1aff11decb82dbae77f94e43",
+        "resolution_state": "unresolved",
+        "resolved_value": "1"
+      }
+    ],
+    "ds_773a4c155a583474a0222bdf": [
+      {
+        "claim_type": "access_capability",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "evidence_entry_ids": [
+          "ev_470516cbc3a71dd245097a40"
+        ],
+        "explanation": "Single source observation (uci: access_probe); uncorroborated.",
+        "resolution_id": "res_766b2ead1b3a56137840c083",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "access_type": "controlled_seed_catalog",
+          "authentication_required": false,
+          "bounded_sampling": true,
+          "limitations": [
+            "M0 did not establish a documented programmatic discovery endpoint"
+          ],
+          "metadata_discovery": false,
+          "metadata_retrieval": true,
+          "programmatic_access": "unknown_for_discovery",
+          "rate_limits": "unknown",
+          "sample_accessible": "conditional",
+          "sample_retrieval": true,
+          "sampling_method": "public_flat_file_bounded_stream",
+          "streaming": false,
+          "viewer_access": false
+        }
+      },
+      {
+        "claim_type": "access_policy",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "evidence_entry_ids": [
+          "ev_327b6c0303ef4844e81d5980"
+        ],
+        "explanation": "Single source observation (uci: access_probe); uncorroborated.",
+        "resolution_id": "res_77578e5c189f916419fb9511",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "status": "public_direct_access_observed",
+          "url": "https://uci-ics-mlr-prod.aws.uci.edu/privacy"
+        }
+      },
+      {
+        "claim_type": "class_count",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "evidence_entry_ids": [
+          "ev_54d40325913e87025fd49390"
+        ],
+        "explanation": "Single source observation (uci: metadata_claim); uncorroborated.",
+        "resolution_id": "res_4a4720b9ff4b3c0af6aa935c",
+        "resolution_state": "unresolved",
+        "resolved_value": 3
+      },
+      {
+        "claim_type": "croissant_metadata",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "evidence_entry_ids": [
+          "ev_d65138767a9565ad95114c2b"
+        ],
+        "explanation": "No substantive observations available for this claim.",
+        "resolution_id": "res_7cee48e6faae45b5addaaa8a",
+        "resolution_state": "unknown",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "dataset_name",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "evidence_entry_ids": [
+          "ev_71cfeb25de00b13bf9122f0f"
+        ],
+        "explanation": "Single source observation (uci: metadata_claim); uncorroborated.",
+        "resolution_id": "res_7b14b6818602d607f7a70e22",
+        "resolution_state": "unresolved",
+        "resolved_value": "Iris"
+      },
+      {
+        "claim_type": "description",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "evidence_entry_ids": [
+          "ev_9d6154e10e1c5d8664f9f672"
+        ],
+        "explanation": "Single source observation (uci: metadata_claim); uncorroborated.",
+        "resolution_id": "res_2fe118728a63dd94bf25970a",
+        "resolution_state": "unresolved",
+        "resolved_value": "Iris measurements."
+      },
+      {
+        "claim_type": "documentation_link",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "evidence_entry_ids": [
+          "ev_dc9d9afe2b90189d0a4d25c4"
+        ],
+        "explanation": "Single source observation (uci: documentation_claim); uncorroborated.",
+        "resolution_id": "res_1dbb09f4b3af75a70d255eec",
+        "resolution_state": "unresolved",
+        "resolved_value": "https://archive.ics.uci.edu/dataset/53/iris"
+      },
+      {
+        "claim_type": "modality",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "evidence_entry_ids": [
+          "ev_55e9f14ed51f792480f18667"
+        ],
+        "explanation": "Single source observation (uci: metadata_claim); uncorroborated.",
+        "resolution_id": "res_3cb8ce6c16f47ce74ebc8890",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "tabular"
+        ]
+      },
+      {
+        "claim_type": "sample_count",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "evidence_entry_ids": [
+          "ev_b4cb97e73f00641ef7d08624"
+        ],
+        "explanation": "Single source observation (uci: metadata_claim); uncorroborated.",
+        "resolution_id": "res_05a0871ced41f80850a8fb90",
+        "resolution_state": "unresolved",
+        "resolved_value": 150
+      },
+      {
+        "claim_type": "sample_inspection",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "evidence_entry_ids": [
+          "ev_4128b7a62d1ecbc292656abf"
+        ],
+        "explanation": "Single source observation (uci: content_observation); uncorroborated.",
+        "resolution_id": "res_a4d957e07db891912c544b8e",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "column_names": [
+            "petal_length",
+            "petal_width",
+            "sepal_length",
+            "sepal_width",
+            "species"
+          ],
+          "column_types": {
+            "petal_length": "numeric",
+            "petal_width": "numeric",
+            "sepal_length": "numeric",
+            "sepal_width": "numeric",
+            "species": "string"
+          },
+          "duplicate_rate": 0.0,
+          "null_rate": 0.0,
+          "records_observed": 4,
+          "sample_sha256": "5aa82117dcbd69658ab63a030f3e8fba5627200882af61865805d910aa00d46a"
+        }
+      },
+      {
+        "claim_type": "task",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "evidence_entry_ids": [
+          "ev_62c99810cb75fb5c82f5d811"
+        ],
+        "explanation": "Single source observation (uci: metadata_claim); uncorroborated.",
+        "resolution_id": "res_074e63c058af142c14be55b1",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "classification"
+        ]
+      }
+    ],
+    "ds_9f128b3a604eed483953e7f8": [
+      {
+        "claim_type": "access_capability",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "evidence_entry_ids": [
+          "ev_ba100a2df427f92fcbf6040a"
+        ],
+        "explanation": "Single source observation (uci: access_probe); uncorroborated.",
+        "resolution_id": "res_e6f7692e4345ac88fff8ac10",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "access_type": "controlled_seed_catalog",
+          "authentication_required": false,
+          "bounded_sampling": true,
+          "limitations": [
+            "M0 did not establish a documented programmatic discovery endpoint"
+          ],
+          "metadata_discovery": false,
+          "metadata_retrieval": true,
+          "programmatic_access": "unknown_for_discovery",
+          "rate_limits": "unknown",
+          "sample_accessible": "conditional",
+          "sample_retrieval": true,
+          "sampling_method": "public_flat_file_bounded_stream",
+          "streaming": false,
+          "viewer_access": false
+        }
+      },
+      {
+        "claim_type": "access_policy",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "evidence_entry_ids": [
+          "ev_a95162416187be6a4038e935"
+        ],
+        "explanation": "Single source observation (uci: access_probe); uncorroborated.",
+        "resolution_id": "res_9659effd0d59088833276a06",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "status": "public_direct_access_observed",
+          "url": "https://uci-ics-mlr-prod.aws.uci.edu/privacy"
+        }
+      },
+      {
+        "claim_type": "class_count",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "evidence_entry_ids": [
+          "ev_99476fa7bbceebc21514f988"
+        ],
+        "explanation": "Single source observation (uci: metadata_claim); uncorroborated.",
+        "resolution_id": "res_b30c7274bfa8eae3057fd149",
+        "resolution_state": "unresolved",
+        "resolved_value": 3
+      },
+      {
+        "claim_type": "croissant_metadata",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "evidence_entry_ids": [
+          "ev_0381f01d898bf31590ca72bd"
+        ],
+        "explanation": "No substantive observations available for this claim.",
+        "resolution_id": "res_3e058b20cc339bfc45702e4a",
+        "resolution_state": "unknown",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "dataset_name",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "evidence_entry_ids": [
+          "ev_9e0af37236e4c9fd8ed1e43e"
+        ],
+        "explanation": "Single source observation (uci: metadata_claim); uncorroborated.",
+        "resolution_id": "res_9084d2ce3161aad7f1368758",
+        "resolution_state": "unresolved",
+        "resolved_value": "Wine"
+      },
+      {
+        "claim_type": "description",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "evidence_entry_ids": [
+          "ev_e0ed5c88c4d9196b61b71dd5"
+        ],
+        "explanation": "Single source observation (uci: metadata_claim); uncorroborated.",
+        "resolution_id": "res_8ccc0fd9a02c0352c2ab5740",
+        "resolution_state": "unresolved",
+        "resolved_value": "Wine recognition data."
+      },
+      {
+        "claim_type": "documentation_link",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "evidence_entry_ids": [
+          "ev_03dfa4061de9eabbe4fff126"
+        ],
+        "explanation": "Single source observation (uci: documentation_claim); uncorroborated.",
+        "resolution_id": "res_e40dacca4f09db29916b698e",
+        "resolution_state": "unresolved",
+        "resolved_value": "https://archive.ics.uci.edu/dataset/109/wine"
+      },
+      {
+        "claim_type": "modality",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "evidence_entry_ids": [
+          "ev_40c0a31763ab86a3749b393c"
+        ],
+        "explanation": "Single source observation (uci: metadata_claim); uncorroborated.",
+        "resolution_id": "res_3ac271881aa70e05351a2dc7",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "tabular"
+        ]
+      },
+      {
+        "claim_type": "sample_count",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "evidence_entry_ids": [
+          "ev_82e08689476bbe75979031e5"
+        ],
+        "explanation": "Single source observation (uci: metadata_claim); uncorroborated.",
+        "resolution_id": "res_e3b478f8bb6e535ba5b15382",
+        "resolution_state": "unresolved",
+        "resolved_value": 178
+      },
+      {
+        "claim_type": "sample_inspection",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "evidence_entry_ids": [
+          "ev_57b20bbf53b15ae987b79497"
+        ],
+        "explanation": "All observations for this claim encountered operational failures.",
+        "resolution_id": "res_83205b79aaeeb1cd7b50d6bd",
+        "resolution_state": "unknown",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "task",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "evidence_entry_ids": [
+          "ev_206e822aac2bd3dbf2ba5f29"
+        ],
+        "explanation": "Single source observation (uci: metadata_claim); uncorroborated.",
+        "resolution_id": "res_adfa5a66fc0631ca0f160765",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "classification"
+        ]
+      }
+    ],
+    "ds_a7472dc830bfc6394941b2f7": [
+      {
+        "claim_type": "access_capability",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "evidence_entry_ids": [
+          "ev_8daeee59f230fad938a3e7da"
+        ],
+        "explanation": "Single source observation (openml: access_probe); uncorroborated.",
+        "resolution_id": "res_75c3f7395a4605493ffdd620",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "access_type": "public_rest",
+          "authentication_required": false,
+          "bounded_sampling": true,
+          "limitations": [],
+          "metadata_discovery": true,
+          "metadata_retrieval": true,
+          "programmatic_access": "allowed_public",
+          "rate_limits": "unknown",
+          "sample_accessible": "conditional",
+          "sample_retrieval": true,
+          "sampling_method": "metadata_link_bounded_stream",
+          "streaming": false,
+          "viewer_access": false
+        }
+      },
+      {
+        "claim_type": "access_policy",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "evidence_entry_ids": [
+          "ev_f23a8f440ee7fba391a95bed"
+        ],
+        "explanation": "Single source observation (openml: access_probe); uncorroborated.",
+        "resolution_id": "res_16db215fafc402abc175eab1",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "status": "documented_public_rest",
+          "url": "https://docs.openml.org/ecosystem/Rest/"
+        }
+      },
+      {
+        "claim_type": "class_count",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "evidence_entry_ids": [
+          "ev_836bbaec33af0ce034d95525"
+        ],
+        "explanation": "Single source observation (openml: metadata_claim); uncorroborated.",
+        "resolution_id": "res_96f901f0252c449e2dffcbbf",
+        "resolution_state": "unresolved",
+        "resolved_value": "3"
+      },
+      {
+        "claim_type": "croissant_metadata",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "evidence_entry_ids": [
+          "ev_396ff9c9c1f2587815a7bb5d"
+        ],
+        "explanation": "No substantive observations available for this claim.",
+        "resolution_id": "res_6cdde9d2a145d084a8fece35",
+        "resolution_state": "unknown",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "dataset_name",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "evidence_entry_ids": [
+          "ev_c0b9f61854614c71bbfccc30"
+        ],
+        "explanation": "Single source observation (openml: metadata_claim); uncorroborated.",
+        "resolution_id": "res_a6d961a4f4e1678111518076",
+        "resolution_state": "unresolved",
+        "resolved_value": "wine"
+      },
+      {
+        "claim_type": "description",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "evidence_entry_ids": [
+          "ev_6c4d4e112ca9e7fcc76fd9b0"
+        ],
+        "explanation": "Single source observation (openml: metadata_claim); uncorroborated.",
+        "resolution_id": "res_1e1fd2918f4d56599254c3ec",
+        "resolution_state": "unresolved",
+        "resolved_value": "Wine chemical analysis."
+      },
+      {
+        "claim_type": "documentation_link",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "evidence_entry_ids": [
+          "ev_c819df09ef4e9092f7b4d238"
+        ],
+        "explanation": "Single source observation (openml: documentation_claim); uncorroborated.",
+        "resolution_id": "res_417426f24587e8d1b8a3cfe6",
+        "resolution_state": "unresolved",
+        "resolved_value": "https://www.openml.org/d/187"
+      },
+      {
+        "claim_type": "modality",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "evidence_entry_ids": [
+          "ev_5847a4f89e704f5c6e66e0f3"
+        ],
+        "explanation": "Single source observation (openml: metadata_claim); uncorroborated.",
+        "resolution_id": "res_9deb5021049d6255a825b515",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "ARFF"
+        ]
+      },
+      {
+        "claim_type": "sample_count",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "evidence_entry_ids": [
+          "ev_72f3208420434990682b8201"
+        ],
+        "explanation": "Single source observation (openml: metadata_claim); uncorroborated.",
+        "resolution_id": "res_14f362c9c92dbbfdc02f1ce5",
+        "resolution_state": "unresolved",
+        "resolved_value": "178"
+      },
+      {
+        "claim_type": "sample_inspection",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "evidence_entry_ids": [
+          "ev_b14138de5fd891626afa24d9"
+        ],
+        "explanation": "All observations for this claim encountered operational failures.",
+        "resolution_id": "res_331ebe738d71cf74cbb944a2",
+        "resolution_state": "unknown",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "version_id",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "evidence_entry_ids": [
+          "ev_77c8d492185227a91431e7c3"
+        ],
+        "explanation": "Single source observation (openml: metadata_claim); uncorroborated.",
+        "resolution_id": "res_9842ac3f70d4f04dd366a14d",
+        "resolution_state": "unresolved",
+        "resolved_value": "1"
+      }
+    ],
+    "ds_c39f4b8a33e1fd6fecbf4bdc": [
+      {
+        "claim_type": "access_capability",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "evidence_entry_ids": [
+          "ev_df0c008ded878b3bb0d680f5"
+        ],
+        "explanation": "Single source observation (kaggle: access_probe); uncorroborated.",
+        "resolution_id": "res_a8587d31af3d59421dfa5a3f",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "access_type": "public_metadata_only",
+          "authentication_required": true,
+          "bounded_sampling": false,
+          "limitations": [
+            "M0 observed metadata HTTP 403 for one record; no credentials or anonymous-download workaround"
+          ],
+          "metadata_discovery": true,
+          "metadata_retrieval": true,
+          "programmatic_access": "metadata_only_under_m0_policy",
+          "rate_limits": "unknown",
+          "sample_accessible": "unsupported_or_policy_limited",
+          "sample_retrieval": false,
+          "sampling_method": null,
+          "streaming": false,
+          "viewer_access": false
+        }
+      },
+      {
+        "claim_type": "access_policy",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "evidence_entry_ids": [
+          "ev_a02c36f5afd9b8180bb2eef3"
+        ],
+        "explanation": "Single source observation (kaggle: access_probe); uncorroborated.",
+        "resolution_id": "res_d8001b051ded00772942fcc4",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "status": "metadata_only_no_credentials",
+          "url": "https://www.kaggle.com/getting-started/524433"
+        }
+      },
+      {
+        "claim_type": "croissant_metadata",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "evidence_entry_ids": [
+          "ev_7050022443635e1bf97f08d1"
+        ],
+        "explanation": "No substantive observations available for this claim.",
+        "resolution_id": "res_ef96251078f12a34f3443103",
+        "resolution_state": "unknown",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "dataset_name",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "evidence_entry_ids": [
+          "ev_31c9c5f2c294fd007c727282"
+        ],
+        "explanation": "Single source observation (kaggle: metadata_claim); uncorroborated.",
+        "resolution_id": "res_af5dd9a23ab7521ff062191d",
+        "resolution_state": "unresolved",
+        "resolved_value": "Iris Species"
+      },
+      {
+        "claim_type": "description",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "evidence_entry_ids": [
+          "ev_112bd22efb826d806790d7fd"
+        ],
+        "explanation": "Single source observation (kaggle: metadata_claim); uncorroborated.",
+        "resolution_id": "res_55dfdb73d2569d3929e42288",
+        "resolution_state": "unresolved",
+        "resolved_value": "Iris classification data."
+      },
+      {
+        "claim_type": "documentation_link",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "evidence_entry_ids": [
+          "ev_340321fa317efa788328d17d"
+        ],
+        "explanation": "Single source observation (kaggle: documentation_claim); uncorroborated.",
+        "resolution_id": "res_5ba33105a31832d4b83b26b8",
+        "resolution_state": "unresolved",
+        "resolved_value": "https://www.kaggle.com/datasets/uciml/iris"
+      },
+      {
+        "claim_type": "license",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "evidence_entry_ids": [
+          "ev_7c1af811911e60a3b6d7e525"
+        ],
+        "explanation": "Single source observation (kaggle: metadata_claim); uncorroborated.",
+        "resolution_id": "res_dde464fbd02d003a6d2d9fc9",
+        "resolution_state": "unresolved",
+        "resolved_value": "Other (specified in description)"
+      },
+      {
+        "claim_type": "modality",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "evidence_entry_ids": [
+          "ev_f1d0e9705983c9daa01398f6"
+        ],
+        "explanation": "Single source observation (kaggle: metadata_claim); uncorroborated.",
+        "resolution_id": "res_c23c8e40e109f970f2a222fc",
+        "resolution_state": "unresolved",
+        "resolved_value": []
+      },
+      {
+        "claim_type": "sample_inspection",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "evidence_entry_ids": [
+          "ev_1a433523a7ec03017128aa19"
+        ],
+        "explanation": "Single source observation (kaggle: content_observation); uncorroborated.",
+        "resolution_id": "res_cce8e24cddb67732fd1c49e3",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "reason": "Kaggle bounded sample access unsupported without credentials under M0 policy.",
+          "status": "unsupported"
+        }
+      },
+      {
+        "claim_type": "version_id",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "evidence_entry_ids": [
+          "ev_38aa79661400219f8b60fe46"
+        ],
+        "explanation": "Single source observation (kaggle: metadata_claim); uncorroborated.",
+        "resolution_id": "res_3bea5681cd9ff36480e4ce98",
+        "resolution_state": "unresolved",
+        "resolved_value": "2"
+      }
+    ],
+    "ds_c9a42d9bd6268ce4a4cf6061": [
+      {
+        "claim_type": "access_capability",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "evidence_entry_ids": [
+          "ev_869af8dd5f2378be176f54da"
+        ],
+        "explanation": "Single source observation (huggingface: access_probe); uncorroborated.",
+        "resolution_id": "res_69b7826c51ed923b3431742d",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "access_type": "public_api_and_viewer",
+          "authentication_required": false,
+          "bounded_sampling": true,
+          "limitations": [
+            "viewer availability can fail; M0 observed HTTP 502"
+          ],
+          "metadata_discovery": true,
+          "metadata_retrieval": true,
+          "programmatic_access": "allowed_public",
+          "rate_limits": "unknown",
+          "sample_accessible": "conditional",
+          "sample_retrieval": true,
+          "sampling_method": "documented_dataset_viewer_rows",
+          "streaming": false,
+          "viewer_access": true
+        }
+      },
+      {
+        "claim_type": "access_policy",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "evidence_entry_ids": [
+          "ev_f44df9b70d763ed905958a08"
+        ],
+        "explanation": "Single source observation (huggingface: access_probe); uncorroborated.",
+        "resolution_id": "res_f6067d4a165bb54651ee1772",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "status": "documented_public_viewer",
+          "url": "https://huggingface.co/docs/dataset-viewer/rows"
+        }
+      },
+      {
+        "claim_type": "croissant_metadata",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "evidence_entry_ids": [
+          "ev_33711deca95e0a71bb7feb0a"
+        ],
+        "explanation": "Single source observation (huggingface: croissant_claim); uncorroborated.",
+        "resolution_id": "res_bf9808309af4ade6a89f6161",
+        "resolution_state": "unresolved",
+        "resolved_value": {
+          "status": "available_and_parsed",
+          "url": "https://example.test/croissant.jsonld"
+        }
+      },
+      {
+        "claim_type": "dataset_name",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "evidence_entry_ids": [
+          "ev_48d5643257c64ac76aa5543b"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_fd8647003b1ccb40c9294c64",
+        "resolution_state": "unresolved",
+        "resolved_value": "cornell-movie-review-data/rotten_tomatoes"
+      },
+      {
+        "claim_type": "description",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "evidence_entry_ids": [
+          "ev_406c19a5ce5e9c3b1e537150"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_ddbfe9e798e895d371913783",
+        "resolution_state": "unresolved",
+        "resolved_value": "Movie review sentiment labels."
+      },
+      {
+        "claim_type": "documentation_link",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "evidence_entry_ids": [
+          "ev_2cfdaf07c1a110d77c6c8dfd"
+        ],
+        "explanation": "Single source observation (huggingface: documentation_claim); uncorroborated.",
+        "resolution_id": "res_f5926c7450ad62dd3f576d3c",
+        "resolution_state": "unresolved",
+        "resolved_value": "https://huggingface.co/datasets/cornell-movie-review-data/rotten_tomatoes"
+      },
+      {
+        "claim_type": "feature_schema",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "evidence_entry_ids": [
+          "ev_029dc33c7647bbef7878324b"
+        ],
+        "explanation": "Single source observation (huggingface: croissant_claim); uncorroborated.",
+        "resolution_id": "res_ffb54831bb5c0ce13304721d",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "default"
+        ]
+      },
+      {
+        "claim_type": "formats",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "evidence_entry_ids": [
+          "ev_7b00554450186753fd3fc156"
+        ],
+        "explanation": "Single source observation (huggingface: croissant_claim); uncorroborated.",
+        "resolution_id": "res_e0487a22b55170bd33e92cf7",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "application/x-parquet"
+        ]
+      },
+      {
+        "claim_type": "license",
+        "conflicting_entry_ids": [
+          "ev_350e4c03489de34309c7895a",
+          "ev_fab951698c512e85472855c7"
+        ],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "evidence_entry_ids": [
+          "ev_350e4c03489de34309c7895a",
+          "ev_fab951698c512e85472855c7"
+        ],
+        "explanation": "Conflicting claims observed: huggingface('MIT'); huggingface('https://opensource.org/licenses/MIT')",
+        "resolution_id": "res_9e4198a752a36e258b17dbea",
+        "resolution_state": "conflicting",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "modality",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "evidence_entry_ids": [
+          "ev_74810d9eb622392df4e73558"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_a0e5beb32cefd16417fc13bc",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "text"
+        ]
+      },
+      {
+        "claim_type": "sample_inspection",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "evidence_entry_ids": [
+          "ev_3d4d045f234c892a3760f89c"
+        ],
+        "explanation": "All observations for this claim encountered operational failures.",
+        "resolution_id": "res_010d32062602a2b27a54e55c",
+        "resolution_state": "unknown",
+        "resolved_value": null
+      },
+      {
+        "claim_type": "task",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "evidence_entry_ids": [
+          "ev_06d5f45a181e6970c39e678c"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_d77417c35520fdfa6b923516",
+        "resolution_state": "unresolved",
+        "resolved_value": [
+          "text-classification"
+        ]
+      },
+      {
+        "claim_type": "version_id",
+        "conflicting_entry_ids": [],
+        "corroborating_entry_ids": [],
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "evidence_entry_ids": [
+          "ev_5b39bcd7b053da8075b62eaa"
+        ],
+        "explanation": "Single source observation (huggingface: metadata_claim); uncorroborated.",
+        "resolution_id": "res_f6f696db17a5b69be127dd19",
+        "resolution_state": "unresolved",
+        "resolved_value": "rt-v1"
+      }
+    ]
+  },
+  "runtime_metrics": {
+    "m0_ceiling_bytes": 134217728,
+    "m0_ceiling_mib": 128.0,
+    "peak_rss_bytes": 24608768,
+    "peak_rss_mib": 23.47,
+    "wall_clock_ms": 23.56,
+    "within_m0_memory_ceiling": true
+  },
+  "schema_version": 1
+}
