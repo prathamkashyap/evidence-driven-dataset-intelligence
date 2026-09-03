@@ -1,0 +1,46 @@
+{
+  "ablation_summary": {
+    "baseline_a": {
+      "mean_ndcg_at_10": 0.6766,
+      "mean_ndcg_at_3": 0.5421,
+      "mean_ndcg_at_5": 0.6094,
+      "mean_spearman_rho": 0.9576
+    },
+    "baseline_b": {
+      "mean_ndcg_at_10": 0.6766,
+      "mean_ndcg_at_3": 0.5421,
+      "mean_ndcg_at_5": 0.6094,
+      "mean_spearman_rho": 0.9576
+    },
+    "baseline_c": {
+      "mean_ndcg_at_10": 0.6766,
+      "mean_ndcg_at_3": 0.5421,
+      "mean_ndcg_at_5": 0.6094,
+      "mean_spearman_rho": 0.9667
+    }
+  },
+  "baselines_evaluated": 3,
+  "candidates_evaluated": 10,
+  "epistemic_states_distribution": {
+    "conflicting": 8,
+    "failed": 8,
+    "known_favorable": 285,
+    "known_unfavorable": 69,
+    "sample_limited_inference": 20,
+    "unknown": 426,
+    "unsupported": 24
+  },
+  "hard_gated_evaluations_count": 90,
+  "runtime_metrics": {
+    "m0_ceiling_bytes": 134217728,
+    "m0_ceiling_mib": 128.0,
+    "peak_rss_bytes": 26214400,
+    "peak_rss_mib": 25.0,
+    "per_eval_ms": 0.217,
+    "wall_clock_ms": 26.06,
+    "within_m0_memory_ceiling": true
+  },
+  "schema_version": "1.0",
+  "tasks_evaluated": 4,
+  "total_evaluations": 120
+}

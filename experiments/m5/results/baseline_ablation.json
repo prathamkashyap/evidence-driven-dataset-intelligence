@@ -1,0 +1,111 @@
+{
+  "baselines_evaluated": {
+    "baseline_a": "Metadata-only compatibility (naive assumption: unobserved quality and access = 1.0)",
+    "baseline_b": "Metadata + M3 evidence ledger (detects M3 conflicts, operational access failures)",
+    "baseline_c": "Full evidence-driven utility (Metadata + M3 evidence + M4 fingerprint diagnostics)"
+  },
+  "mean_metrics": {
+    "baseline_a": {
+      "mean_ndcg_at_10": 0.6766,
+      "mean_ndcg_at_3": 0.5421,
+      "mean_ndcg_at_5": 0.6094,
+      "mean_spearman_rho": 0.9576
+    },
+    "baseline_b": {
+      "mean_ndcg_at_10": 0.6766,
+      "mean_ndcg_at_3": 0.5421,
+      "mean_ndcg_at_5": 0.6094,
+      "mean_spearman_rho": 0.9576
+    },
+    "baseline_c": {
+      "mean_ndcg_at_10": 0.6766,
+      "mean_ndcg_at_3": 0.5421,
+      "mean_ndcg_at_5": 0.6094,
+      "mean_spearman_rho": 0.9667
+    }
+  },
+  "metrics_per_task": {
+    "task_image_cifar": {
+      "baseline_a": {
+        "ndcg_at_10": 0.5151,
+        "ndcg_at_3": 0.4587,
+        "ndcg_at_5": 0.5151,
+        "spearman_rho": 1.0
+      },
+      "baseline_b": {
+        "ndcg_at_10": 0.5151,
+        "ndcg_at_3": 0.4587,
+        "ndcg_at_5": 0.5151,
+        "spearman_rho": 1.0
+      },
+      "baseline_c": {
+        "ndcg_at_10": 0.5151,
+        "ndcg_at_3": 0.4587,
+        "ndcg_at_5": 0.5151,
+        "spearman_rho": 1.0
+      }
+    },
+    "task_news_multiclass": {
+      "baseline_a": {
+        "ndcg_at_10": 0.7098,
+        "ndcg_at_3": 0.7098,
+        "ndcg_at_5": 0.7098,
+        "spearman_rho": 0.9879
+      },
+      "baseline_b": {
+        "ndcg_at_10": 0.7098,
+        "ndcg_at_3": 0.7098,
+        "ndcg_at_5": 0.7098,
+        "spearman_rho": 1.0
+      },
+      "baseline_c": {
+        "ndcg_at_10": 0.7098,
+        "ndcg_at_3": 0.7098,
+        "ndcg_at_5": 0.7098,
+        "spearman_rho": 1.0
+      }
+    },
+    "task_sentiment_binary": {
+      "baseline_a": {
+        "ndcg_at_10": 1.0,
+        "ndcg_at_3": 1.0,
+        "ndcg_at_5": 1.0,
+        "spearman_rho": 1.0
+      },
+      "baseline_b": {
+        "ndcg_at_10": 1.0,
+        "ndcg_at_3": 1.0,
+        "ndcg_at_5": 1.0,
+        "spearman_rho": 0.9879
+      },
+      "baseline_c": {
+        "ndcg_at_10": 1.0,
+        "ndcg_at_3": 1.0,
+        "ndcg_at_5": 1.0,
+        "spearman_rho": 0.9879
+      }
+    },
+    "task_tabular_iris": {
+      "baseline_a": {
+        "ndcg_at_10": 0.4815,
+        "ndcg_at_3": 0.0,
+        "ndcg_at_5": 0.2127,
+        "spearman_rho": 0.8424
+      },
+      "baseline_b": {
+        "ndcg_at_10": 0.4815,
+        "ndcg_at_3": 0.0,
+        "ndcg_at_5": 0.2127,
+        "spearman_rho": 0.8424
+      },
+      "baseline_c": {
+        "ndcg_at_10": 0.4815,
+        "ndcg_at_3": 0.0,
+        "ndcg_at_5": 0.2127,
+        "spearman_rho": 0.8788
+      }
+    }
+  },
+  "reference_rubric_description": "Development reference compatibility judgments on a 0-3 ordinal scale (3=high, 2=moderate, 1=marginal, 0=incompatible).",
+  "schema_version": "1.0"
+}
