@@ -1,12 +1,19 @@
 from __future__ import annotations
-import json, resource, sys, time
+
+import json
 from pathlib import Path
+import resource
+import sys
+import time
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
 from dataset_intelligence.retrieval.dense import SentenceTransformersEncoder
 from dataset_intelligence.retrieval.engine import RetrievalEngine
 from dataset_intelligence.retrieval.metrics import evaluate
 from dataset_intelligence.retrieval.query import normalize_query
 
-ROOT=Path(__file__).resolve().parents[1]
 def main():
     config=json.loads((ROOT/"configs/m2_retrieval.json").read_text()); start=time.perf_counter()
     encoder=SentenceTransformersEncoder(config["dense"]["model_id"],config["dense"]["model_revision"])
