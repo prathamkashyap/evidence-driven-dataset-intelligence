@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "input_corpus": "experiments/m1/results/development_corpus.jsonl",
+  "input_ledger": "experiments/m3/results/evidence_ledger.jsonl",
+  "output_directory": "experiments/m4/results",
+  "limits_from_m0": {
+    "records_per_bounded_sample": 32,
+    "soft_sample_target_bytes": 1048576,
+    "hard_sample_cap_bytes": 67108864,
+    "process_memory_ceiling_bytes": 134217728
+  },
+  "modalities_supported": [
+    "tabular",
+    "text",
+    "image",
+    "multimodal"
+  ]
+}
