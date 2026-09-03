@@ -1,0 +1,6 @@
+[
+  {"query_id":"q_text_sentiment","natural_language_query":"text classification dataset for movie review sentiment labels","relevance":{"ds_c9a42d9bd6268ce4a4cf6061":2},"notes":"M1 canonical description and task claim."},
+  {"query_id":"q_image_leaf","natural_language_query":"image classification dataset for bean leaf labels","relevance":{"ds_4e61d125afd0915cf8dcb4c6":2},"notes":"M1 canonical description and task claim."},
+  {"query_id":"q_tabular_wine","natural_language_query":"tabular classification dataset for wine chemical analysis","relevance":{"ds_a7472dc830bfc6394941b2f7":2,"ds_9f128b3a604eed483953e7f8":2},"notes":"M1 canonical descriptions; source records remain distinct IDs."},
+  {"query_id":"q_news","natural_language_query":"news topic text classification dataset","relevance":{"ds_3e424a817c66aab45e96797a":2},"notes":"M1 canonical description and task claim."}
+]

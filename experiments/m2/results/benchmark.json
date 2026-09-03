@@ -1,0 +1,2197 @@
+{
+  "metadata": {
+    "index_schema_version": "1",
+    "corpus_hash": "2df2400c4f5787391d170da4af621b51bd93a28e25e4d3cf9aa46b6d508d3aba",
+    "corpus_records": 10,
+    "bm25_version": "bm25-v1",
+    "dense_version": "dense-v1",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "python_version": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "config": {
+      "schema_version": 1,
+      "corpus": "experiments/m1/results/development_corpus.jsonl",
+      "index_directory": "indexes/retrieval/m2",
+      "limits_from_m0": {
+        "records_per_programmatic_source": 20,
+        "combined_pre_evidence_records": 60,
+        "cold_query_budget_ms": 20000,
+        "process_memory_ceiling_bytes": 134217728
+      },
+      "bm25": {
+        "k1": 1.2,
+        "b": 0.75
+      },
+      "dense": {
+        "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+        "model_revision": "main",
+        "normalize_embeddings": true
+      },
+      "hybrid": {
+        "rrf_k": 60
+      },
+      "document_fields": [
+        "dataset_name",
+        "description",
+        "task",
+        "domain",
+        "modality",
+        "target",
+        "label_type",
+        "tags",
+        "intended_use"
+      ]
+    }
+  },
+  "index_build_ms": 81000.39525001193,
+  "embedding_generation_ms": 5038.555084000109,
+  "peak_rss_bytes": 475234304,
+  "runs": [
+    {
+      "query_id": "q_text_sentiment",
+      "method": "bm25",
+      "latency_ms": 0.12250000145286322,
+      "metrics": {
+        "recall@1": 1.0,
+        "precision@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "mrr@3": 1.0,
+        "ndcg@3": 1.0,
+        "recall@5": 1.0,
+        "precision@5": 0.2,
+        "mrr@5": 1.0,
+        "ndcg@5": 1.0,
+        "recall@10": 1.0,
+        "precision@10": 0.1,
+        "mrr@10": 1.0,
+        "ndcg@10": 1.0
+      },
+      "results": [
+        {
+          "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+          "source": "huggingface",
+          "rank": 1,
+          "score": 9.495278313292568,
+          "method": "bm25",
+          "query_id": "q_text_sentiment",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 1,
+              "score": 9.495278313292568
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_3e424a817c66aab45e96797a",
+          "source": "huggingface",
+          "rank": 2,
+          "score": 2.5791602399907436,
+          "method": "bm25",
+          "query_id": "q_text_sentiment",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 2,
+              "score": 2.5791602399907436
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_40356f676278cb9903556c6e",
+          "source": "huggingface",
+          "rank": 3,
+          "score": 2.0340894138486347,
+          "method": "bm25",
+          "query_id": "q_text_sentiment",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 3,
+              "score": 2.0340894138486347
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+          "source": "huggingface",
+          "rank": 4,
+          "score": 1.5350920930066778,
+          "method": "bm25",
+          "query_id": "q_text_sentiment",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 4,
+              "score": 1.5350920930066778
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "source": "kaggle",
+          "rank": 5,
+          "score": 0.38746042478123344,
+          "method": "bm25",
+          "query_id": "q_text_sentiment",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 5,
+              "score": 0.38746042478123344
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_773a4c155a583474a0222bdf",
+          "source": "uci",
+          "rank": 6,
+          "score": 0.3111050221936052,
+          "method": "bm25",
+          "query_id": "q_text_sentiment",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 6,
+              "score": 0.3111050221936052
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_9f128b3a604eed483953e7f8",
+          "source": "uci",
+          "rank": 7,
+          "score": 0.29421753606729373,
+          "method": "bm25",
+          "query_id": "q_text_sentiment",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 7,
+              "score": 0.29421753606729373
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+          "source": "kaggle",
+          "rank": 8,
+          "score": 0.2654040668115195,
+          "method": "bm25",
+          "query_id": "q_text_sentiment",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 8,
+              "score": 0.2654040668115195
+            }
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q_text_sentiment",
+      "method": "dense",
+      "latency_ms": 740.4924159927759,
+      "metrics": {
+        "recall@1": 1.0,
+        "precision@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "mrr@3": 1.0,
+        "ndcg@3": 1.0,
+        "recall@5": 1.0,
+        "precision@5": 0.2,
+        "mrr@5": 1.0,
+        "ndcg@5": 1.0,
+        "recall@10": 1.0,
+        "precision@10": 0.1,
+        "mrr@10": 1.0,
+        "ndcg@10": 1.0
+      },
+      "results": [
+        {
+          "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+          "source": "huggingface",
+          "rank": 1,
+          "score": 0.800651207032369,
+          "method": "dense",
+          "query_id": "q_text_sentiment",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 1,
+              "score": 0.800651207032369
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_3e424a817c66aab45e96797a",
+          "source": "huggingface",
+          "rank": 2,
+          "score": 0.4427098012742345,
+          "method": "dense",
+          "query_id": "q_text_sentiment",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 2,
+              "score": 0.4427098012742345
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_9f128b3a604eed483953e7f8",
+          "source": "uci",
+          "rank": 3,
+          "score": 0.27181001792321763,
+          "method": "dense",
+          "query_id": "q_text_sentiment",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 3,
+              "score": 0.27181001792321763
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_40356f676278cb9903556c6e",
+          "source": "huggingface",
+          "rank": 4,
+          "score": 0.2644905223377948,
+          "method": "dense",
+          "query_id": "q_text_sentiment",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 4,
+              "score": 0.2644905223377948
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+          "source": "huggingface",
+          "rank": 5,
+          "score": 0.24150765722802414,
+          "method": "dense",
+          "query_id": "q_text_sentiment",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 5,
+              "score": 0.24150765722802414
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+          "source": "kaggle",
+          "rank": 6,
+          "score": 0.20170940660004708,
+          "method": "dense",
+          "query_id": "q_text_sentiment",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 6,
+              "score": 0.20170940660004708
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+          "source": "openml",
+          "rank": 7,
+          "score": 0.11130754433498409,
+          "method": "dense",
+          "query_id": "q_text_sentiment",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 7,
+              "score": 0.11130754433498409
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "source": "kaggle",
+          "rank": 8,
+          "score": 0.06383761553045458,
+          "method": "dense",
+          "query_id": "q_text_sentiment",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 8,
+              "score": 0.06383761553045458
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_773a4c155a583474a0222bdf",
+          "source": "uci",
+          "rank": 9,
+          "score": 0.02478488235934778,
+          "method": "dense",
+          "query_id": "q_text_sentiment",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 9,
+              "score": 0.02478488235934778
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_69f0f69749316e8b5768ef79",
+          "source": "openml",
+          "rank": 10,
+          "score": -0.030670542555138798,
+          "method": "dense",
+          "query_id": "q_text_sentiment",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 10,
+              "score": -0.030670542555138798
+            }
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q_text_sentiment",
+      "method": "hybrid_rrf",
+      "latency_ms": 12.126832996727899,
+      "metrics": {
+        "recall@1": 1.0,
+        "precision@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "mrr@3": 1.0,
+        "ndcg@3": 1.0,
+        "recall@5": 1.0,
+        "precision@5": 0.2,
+        "mrr@5": 1.0,
+        "ndcg@5": 1.0,
+        "recall@10": 1.0,
+        "precision@10": 0.1,
+        "mrr@10": 1.0,
+        "ndcg@10": 1.0
+      },
+      "results": [
+        {
+          "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 1,
+              "score": 9.495278313292568
+            },
+            "dense": {
+              "rank": 1,
+              "score": 0.800651207032369
+            }
+          },
+          "score": 0.03278688524590164,
+          "rank": 1,
+          "method": "hybrid_rrf",
+          "query_id": "q_text_sentiment",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_3e424a817c66aab45e96797a",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 2,
+              "score": 2.5791602399907436
+            },
+            "dense": {
+              "rank": 2,
+              "score": 0.4427098012742345
+            }
+          },
+          "score": 0.03225806451612903,
+          "rank": 2,
+          "method": "hybrid_rrf",
+          "query_id": "q_text_sentiment",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_40356f676278cb9903556c6e",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 3,
+              "score": 2.0340894138486347
+            },
+            "dense": {
+              "rank": 4,
+              "score": 0.2644905223377948
+            }
+          },
+          "score": 0.03149801587301587,
+          "rank": 3,
+          "method": "hybrid_rrf",
+          "query_id": "q_text_sentiment",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 4,
+              "score": 1.5350920930066778
+            },
+            "dense": {
+              "rank": 5,
+              "score": 0.24150765722802414
+            }
+          },
+          "score": 0.031009615384615385,
+          "rank": 4,
+          "method": "hybrid_rrf",
+          "query_id": "q_text_sentiment",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_9f128b3a604eed483953e7f8",
+          "source": "uci",
+          "contributions": {
+            "bm25": {
+              "rank": 7,
+              "score": 0.29421753606729373
+            },
+            "dense": {
+              "rank": 3,
+              "score": 0.27181001792321763
+            }
+          },
+          "score": 0.030798389007344232,
+          "rank": 5,
+          "method": "hybrid_rrf",
+          "query_id": "q_text_sentiment",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "source": "kaggle",
+          "contributions": {
+            "bm25": {
+              "rank": 5,
+              "score": 0.38746042478123344
+            },
+            "dense": {
+              "rank": 8,
+              "score": 0.06383761553045458
+            }
+          },
+          "score": 0.030090497737556562,
+          "rank": 6,
+          "method": "hybrid_rrf",
+          "query_id": "q_text_sentiment",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+          "source": "kaggle",
+          "contributions": {
+            "bm25": {
+              "rank": 8,
+              "score": 0.2654040668115195
+            },
+            "dense": {
+              "rank": 6,
+              "score": 0.20170940660004708
+            }
+          },
+          "score": 0.029857397504456328,
+          "rank": 7,
+          "method": "hybrid_rrf",
+          "query_id": "q_text_sentiment",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_773a4c155a583474a0222bdf",
+          "source": "uci",
+          "contributions": {
+            "bm25": {
+              "rank": 6,
+              "score": 0.3111050221936052
+            },
+            "dense": {
+              "rank": 9,
+              "score": 0.02478488235934778
+            }
+          },
+          "score": 0.02964426877470356,
+          "rank": 8,
+          "method": "hybrid_rrf",
+          "query_id": "q_text_sentiment",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+          "source": "openml",
+          "contributions": {
+            "dense": {
+              "rank": 7,
+              "score": 0.11130754433498409
+            }
+          },
+          "score": 0.014925373134328358,
+          "rank": 9,
+          "method": "hybrid_rrf",
+          "query_id": "q_text_sentiment",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_69f0f69749316e8b5768ef79",
+          "source": "openml",
+          "contributions": {
+            "dense": {
+              "rank": 10,
+              "score": -0.030670542555138798
+            }
+          },
+          "score": 0.014285714285714285,
+          "rank": 10,
+          "method": "hybrid_rrf",
+          "query_id": "q_text_sentiment",
+          "index_version": "hybrid-rrf-v1"
+        }
+      ]
+    },
+    {
+      "query_id": "q_image_leaf",
+      "method": "bm25",
+      "latency_ms": 0.03470902447588742,
+      "metrics": {
+        "recall@1": 1.0,
+        "precision@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "mrr@3": 1.0,
+        "ndcg@3": 1.0,
+        "recall@5": 1.0,
+        "precision@5": 0.2,
+        "mrr@5": 1.0,
+        "ndcg@5": 1.0,
+        "recall@10": 1.0,
+        "precision@10": 0.1,
+        "mrr@10": 1.0,
+        "ndcg@10": 1.0
+      },
+      "results": [
+        {
+          "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+          "source": "huggingface",
+          "rank": 1,
+          "score": 7.1336305395507384,
+          "method": "bm25",
+          "query_id": "q_image_leaf",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 1,
+              "score": 7.1336305395507384
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_40356f676278cb9903556c6e",
+          "source": "huggingface",
+          "rank": 2,
+          "score": 4.380841855396241,
+          "method": "bm25",
+          "query_id": "q_image_leaf",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 2,
+              "score": 4.380841855396241
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+          "source": "huggingface",
+          "rank": 3,
+          "score": 1.4289734267719507,
+          "method": "bm25",
+          "query_id": "q_image_leaf",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 3,
+              "score": 1.4289734267719507
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "source": "kaggle",
+          "rank": 4,
+          "score": 0.38746042478123344,
+          "method": "bm25",
+          "query_id": "q_image_leaf",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 4,
+              "score": 0.38746042478123344
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_3e424a817c66aab45e96797a",
+          "source": "huggingface",
+          "rank": 5,
+          "score": 0.38229833448242395,
+          "method": "bm25",
+          "query_id": "q_image_leaf",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 5,
+              "score": 0.38229833448242395
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_773a4c155a583474a0222bdf",
+          "source": "uci",
+          "rank": 6,
+          "score": 0.3111050221936052,
+          "method": "bm25",
+          "query_id": "q_image_leaf",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 6,
+              "score": 0.3111050221936052
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_9f128b3a604eed483953e7f8",
+          "source": "uci",
+          "rank": 7,
+          "score": 0.29421753606729373,
+          "method": "bm25",
+          "query_id": "q_image_leaf",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 7,
+              "score": 0.29421753606729373
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+          "source": "kaggle",
+          "rank": 8,
+          "score": 0.2654040668115195,
+          "method": "bm25",
+          "query_id": "q_image_leaf",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 8,
+              "score": 0.2654040668115195
+            }
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q_image_leaf",
+      "method": "dense",
+      "latency_ms": 173.74695799662732,
+      "metrics": {
+        "recall@1": 1.0,
+        "precision@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "mrr@3": 1.0,
+        "ndcg@3": 1.0,
+        "recall@5": 1.0,
+        "precision@5": 0.2,
+        "mrr@5": 1.0,
+        "ndcg@5": 1.0,
+        "recall@10": 1.0,
+        "precision@10": 0.1,
+        "mrr@10": 1.0,
+        "ndcg@10": 1.0
+      },
+      "results": [
+        {
+          "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+          "source": "huggingface",
+          "rank": 1,
+          "score": 0.8623657446956389,
+          "method": "dense",
+          "query_id": "q_image_leaf",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 1,
+              "score": 0.8623657446956389
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_40356f676278cb9903556c6e",
+          "source": "huggingface",
+          "rank": 2,
+          "score": 0.5272686127346169,
+          "method": "dense",
+          "query_id": "q_image_leaf",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 2,
+              "score": 0.5272686127346169
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_9f128b3a604eed483953e7f8",
+          "source": "uci",
+          "rank": 3,
+          "score": 0.31267023453375187,
+          "method": "dense",
+          "query_id": "q_image_leaf",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 3,
+              "score": 0.31267023453375187
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "source": "kaggle",
+          "rank": 4,
+          "score": 0.3106706055126335,
+          "method": "dense",
+          "query_id": "q_image_leaf",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 4,
+              "score": 0.3106706055126335
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+          "source": "kaggle",
+          "rank": 5,
+          "score": 0.29860927261889697,
+          "method": "dense",
+          "query_id": "q_image_leaf",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 5,
+              "score": 0.29860927261889697
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+          "source": "huggingface",
+          "rank": 6,
+          "score": 0.2273731656816675,
+          "method": "dense",
+          "query_id": "q_image_leaf",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 6,
+              "score": 0.2273731656816675
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_773a4c155a583474a0222bdf",
+          "source": "uci",
+          "rank": 7,
+          "score": 0.21914817333055492,
+          "method": "dense",
+          "query_id": "q_image_leaf",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 7,
+              "score": 0.21914817333055492
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_3e424a817c66aab45e96797a",
+          "source": "huggingface",
+          "rank": 8,
+          "score": 0.21480086315036667,
+          "method": "dense",
+          "query_id": "q_image_leaf",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 8,
+              "score": 0.21480086315036667
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_69f0f69749316e8b5768ef79",
+          "source": "openml",
+          "rank": 9,
+          "score": 0.1426962952222412,
+          "method": "dense",
+          "query_id": "q_image_leaf",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 9,
+              "score": 0.1426962952222412
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+          "source": "openml",
+          "rank": 10,
+          "score": 0.004973496337896446,
+          "method": "dense",
+          "query_id": "q_image_leaf",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 10,
+              "score": 0.004973496337896446
+            }
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q_image_leaf",
+      "method": "hybrid_rrf",
+      "latency_ms": 16.519750002771616,
+      "metrics": {
+        "recall@1": 1.0,
+        "precision@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "mrr@3": 1.0,
+        "ndcg@3": 1.0,
+        "recall@5": 1.0,
+        "precision@5": 0.2,
+        "mrr@5": 1.0,
+        "ndcg@5": 1.0,
+        "recall@10": 1.0,
+        "precision@10": 0.1,
+        "mrr@10": 1.0,
+        "ndcg@10": 1.0
+      },
+      "results": [
+        {
+          "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 1,
+              "score": 7.1336305395507384
+            },
+            "dense": {
+              "rank": 1,
+              "score": 0.8623657446956389
+            }
+          },
+          "score": 0.03278688524590164,
+          "rank": 1,
+          "method": "hybrid_rrf",
+          "query_id": "q_image_leaf",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_40356f676278cb9903556c6e",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 2,
+              "score": 4.380841855396241
+            },
+            "dense": {
+              "rank": 2,
+              "score": 0.5272686127346169
+            }
+          },
+          "score": 0.03225806451612903,
+          "rank": 2,
+          "method": "hybrid_rrf",
+          "query_id": "q_image_leaf",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "source": "kaggle",
+          "contributions": {
+            "bm25": {
+              "rank": 4,
+              "score": 0.38746042478123344
+            },
+            "dense": {
+              "rank": 4,
+              "score": 0.3106706055126335
+            }
+          },
+          "score": 0.03125,
+          "rank": 3,
+          "method": "hybrid_rrf",
+          "query_id": "q_image_leaf",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 3,
+              "score": 1.4289734267719507
+            },
+            "dense": {
+              "rank": 6,
+              "score": 0.2273731656816675
+            }
+          },
+          "score": 0.031024531024531024,
+          "rank": 4,
+          "method": "hybrid_rrf",
+          "query_id": "q_image_leaf",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_9f128b3a604eed483953e7f8",
+          "source": "uci",
+          "contributions": {
+            "bm25": {
+              "rank": 7,
+              "score": 0.29421753606729373
+            },
+            "dense": {
+              "rank": 3,
+              "score": 0.31267023453375187
+            }
+          },
+          "score": 0.030798389007344232,
+          "rank": 5,
+          "method": "hybrid_rrf",
+          "query_id": "q_image_leaf",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+          "source": "kaggle",
+          "contributions": {
+            "bm25": {
+              "rank": 8,
+              "score": 0.2654040668115195
+            },
+            "dense": {
+              "rank": 5,
+              "score": 0.29860927261889697
+            }
+          },
+          "score": 0.030090497737556562,
+          "rank": 6,
+          "method": "hybrid_rrf",
+          "query_id": "q_image_leaf",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_3e424a817c66aab45e96797a",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 5,
+              "score": 0.38229833448242395
+            },
+            "dense": {
+              "rank": 8,
+              "score": 0.21480086315036667
+            }
+          },
+          "score": 0.030090497737556562,
+          "rank": 7,
+          "method": "hybrid_rrf",
+          "query_id": "q_image_leaf",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_773a4c155a583474a0222bdf",
+          "source": "uci",
+          "contributions": {
+            "bm25": {
+              "rank": 6,
+              "score": 0.3111050221936052
+            },
+            "dense": {
+              "rank": 7,
+              "score": 0.21914817333055492
+            }
+          },
+          "score": 0.03007688828584351,
+          "rank": 8,
+          "method": "hybrid_rrf",
+          "query_id": "q_image_leaf",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_69f0f69749316e8b5768ef79",
+          "source": "openml",
+          "contributions": {
+            "dense": {
+              "rank": 9,
+              "score": 0.1426962952222412
+            }
+          },
+          "score": 0.014492753623188406,
+          "rank": 9,
+          "method": "hybrid_rrf",
+          "query_id": "q_image_leaf",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+          "source": "openml",
+          "contributions": {
+            "dense": {
+              "rank": 10,
+              "score": 0.004973496337896446
+            }
+          },
+          "score": 0.014285714285714285,
+          "rank": 10,
+          "method": "hybrid_rrf",
+          "query_id": "q_image_leaf",
+          "index_version": "hybrid-rrf-v1"
+        }
+      ]
+    },
+    {
+      "query_id": "q_tabular_wine",
+      "method": "bm25",
+      "latency_ms": 0.04775001434609294,
+      "metrics": {
+        "recall@1": 0.5,
+        "precision@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@3": 1.0,
+        "precision@3": 0.6666666666666666,
+        "mrr@3": 1.0,
+        "ndcg@3": 1.0,
+        "recall@5": 1.0,
+        "precision@5": 0.4,
+        "mrr@5": 1.0,
+        "ndcg@5": 1.0,
+        "recall@10": 1.0,
+        "precision@10": 0.2,
+        "mrr@10": 1.0,
+        "ndcg@10": 1.0
+      },
+      "results": [
+        {
+          "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+          "source": "openml",
+          "rank": 1,
+          "score": 8.19582991523774,
+          "method": "bm25",
+          "query_id": "q_tabular_wine",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 1,
+              "score": 8.19582991523774
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_9f128b3a604eed483953e7f8",
+          "source": "uci",
+          "rank": 2,
+          "score": 3.5407090599536035,
+          "method": "bm25",
+          "query_id": "q_tabular_wine",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 2,
+              "score": 3.5407090599536035
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_40356f676278cb9903556c6e",
+          "source": "huggingface",
+          "rank": 3,
+          "score": 2.0340894138486347,
+          "method": "bm25",
+          "query_id": "q_tabular_wine",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 3,
+              "score": 2.0340894138486347
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_773a4c155a583474a0222bdf",
+          "source": "uci",
+          "rank": 4,
+          "score": 1.3896148572916962,
+          "method": "bm25",
+          "query_id": "q_tabular_wine",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 4,
+              "score": 1.3896148572916962
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_69f0f69749316e8b5768ef79",
+          "source": "openml",
+          "rank": 5,
+          "score": 1.078509835098091,
+          "method": "bm25",
+          "query_id": "q_tabular_wine",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 5,
+              "score": 1.078509835098091
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "source": "kaggle",
+          "rank": 6,
+          "score": 0.38746042478123344,
+          "method": "bm25",
+          "query_id": "q_tabular_wine",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 6,
+              "score": 0.38746042478123344
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_3e424a817c66aab45e96797a",
+          "source": "huggingface",
+          "rank": 7,
+          "score": 0.38229833448242395,
+          "method": "bm25",
+          "query_id": "q_tabular_wine",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 7,
+              "score": 0.38229833448242395
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+          "source": "huggingface",
+          "rank": 8,
+          "score": 0.3099191072424225,
+          "method": "bm25",
+          "query_id": "q_tabular_wine",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 8,
+              "score": 0.3099191072424225
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+          "source": "huggingface",
+          "rank": 9,
+          "score": 0.2931566555285895,
+          "method": "bm25",
+          "query_id": "q_tabular_wine",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 9,
+              "score": 0.2931566555285895
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+          "source": "kaggle",
+          "rank": 10,
+          "score": 0.2654040668115195,
+          "method": "bm25",
+          "query_id": "q_tabular_wine",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 10,
+              "score": 0.2654040668115195
+            }
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q_tabular_wine",
+      "method": "dense",
+      "latency_ms": 16.303750016959384,
+      "metrics": {
+        "recall@1": 0.5,
+        "precision@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@3": 1.0,
+        "precision@3": 0.6666666666666666,
+        "mrr@3": 1.0,
+        "ndcg@3": 1.0,
+        "recall@5": 1.0,
+        "precision@5": 0.4,
+        "mrr@5": 1.0,
+        "ndcg@5": 1.0,
+        "recall@10": 1.0,
+        "precision@10": 0.2,
+        "mrr@10": 1.0,
+        "ndcg@10": 1.0
+      },
+      "results": [
+        {
+          "dataset_id": "ds_9f128b3a604eed483953e7f8",
+          "source": "uci",
+          "rank": 1,
+          "score": 0.8489835360092949,
+          "method": "dense",
+          "query_id": "q_tabular_wine",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 1,
+              "score": 0.8489835360092949
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+          "source": "openml",
+          "rank": 2,
+          "score": 0.8428232861590088,
+          "method": "dense",
+          "query_id": "q_tabular_wine",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 2,
+              "score": 0.8428232861590088
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+          "source": "kaggle",
+          "rank": 3,
+          "score": 0.32540165593604037,
+          "method": "dense",
+          "query_id": "q_tabular_wine",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 3,
+              "score": 0.32540165593604037
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_40356f676278cb9903556c6e",
+          "source": "huggingface",
+          "rank": 4,
+          "score": 0.31505303479065266,
+          "method": "dense",
+          "query_id": "q_tabular_wine",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 4,
+              "score": 0.31505303479065266
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_773a4c155a583474a0222bdf",
+          "source": "uci",
+          "rank": 5,
+          "score": 0.2976532537730239,
+          "method": "dense",
+          "query_id": "q_tabular_wine",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 5,
+              "score": 0.2976532537730239
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "source": "kaggle",
+          "rank": 6,
+          "score": 0.289729574499221,
+          "method": "dense",
+          "query_id": "q_tabular_wine",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 6,
+              "score": 0.289729574499221
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+          "source": "huggingface",
+          "rank": 7,
+          "score": 0.2889582446028964,
+          "method": "dense",
+          "query_id": "q_tabular_wine",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 7,
+              "score": 0.2889582446028964
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_69f0f69749316e8b5768ef79",
+          "source": "openml",
+          "rank": 8,
+          "score": 0.2606621284265945,
+          "method": "dense",
+          "query_id": "q_tabular_wine",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 8,
+              "score": 0.2606621284265945
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+          "source": "huggingface",
+          "rank": 9,
+          "score": 0.2496495086095097,
+          "method": "dense",
+          "query_id": "q_tabular_wine",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 9,
+              "score": 0.2496495086095097
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_3e424a817c66aab45e96797a",
+          "source": "huggingface",
+          "rank": 10,
+          "score": 0.24671784425754717,
+          "method": "dense",
+          "query_id": "q_tabular_wine",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 10,
+              "score": 0.24671784425754717
+            }
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q_tabular_wine",
+      "method": "hybrid_rrf",
+      "latency_ms": 15.922333986964077,
+      "metrics": {
+        "recall@1": 0.5,
+        "precision@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@3": 1.0,
+        "precision@3": 0.6666666666666666,
+        "mrr@3": 1.0,
+        "ndcg@3": 1.0,
+        "recall@5": 1.0,
+        "precision@5": 0.4,
+        "mrr@5": 1.0,
+        "ndcg@5": 1.0,
+        "recall@10": 1.0,
+        "precision@10": 0.2,
+        "mrr@10": 1.0,
+        "ndcg@10": 1.0
+      },
+      "results": [
+        {
+          "dataset_id": "ds_9f128b3a604eed483953e7f8",
+          "source": "uci",
+          "contributions": {
+            "bm25": {
+              "rank": 2,
+              "score": 3.5407090599536035
+            },
+            "dense": {
+              "rank": 1,
+              "score": 0.8489835360092949
+            }
+          },
+          "score": 0.03252247488101534,
+          "rank": 1,
+          "method": "hybrid_rrf",
+          "query_id": "q_tabular_wine",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+          "source": "openml",
+          "contributions": {
+            "bm25": {
+              "rank": 1,
+              "score": 8.19582991523774
+            },
+            "dense": {
+              "rank": 2,
+              "score": 0.8428232861590088
+            }
+          },
+          "score": 0.03252247488101534,
+          "rank": 2,
+          "method": "hybrid_rrf",
+          "query_id": "q_tabular_wine",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_40356f676278cb9903556c6e",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 3,
+              "score": 2.0340894138486347
+            },
+            "dense": {
+              "rank": 4,
+              "score": 0.31505303479065266
+            }
+          },
+          "score": 0.03149801587301587,
+          "rank": 3,
+          "method": "hybrid_rrf",
+          "query_id": "q_tabular_wine",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_773a4c155a583474a0222bdf",
+          "source": "uci",
+          "contributions": {
+            "bm25": {
+              "rank": 4,
+              "score": 1.3896148572916962
+            },
+            "dense": {
+              "rank": 5,
+              "score": 0.2976532537730239
+            }
+          },
+          "score": 0.031009615384615385,
+          "rank": 4,
+          "method": "hybrid_rrf",
+          "query_id": "q_tabular_wine",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "source": "kaggle",
+          "contributions": {
+            "bm25": {
+              "rank": 6,
+              "score": 0.38746042478123344
+            },
+            "dense": {
+              "rank": 6,
+              "score": 0.289729574499221
+            }
+          },
+          "score": 0.030303030303030304,
+          "rank": 5,
+          "method": "hybrid_rrf",
+          "query_id": "q_tabular_wine",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+          "source": "kaggle",
+          "contributions": {
+            "bm25": {
+              "rank": 10,
+              "score": 0.2654040668115195
+            },
+            "dense": {
+              "rank": 3,
+              "score": 0.32540165593604037
+            }
+          },
+          "score": 0.030158730158730156,
+          "rank": 6,
+          "method": "hybrid_rrf",
+          "query_id": "q_tabular_wine",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_69f0f69749316e8b5768ef79",
+          "source": "openml",
+          "contributions": {
+            "bm25": {
+              "rank": 5,
+              "score": 1.078509835098091
+            },
+            "dense": {
+              "rank": 8,
+              "score": 0.2606621284265945
+            }
+          },
+          "score": 0.030090497737556562,
+          "rank": 7,
+          "method": "hybrid_rrf",
+          "query_id": "q_tabular_wine",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 8,
+              "score": 0.3099191072424225
+            },
+            "dense": {
+              "rank": 7,
+              "score": 0.2889582446028964
+            }
+          },
+          "score": 0.029631255487269532,
+          "rank": 8,
+          "method": "hybrid_rrf",
+          "query_id": "q_tabular_wine",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_3e424a817c66aab45e96797a",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 7,
+              "score": 0.38229833448242395
+            },
+            "dense": {
+              "rank": 10,
+              "score": 0.24671784425754717
+            }
+          },
+          "score": 0.029211087420042643,
+          "rank": 9,
+          "method": "hybrid_rrf",
+          "query_id": "q_tabular_wine",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 9,
+              "score": 0.2931566555285895
+            },
+            "dense": {
+              "rank": 9,
+              "score": 0.2496495086095097
+            }
+          },
+          "score": 0.028985507246376812,
+          "rank": 10,
+          "method": "hybrid_rrf",
+          "query_id": "q_tabular_wine",
+          "index_version": "hybrid-rrf-v1"
+        }
+      ]
+    },
+    {
+      "query_id": "q_news",
+      "method": "bm25",
+      "latency_ms": 0.03575001028366387,
+      "metrics": {
+        "recall@1": 1.0,
+        "precision@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "mrr@3": 1.0,
+        "ndcg@3": 1.0,
+        "recall@5": 1.0,
+        "precision@5": 0.2,
+        "mrr@5": 1.0,
+        "ndcg@5": 1.0,
+        "recall@10": 1.0,
+        "precision@10": 0.1,
+        "mrr@10": 1.0,
+        "ndcg@10": 1.0
+      },
+      "results": [
+        {
+          "dataset_id": "ds_3e424a817c66aab45e96797a",
+          "source": "huggingface",
+          "rank": 1,
+          "score": 6.907646674279444,
+          "method": "bm25",
+          "query_id": "q_news",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 1,
+              "score": 6.907646674279444
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+          "source": "huggingface",
+          "rank": 2,
+          "score": 2.3011765634287444,
+          "method": "bm25",
+          "query_id": "q_news",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 2,
+              "score": 2.3011765634287444
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_40356f676278cb9903556c6e",
+          "source": "huggingface",
+          "rank": 3,
+          "score": 2.0340894138486347,
+          "method": "bm25",
+          "query_id": "q_news",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 3,
+              "score": 2.0340894138486347
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "source": "kaggle",
+          "rank": 4,
+          "score": 0.38746042478123344,
+          "method": "bm25",
+          "query_id": "q_news",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 4,
+              "score": 0.38746042478123344
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_773a4c155a583474a0222bdf",
+          "source": "uci",
+          "rank": 5,
+          "score": 0.3111050221936052,
+          "method": "bm25",
+          "query_id": "q_news",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 5,
+              "score": 0.3111050221936052
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+          "source": "huggingface",
+          "rank": 6,
+          "score": 0.3099191072424225,
+          "method": "bm25",
+          "query_id": "q_news",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 6,
+              "score": 0.3099191072424225
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_9f128b3a604eed483953e7f8",
+          "source": "uci",
+          "rank": 7,
+          "score": 0.29421753606729373,
+          "method": "bm25",
+          "query_id": "q_news",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 7,
+              "score": 0.29421753606729373
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+          "source": "kaggle",
+          "rank": 8,
+          "score": 0.2654040668115195,
+          "method": "bm25",
+          "query_id": "q_news",
+          "index_version": "bm25-v1",
+          "contributions": {
+            "bm25": {
+              "rank": 8,
+              "score": 0.2654040668115195
+            }
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q_news",
+      "method": "dense",
+      "latency_ms": 1870.22858398268,
+      "metrics": {
+        "recall@1": 1.0,
+        "precision@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "mrr@3": 1.0,
+        "ndcg@3": 1.0,
+        "recall@5": 1.0,
+        "precision@5": 0.2,
+        "mrr@5": 1.0,
+        "ndcg@5": 1.0,
+        "recall@10": 1.0,
+        "precision@10": 0.1,
+        "mrr@10": 1.0,
+        "ndcg@10": 1.0
+      },
+      "results": [
+        {
+          "dataset_id": "ds_3e424a817c66aab45e96797a",
+          "source": "huggingface",
+          "rank": 1,
+          "score": 0.7720496967059196,
+          "method": "dense",
+          "query_id": "q_news",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 1,
+              "score": 0.7720496967059196
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+          "source": "huggingface",
+          "rank": 2,
+          "score": 0.5198124309309564,
+          "method": "dense",
+          "query_id": "q_news",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 2,
+              "score": 0.5198124309309564
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_40356f676278cb9903556c6e",
+          "source": "huggingface",
+          "rank": 3,
+          "score": 0.2589402255129577,
+          "method": "dense",
+          "query_id": "q_news",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 3,
+              "score": 0.2589402255129577
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_9f128b3a604eed483953e7f8",
+          "source": "uci",
+          "rank": 4,
+          "score": 0.2341249038374262,
+          "method": "dense",
+          "query_id": "q_news",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 4,
+              "score": 0.2341249038374262
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+          "source": "huggingface",
+          "rank": 5,
+          "score": 0.2227912599970225,
+          "method": "dense",
+          "query_id": "q_news",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 5,
+              "score": 0.2227912599970225
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+          "source": "kaggle",
+          "rank": 6,
+          "score": 0.1906116959053303,
+          "method": "dense",
+          "query_id": "q_news",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 6,
+              "score": 0.1906116959053303
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "source": "kaggle",
+          "rank": 7,
+          "score": 0.08511979837611275,
+          "method": "dense",
+          "query_id": "q_news",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 7,
+              "score": 0.08511979837611275
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+          "source": "openml",
+          "rank": 8,
+          "score": 0.058357042408853824,
+          "method": "dense",
+          "query_id": "q_news",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 8,
+              "score": 0.058357042408853824
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_773a4c155a583474a0222bdf",
+          "source": "uci",
+          "rank": 9,
+          "score": 0.015676069204199745,
+          "method": "dense",
+          "query_id": "q_news",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 9,
+              "score": 0.015676069204199745
+            }
+          }
+        },
+        {
+          "dataset_id": "ds_69f0f69749316e8b5768ef79",
+          "source": "openml",
+          "rank": 10,
+          "score": -0.09637660706460072,
+          "method": "dense",
+          "query_id": "q_news",
+          "index_version": "dense-v1",
+          "contributions": {
+            "dense": {
+              "rank": 10,
+              "score": -0.09637660706460072
+            }
+          }
+        }
+      ]
+    },
+    {
+      "query_id": "q_news",
+      "method": "hybrid_rrf",
+      "latency_ms": 15.754290972836316,
+      "metrics": {
+        "recall@1": 1.0,
+        "precision@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "mrr@3": 1.0,
+        "ndcg@3": 1.0,
+        "recall@5": 1.0,
+        "precision@5": 0.2,
+        "mrr@5": 1.0,
+        "ndcg@5": 1.0,
+        "recall@10": 1.0,
+        "precision@10": 0.1,
+        "mrr@10": 1.0,
+        "ndcg@10": 1.0
+      },
+      "results": [
+        {
+          "dataset_id": "ds_3e424a817c66aab45e96797a",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 1,
+              "score": 6.907646674279444
+            },
+            "dense": {
+              "rank": 1,
+              "score": 0.7720496967059196
+            }
+          },
+          "score": 0.03278688524590164,
+          "rank": 1,
+          "method": "hybrid_rrf",
+          "query_id": "q_news",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 2,
+              "score": 2.3011765634287444
+            },
+            "dense": {
+              "rank": 2,
+              "score": 0.5198124309309564
+            }
+          },
+          "score": 0.03225806451612903,
+          "rank": 2,
+          "method": "hybrid_rrf",
+          "query_id": "q_news",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_40356f676278cb9903556c6e",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 3,
+              "score": 2.0340894138486347
+            },
+            "dense": {
+              "rank": 3,
+              "score": 0.2589402255129577
+            }
+          },
+          "score": 0.031746031746031744,
+          "rank": 3,
+          "method": "hybrid_rrf",
+          "query_id": "q_news",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_9f128b3a604eed483953e7f8",
+          "source": "uci",
+          "contributions": {
+            "bm25": {
+              "rank": 7,
+              "score": 0.29421753606729373
+            },
+            "dense": {
+              "rank": 4,
+              "score": 0.2341249038374262
+            }
+          },
+          "score": 0.03055037313432836,
+          "rank": 4,
+          "method": "hybrid_rrf",
+          "query_id": "q_news",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "source": "kaggle",
+          "contributions": {
+            "bm25": {
+              "rank": 4,
+              "score": 0.38746042478123344
+            },
+            "dense": {
+              "rank": 7,
+              "score": 0.08511979837611275
+            }
+          },
+          "score": 0.03055037313432836,
+          "rank": 5,
+          "method": "hybrid_rrf",
+          "query_id": "q_news",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+          "source": "huggingface",
+          "contributions": {
+            "bm25": {
+              "rank": 6,
+              "score": 0.3099191072424225
+            },
+            "dense": {
+              "rank": 5,
+              "score": 0.2227912599970225
+            }
+          },
+          "score": 0.030536130536130537,
+          "rank": 6,
+          "method": "hybrid_rrf",
+          "query_id": "q_news",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_773a4c155a583474a0222bdf",
+          "source": "uci",
+          "contributions": {
+            "bm25": {
+              "rank": 5,
+              "score": 0.3111050221936052
+            },
+            "dense": {
+              "rank": 9,
+              "score": 0.015676069204199745
+            }
+          },
+          "score": 0.029877369007803793,
+          "rank": 7,
+          "method": "hybrid_rrf",
+          "query_id": "q_news",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+          "source": "kaggle",
+          "contributions": {
+            "bm25": {
+              "rank": 8,
+              "score": 0.2654040668115195
+            },
+            "dense": {
+              "rank": 6,
+              "score": 0.1906116959053303
+            }
+          },
+          "score": 0.029857397504456328,
+          "rank": 8,
+          "method": "hybrid_rrf",
+          "query_id": "q_news",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+          "source": "openml",
+          "contributions": {
+            "dense": {
+              "rank": 8,
+              "score": 0.058357042408853824
+            }
+          },
+          "score": 0.014705882352941176,
+          "rank": 9,
+          "method": "hybrid_rrf",
+          "query_id": "q_news",
+          "index_version": "hybrid-rrf-v1"
+        },
+        {
+          "dataset_id": "ds_69f0f69749316e8b5768ef79",
+          "source": "openml",
+          "contributions": {
+            "dense": {
+              "rank": 10,
+              "score": -0.09637660706460072
+            }
+          },
+          "score": 0.014285714285714285,
+          "rank": 10,
+          "method": "hybrid_rrf",
+          "query_id": "q_news",
+          "index_version": "hybrid-rrf-v1"
+        }
+      ]
+    }
+  ]
+}

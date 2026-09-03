@@ -1,0 +1,44 @@
+{
+  "bm25_version": "bm25-v1",
+  "config": {
+    "bm25": {
+      "b": 0.75,
+      "k1": 1.2
+    },
+    "corpus": "experiments/m1/results/development_corpus.jsonl",
+    "dense": {
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "model_revision": "main",
+      "normalize_embeddings": true
+    },
+    "document_fields": [
+      "dataset_name",
+      "description",
+      "task",
+      "domain",
+      "modality",
+      "target",
+      "label_type",
+      "tags",
+      "intended_use"
+    ],
+    "hybrid": {
+      "rrf_k": 60
+    },
+    "index_directory": "indexes/retrieval/m2",
+    "limits_from_m0": {
+      "cold_query_budget_ms": 20000,
+      "combined_pre_evidence_records": 60,
+      "process_memory_ceiling_bytes": 134217728,
+      "records_per_programmatic_source": 20
+    },
+    "schema_version": 1
+  },
+  "corpus_hash": "2df2400c4f5787391d170da4af621b51bd93a28e25e4d3cf9aa46b6d508d3aba",
+  "corpus_records": 10,
+  "dense_version": "dense-v1",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "index_schema_version": "1",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "python_version": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]"
+}
