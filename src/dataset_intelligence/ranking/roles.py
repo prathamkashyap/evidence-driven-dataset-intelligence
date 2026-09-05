@@ -92,7 +92,7 @@ def assign_recommendation_roles(
     # Contract: "Among eligible candidates, select the candidate with the lowest measured
     # operational overhead using only operational measurements that are actually present
     # and comparable across the candidates being compared."
-    eligible_efficient: list[tuple[Any, float, float]] = []  # (rec, overhead_metric, utility)
+    eligible_efficient: list[tuple[Any, float | None, float]] = []  # (rec, duration_ms, utility)
 
     for rec in selected_records:
         did = getattr(rec, "internal_id", "")
@@ -112,21 +112,21 @@ def assign_recommendation_roles(
             duration_ms: float | None = None
             if fp:
                 scope = getattr(fp, "sample_scope", {})
-                if isinstance(scope, dict) and "duration_ms" in scope:
-                    duration_ms = float(scope["duration_ms"])
-
-            # Overhead proxy: duration_ms if present, else 0.0
-            overhead = duration_ms if duration_ms is not None else 0.0
-            eligible_efficient.append((rec, overhead, u_score))
+                if isinstance(scope, dict) and "duration_ms" in scope and scope["duration_ms"] is not None:
+                    try:
+                        duration_ms = float(scope["duration_ms"])
+                    except (ValueError, TypeError):
+                        duration_ms = None
+            eligible_efficient.append((rec, duration_ms, u_score))
 
     if eligible_efficient:
-        # Check if duration_ms is comparable across all candidates being compared
-        has_duration = all(fp_dict.get(getattr(t[0], "internal_id", "")) is not None for t in eligible_efficient)
-        if has_duration:
-            # Sort by lowest duration_ms ascending, then highest utility descending
-            eligible_efficient.sort(key=lambda x: (x[1], -x[2], getattr(x[0], "internal_id", "")))
+        # Check if duration_ms is present and comparable across ALL candidates being compared
+        has_comparable_duration = all(t[1] is not None for t in eligible_efficient)
+        if has_comparable_duration:
+            # Sort by lowest measured duration_ms ascending, then highest utility descending
+            eligible_efficient.sort(key=lambda x: (x[1] if x[1] is not None else float("inf"), -x[2], getattr(x[0], "internal_id", "")))
         else:
-            # Sort by highest utility descending
+            # Fall back to sorting by highest utility descending among access-verified candidates
             eligible_efficient.sort(key=lambda x: (-x[2], getattr(x[0], "internal_id", "")))
 
         eff_rec = eligible_efficient[0][0]

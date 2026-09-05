@@ -23,7 +23,7 @@
 |---|---:|---:|---|
 | **Peak Process RSS** | **25.48 MiB** (26,718,208 bytes) | 128.00 MiB (134,217,728 bytes) | **Compliant** (19.9% of ceiling) |
 | **Total Wall-clock Runtime** | **13.43 ms** (for all 12 evaluations) | 20,000 ms per-query budget | **Compliant** |
-| **Per-Set Selection Latency** | **1.12 ms** | N/A | **Sub-millisecond** |
+| **Per-Set Selection Latency** | **1.12 ms** | N/A | **Approximately 1.12 ms per recommendation-set selection** |
 
 ---
 
@@ -37,9 +37,14 @@
 | **Baseline R2** | Candidate-Level Multi-Objective (Fit + Utility + Evidence - Risk) | 0.8506 | 0.5278 | **1** (UCI Iris + OpenML Iris) |
 | **Proposed R3** | Family-Aware Bounded Greedy Diversity Selection | **0.8536** | 0.5000 | **0** (Redundancy Eliminated) |
 
+### B. Hypothesis Assessment on Development Corpus:
+1. **Hypothesis H1 (Utility-Only Redundancy): Supported.** On `task_tabular_iris`, Baseline R1 selected both UCI Iris and OpenML Iris into top-3 slots, demonstrating that utility-only ranking produces same-family redundancy when dataset mirrors exist.
+2. **Hypothesis H2 (Evidence & Risk Down-Weighting): Not Demonstrated on Aggregate Development Corpus.** R1 and R2 yielded identical aggregate mean set utility (0.8506), mean diversity (0.5278), and same-family redundancy (1). While task-level candidate reordering occurred on `task_news_multiclass` (prioritizing AG News over Rotten Tomatoes for multi-class classification), no aggregate advantage of R2 over R1 was demonstrated on this 10-dataset development corpus. Full investigation of evidence/risk weighting is deferred to M8.
+3. **Hypothesis H3 (Family-Aware Diversification): Supported on Redundancy Elimination.** R3 eliminated observed same-family redundancy (1 $\to$ 0) without reducing mean set utility on the development corpus (0.8506 $\to$ 0.8536). Formal utility-retention tolerance analysis ($\bar{U}(R3) \ge \bar{U}(R1) - \epsilon$) is deferred to M8.
+
 ---
 
-### B. Task-by-Task Detailed Findings
+### C. Task-by-Task Detailed Findings
 
 #### 1. `task_tabular_iris` (Botanical Classification)
 - **Baseline R1:** Selects `['Iris', 'Wine', 'iris']` $\implies$ Mean Utility: 0.8809, Redundancy Count: **1** (UCI Iris and OpenML Iris both admitted).
