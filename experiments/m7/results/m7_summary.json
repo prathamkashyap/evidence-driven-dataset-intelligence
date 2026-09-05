@@ -1,0 +1,31 @@
+{
+  "baseline_aggregates": {
+    "r1_utility_only": {
+      "mean_diversity": 0.5278,
+      "mean_utility": 0.8506,
+      "total_redundancy": 1.0
+    },
+    "r2_multiobjective_linear": {
+      "mean_diversity": 0.5278,
+      "mean_utility": 0.8506,
+      "total_redundancy": 1.0
+    },
+    "r3_diversified_set": {
+      "mean_diversity": 0.5,
+      "mean_utility": 0.8536,
+      "total_redundancy": 0.0
+    }
+  },
+  "runtime_metrics": {
+    "m0_ceiling_bytes": 134217728,
+    "m0_ceiling_mib": 128.0,
+    "peak_rss_bytes": 26722304,
+    "peak_rss_mib": 25.48,
+    "wall_clock_ms": 13.43,
+    "within_m0_memory_ceiling": true
+  },
+  "schema_version": "1.0",
+  "target_set_size_k": 3,
+  "total_recommendation_sets_generated": 12,
+  "total_tasks_evaluated": 4
+}

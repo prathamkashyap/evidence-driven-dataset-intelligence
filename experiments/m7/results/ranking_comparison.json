@@ -1,0 +1,260 @@
+{
+  "task_image_cifar": {
+    "baselines": {
+      "r1_utility_only": {
+        "assigned_roles": [
+          "best_overall",
+          "best_alternative"
+        ],
+        "excluded_gated_count": 8,
+        "mean_set_utility": 0.7786,
+        "min_retained_utility": 0.6714,
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_40356f676278cb9903556c6e",
+          "ds_4e61d125afd0915cf8dcb4c6"
+        ],
+        "selected_dataset_names": [
+          "uoft-cs/cifar100",
+          "AI-Lab-Makerere/beans"
+        ],
+        "set_diversity_score": 0.5
+      },
+      "r2_multiobjective_linear": {
+        "assigned_roles": [
+          "best_overall",
+          "best_alternative"
+        ],
+        "excluded_gated_count": 8,
+        "mean_set_utility": 0.7786,
+        "min_retained_utility": 0.6714,
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_40356f676278cb9903556c6e",
+          "ds_4e61d125afd0915cf8dcb4c6"
+        ],
+        "selected_dataset_names": [
+          "uoft-cs/cifar100",
+          "AI-Lab-Makerere/beans"
+        ],
+        "set_diversity_score": 0.5
+      },
+      "r3_diversified_set": {
+        "assigned_roles": [
+          "best_overall",
+          "best_alternative"
+        ],
+        "excluded_gated_count": 8,
+        "mean_set_utility": 0.7786,
+        "min_retained_utility": 0.6714,
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_40356f676278cb9903556c6e",
+          "ds_4e61d125afd0915cf8dcb4c6"
+        ],
+        "selected_dataset_names": [
+          "uoft-cs/cifar100",
+          "AI-Lab-Makerere/beans"
+        ],
+        "set_diversity_score": 0.5
+      }
+    },
+    "task_id": "task_fb99dac2dd25b90db8778f6b",
+    "task_name": "task_image_cifar"
+  },
+  "task_news_multiclass": {
+    "baselines": {
+      "r1_utility_only": {
+        "assigned_roles": [
+          "best_overall",
+          "best_quality"
+        ],
+        "excluded_gated_count": 8,
+        "mean_set_utility": 0.85,
+        "min_retained_utility": 0.85,
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_3e424a817c66aab45e96797a"
+        ],
+        "selected_dataset_names": [
+          "cornell-movie-review-data/rotten_tomatoes",
+          "fancyzhx/ag_news"
+        ],
+        "set_diversity_score": 0.5
+      },
+      "r2_multiobjective_linear": {
+        "assigned_roles": [
+          "best_overall",
+          "best_quality"
+        ],
+        "excluded_gated_count": 8,
+        "mean_set_utility": 0.85,
+        "min_retained_utility": 0.85,
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3e424a817c66aab45e96797a",
+          "ds_c9a42d9bd6268ce4a4cf6061"
+        ],
+        "selected_dataset_names": [
+          "fancyzhx/ag_news",
+          "cornell-movie-review-data/rotten_tomatoes"
+        ],
+        "set_diversity_score": 0.5
+      },
+      "r3_diversified_set": {
+        "assigned_roles": [
+          "best_overall",
+          "best_quality"
+        ],
+        "excluded_gated_count": 8,
+        "mean_set_utility": 0.85,
+        "min_retained_utility": 0.85,
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3e424a817c66aab45e96797a",
+          "ds_c9a42d9bd6268ce4a4cf6061"
+        ],
+        "selected_dataset_names": [
+          "fancyzhx/ag_news",
+          "cornell-movie-review-data/rotten_tomatoes"
+        ],
+        "set_diversity_score": 0.5
+      }
+    },
+    "task_id": "task_1f7158ba3551a158ab7a3e9f",
+    "task_name": "task_news_multiclass"
+  },
+  "task_sentiment_binary": {
+    "baselines": {
+      "r1_utility_only": {
+        "assigned_roles": [
+          "best_overall",
+          "best_quality"
+        ],
+        "excluded_gated_count": 8,
+        "mean_set_utility": 0.8929,
+        "min_retained_utility": 0.8929,
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_3e424a817c66aab45e96797a"
+        ],
+        "selected_dataset_names": [
+          "cornell-movie-review-data/rotten_tomatoes",
+          "fancyzhx/ag_news"
+        ],
+        "set_diversity_score": 0.5
+      },
+      "r2_multiobjective_linear": {
+        "assigned_roles": [
+          "best_overall",
+          "best_quality"
+        ],
+        "excluded_gated_count": 8,
+        "mean_set_utility": 0.8929,
+        "min_retained_utility": 0.8929,
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3e424a817c66aab45e96797a",
+          "ds_c9a42d9bd6268ce4a4cf6061"
+        ],
+        "selected_dataset_names": [
+          "fancyzhx/ag_news",
+          "cornell-movie-review-data/rotten_tomatoes"
+        ],
+        "set_diversity_score": 0.5
+      },
+      "r3_diversified_set": {
+        "assigned_roles": [
+          "best_overall",
+          "best_quality"
+        ],
+        "excluded_gated_count": 8,
+        "mean_set_utility": 0.8929,
+        "min_retained_utility": 0.8929,
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3e424a817c66aab45e96797a",
+          "ds_c9a42d9bd6268ce4a4cf6061"
+        ],
+        "selected_dataset_names": [
+          "fancyzhx/ag_news",
+          "cornell-movie-review-data/rotten_tomatoes"
+        ],
+        "set_diversity_score": 0.5
+      }
+    },
+    "task_id": "task_21010815ad7dc71a2798bec3",
+    "task_name": "task_sentiment_binary"
+  },
+  "task_tabular_iris": {
+    "baselines": {
+      "r1_utility_only": {
+        "assigned_roles": [
+          "best_overall",
+          "best_quality",
+          "best_efficient_option"
+        ],
+        "excluded_gated_count": 6,
+        "mean_set_utility": 0.8809,
+        "min_retained_utility": 0.8571,
+        "same_family_redundancy_count": 1,
+        "selected_dataset_ids": [
+          "ds_773a4c155a583474a0222bdf",
+          "ds_9f128b3a604eed483953e7f8",
+          "ds_69f0f69749316e8b5768ef79"
+        ],
+        "selected_dataset_names": [
+          "Iris",
+          "Wine",
+          "iris"
+        ],
+        "set_diversity_score": 0.6111
+      },
+      "r2_multiobjective_linear": {
+        "assigned_roles": [
+          "best_overall",
+          "best_quality",
+          "best_efficient_option"
+        ],
+        "excluded_gated_count": 6,
+        "mean_set_utility": 0.8809,
+        "min_retained_utility": 0.8571,
+        "same_family_redundancy_count": 1,
+        "selected_dataset_ids": [
+          "ds_773a4c155a583474a0222bdf",
+          "ds_69f0f69749316e8b5768ef79",
+          "ds_9f128b3a604eed483953e7f8"
+        ],
+        "selected_dataset_names": [
+          "Iris",
+          "iris",
+          "Wine"
+        ],
+        "set_diversity_score": 0.6111
+      },
+      "r3_diversified_set": {
+        "assigned_roles": [
+          "best_overall",
+          "best_quality"
+        ],
+        "excluded_gated_count": 6,
+        "mean_set_utility": 0.8928,
+        "min_retained_utility": 0.8571,
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_773a4c155a583474a0222bdf",
+          "ds_9f128b3a604eed483953e7f8"
+        ],
+        "selected_dataset_names": [
+          "Iris",
+          "Wine"
+        ],
+        "set_diversity_score": 0.5
+      }
+    },
+    "task_id": "task_4f8bd3484d162b570b401ded",
+    "task_name": "task_tabular_iris"
+  }
+}
