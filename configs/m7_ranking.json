@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "input_corpus": "experiments/m1/results/development_corpus.jsonl",
+  "input_m3_ledger": "experiments/m3/results/evidence_ledger.jsonl",
+  "input_m4_fingerprints": "experiments/m4/results/dataset_fingerprints.jsonl",
+  "input_m5_utility": "experiments/m5/results/utility_estimates.jsonl",
+  "input_m6_profiles": "experiments/m6/results/popularity_profiles.jsonl",
+  "input_m6_exploration_pools": "experiments/m6/results/exploration_pools.jsonl",
+  "output_directory": "experiments/m7/results",
+  "target_k": 3,
+  "lambda_div": 0.20,
+  "scoring_weights": {
+    "w_fit": 0.35,
+    "w_util": 0.35,
+    "w_evid": 0.15,
+    "w_cov": 0.15,
+    "w_risk": 0.15
+  },
+  "limits_from_m0": {
+    "combined_pre_evidence_records": 60,
+    "cold_query_budget_ms": 20000,
+    "process_memory_ceiling_bytes": 134217728
+  }
+}

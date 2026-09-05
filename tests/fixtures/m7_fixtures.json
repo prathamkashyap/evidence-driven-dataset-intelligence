@@ -1,0 +1,25 @@
+{
+  "synthetic_ranking_cases": {
+    "tabular_iris_task": {
+      "task_id": "task_synth_tabular_iris",
+      "task_type": "classification",
+      "primary_modality": "tabular",
+      "target_requirements": {"expected_classes": 3},
+      "candidate_ids": [
+        "ds_773a4c155a583474a0222bdf",
+        "ds_69f0f69749316e8b5768ef79",
+        "ds_9f128b3a604eed483953e7f8",
+        "ds_a7472dc830bfc6394941b2f7"
+      ],
+      "expected_r1_selection": [
+        "ds_773a4c155a583474a0222bdf",
+        "ds_69f0f69749316e8b5768ef79",
+        "ds_9f128b3a604eed483953e7f8"
+      ],
+      "expected_r3_selection": [
+        "ds_773a4c155a583474a0222bdf",
+        "ds_9f128b3a604eed483953e7f8"
+      ]
+    }
+  }
+}
