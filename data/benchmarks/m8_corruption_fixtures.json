@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "purpose": "Declarative M8 robustness cases. The offline harness must construct fresh CanonicalDataset instances and must never mutate the frozen corpus or upstream artifacts.",
+  "seed": 20260902,
+  "suites": [
+    {
+      "suite_id": "metadata_omission_v1",
+      "target_dataset_ids": ["ds_c9a42d9bd6268ce4a4cf6061", "ds_69f0f69749316e8b5768ef79", "ds_49000bb270a1d3efdaae1743"],
+      "operation": "remove_declared_fields_from_fresh_copy",
+      "field_paths": ["semantics.description", "semantics.tags", "structure.schema_summary", "structure.feature_information"],
+      "omission_rates": [0.25, 0.5, 0.75]
+    },
+    {
+      "suite_id": "license_conflict_v1",
+      "target_dataset_ids": ["ds_c9a42d9bd6268ce4a4cf6061", "ds_e6e9fa096aea2c1a71ea20d8"],
+      "operation": "append_conflicting_license_claim_to_fresh_copy",
+      "injected_claims": ["MIT", "CC-BY-4.0"],
+      "required_state": "conflicting"
+    },
+    {
+      "suite_id": "modality_corruption_v1",
+      "target_dataset_ids": ["ds_3e424a817c66aab45e96797a", "ds_40356f676278cb9903556c6e", "ds_69f0f69749316e8b5768ef79"],
+      "operation": "replace_declared_modality_on_fresh_copy",
+      "replacement_values": ["corrupted_modality", "unsupported_modality"]
+    },
+    {
+      "suite_id": "endpoint_failure_v1",
+      "target_dataset_ids": ["ds_571ff1a1d7ef99b2171e3852", "ds_e6e9fa096aea2c1a71ea20d8", "ds_49000bb270a1d3efdaae1743"],
+      "operation": "inject_sample_endpoint_status_into_fresh_copy",
+      "http_status_codes": [403, 500, 502],
+      "required_observation_states": ["failed", "unsupported"]
+    }
+  ],
+  "metrics": ["crash_rate", "hard_gating_precision", "hard_gating_recall", "mean_utility_delta", "set_jaccard_overlap", "epistemic_state_transition_count", "false_positive_recommendation_count"]
+}

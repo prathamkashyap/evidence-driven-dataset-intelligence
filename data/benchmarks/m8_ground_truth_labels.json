@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "label_type": "project_author_reference_levels_for_m7_pipeline_consistency_audit",
+  "independence_status": "non_independent_not_external_ground_truth_not_calibrated_probability_labels",
+  "purpose": "Option C only: describe consistency between frozen M7 scores and the M5 rubric family. These labels must not be used to claim external validity, independent calibration, or downstream performance.",
+  "binary_cutoff": {"positive_if_reference_level_at_least": 2},
+  "dataset_order": [
+    "ds_c9a42d9bd6268ce4a4cf6061", "ds_3e424a817c66aab45e96797a", "ds_40356f676278cb9903556c6e", "ds_4e61d125afd0915cf8dcb4c6",
+    "ds_69f0f69749316e8b5768ef79", "ds_a7472dc830bfc6394941b2f7", "ds_773a4c155a583474a0222bdf", "ds_9f128b3a604eed483953e7f8",
+    "ds_c39f4b8a33e1fd6fecbf4bdc", "ds_3c522d9aa8b9ec84e3b73660", "ds_571ff1a1d7ef99b2171e3852", "ds_c45d3224de46bc3884ad6e5c",
+    "ds_7b6d27932a45a48a4cd55d79", "ds_5ee5dfd8bb6d44b04c13bd87", "ds_9da5e7e1994a5dacbf9a4b24", "ds_18a2c079199637dc986a2a9f",
+    "ds_e6e9fa096aea2c1a71ea20d8", "ds_4c28476bb5533a360ee3656b", "ds_a9e3a6a67f897b2540a6dd91", "ds_f1a15ea38a4249412a1d58db",
+    "ds_49000bb270a1d3efdaae1743", "ds_a67e752b027f81f22083533c", "ds_bdf285c7cdab311e6bd061ed", "ds_56fb9361b0779608d89f5f60"
+  ],
+  "tasks": {
+    "task_sentiment_binary": {"task_id": "task_21010815ad7dc71a2798bec3", "reference_levels": [3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "binary_suitability": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+    "task_news_multiclass": {"task_id": "task_1f7158ba3551a158ab7a3e9f", "reference_levels": [1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "binary_suitability": [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+    "task_tabular_iris": {"task_id": "task_4f8bd3484d162b570b401ded", "reference_levels": [0, 0, 0, 0, 3, 1, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0], "binary_suitability": [0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+    "task_image_cifar": {"task_id": "task_fb99dac2dd25b90db8778f6b", "reference_levels": [0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0], "binary_suitability": [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+    "task_tabular_diabetes": {"task_id": "task_58e9ab9acb8645ba4c435a96", "reference_levels": [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 2, 2, 1, 0], "binary_suitability": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0]},
+    "task_tabular_wine": {"task_id": "task_edf04f3ea9e6b500ff8feb65", "reference_levels": [0, 0, 0, 0, 1, 3, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0], "binary_suitability": [0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+    "task_tabular_titanic": {"task_id": "task_4ec3bd8ba587c0a84210f1f9", "reference_levels": [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 1, 1, 1, 1, 2, 0], "binary_suitability": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0]},
+    "task_image_leaf_disease": {"task_id": "task_fa4814a65db472e5d308ff6e", "reference_levels": [0, 0, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0], "binary_suitability": [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+  }
+}

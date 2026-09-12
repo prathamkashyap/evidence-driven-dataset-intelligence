@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "evaluation_id": "m8-frozen-offline-evaluation-v1",
+  "protocol_commit": "3df1bae455c36e81d266b7c45edfc5465763d281",
+  "preparation_commit": "ee9171b4bff6f3522232f111d7f96120ad3741e4",
+  "frozen_m0_m7_commit": "7d6172813e78afd15488ea8995b7365be66e215c",
+  "random_seed": 20260902,
+  "network_egress": "forbidden",
+  "reproducibility": {
+    "input_freeze_observed_at": "2026-09-12T16:24:05Z",
+    "python_version": "3.14.6",
+    "platform": "macOS-26.6.2-arm64",
+    "package_versions_from_pip_freeze": ["pybind11==3.0.4", "wheel==0.47.0"],
+    "hardware_memory_bytes": null,
+    "hardware_memory_status": "unavailable during input freeze; record again with the offline benchmark run",
+    "cache_state": "committed local M8 artifacts; raw acquisition cache is ignored and not an evaluation input"
+  },
+  "candidate_pool": {
+    "corpus": "experiments/m8/corpus/benchmark_corpus.jsonl",
+    "selection_rule": "all corpus records in manifest order",
+    "candidate_count": 24,
+    "per_source_cap": 20,
+    "total_cap": 60,
+    "evidence_analysis_cap": 10,
+    "content_probe_cap": 6
+  },
+  "task_order": [
+    "task_sentiment_binary",
+    "task_news_multiclass",
+    "task_tabular_iris",
+    "task_image_cifar",
+    "task_tabular_diabetes",
+    "task_tabular_wine",
+    "task_tabular_titanic",
+    "task_image_leaf_disease"
+  ],
+  "baselines": ["r1_utility_only", "r2_multiobjective_linear", "r3_diversified_set"],
+  "target_k": 3,
+  "scoring_weights": {"w_fit": 0.35, "w_util": 0.35, "w_evid": 0.15, "w_cov": 0.15, "w_risk": 0.15},
+  "lambda_div": 0.2,
+  "sensitivity": {
+    "positive_weight_relative_perturbations": [-0.2, 0.2],
+    "risk_weights": [0.12, 0.15, 0.18],
+    "lambda_div_values": [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4],
+    "mean_jaccard_minimum": 0.8,
+    "kendall_tau_minimum": 0.75
+  },
+  "limits_from_m0": {"per_task_latency_ms": 20000, "process_memory_ceiling_bytes": 134217728},
+  "inputs": {
+    "manifest": "data/benchmarks/m8_benchmark_manifest.json",
+    "labels": "data/benchmarks/m8_ground_truth_labels.json",
+    "corruption_fixtures": "data/benchmarks/m8_corruption_fixtures.json",
+    "human_selection": "data/benchmarks/m8_human_eval_selection.json"
+  },
+  "output_directory": "experiments/m8/results"
+}

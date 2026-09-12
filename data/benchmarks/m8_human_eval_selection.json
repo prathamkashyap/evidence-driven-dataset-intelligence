@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "status": "selection_rule_frozen_stimulus_pairs_not_yet_generated",
+  "purpose": "Deterministic task selection for the later minimal human study. This is not participant data and does not claim that M8 recommendation sets already exist.",
+  "selected_task_order": ["task_sentiment_binary", "task_tabular_titanic", "task_image_cifar"],
+  "modality_coverage": ["text", "tabular", "image"],
+  "recommendation_source": {"baseline_mode": "r3_diversified_set", "per_task_limit": 3, "fallback": "use every available R3 recommendation when fewer than three are available"},
+  "comparison_rule": "For every selected recommendation, compare its plain metadata card with its corresponding evidence-backed RecommendationCard. Each rater sees every selected comparison.",
+  "before_sessions": "Record the exact selected stimulus pairs and comparison count in data/benchmarks/m8_human_eval_protocol.md after the frozen offline M8 output exists and before any rating session starts."
+}

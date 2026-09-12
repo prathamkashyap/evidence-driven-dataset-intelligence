@@ -21,6 +21,12 @@ data/fingerprints/*
 data/benchmarks/*
 !data/benchmarks/.gitkeep
 !data/benchmarks/m8_corpus_exclusions.md
+!data/benchmarks/m8_benchmark_manifest.json
+!data/benchmarks/m8_ground_truth_labels.json
+!data/benchmarks/m8_corruption_fixtures.json
+!data/benchmarks/m8_human_eval_selection.json
+!data/benchmarks/m8_rubric.md
+!data/benchmarks/m8_annotation_protocol.md
 indexes/bm25/*
 !indexes/bm25/.gitkeep
 indexes/dense/*
