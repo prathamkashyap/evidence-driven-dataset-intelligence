@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "protocol_commit": "3df1bae455c36e81d266b7c45edfc5465763d281",
+  "frozen_m0_m7_commit": "7d6172813e78afd15488ea8995b7365be66e215c",
+  "acquisition_id": "m8-corpus-preparation-v1",
+  "seed": 20260902,
+  "request_timeout_seconds": 20,
+  "sample_limits": {
+    "max_records": 32,
+    "soft_target_bytes": 1048576,
+    "hard_cap_bytes": 67108864
+  },
+  "cache_directory": "data/raw/m8",
+  "output_directory": "experiments/m8",
+  "targets": [
+    {"order": 11, "id": "hf_imdb", "source": "huggingface", "source_dataset_id": "stanfordnlp/imdb", "sample": {"kind": "hf_rows", "config": "plain_text", "split": "train", "target_column": "label"}},
+    {"order": 12, "id": "hf_glue_sst2", "source": "huggingface", "source_dataset_id": "nyu-mll/glue", "sample": {"kind": "hf_rows", "config": "sst2", "split": "train", "target_column": "label"}},
+    {"order": 13, "id": "hf_tweet_eval_sentiment", "source": "huggingface", "source_dataset_id": "cardiffnlp/tweet_eval", "sample": {"kind": "hf_rows", "config": "sentiment", "split": "train", "target_column": "label"}},
+    {"order": 14, "id": "hf_dbpedia_14", "source": "huggingface", "source_dataset_id": "fancyzhx/dbpedia_14", "sample": {"kind": "hf_rows", "config": "default", "split": "train", "target_column": "label"}},
+    {"order": 15, "id": "hf_cifar10", "source": "huggingface", "source_dataset_id": "uoft-cs/cifar10", "sample": {"kind": "hf_rows", "config": "plain_text", "split": "train", "target_column": "label"}},
+    {"order": 16, "id": "hf_fashion_mnist", "source": "huggingface", "source_dataset_id": "zalando-datasets/fashion_mnist", "sample": {"kind": "hf_rows", "config": "default", "split": "train", "target_column": "label"}},
+    {"order": 17, "id": "openml_diabetes", "source": "openml", "source_dataset_id": "37", "sample": {"kind": "openml_arff", "target_column": "class"}},
+    {"order": 18, "id": "openml_titanic", "source": "openml", "source_dataset_id": "40945", "sample": {"kind": "openml_arff", "target_column": "survived"}},
+    {"order": 19, "id": "openml_credit_g", "source": "openml", "source_dataset_id": "31", "sample": {"kind": "openml_arff", "target_column": "class"}},
+    {"order": 20, "id": "openml_mnist_784", "source": "openml", "source_dataset_id": "554", "sample": {"kind": "openml_arff", "target_column": "class"}},
+    {"order": 21, "id": "uci_heart_disease", "source": "uci", "source_dataset_id": "45", "sample": {"kind": "uci_zip", "url": "https://archive.ics.uci.edu/static/public/45/heart+disease.zip", "member": "processed.cleveland.data", "target_column": "num"}},
+    {"order": 22, "id": "uci_breast_cancer_wisconsin", "source": "uci", "source_dataset_id": "17", "sample": {"kind": "uci_zip", "url": "https://archive.ics.uci.edu/static/public/17/breast+cancer+wisconsin+diagnostic.zip", "member": "wdbc.data", "target_column": "diagnosis"}},
+    {"order": 23, "id": "uci_adult", "source": "uci", "source_dataset_id": "2", "sample": {"kind": "uci_zip", "url": "https://archive.ics.uci.edu/static/public/2/adult.zip", "member": "adult.data", "target_column": "income"}},
+    {"order": 24, "id": "kaggle_titanic", "source": "kaggle", "source_dataset_id": "heptapod/titanic", "sample": {"kind": "not_attempted"}},
+    {"order": 25, "id": "kaggle_heart_disease_uci", "source": "kaggle", "source_dataset_id": "ronitf/heart-disease-uci", "sample": {"kind": "not_attempted"}}
+  ],
+  "task_specifications": {
+    "task_sentiment_binary": {"task_type": "classification", "primary_modality": "text", "domain": "movie_reviews", "target_requirements": {"target_type": "binary", "expected_classes": 2}, "input_constraints": {"max_tokens": 512}, "governance_constraints": {"allowed_licenses": ["mit", "apache-2.0"]}, "access_constraints": {"public_access_required": true}, "raw_query": "movie review sentiment analysis binary classification text"},
+    "task_news_multiclass": {"task_type": "classification", "primary_modality": "text", "domain": "news", "target_requirements": {"target_type": "multiclass", "expected_classes": 4}, "input_constraints": {"max_tokens": 256}, "governance_constraints": {}, "access_constraints": {"public_access_required": true}, "raw_query": "news topic classification"},
+    "task_tabular_iris": {"task_type": "classification", "primary_modality": "tabular", "domain": "botany", "target_requirements": {"target_type": "multiclass", "expected_classes": 3}, "input_constraints": {"min_features": 4}, "governance_constraints": {}, "access_constraints": {"public_access_required": true}, "raw_query": "tabular flower classification species"},
+    "task_image_cifar": {"task_type": "classification", "primary_modality": "image", "domain": "general_objects", "target_requirements": {"target_type": "multiclass", "expected_classes": 100}, "input_constraints": {}, "governance_constraints": {}, "access_constraints": {"public_access_required": true}, "raw_query": "multiclass natural image classification"},
+    "task_tabular_diabetes": {"task_type": "classification", "primary_modality": "tabular", "domain": "health", "target_requirements": {"target_type": "binary", "expected_classes": 2}, "input_constraints": {"min_features": 8}, "governance_constraints": {}, "access_constraints": {"public_access_required": true}, "raw_query": "tabular diabetes binary classification with eight features"},
+    "task_tabular_wine": {"task_type": "classification", "primary_modality": "tabular", "domain": "chemistry", "target_requirements": {"target_type": "multiclass", "expected_classes": 3}, "input_constraints": {"min_features": 13}, "governance_constraints": {}, "access_constraints": {"public_access_required": true}, "raw_query": "tabular wine class classification with thirteen features"},
+    "task_tabular_titanic": {"task_type": "classification", "primary_modality": "tabular", "domain": "demographics", "target_requirements": {"target_type": "binary", "expected_classes": 2}, "input_constraints": {}, "governance_constraints": {}, "access_constraints": {"public_access_required": true}, "raw_query": "tabular Titanic survival binary classification with demographic features"},
+    "task_image_leaf_disease": {"task_type": "classification", "primary_modality": "image", "domain": "plant_disease", "target_requirements": {"target_type": "multiclass", "expected_classes": 3}, "input_constraints": {}, "governance_constraints": {}, "access_constraints": {"public_access_required": true}, "raw_query": "image leaf disease multiclass classification"}
+  }
+}
