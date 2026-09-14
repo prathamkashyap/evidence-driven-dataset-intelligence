@@ -1,0 +1,5755 @@
+{
+  "ablation_ladder": {
+    "task_image_cifar": {
+      "rung_0_corpus_order": {
+        "mean_set_utility": 0.2952,
+        "rung_id": 0,
+        "rung_name": "rung_0_corpus_order",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_3e424a817c66aab45e96797a",
+          "ds_40356f676278cb9903556c6e"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fb99dac2dd25b90db8778f6b"
+      },
+      "rung_1_bm25_only": {
+        "mean_set_utility": 0.519,
+        "rung_id": 1,
+        "rung_name": "rung_1_bm25_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c45d3224de46bc3884ad6e5c",
+          "ds_40356f676278cb9903556c6e",
+          "ds_4e61d125afd0915cf8dcb4c6"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fb99dac2dd25b90db8778f6b"
+      },
+      "rung_2_dense_only": {
+        "mean_set_utility": 0.519,
+        "rung_id": 2,
+        "rung_name": "rung_2_dense_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_40356f676278cb9903556c6e",
+          "ds_4e61d125afd0915cf8dcb4c6",
+          "ds_3e424a817c66aab45e96797a"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fb99dac2dd25b90db8778f6b"
+      },
+      "rung_3_hybrid_rrf": {
+        "mean_set_utility": 0.519,
+        "rung_id": 3,
+        "rung_name": "rung_3_hybrid_rrf",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_40356f676278cb9903556c6e",
+          "ds_4e61d125afd0915cf8dcb4c6",
+          "ds_c45d3224de46bc3884ad6e5c"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fb99dac2dd25b90db8778f6b"
+      },
+      "rung_4_hybrid_hard_gating": {
+        "mean_set_utility": 0.7786,
+        "rung_id": 4,
+        "rung_name": "rung_4_hybrid_hard_gating",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_40356f676278cb9903556c6e",
+          "ds_4e61d125afd0915cf8dcb4c6"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fb99dac2dd25b90db8778f6b"
+      },
+      "rung_5_utility_only": {
+        "mean_set_utility": 0.7786,
+        "rung_id": 5,
+        "rung_name": "rung_5_utility_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_40356f676278cb9903556c6e",
+          "ds_4e61d125afd0915cf8dcb4c6"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fb99dac2dd25b90db8778f6b"
+      },
+      "rung_6_multiobjective_linear": {
+        "mean_set_utility": 0.7786,
+        "rung_id": 6,
+        "rung_name": "rung_6_multiobjective_linear",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_40356f676278cb9903556c6e",
+          "ds_4e61d125afd0915cf8dcb4c6"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fb99dac2dd25b90db8778f6b"
+      },
+      "rung_7_farthest_first_no_family": {
+        "mean_set_utility": 0.7786,
+        "rung_id": 7,
+        "rung_name": "rung_7_farthest_first_no_family",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_40356f676278cb9903556c6e",
+          "ds_4e61d125afd0915cf8dcb4c6"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fb99dac2dd25b90db8778f6b"
+      },
+      "rung_8_full_system": {
+        "mean_set_utility": 0.7786,
+        "rung_id": 8,
+        "rung_name": "rung_8_full_system",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_40356f676278cb9903556c6e",
+          "ds_4e61d125afd0915cf8dcb4c6"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fb99dac2dd25b90db8778f6b"
+      }
+    },
+    "task_image_leaf_disease": {
+      "rung_0_corpus_order": {
+        "mean_set_utility": 0.2952,
+        "rung_id": 0,
+        "rung_name": "rung_0_corpus_order",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_3e424a817c66aab45e96797a",
+          "ds_40356f676278cb9903556c6e"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fa4814a65db472e5d308ff6e"
+      },
+      "rung_1_bm25_only": {
+        "mean_set_utility": 0.519,
+        "rung_id": 1,
+        "rung_name": "rung_1_bm25_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_4e61d125afd0915cf8dcb4c6",
+          "ds_49000bb270a1d3efdaae1743",
+          "ds_40356f676278cb9903556c6e"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_fa4814a65db472e5d308ff6e"
+      },
+      "rung_2_dense_only": {
+        "mean_set_utility": 0.519,
+        "rung_id": 2,
+        "rung_name": "rung_2_dense_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_4e61d125afd0915cf8dcb4c6",
+          "ds_40356f676278cb9903556c6e",
+          "ds_3e424a817c66aab45e96797a"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fa4814a65db472e5d308ff6e"
+      },
+      "rung_3_hybrid_rrf": {
+        "mean_set_utility": 0.519,
+        "rung_id": 3,
+        "rung_name": "rung_3_hybrid_rrf",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_4e61d125afd0915cf8dcb4c6",
+          "ds_40356f676278cb9903556c6e",
+          "ds_3e424a817c66aab45e96797a"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fa4814a65db472e5d308ff6e"
+      },
+      "rung_4_hybrid_hard_gating": {
+        "mean_set_utility": 0.7786,
+        "rung_id": 4,
+        "rung_name": "rung_4_hybrid_hard_gating",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_4e61d125afd0915cf8dcb4c6",
+          "ds_40356f676278cb9903556c6e"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fa4814a65db472e5d308ff6e"
+      },
+      "rung_5_utility_only": {
+        "mean_set_utility": 0.7786,
+        "rung_id": 5,
+        "rung_name": "rung_5_utility_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_40356f676278cb9903556c6e",
+          "ds_4e61d125afd0915cf8dcb4c6"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fa4814a65db472e5d308ff6e"
+      },
+      "rung_6_multiobjective_linear": {
+        "mean_set_utility": 0.7786,
+        "rung_id": 6,
+        "rung_name": "rung_6_multiobjective_linear",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_40356f676278cb9903556c6e",
+          "ds_4e61d125afd0915cf8dcb4c6"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fa4814a65db472e5d308ff6e"
+      },
+      "rung_7_farthest_first_no_family": {
+        "mean_set_utility": 0.7786,
+        "rung_id": 7,
+        "rung_name": "rung_7_farthest_first_no_family",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_40356f676278cb9903556c6e",
+          "ds_4e61d125afd0915cf8dcb4c6"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fa4814a65db472e5d308ff6e"
+      },
+      "rung_8_full_system": {
+        "mean_set_utility": 0.7786,
+        "rung_id": 8,
+        "rung_name": "rung_8_full_system",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_40356f676278cb9903556c6e",
+          "ds_4e61d125afd0915cf8dcb4c6"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_fa4814a65db472e5d308ff6e"
+      }
+    },
+    "task_news_multiclass": {
+      "rung_0_corpus_order": {
+        "mean_set_utility": 0.5667,
+        "rung_id": 0,
+        "rung_name": "rung_0_corpus_order",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_3e424a817c66aab45e96797a",
+          "ds_40356f676278cb9903556c6e"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_1f7158ba3551a158ab7a3e9f"
+      },
+      "rung_1_bm25_only": {
+        "mean_set_utility": 0.2833,
+        "rung_id": 1,
+        "rung_name": "rung_1_bm25_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3e424a817c66aab45e96797a",
+          "ds_5ee5dfd8bb6d44b04c13bd87",
+          "ds_c39f4b8a33e1fd6fecbf4bdc"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_1f7158ba3551a158ab7a3e9f"
+      },
+      "rung_2_dense_only": {
+        "mean_set_utility": 0.2833,
+        "rung_id": 2,
+        "rung_name": "rung_2_dense_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3e424a817c66aab45e96797a",
+          "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "ds_c45d3224de46bc3884ad6e5c"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_1f7158ba3551a158ab7a3e9f"
+      },
+      "rung_3_hybrid_rrf": {
+        "mean_set_utility": 0.2833,
+        "rung_id": 3,
+        "rung_name": "rung_3_hybrid_rrf",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3e424a817c66aab45e96797a",
+          "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "ds_7b6d27932a45a48a4cd55d79"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_1f7158ba3551a158ab7a3e9f"
+      },
+      "rung_4_hybrid_hard_gating": {
+        "mean_set_utility": 0.85,
+        "rung_id": 4,
+        "rung_name": "rung_4_hybrid_hard_gating",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3e424a817c66aab45e96797a",
+          "ds_c9a42d9bd6268ce4a4cf6061"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_1f7158ba3551a158ab7a3e9f"
+      },
+      "rung_5_utility_only": {
+        "mean_set_utility": 0.85,
+        "rung_id": 5,
+        "rung_name": "rung_5_utility_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_3e424a817c66aab45e96797a"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_1f7158ba3551a158ab7a3e9f"
+      },
+      "rung_6_multiobjective_linear": {
+        "mean_set_utility": 0.85,
+        "rung_id": 6,
+        "rung_name": "rung_6_multiobjective_linear",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3e424a817c66aab45e96797a",
+          "ds_c9a42d9bd6268ce4a4cf6061"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_1f7158ba3551a158ab7a3e9f"
+      },
+      "rung_7_farthest_first_no_family": {
+        "mean_set_utility": 0.85,
+        "rung_id": 7,
+        "rung_name": "rung_7_farthest_first_no_family",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3e424a817c66aab45e96797a",
+          "ds_c9a42d9bd6268ce4a4cf6061"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_1f7158ba3551a158ab7a3e9f"
+      },
+      "rung_8_full_system": {
+        "mean_set_utility": 0.85,
+        "rung_id": 8,
+        "rung_name": "rung_8_full_system",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3e424a817c66aab45e96797a",
+          "ds_c9a42d9bd6268ce4a4cf6061"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_1f7158ba3551a158ab7a3e9f"
+      }
+    },
+    "task_sentiment_binary": {
+      "rung_0_corpus_order": {
+        "mean_set_utility": 0.5953,
+        "rung_id": 0,
+        "rung_name": "rung_0_corpus_order",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_3e424a817c66aab45e96797a",
+          "ds_40356f676278cb9903556c6e"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_21010815ad7dc71a2798bec3"
+      },
+      "rung_1_bm25_only": {
+        "mean_set_utility": 0.2976,
+        "rung_id": 1,
+        "rung_name": "rung_1_bm25_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_571ff1a1d7ef99b2171e3852",
+          "ds_7b6d27932a45a48a4cd55d79"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_21010815ad7dc71a2798bec3"
+      },
+      "rung_2_dense_only": {
+        "mean_set_utility": 0.5953,
+        "rung_id": 2,
+        "rung_name": "rung_2_dense_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_3e424a817c66aab45e96797a",
+          "ds_40356f676278cb9903556c6e"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_21010815ad7dc71a2798bec3"
+      },
+      "rung_3_hybrid_rrf": {
+        "mean_set_utility": 0.5953,
+        "rung_id": 3,
+        "rung_name": "rung_3_hybrid_rrf",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_3e424a817c66aab45e96797a",
+          "ds_571ff1a1d7ef99b2171e3852"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_21010815ad7dc71a2798bec3"
+      },
+      "rung_4_hybrid_hard_gating": {
+        "mean_set_utility": 0.8929,
+        "rung_id": 4,
+        "rung_name": "rung_4_hybrid_hard_gating",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_3e424a817c66aab45e96797a"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_21010815ad7dc71a2798bec3"
+      },
+      "rung_5_utility_only": {
+        "mean_set_utility": 0.8929,
+        "rung_id": 5,
+        "rung_name": "rung_5_utility_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_3e424a817c66aab45e96797a"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_21010815ad7dc71a2798bec3"
+      },
+      "rung_6_multiobjective_linear": {
+        "mean_set_utility": 0.8929,
+        "rung_id": 6,
+        "rung_name": "rung_6_multiobjective_linear",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3e424a817c66aab45e96797a",
+          "ds_c9a42d9bd6268ce4a4cf6061"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_21010815ad7dc71a2798bec3"
+      },
+      "rung_7_farthest_first_no_family": {
+        "mean_set_utility": 0.8929,
+        "rung_id": 7,
+        "rung_name": "rung_7_farthest_first_no_family",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3e424a817c66aab45e96797a",
+          "ds_c9a42d9bd6268ce4a4cf6061"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_21010815ad7dc71a2798bec3"
+      },
+      "rung_8_full_system": {
+        "mean_set_utility": 0.8929,
+        "rung_id": 8,
+        "rung_name": "rung_8_full_system",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3e424a817c66aab45e96797a",
+          "ds_c9a42d9bd6268ce4a4cf6061"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_21010815ad7dc71a2798bec3"
+      }
+    },
+    "task_tabular_diabetes": {
+      "rung_0_corpus_order": {
+        "mean_set_utility": 0.0,
+        "rung_id": 0,
+        "rung_name": "rung_0_corpus_order",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_3e424a817c66aab45e96797a",
+          "ds_40356f676278cb9903556c6e"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_58e9ab9acb8645ba4c435a96"
+      },
+      "rung_1_bm25_only": {
+        "mean_set_utility": 0.5381,
+        "rung_id": 1,
+        "rung_name": "rung_1_bm25_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3c522d9aa8b9ec84e3b73660",
+          "ds_e6e9fa096aea2c1a71ea20d8",
+          "ds_f1a15ea38a4249412a1d58db"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_58e9ab9acb8645ba4c435a96"
+      },
+      "rung_2_dense_only": {
+        "mean_set_utility": 0.2753,
+        "rung_id": 2,
+        "rung_name": "rung_2_dense_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3c522d9aa8b9ec84e3b73660",
+          "ds_c45d3224de46bc3884ad6e5c",
+          "ds_a9e3a6a67f897b2540a6dd91"
+        ],
+        "set_diversity_score": 0.8333,
+        "task_id": "task_58e9ab9acb8645ba4c435a96"
+      },
+      "rung_3_hybrid_rrf": {
+        "mean_set_utility": 0.2857,
+        "rung_id": 3,
+        "rung_name": "rung_3_hybrid_rrf",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_3c522d9aa8b9ec84e3b73660",
+          "ds_e6e9fa096aea2c1a71ea20d8",
+          "ds_7b6d27932a45a48a4cd55d79"
+        ],
+        "set_diversity_score": 0.8333,
+        "task_id": "task_58e9ab9acb8645ba4c435a96"
+      },
+      "rung_4_hybrid_hard_gating": {
+        "mean_set_utility": 0.8134,
+        "rung_id": 4,
+        "rung_name": "rung_4_hybrid_hard_gating",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_e6e9fa096aea2c1a71ea20d8",
+          "ds_f1a15ea38a4249412a1d58db",
+          "ds_a9e3a6a67f897b2540a6dd91"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_58e9ab9acb8645ba4c435a96"
+      },
+      "rung_5_utility_only": {
+        "mean_set_utility": 0.9045,
+        "rung_id": 5,
+        "rung_name": "rung_5_utility_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_a67e752b027f81f22083533c",
+          "ds_bdf285c7cdab311e6bd061ed",
+          "ds_e6e9fa096aea2c1a71ea20d8"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_58e9ab9acb8645ba4c435a96"
+      },
+      "rung_6_multiobjective_linear": {
+        "mean_set_utility": 0.9045,
+        "rung_id": 6,
+        "rung_name": "rung_6_multiobjective_linear",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_a67e752b027f81f22083533c",
+          "ds_bdf285c7cdab311e6bd061ed",
+          "ds_49000bb270a1d3efdaae1743"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_58e9ab9acb8645ba4c435a96"
+      },
+      "rung_7_farthest_first_no_family": {
+        "mean_set_utility": 0.9045,
+        "rung_id": 7,
+        "rung_name": "rung_7_farthest_first_no_family",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_a67e752b027f81f22083533c",
+          "ds_bdf285c7cdab311e6bd061ed",
+          "ds_e6e9fa096aea2c1a71ea20d8"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_58e9ab9acb8645ba4c435a96"
+      },
+      "rung_8_full_system": {
+        "mean_set_utility": 0.9045,
+        "rung_id": 8,
+        "rung_name": "rung_8_full_system",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_a67e752b027f81f22083533c",
+          "ds_bdf285c7cdab311e6bd061ed",
+          "ds_e6e9fa096aea2c1a71ea20d8"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_58e9ab9acb8645ba4c435a96"
+      }
+    },
+    "task_tabular_iris": {
+      "rung_0_corpus_order": {
+        "mean_set_utility": 0.0,
+        "rung_id": 0,
+        "rung_name": "rung_0_corpus_order",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_3e424a817c66aab45e96797a",
+          "ds_40356f676278cb9903556c6e"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_4f8bd3484d162b570b401ded"
+      },
+      "rung_1_bm25_only": {
+        "mean_set_utility": 0.5952,
+        "rung_id": 1,
+        "rung_name": "rung_1_bm25_only",
+        "same_family_redundancy_count": 1,
+        "selected_dataset_ids": [
+          "ds_69f0f69749316e8b5768ef79",
+          "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "ds_773a4c155a583474a0222bdf"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_4f8bd3484d162b570b401ded"
+      },
+      "rung_2_dense_only": {
+        "mean_set_utility": 0.5952,
+        "rung_id": 2,
+        "rung_name": "rung_2_dense_only",
+        "same_family_redundancy_count": 1,
+        "selected_dataset_ids": [
+          "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "ds_69f0f69749316e8b5768ef79",
+          "ds_773a4c155a583474a0222bdf"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_4f8bd3484d162b570b401ded"
+      },
+      "rung_3_hybrid_rrf": {
+        "mean_set_utility": 0.5952,
+        "rung_id": 3,
+        "rung_name": "rung_3_hybrid_rrf",
+        "same_family_redundancy_count": 1,
+        "selected_dataset_ids": [
+          "ds_69f0f69749316e8b5768ef79",
+          "ds_c39f4b8a33e1fd6fecbf4bdc",
+          "ds_773a4c155a583474a0222bdf"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_4f8bd3484d162b570b401ded"
+      },
+      "rung_4_hybrid_hard_gating": {
+        "mean_set_utility": 0.8809,
+        "rung_id": 4,
+        "rung_name": "rung_4_hybrid_hard_gating",
+        "same_family_redundancy_count": 1,
+        "selected_dataset_ids": [
+          "ds_69f0f69749316e8b5768ef79",
+          "ds_773a4c155a583474a0222bdf",
+          "ds_9f128b3a604eed483953e7f8"
+        ],
+        "set_diversity_score": 0.6111,
+        "task_id": "task_4f8bd3484d162b570b401ded"
+      },
+      "rung_5_utility_only": {
+        "mean_set_utility": 0.8809,
+        "rung_id": 5,
+        "rung_name": "rung_5_utility_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_773a4c155a583474a0222bdf",
+          "ds_a67e752b027f81f22083533c",
+          "ds_9f128b3a604eed483953e7f8"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_4f8bd3484d162b570b401ded"
+      },
+      "rung_6_multiobjective_linear": {
+        "mean_set_utility": 0.8809,
+        "rung_id": 6,
+        "rung_name": "rung_6_multiobjective_linear",
+        "same_family_redundancy_count": 1,
+        "selected_dataset_ids": [
+          "ds_773a4c155a583474a0222bdf",
+          "ds_69f0f69749316e8b5768ef79",
+          "ds_a67e752b027f81f22083533c"
+        ],
+        "set_diversity_score": 0.6111,
+        "task_id": "task_4f8bd3484d162b570b401ded"
+      },
+      "rung_7_farthest_first_no_family": {
+        "mean_set_utility": 0.8809,
+        "rung_id": 7,
+        "rung_name": "rung_7_farthest_first_no_family",
+        "same_family_redundancy_count": 1,
+        "selected_dataset_ids": [
+          "ds_773a4c155a583474a0222bdf",
+          "ds_69f0f69749316e8b5768ef79",
+          "ds_a67e752b027f81f22083533c"
+        ],
+        "set_diversity_score": 0.6111,
+        "task_id": "task_4f8bd3484d162b570b401ded"
+      },
+      "rung_8_full_system": {
+        "mean_set_utility": 0.8809,
+        "rung_id": 8,
+        "rung_name": "rung_8_full_system",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_773a4c155a583474a0222bdf",
+          "ds_a67e752b027f81f22083533c",
+          "ds_9f128b3a604eed483953e7f8"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_4f8bd3484d162b570b401ded"
+      }
+    },
+    "task_tabular_titanic": {
+      "rung_0_corpus_order": {
+        "mean_set_utility": 0.0,
+        "rung_id": 0,
+        "rung_name": "rung_0_corpus_order",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_3e424a817c66aab45e96797a",
+          "ds_40356f676278cb9903556c6e"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_4ec3bd8ba587c0a84210f1f9"
+      },
+      "rung_1_bm25_only": {
+        "mean_set_utility": 0.5144,
+        "rung_id": 1,
+        "rung_name": "rung_1_bm25_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_4c28476bb5533a360ee3656b",
+          "ds_56fb9361b0779608d89f5f60",
+          "ds_f1a15ea38a4249412a1d58db"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_4ec3bd8ba587c0a84210f1f9"
+      },
+      "rung_2_dense_only": {
+        "mean_set_utility": 0.0,
+        "rung_id": 2,
+        "rung_name": "rung_2_dense_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_7b6d27932a45a48a4cd55d79",
+          "ds_c45d3224de46bc3884ad6e5c",
+          "ds_571ff1a1d7ef99b2171e3852"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_4ec3bd8ba587c0a84210f1f9"
+      },
+      "rung_3_hybrid_rrf": {
+        "mean_set_utility": 0.2524,
+        "rung_id": 3,
+        "rung_name": "rung_3_hybrid_rrf",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_7b6d27932a45a48a4cd55d79",
+          "ds_571ff1a1d7ef99b2171e3852",
+          "ds_f1a15ea38a4249412a1d58db"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_4ec3bd8ba587c0a84210f1f9"
+      },
+      "rung_4_hybrid_hard_gating": {
+        "mean_set_utility": 0.8001,
+        "rung_id": 4,
+        "rung_name": "rung_4_hybrid_hard_gating",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_f1a15ea38a4249412a1d58db",
+          "ds_773a4c155a583474a0222bdf",
+          "ds_4c28476bb5533a360ee3656b"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_4ec3bd8ba587c0a84210f1f9"
+      },
+      "rung_5_utility_only": {
+        "mean_set_utility": 0.9283,
+        "rung_id": 5,
+        "rung_name": "rung_5_utility_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_a67e752b027f81f22083533c",
+          "ds_9f128b3a604eed483953e7f8",
+          "ds_bdf285c7cdab311e6bd061ed"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_4ec3bd8ba587c0a84210f1f9"
+      },
+      "rung_6_multiobjective_linear": {
+        "mean_set_utility": 0.9283,
+        "rung_id": 6,
+        "rung_name": "rung_6_multiobjective_linear",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_a67e752b027f81f22083533c",
+          "ds_9f128b3a604eed483953e7f8",
+          "ds_bdf285c7cdab311e6bd061ed"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_4ec3bd8ba587c0a84210f1f9"
+      },
+      "rung_7_farthest_first_no_family": {
+        "mean_set_utility": 0.9283,
+        "rung_id": 7,
+        "rung_name": "rung_7_farthest_first_no_family",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_a67e752b027f81f22083533c",
+          "ds_9f128b3a604eed483953e7f8",
+          "ds_bdf285c7cdab311e6bd061ed"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_4ec3bd8ba587c0a84210f1f9"
+      },
+      "rung_8_full_system": {
+        "mean_set_utility": 0.9283,
+        "rung_id": 8,
+        "rung_name": "rung_8_full_system",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_a67e752b027f81f22083533c",
+          "ds_9f128b3a604eed483953e7f8",
+          "ds_bdf285c7cdab311e6bd061ed"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_4ec3bd8ba587c0a84210f1f9"
+      }
+    },
+    "task_tabular_wine": {
+      "rung_0_corpus_order": {
+        "mean_set_utility": 0.0,
+        "rung_id": 0,
+        "rung_name": "rung_0_corpus_order",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_3e424a817c66aab45e96797a",
+          "ds_40356f676278cb9903556c6e"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_edf04f3ea9e6b500ff8feb65"
+      },
+      "rung_1_bm25_only": {
+        "mean_set_utility": 0.4809,
+        "rung_id": 1,
+        "rung_name": "rung_1_bm25_only",
+        "same_family_redundancy_count": 1,
+        "selected_dataset_ids": [
+          "ds_9f128b3a604eed483953e7f8",
+          "ds_a7472dc830bfc6394941b2f7",
+          "ds_7b6d27932a45a48a4cd55d79"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_edf04f3ea9e6b500ff8feb65"
+      },
+      "rung_2_dense_only": {
+        "mean_set_utility": 0.4809,
+        "rung_id": 2,
+        "rung_name": "rung_2_dense_only",
+        "same_family_redundancy_count": 1,
+        "selected_dataset_ids": [
+          "ds_9f128b3a604eed483953e7f8",
+          "ds_a7472dc830bfc6394941b2f7",
+          "ds_3c522d9aa8b9ec84e3b73660"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_edf04f3ea9e6b500ff8feb65"
+      },
+      "rung_3_hybrid_rrf": {
+        "mean_set_utility": 0.4809,
+        "rung_id": 3,
+        "rung_name": "rung_3_hybrid_rrf",
+        "same_family_redundancy_count": 1,
+        "selected_dataset_ids": [
+          "ds_9f128b3a604eed483953e7f8",
+          "ds_a7472dc830bfc6394941b2f7",
+          "ds_9da5e7e1994a5dacbf9a4b24"
+        ],
+        "set_diversity_score": 0.7222,
+        "task_id": "task_edf04f3ea9e6b500ff8feb65"
+      },
+      "rung_4_hybrid_hard_gating": {
+        "mean_set_utility": 0.7571,
+        "rung_id": 4,
+        "rung_name": "rung_4_hybrid_hard_gating",
+        "same_family_redundancy_count": 1,
+        "selected_dataset_ids": [
+          "ds_9f128b3a604eed483953e7f8",
+          "ds_a7472dc830bfc6394941b2f7",
+          "ds_773a4c155a583474a0222bdf"
+        ],
+        "set_diversity_score": 0.6111,
+        "task_id": "task_edf04f3ea9e6b500ff8feb65"
+      },
+      "rung_5_utility_only": {
+        "mean_set_utility": 0.8568,
+        "rung_id": 5,
+        "rung_name": "rung_5_utility_only",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_a67e752b027f81f22083533c",
+          "ds_49000bb270a1d3efdaae1743",
+          "ds_bdf285c7cdab311e6bd061ed"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_edf04f3ea9e6b500ff8feb65"
+      },
+      "rung_6_multiobjective_linear": {
+        "mean_set_utility": 0.8568,
+        "rung_id": 6,
+        "rung_name": "rung_6_multiobjective_linear",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_a67e752b027f81f22083533c",
+          "ds_49000bb270a1d3efdaae1743",
+          "ds_bdf285c7cdab311e6bd061ed"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_edf04f3ea9e6b500ff8feb65"
+      },
+      "rung_7_farthest_first_no_family": {
+        "mean_set_utility": 0.8568,
+        "rung_id": 7,
+        "rung_name": "rung_7_farthest_first_no_family",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_a67e752b027f81f22083533c",
+          "ds_49000bb270a1d3efdaae1743",
+          "ds_bdf285c7cdab311e6bd061ed"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_edf04f3ea9e6b500ff8feb65"
+      },
+      "rung_8_full_system": {
+        "mean_set_utility": 0.8568,
+        "rung_id": 8,
+        "rung_name": "rung_8_full_system",
+        "same_family_redundancy_count": 0,
+        "selected_dataset_ids": [
+          "ds_a67e752b027f81f22083533c",
+          "ds_49000bb270a1d3efdaae1743",
+          "ds_bdf285c7cdab311e6bd061ed"
+        ],
+        "set_diversity_score": 0.5,
+        "task_id": "task_edf04f3ea9e6b500ff8feb65"
+      }
+    }
+  },
+  "baselines": {
+    "task_image_cifar": {
+      "baselines": {
+        "r1_utility_only": {
+          "assigned_roles": [
+            "best_overall",
+            "best_alternative"
+          ],
+          "excluded_gated_count": 22,
+          "mean_set_utility": 0.7786,
+          "min_retained_utility": 0.6714,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_40356f676278cb9903556c6e",
+            "ds_4e61d125afd0915cf8dcb4c6"
+          ],
+          "set_diversity_score": 0.5
+        },
+        "r2_multiobjective_linear": {
+          "assigned_roles": [
+            "best_overall",
+            "best_alternative"
+          ],
+          "excluded_gated_count": 22,
+          "mean_set_utility": 0.7786,
+          "min_retained_utility": 0.6714,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_40356f676278cb9903556c6e",
+            "ds_4e61d125afd0915cf8dcb4c6"
+          ],
+          "set_diversity_score": 0.5
+        },
+        "r3_diversified_set": {
+          "assigned_roles": [
+            "best_overall",
+            "best_alternative"
+          ],
+          "excluded_gated_count": 22,
+          "mean_set_utility": 0.7786,
+          "min_retained_utility": 0.6714,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_40356f676278cb9903556c6e",
+            "ds_4e61d125afd0915cf8dcb4c6"
+          ],
+          "set_diversity_score": 0.5
+        }
+      },
+      "task_id": "task_fb99dac2dd25b90db8778f6b",
+      "task_name": "task_image_cifar"
+    },
+    "task_image_leaf_disease": {
+      "baselines": {
+        "r1_utility_only": {
+          "assigned_roles": [
+            "best_overall",
+            "best_alternative"
+          ],
+          "excluded_gated_count": 22,
+          "mean_set_utility": 0.7786,
+          "min_retained_utility": 0.6714,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_40356f676278cb9903556c6e",
+            "ds_4e61d125afd0915cf8dcb4c6"
+          ],
+          "set_diversity_score": 0.5
+        },
+        "r2_multiobjective_linear": {
+          "assigned_roles": [
+            "best_overall",
+            "best_alternative"
+          ],
+          "excluded_gated_count": 22,
+          "mean_set_utility": 0.7786,
+          "min_retained_utility": 0.6714,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_40356f676278cb9903556c6e",
+            "ds_4e61d125afd0915cf8dcb4c6"
+          ],
+          "set_diversity_score": 0.5
+        },
+        "r3_diversified_set": {
+          "assigned_roles": [
+            "best_overall",
+            "best_alternative"
+          ],
+          "excluded_gated_count": 22,
+          "mean_set_utility": 0.7786,
+          "min_retained_utility": 0.6714,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_40356f676278cb9903556c6e",
+            "ds_4e61d125afd0915cf8dcb4c6"
+          ],
+          "set_diversity_score": 0.5
+        }
+      },
+      "task_id": "task_fa4814a65db472e5d308ff6e",
+      "task_name": "task_image_leaf_disease"
+    },
+    "task_news_multiclass": {
+      "baselines": {
+        "r1_utility_only": {
+          "assigned_roles": [
+            "best_overall",
+            "hidden_gem"
+          ],
+          "excluded_gated_count": 22,
+          "mean_set_utility": 0.85,
+          "min_retained_utility": 0.85,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_c9a42d9bd6268ce4a4cf6061",
+            "ds_3e424a817c66aab45e96797a"
+          ],
+          "set_diversity_score": 0.5
+        },
+        "r2_multiobjective_linear": {
+          "assigned_roles": [
+            "best_overall",
+            "hidden_gem"
+          ],
+          "excluded_gated_count": 22,
+          "mean_set_utility": 0.85,
+          "min_retained_utility": 0.85,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_3e424a817c66aab45e96797a",
+            "ds_c9a42d9bd6268ce4a4cf6061"
+          ],
+          "set_diversity_score": 0.5
+        },
+        "r3_diversified_set": {
+          "assigned_roles": [
+            "best_overall",
+            "hidden_gem"
+          ],
+          "excluded_gated_count": 22,
+          "mean_set_utility": 0.85,
+          "min_retained_utility": 0.85,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_3e424a817c66aab45e96797a",
+            "ds_c9a42d9bd6268ce4a4cf6061"
+          ],
+          "set_diversity_score": 0.5
+        }
+      },
+      "task_id": "task_1f7158ba3551a158ab7a3e9f",
+      "task_name": "task_news_multiclass"
+    },
+    "task_sentiment_binary": {
+      "baselines": {
+        "r1_utility_only": {
+          "assigned_roles": [
+            "best_overall",
+            "hidden_gem"
+          ],
+          "excluded_gated_count": 22,
+          "mean_set_utility": 0.8929,
+          "min_retained_utility": 0.8929,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_c9a42d9bd6268ce4a4cf6061",
+            "ds_3e424a817c66aab45e96797a"
+          ],
+          "set_diversity_score": 0.5
+        },
+        "r2_multiobjective_linear": {
+          "assigned_roles": [
+            "best_overall",
+            "hidden_gem"
+          ],
+          "excluded_gated_count": 22,
+          "mean_set_utility": 0.8929,
+          "min_retained_utility": 0.8929,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_3e424a817c66aab45e96797a",
+            "ds_c9a42d9bd6268ce4a4cf6061"
+          ],
+          "set_diversity_score": 0.5
+        },
+        "r3_diversified_set": {
+          "assigned_roles": [
+            "best_overall",
+            "hidden_gem"
+          ],
+          "excluded_gated_count": 22,
+          "mean_set_utility": 0.8929,
+          "min_retained_utility": 0.8929,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_3e424a817c66aab45e96797a",
+            "ds_c9a42d9bd6268ce4a4cf6061"
+          ],
+          "set_diversity_score": 0.5
+        }
+      },
+      "task_id": "task_21010815ad7dc71a2798bec3",
+      "task_name": "task_sentiment_binary"
+    },
+    "task_tabular_diabetes": {
+      "baselines": {
+        "r1_utility_only": {
+          "assigned_roles": [
+            "best_overall",
+            "best_efficient_option",
+            "best_quality"
+          ],
+          "excluded_gated_count": 13,
+          "mean_set_utility": 0.9045,
+          "min_retained_utility": 0.8571,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_a67e752b027f81f22083533c",
+            "ds_bdf285c7cdab311e6bd061ed",
+            "ds_e6e9fa096aea2c1a71ea20d8"
+          ],
+          "set_diversity_score": 0.7222
+        },
+        "r2_multiobjective_linear": {
+          "assigned_roles": [
+            "best_overall",
+            "best_efficient_option",
+            "best_quality"
+          ],
+          "excluded_gated_count": 13,
+          "mean_set_utility": 0.9045,
+          "min_retained_utility": 0.8571,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_a67e752b027f81f22083533c",
+            "ds_bdf285c7cdab311e6bd061ed",
+            "ds_49000bb270a1d3efdaae1743"
+          ],
+          "set_diversity_score": 0.5
+        },
+        "r3_diversified_set": {
+          "assigned_roles": [
+            "best_overall",
+            "best_efficient_option",
+            "best_quality"
+          ],
+          "excluded_gated_count": 13,
+          "mean_set_utility": 0.9045,
+          "min_retained_utility": 0.8571,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_a67e752b027f81f22083533c",
+            "ds_bdf285c7cdab311e6bd061ed",
+            "ds_e6e9fa096aea2c1a71ea20d8"
+          ],
+          "set_diversity_score": 0.7222
+        }
+      },
+      "task_id": "task_58e9ab9acb8645ba4c435a96",
+      "task_name": "task_tabular_diabetes"
+    },
+    "task_tabular_iris": {
+      "baselines": {
+        "r1_utility_only": {
+          "assigned_roles": [
+            "best_overall",
+            "best_quality",
+            "best_efficient_option"
+          ],
+          "excluded_gated_count": 13,
+          "mean_set_utility": 0.8809,
+          "min_retained_utility": 0.8571,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_773a4c155a583474a0222bdf",
+            "ds_a67e752b027f81f22083533c",
+            "ds_9f128b3a604eed483953e7f8"
+          ],
+          "set_diversity_score": 0.5
+        },
+        "r2_multiobjective_linear": {
+          "assigned_roles": [
+            "best_overall",
+            "best_quality",
+            "best_efficient_option"
+          ],
+          "excluded_gated_count": 13,
+          "mean_set_utility": 0.8809,
+          "min_retained_utility": 0.8571,
+          "same_family_redundancy_count": 1,
+          "selected_dataset_ids": [
+            "ds_773a4c155a583474a0222bdf",
+            "ds_69f0f69749316e8b5768ef79",
+            "ds_a67e752b027f81f22083533c"
+          ],
+          "set_diversity_score": 0.6111
+        },
+        "r3_diversified_set": {
+          "assigned_roles": [
+            "best_overall",
+            "best_quality",
+            "best_efficient_option"
+          ],
+          "excluded_gated_count": 13,
+          "mean_set_utility": 0.8809,
+          "min_retained_utility": 0.8571,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_773a4c155a583474a0222bdf",
+            "ds_a67e752b027f81f22083533c",
+            "ds_9f128b3a604eed483953e7f8"
+          ],
+          "set_diversity_score": 0.5
+        }
+      },
+      "task_id": "task_4f8bd3484d162b570b401ded",
+      "task_name": "task_tabular_iris"
+    },
+    "task_tabular_titanic": {
+      "baselines": {
+        "r1_utility_only": {
+          "assigned_roles": [
+            "best_overall",
+            "best_quality",
+            "best_efficient_option"
+          ],
+          "excluded_gated_count": 13,
+          "mean_set_utility": 0.9283,
+          "min_retained_utility": 0.9277,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_a67e752b027f81f22083533c",
+            "ds_9f128b3a604eed483953e7f8",
+            "ds_bdf285c7cdab311e6bd061ed"
+          ],
+          "set_diversity_score": 0.5
+        },
+        "r2_multiobjective_linear": {
+          "assigned_roles": [
+            "best_overall",
+            "best_quality",
+            "best_efficient_option"
+          ],
+          "excluded_gated_count": 13,
+          "mean_set_utility": 0.9283,
+          "min_retained_utility": 0.9277,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_a67e752b027f81f22083533c",
+            "ds_9f128b3a604eed483953e7f8",
+            "ds_bdf285c7cdab311e6bd061ed"
+          ],
+          "set_diversity_score": 0.5
+        },
+        "r3_diversified_set": {
+          "assigned_roles": [
+            "best_overall",
+            "best_quality",
+            "best_efficient_option"
+          ],
+          "excluded_gated_count": 13,
+          "mean_set_utility": 0.9283,
+          "min_retained_utility": 0.9277,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_a67e752b027f81f22083533c",
+            "ds_9f128b3a604eed483953e7f8",
+            "ds_bdf285c7cdab311e6bd061ed"
+          ],
+          "set_diversity_score": 0.5
+        }
+      },
+      "task_id": "task_4ec3bd8ba587c0a84210f1f9",
+      "task_name": "task_tabular_titanic"
+    },
+    "task_tabular_wine": {
+      "baselines": {
+        "r1_utility_only": {
+          "assigned_roles": [
+            "best_overall",
+            "best_quality",
+            "best_efficient_option"
+          ],
+          "excluded_gated_count": 13,
+          "mean_set_utility": 0.8568,
+          "min_retained_utility": 0.8562,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_a67e752b027f81f22083533c",
+            "ds_49000bb270a1d3efdaae1743",
+            "ds_bdf285c7cdab311e6bd061ed"
+          ],
+          "set_diversity_score": 0.5
+        },
+        "r2_multiobjective_linear": {
+          "assigned_roles": [
+            "best_overall",
+            "best_quality",
+            "best_efficient_option"
+          ],
+          "excluded_gated_count": 13,
+          "mean_set_utility": 0.8568,
+          "min_retained_utility": 0.8562,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_a67e752b027f81f22083533c",
+            "ds_49000bb270a1d3efdaae1743",
+            "ds_bdf285c7cdab311e6bd061ed"
+          ],
+          "set_diversity_score": 0.5
+        },
+        "r3_diversified_set": {
+          "assigned_roles": [
+            "best_overall",
+            "best_quality",
+            "best_efficient_option"
+          ],
+          "excluded_gated_count": 13,
+          "mean_set_utility": 0.8568,
+          "min_retained_utility": 0.8562,
+          "same_family_redundancy_count": 0,
+          "selected_dataset_ids": [
+            "ds_a67e752b027f81f22083533c",
+            "ds_49000bb270a1d3efdaae1743",
+            "ds_bdf285c7cdab311e6bd061ed"
+          ],
+          "set_diversity_score": 0.5
+        }
+      },
+      "task_id": "task_edf04f3ea9e6b500ff8feb65",
+      "task_name": "task_tabular_wine"
+    }
+  },
+  "consistency_audit": {
+    "audit_framing": "Option C Internal Pipeline Consistency Audit",
+    "brier_score": 0.259314,
+    "descriptive_ece_5_bins": 0.428503,
+    "limitation_statement": "Option C M7 Pipeline Consistency Audit: Measures internal consistency between M7 scores and M5 design rubric; not an independent calibration, and not evidence that M7 scores are calibrated probabilities.",
+    "mean_mapped_probability": 0.522253,
+    "pair_details": [
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "mapped_probability": 0.79321739,
+        "raw_m7_score": 0.7622,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "mapped_probability": 0.84408696,
+        "raw_m7_score": 0.8207,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "mapped_probability": 0.44113043,
+        "raw_m7_score": 0.3573,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "mapped_probability": 0.40982609,
+        "raw_m7_score": 0.3213,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "mapped_probability": 0.3506087,
+        "raw_m7_score": 0.2532,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "mapped_probability": 0.42086957,
+        "raw_m7_score": 0.334,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "mapped_probability": 0.40130435,
+        "raw_m7_score": 0.3115,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "mapped_probability": 0.47156522,
+        "raw_m7_score": 0.3923,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "mapped_probability": 0.40069565,
+        "raw_m7_score": 0.3108,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "mapped_probability": 0.40069565,
+        "raw_m7_score": 0.3108,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_571ff1a1d7ef99b2171e3852",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_c45d3224de46bc3884ad6e5c",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_7b6d27932a45a48a4cd55d79",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_5ee5dfd8bb6d44b04c13bd87",
+        "mapped_probability": 0.4606087,
+        "raw_m7_score": 0.3797,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_9da5e7e1994a5dacbf9a4b24",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_18a2c079199637dc986a2a9f",
+        "mapped_probability": 0.4606087,
+        "raw_m7_score": 0.3797,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_e6e9fa096aea2c1a71ea20d8",
+        "mapped_probability": 0.37017391,
+        "raw_m7_score": 0.2757,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_4c28476bb5533a360ee3656b",
+        "mapped_probability": 0.33973913,
+        "raw_m7_score": 0.2407,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a9e3a6a67f897b2540a6dd91",
+        "mapped_probability": 0.37017391,
+        "raw_m7_score": 0.2757,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_f1a15ea38a4249412a1d58db",
+        "mapped_probability": 0.29982609,
+        "raw_m7_score": 0.1948,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_49000bb270a1d3efdaae1743",
+        "mapped_probability": 0.40130435,
+        "raw_m7_score": 0.3115,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a67e752b027f81f22083533c",
+        "mapped_probability": 0.47156522,
+        "raw_m7_score": 0.3923,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_bdf285c7cdab311e6bd061ed",
+        "mapped_probability": 0.47156522,
+        "raw_m7_score": 0.3923,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_56fb9361b0779608d89f5f60",
+        "mapped_probability": 0.35,
+        "raw_m7_score": 0.2525,
+        "task_name": "task_sentiment_binary"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "mapped_probability": 0.74973913,
+        "raw_m7_score": 0.7122,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "mapped_probability": 0.8006087,
+        "raw_m7_score": 0.7707,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "mapped_probability": 0.44113043,
+        "raw_m7_score": 0.3573,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "mapped_probability": 0.40982609,
+        "raw_m7_score": 0.3213,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "mapped_probability": 0.3506087,
+        "raw_m7_score": 0.2532,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "mapped_probability": 0.3506087,
+        "raw_m7_score": 0.2532,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "mapped_probability": 0.40130435,
+        "raw_m7_score": 0.3115,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "mapped_probability": 0.40130435,
+        "raw_m7_score": 0.3115,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "mapped_probability": 0.40069565,
+        "raw_m7_score": 0.3108,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "mapped_probability": 0.40069565,
+        "raw_m7_score": 0.3108,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_571ff1a1d7ef99b2171e3852",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c45d3224de46bc3884ad6e5c",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_7b6d27932a45a48a4cd55d79",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_5ee5dfd8bb6d44b04c13bd87",
+        "mapped_probability": 0.4606087,
+        "raw_m7_score": 0.3797,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_9da5e7e1994a5dacbf9a4b24",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_18a2c079199637dc986a2a9f",
+        "mapped_probability": 0.4606087,
+        "raw_m7_score": 0.3797,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_e6e9fa096aea2c1a71ea20d8",
+        "mapped_probability": 0.29982609,
+        "raw_m7_score": 0.1948,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_4c28476bb5533a360ee3656b",
+        "mapped_probability": 0.33973913,
+        "raw_m7_score": 0.2407,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a9e3a6a67f897b2540a6dd91",
+        "mapped_probability": 0.29982609,
+        "raw_m7_score": 0.1948,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_f1a15ea38a4249412a1d58db",
+        "mapped_probability": 0.29982609,
+        "raw_m7_score": 0.1948,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_49000bb270a1d3efdaae1743",
+        "mapped_probability": 0.40130435,
+        "raw_m7_score": 0.3115,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a67e752b027f81f22083533c",
+        "mapped_probability": 0.40130435,
+        "raw_m7_score": 0.3115,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_bdf285c7cdab311e6bd061ed",
+        "mapped_probability": 0.40130435,
+        "raw_m7_score": 0.3115,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_56fb9361b0779608d89f5f60",
+        "mapped_probability": 0.35,
+        "raw_m7_score": 0.2525,
+        "task_name": "task_news_multiclass"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "mapped_probability": 0.35043478,
+        "raw_m7_score": 0.253,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "mapped_probability": 0.40130435,
+        "raw_m7_score": 0.3115,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "mapped_probability": 0.44113043,
+        "raw_m7_score": 0.3573,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "mapped_probability": 0.40982609,
+        "raw_m7_score": 0.3213,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "mapped_probability": 0.82226087,
+        "raw_m7_score": 0.7956,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "mapped_probability": 0.73026087,
+        "raw_m7_score": 0.6898,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "mapped_probability": 0.89478261,
+        "raw_m7_score": 0.879,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "mapped_probability": 0.80269565,
+        "raw_m7_score": 0.7731,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "mapped_probability": 0.40069565,
+        "raw_m7_score": 0.3108,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "mapped_probability": 0.40069565,
+        "raw_m7_score": 0.3108,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_571ff1a1d7ef99b2171e3852",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c45d3224de46bc3884ad6e5c",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_7b6d27932a45a48a4cd55d79",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_5ee5dfd8bb6d44b04c13bd87",
+        "mapped_probability": 0.4606087,
+        "raw_m7_score": 0.3797,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_9da5e7e1994a5dacbf9a4b24",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_18a2c079199637dc986a2a9f",
+        "mapped_probability": 0.4606087,
+        "raw_m7_score": 0.3797,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_e6e9fa096aea2c1a71ea20d8",
+        "mapped_probability": 0.67956522,
+        "raw_m7_score": 0.6315,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_4c28476bb5533a360ee3656b",
+        "mapped_probability": 0.71956522,
+        "raw_m7_score": 0.6775,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a9e3a6a67f897b2540a6dd91",
+        "mapped_probability": 0.67,
+        "raw_m7_score": 0.6205,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_f1a15ea38a4249412a1d58db",
+        "mapped_probability": 0.67086957,
+        "raw_m7_score": 0.6215,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_49000bb270a1d3efdaae1743",
+        "mapped_probability": 0.80269565,
+        "raw_m7_score": 0.7731,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a67e752b027f81f22083533c",
+        "mapped_probability": 0.80269565,
+        "raw_m7_score": 0.7731,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_bdf285c7cdab311e6bd061ed",
+        "mapped_probability": 0.80243478,
+        "raw_m7_score": 0.7728,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_56fb9361b0779608d89f5f60",
+        "mapped_probability": 0.35,
+        "raw_m7_score": 0.2525,
+        "task_name": "task_tabular_iris"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "mapped_probability": 0.38956522,
+        "raw_m7_score": 0.298,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "mapped_probability": 0.44043478,
+        "raw_m7_score": 0.3565,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "mapped_probability": 0.85130435,
+        "raw_m7_score": 0.829,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "mapped_probability": 0.75478261,
+        "raw_m7_score": 0.718,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "mapped_probability": 0.38973913,
+        "raw_m7_score": 0.2982,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "mapped_probability": 0.38973913,
+        "raw_m7_score": 0.2982,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "mapped_probability": 0.44043478,
+        "raw_m7_score": 0.3565,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "mapped_probability": 0.44043478,
+        "raw_m7_score": 0.3565,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "mapped_probability": 0.43982609,
+        "raw_m7_score": 0.3558,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "mapped_probability": 0.43982609,
+        "raw_m7_score": 0.3558,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_571ff1a1d7ef99b2171e3852",
+        "mapped_probability": 0.53104348,
+        "raw_m7_score": 0.4607,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c45d3224de46bc3884ad6e5c",
+        "mapped_probability": 0.53104348,
+        "raw_m7_score": 0.4607,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_7b6d27932a45a48a4cd55d79",
+        "mapped_probability": 0.53104348,
+        "raw_m7_score": 0.4607,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_5ee5dfd8bb6d44b04c13bd87",
+        "mapped_probability": 0.49973913,
+        "raw_m7_score": 0.4247,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_9da5e7e1994a5dacbf9a4b24",
+        "mapped_probability": 0.53104348,
+        "raw_m7_score": 0.4607,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_18a2c079199637dc986a2a9f",
+        "mapped_probability": 0.49973913,
+        "raw_m7_score": 0.4247,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_e6e9fa096aea2c1a71ea20d8",
+        "mapped_probability": 0.33895652,
+        "raw_m7_score": 0.2398,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_4c28476bb5533a360ee3656b",
+        "mapped_probability": 0.37886957,
+        "raw_m7_score": 0.2857,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a9e3a6a67f897b2540a6dd91",
+        "mapped_probability": 0.33895652,
+        "raw_m7_score": 0.2398,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_f1a15ea38a4249412a1d58db",
+        "mapped_probability": 0.33895652,
+        "raw_m7_score": 0.2398,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_49000bb270a1d3efdaae1743",
+        "mapped_probability": 0.44043478,
+        "raw_m7_score": 0.3565,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a67e752b027f81f22083533c",
+        "mapped_probability": 0.44043478,
+        "raw_m7_score": 0.3565,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_bdf285c7cdab311e6bd061ed",
+        "mapped_probability": 0.44043478,
+        "raw_m7_score": 0.3565,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_56fb9361b0779608d89f5f60",
+        "mapped_probability": 0.38913043,
+        "raw_m7_score": 0.2975,
+        "task_name": "task_image_cifar"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "mapped_probability": 0.38086957,
+        "raw_m7_score": 0.288,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "mapped_probability": 0.43173913,
+        "raw_m7_score": 0.3465,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "mapped_probability": 0.44113043,
+        "raw_m7_score": 0.3573,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "mapped_probability": 0.40982609,
+        "raw_m7_score": 0.3213,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "mapped_probability": 0.60852174,
+        "raw_m7_score": 0.5498,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "mapped_probability": 0.70052174,
+        "raw_m7_score": 0.6556,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "mapped_probability": 0.68095652,
+        "raw_m7_score": 0.6331,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "mapped_probability": 0.77304348,
+        "raw_m7_score": 0.739,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "mapped_probability": 0.40069565,
+        "raw_m7_score": 0.3108,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "mapped_probability": 0.40069565,
+        "raw_m7_score": 0.3108,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_571ff1a1d7ef99b2171e3852",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c45d3224de46bc3884ad6e5c",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_7b6d27932a45a48a4cd55d79",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_5ee5dfd8bb6d44b04c13bd87",
+        "mapped_probability": 0.4606087,
+        "raw_m7_score": 0.3797,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_9da5e7e1994a5dacbf9a4b24",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_18a2c079199637dc986a2a9f",
+        "mapped_probability": 0.4606087,
+        "raw_m7_score": 0.3797,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_e6e9fa096aea2c1a71ea20d8",
+        "mapped_probability": 0.77156522,
+        "raw_m7_score": 0.7373,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_4c28476bb5533a360ee3656b",
+        "mapped_probability": 0.71956522,
+        "raw_m7_score": 0.6775,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a9e3a6a67f897b2540a6dd91",
+        "mapped_probability": 0.76208696,
+        "raw_m7_score": 0.7264,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_f1a15ea38a4249412a1d58db",
+        "mapped_probability": 0.67086957,
+        "raw_m7_score": 0.6215,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_49000bb270a1d3efdaae1743",
+        "mapped_probability": 0.80269565,
+        "raw_m7_score": 0.7731,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_a67e752b027f81f22083533c",
+        "mapped_probability": 0.89478261,
+        "raw_m7_score": 0.879,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_bdf285c7cdab311e6bd061ed",
+        "mapped_probability": 0.89452174,
+        "raw_m7_score": 0.8787,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_56fb9361b0779608d89f5f60",
+        "mapped_probability": 0.35,
+        "raw_m7_score": 0.2525,
+        "task_name": "task_tabular_diabetes"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "mapped_probability": 0.35043478,
+        "raw_m7_score": 0.253,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "mapped_probability": 0.40130435,
+        "raw_m7_score": 0.3115,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "mapped_probability": 0.44113043,
+        "raw_m7_score": 0.3573,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "mapped_probability": 0.40982609,
+        "raw_m7_score": 0.3213,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "mapped_probability": 0.70052174,
+        "raw_m7_score": 0.6556,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "mapped_probability": 0.60852174,
+        "raw_m7_score": 0.5498,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "mapped_probability": 0.77304348,
+        "raw_m7_score": 0.739,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "mapped_probability": 0.68095652,
+        "raw_m7_score": 0.6331,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "mapped_probability": 0.40069565,
+        "raw_m7_score": 0.3108,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "mapped_probability": 0.40069565,
+        "raw_m7_score": 0.3108,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_571ff1a1d7ef99b2171e3852",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c45d3224de46bc3884ad6e5c",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_7b6d27932a45a48a4cd55d79",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_5ee5dfd8bb6d44b04c13bd87",
+        "mapped_probability": 0.4606087,
+        "raw_m7_score": 0.3797,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_9da5e7e1994a5dacbf9a4b24",
+        "mapped_probability": 0.49191304,
+        "raw_m7_score": 0.4157,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_18a2c079199637dc986a2a9f",
+        "mapped_probability": 0.4606087,
+        "raw_m7_score": 0.3797,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_e6e9fa096aea2c1a71ea20d8",
+        "mapped_probability": 0.55782609,
+        "raw_m7_score": 0.4915,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_4c28476bb5533a360ee3656b",
+        "mapped_probability": 0.71956522,
+        "raw_m7_score": 0.6775,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a9e3a6a67f897b2540a6dd91",
+        "mapped_probability": 0.67,
+        "raw_m7_score": 0.6205,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_f1a15ea38a4249412a1d58db",
+        "mapped_probability": 0.67086957,
+        "raw_m7_score": 0.6215,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_49000bb270a1d3efdaae1743",
+        "mapped_probability": 0.80269565,
+        "raw_m7_score": 0.7731,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a67e752b027f81f22083533c",
+        "mapped_probability": 0.80269565,
+        "raw_m7_score": 0.7731,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_bdf285c7cdab311e6bd061ed",
+        "mapped_probability": 0.80243478,
+        "raw_m7_score": 0.7728,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_56fb9361b0779608d89f5f60",
+        "mapped_probability": 0.35,
+        "raw_m7_score": 0.2525,
+        "task_name": "task_tabular_wine"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "mapped_probability": 0.42,
+        "raw_m7_score": 0.333,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "mapped_probability": 0.47086957,
+        "raw_m7_score": 0.3915,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "mapped_probability": 0.48026087,
+        "raw_m7_score": 0.4023,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "mapped_probability": 0.44895652,
+        "raw_m7_score": 0.3663,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "mapped_probability": 0.73026087,
+        "raw_m7_score": 0.6898,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "mapped_probability": 0.82226087,
+        "raw_m7_score": 0.7956,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "mapped_probability": 0.80269565,
+        "raw_m7_score": 0.7731,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "mapped_probability": 0.89478261,
+        "raw_m7_score": 0.879,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "mapped_probability": 0.43982609,
+        "raw_m7_score": 0.3558,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "mapped_probability": 0.43982609,
+        "raw_m7_score": 0.3558,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_571ff1a1d7ef99b2171e3852",
+        "mapped_probability": 0.53104348,
+        "raw_m7_score": 0.4607,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c45d3224de46bc3884ad6e5c",
+        "mapped_probability": 0.53104348,
+        "raw_m7_score": 0.4607,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_7b6d27932a45a48a4cd55d79",
+        "mapped_probability": 0.53104348,
+        "raw_m7_score": 0.4607,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_5ee5dfd8bb6d44b04c13bd87",
+        "mapped_probability": 0.49973913,
+        "raw_m7_score": 0.4247,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_9da5e7e1994a5dacbf9a4b24",
+        "mapped_probability": 0.53104348,
+        "raw_m7_score": 0.4607,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_18a2c079199637dc986a2a9f",
+        "mapped_probability": 0.49973913,
+        "raw_m7_score": 0.4247,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_e6e9fa096aea2c1a71ea20d8",
+        "mapped_probability": 0.77156522,
+        "raw_m7_score": 0.7373,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_4c28476bb5533a360ee3656b",
+        "mapped_probability": 0.71956522,
+        "raw_m7_score": 0.6775,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a9e3a6a67f897b2540a6dd91",
+        "mapped_probability": 0.76208696,
+        "raw_m7_score": 0.7264,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_f1a15ea38a4249412a1d58db",
+        "mapped_probability": 0.67086957,
+        "raw_m7_score": 0.6215,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_49000bb270a1d3efdaae1743",
+        "mapped_probability": 0.80269565,
+        "raw_m7_score": 0.7731,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a67e752b027f81f22083533c",
+        "mapped_probability": 0.89478261,
+        "raw_m7_score": 0.879,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_bdf285c7cdab311e6bd061ed",
+        "mapped_probability": 0.89452174,
+        "raw_m7_score": 0.8787,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_56fb9361b0779608d89f5f60",
+        "mapped_probability": 0.38913043,
+        "raw_m7_score": 0.2975,
+        "task_name": "task_tabular_titanic"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+        "mapped_probability": 0.38956522,
+        "raw_m7_score": 0.298,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_3e424a817c66aab45e96797a",
+        "mapped_probability": 0.44043478,
+        "raw_m7_score": 0.3565,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_40356f676278cb9903556c6e",
+        "mapped_probability": 0.85130435,
+        "raw_m7_score": 0.829,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 1,
+        "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+        "mapped_probability": 0.75478261,
+        "raw_m7_score": 0.718,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_69f0f69749316e8b5768ef79",
+        "mapped_probability": 0.46,
+        "raw_m7_score": 0.379,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a7472dc830bfc6394941b2f7",
+        "mapped_probability": 0.38973913,
+        "raw_m7_score": 0.2982,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_773a4c155a583474a0222bdf",
+        "mapped_probability": 0.51069565,
+        "raw_m7_score": 0.4373,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_9f128b3a604eed483953e7f8",
+        "mapped_probability": 0.44043478,
+        "raw_m7_score": 0.3565,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c39f4b8a33e1fd6fecbf4bdc",
+        "mapped_probability": 0.43982609,
+        "raw_m7_score": 0.3558,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_3c522d9aa8b9ec84e3b73660",
+        "mapped_probability": 0.43982609,
+        "raw_m7_score": 0.3558,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_571ff1a1d7ef99b2171e3852",
+        "mapped_probability": 0.53104348,
+        "raw_m7_score": 0.4607,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_c45d3224de46bc3884ad6e5c",
+        "mapped_probability": 0.53104348,
+        "raw_m7_score": 0.4607,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_7b6d27932a45a48a4cd55d79",
+        "mapped_probability": 0.53104348,
+        "raw_m7_score": 0.4607,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_5ee5dfd8bb6d44b04c13bd87",
+        "mapped_probability": 0.49973913,
+        "raw_m7_score": 0.4247,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_9da5e7e1994a5dacbf9a4b24",
+        "mapped_probability": 0.53104348,
+        "raw_m7_score": 0.4607,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_18a2c079199637dc986a2a9f",
+        "mapped_probability": 0.49973913,
+        "raw_m7_score": 0.4247,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_e6e9fa096aea2c1a71ea20d8",
+        "mapped_probability": 0.33895652,
+        "raw_m7_score": 0.2398,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_4c28476bb5533a360ee3656b",
+        "mapped_probability": 0.37886957,
+        "raw_m7_score": 0.2857,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a9e3a6a67f897b2540a6dd91",
+        "mapped_probability": 0.33895652,
+        "raw_m7_score": 0.2398,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_f1a15ea38a4249412a1d58db",
+        "mapped_probability": 0.33895652,
+        "raw_m7_score": 0.2398,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_49000bb270a1d3efdaae1743",
+        "mapped_probability": 0.44043478,
+        "raw_m7_score": 0.3565,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_a67e752b027f81f22083533c",
+        "mapped_probability": 0.44043478,
+        "raw_m7_score": 0.3565,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_bdf285c7cdab311e6bd061ed",
+        "mapped_probability": 0.44043478,
+        "raw_m7_score": 0.3565,
+        "task_name": "task_image_leaf_disease"
+      },
+      {
+        "binary_reference_label": 0,
+        "dataset_id": "ds_56fb9361b0779608d89f5f60",
+        "mapped_probability": 0.38913043,
+        "raw_m7_score": 0.2975,
+        "task_name": "task_image_leaf_disease"
+      }
+    ],
+    "positive_label_ratio": 0.09375,
+    "status": "completed",
+    "total_pairs_evaluated": 192
+  },
+  "hypotheses": {
+    "h1_lineage_redundancy": {
+      "criterion_met": null,
+      "details": "N/A: no task contained same_family redundancy under R1.",
+      "eliminated_tasks_count": 0,
+      "elimination_rate": null,
+      "hypothesis": "H1",
+      "name": "Lineage Redundancy Elimination",
+      "qualified_tasks_count": 0,
+      "status": "N/A",
+      "task_breakdown": {
+        "task_image_cifar": {
+          "qualified_for_h1": false,
+          "r1_redundancy_count": 0,
+          "r3_redundancy_count": 0,
+          "redundancy_eliminated": null
+        },
+        "task_image_leaf_disease": {
+          "qualified_for_h1": false,
+          "r1_redundancy_count": 0,
+          "r3_redundancy_count": 0,
+          "redundancy_eliminated": null
+        },
+        "task_news_multiclass": {
+          "qualified_for_h1": false,
+          "r1_redundancy_count": 0,
+          "r3_redundancy_count": 0,
+          "redundancy_eliminated": null
+        },
+        "task_sentiment_binary": {
+          "qualified_for_h1": false,
+          "r1_redundancy_count": 0,
+          "r3_redundancy_count": 0,
+          "redundancy_eliminated": null
+        },
+        "task_tabular_diabetes": {
+          "qualified_for_h1": false,
+          "r1_redundancy_count": 0,
+          "r3_redundancy_count": 0,
+          "redundancy_eliminated": null
+        },
+        "task_tabular_iris": {
+          "qualified_for_h1": false,
+          "r1_redundancy_count": 0,
+          "r3_redundancy_count": 0,
+          "redundancy_eliminated": null
+        },
+        "task_tabular_titanic": {
+          "qualified_for_h1": false,
+          "r1_redundancy_count": 0,
+          "r3_redundancy_count": 0,
+          "redundancy_eliminated": null
+        },
+        "task_tabular_wine": {
+          "qualified_for_h1": false,
+          "r1_redundancy_count": 0,
+          "r3_redundancy_count": 0,
+          "redundancy_eliminated": null
+        }
+      }
+    },
+    "h2_evidence_disambiguation": {
+      "comparisons": [
+        {
+          "dataset_a": "ds_c9a42d9bd6268ce4a4cf6061",
+          "dataset_b": "ds_3e424a817c66aab45e96797a",
+          "r1_ranks": [
+            0,
+            1
+          ],
+          "r2_ranks": [
+            1,
+            0
+          ],
+          "reordered_by_r2": true,
+          "task_name": "task_sentiment_binary",
+          "utility_a": 0.8929,
+          "utility_b": 0.8929
+        },
+        {
+          "dataset_a": "ds_c9a42d9bd6268ce4a4cf6061",
+          "dataset_b": "ds_3e424a817c66aab45e96797a",
+          "r1_ranks": [
+            0,
+            1
+          ],
+          "r2_ranks": [
+            1,
+            0
+          ],
+          "reordered_by_r2": true,
+          "task_name": "task_news_multiclass",
+          "utility_a": 0.85,
+          "utility_b": 0.85
+        },
+        {
+          "dataset_a": "ds_a7472dc830bfc6394941b2f7",
+          "dataset_b": "ds_e6e9fa096aea2c1a71ea20d8",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_iris",
+          "utility_a": 0.7857,
+          "utility_b": 0.7857
+        },
+        {
+          "dataset_a": "ds_a7472dc830bfc6394941b2f7",
+          "dataset_b": "ds_a9e3a6a67f897b2540a6dd91",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_iris",
+          "utility_a": 0.7857,
+          "utility_b": 0.7544
+        },
+        {
+          "dataset_a": "ds_a7472dc830bfc6394941b2f7",
+          "dataset_b": "ds_f1a15ea38a4249412a1d58db",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_iris",
+          "utility_a": 0.7857,
+          "utility_b": 0.7571
+        },
+        {
+          "dataset_a": "ds_e6e9fa096aea2c1a71ea20d8",
+          "dataset_b": "ds_4c28476bb5533a360ee3656b",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_iris",
+          "utility_a": 0.7857,
+          "utility_b": 0.7861
+        },
+        {
+          "dataset_a": "ds_4c28476bb5533a360ee3656b",
+          "dataset_b": "ds_a9e3a6a67f897b2540a6dd91",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_iris",
+          "utility_a": 0.7861,
+          "utility_b": 0.7544
+        },
+        {
+          "dataset_a": "ds_4c28476bb5533a360ee3656b",
+          "dataset_b": "ds_f1a15ea38a4249412a1d58db",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_iris",
+          "utility_a": 0.7861,
+          "utility_b": 0.7571
+        },
+        {
+          "dataset_a": "ds_a7472dc830bfc6394941b2f7",
+          "dataset_b": "ds_f1a15ea38a4249412a1d58db",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_diabetes",
+          "utility_a": 0.7571,
+          "utility_b": 0.7571
+        },
+        {
+          "dataset_a": "ds_773a4c155a583474a0222bdf",
+          "dataset_b": "ds_f1a15ea38a4249412a1d58db",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_diabetes",
+          "utility_a": 0.7571,
+          "utility_b": 0.7571
+        },
+        {
+          "dataset_a": "ds_9f128b3a604eed483953e7f8",
+          "dataset_b": "ds_e6e9fa096aea2c1a71ea20d8",
+          "r1_ranks": [
+            999,
+            2
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_diabetes",
+          "utility_a": 0.8286,
+          "utility_b": 0.8571
+        },
+        {
+          "dataset_a": "ds_9f128b3a604eed483953e7f8",
+          "dataset_b": "ds_a9e3a6a67f897b2540a6dd91",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_diabetes",
+          "utility_a": 0.8286,
+          "utility_b": 0.8259
+        },
+        {
+          "dataset_a": "ds_e6e9fa096aea2c1a71ea20d8",
+          "dataset_b": "ds_49000bb270a1d3efdaae1743",
+          "r1_ranks": [
+            2,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            2
+          ],
+          "reordered_by_r2": true,
+          "task_name": "task_tabular_diabetes",
+          "utility_a": 0.8571,
+          "utility_b": 0.8571
+        },
+        {
+          "dataset_a": "ds_4c28476bb5533a360ee3656b",
+          "dataset_b": "ds_a9e3a6a67f897b2540a6dd91",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_diabetes",
+          "utility_a": 0.7861,
+          "utility_b": 0.8259
+        },
+        {
+          "dataset_a": "ds_4c28476bb5533a360ee3656b",
+          "dataset_b": "ds_f1a15ea38a4249412a1d58db",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_diabetes",
+          "utility_a": 0.7861,
+          "utility_b": 0.7571
+        },
+        {
+          "dataset_a": "ds_a9e3a6a67f897b2540a6dd91",
+          "dataset_b": "ds_49000bb270a1d3efdaae1743",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            2
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_diabetes",
+          "utility_a": 0.8259,
+          "utility_b": 0.8571
+        },
+        {
+          "dataset_a": "ds_69f0f69749316e8b5768ef79",
+          "dataset_b": "ds_a9e3a6a67f897b2540a6dd91",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_wine",
+          "utility_a": 0.7571,
+          "utility_b": 0.7544
+        },
+        {
+          "dataset_a": "ds_69f0f69749316e8b5768ef79",
+          "dataset_b": "ds_f1a15ea38a4249412a1d58db",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_wine",
+          "utility_a": 0.7571,
+          "utility_b": 0.7571
+        },
+        {
+          "dataset_a": "ds_a7472dc830bfc6394941b2f7",
+          "dataset_b": "ds_e6e9fa096aea2c1a71ea20d8",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_wine",
+          "utility_a": 0.6857,
+          "utility_b": 0.6857
+        },
+        {
+          "dataset_a": "ds_9f128b3a604eed483953e7f8",
+          "dataset_b": "ds_a9e3a6a67f897b2540a6dd91",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_wine",
+          "utility_a": 0.7571,
+          "utility_b": 0.7544
+        },
+        {
+          "dataset_a": "ds_9f128b3a604eed483953e7f8",
+          "dataset_b": "ds_f1a15ea38a4249412a1d58db",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_wine",
+          "utility_a": 0.7571,
+          "utility_b": 0.7571
+        },
+        {
+          "dataset_a": "ds_4c28476bb5533a360ee3656b",
+          "dataset_b": "ds_a9e3a6a67f897b2540a6dd91",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_wine",
+          "utility_a": 0.7861,
+          "utility_b": 0.7544
+        },
+        {
+          "dataset_a": "ds_4c28476bb5533a360ee3656b",
+          "dataset_b": "ds_f1a15ea38a4249412a1d58db",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_wine",
+          "utility_a": 0.7861,
+          "utility_b": 0.7571
+        },
+        {
+          "dataset_a": "ds_69f0f69749316e8b5768ef79",
+          "dataset_b": "ds_a9e3a6a67f897b2540a6dd91",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_titanic",
+          "utility_a": 0.7857,
+          "utility_b": 0.8259
+        },
+        {
+          "dataset_a": "ds_69f0f69749316e8b5768ef79",
+          "dataset_b": "ds_f1a15ea38a4249412a1d58db",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_titanic",
+          "utility_a": 0.7857,
+          "utility_b": 0.7571
+        },
+        {
+          "dataset_a": "ds_a7472dc830bfc6394941b2f7",
+          "dataset_b": "ds_e6e9fa096aea2c1a71ea20d8",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_titanic",
+          "utility_a": 0.8571,
+          "utility_b": 0.8571
+        },
+        {
+          "dataset_a": "ds_a7472dc830bfc6394941b2f7",
+          "dataset_b": "ds_a9e3a6a67f897b2540a6dd91",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_titanic",
+          "utility_a": 0.8571,
+          "utility_b": 0.8259
+        },
+        {
+          "dataset_a": "ds_773a4c155a583474a0222bdf",
+          "dataset_b": "ds_e6e9fa096aea2c1a71ea20d8",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_titanic",
+          "utility_a": 0.8571,
+          "utility_b": 0.8571
+        },
+        {
+          "dataset_a": "ds_773a4c155a583474a0222bdf",
+          "dataset_b": "ds_a9e3a6a67f897b2540a6dd91",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_titanic",
+          "utility_a": 0.8571,
+          "utility_b": 0.8259
+        },
+        {
+          "dataset_a": "ds_e6e9fa096aea2c1a71ea20d8",
+          "dataset_b": "ds_49000bb270a1d3efdaae1743",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_titanic",
+          "utility_a": 0.8571,
+          "utility_b": 0.8571
+        },
+        {
+          "dataset_a": "ds_4c28476bb5533a360ee3656b",
+          "dataset_b": "ds_a9e3a6a67f897b2540a6dd91",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_titanic",
+          "utility_a": 0.7861,
+          "utility_b": 0.8259
+        },
+        {
+          "dataset_a": "ds_4c28476bb5533a360ee3656b",
+          "dataset_b": "ds_f1a15ea38a4249412a1d58db",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_titanic",
+          "utility_a": 0.7861,
+          "utility_b": 0.7571
+        },
+        {
+          "dataset_a": "ds_a9e3a6a67f897b2540a6dd91",
+          "dataset_b": "ds_49000bb270a1d3efdaae1743",
+          "r1_ranks": [
+            999,
+            999
+          ],
+          "r2_ranks": [
+            999,
+            999
+          ],
+          "reordered_by_r2": false,
+          "task_name": "task_tabular_titanic",
+          "utility_a": 0.8259,
+          "utility_b": 0.8571
+        }
+      ],
+      "details": "Across 33 divergent pairs, R2 reordered 3 pairs (9.1%) based on evidence/risk.",
+      "divergent_pairs_count": 33,
+      "divergent_tasks_count": 6,
+      "hypothesis": "H2",
+      "name": "Evidence & Risk Disambiguation",
+      "reordered_pairs_count": 3,
+      "status": "exploratory_characterized"
+    },
+    "h3_utility_retention": {
+      "criterion_met": true,
+      "details": "Mean utility delta is +0.0000 (tolerance: -0.03). Criterion met: True.",
+      "epsilon_tolerance": 0.03,
+      "hypothesis": "H3",
+      "mean_diversity_r1": 0.5278,
+      "mean_diversity_r3": 0.5278,
+      "mean_utility_r1": 0.8588,
+      "mean_utility_r3": 0.8588,
+      "name": "Utility Retention under Diversification",
+      "status": "supported",
+      "task_breakdown": {
+        "task_image_cifar": {
+          "r1_diversity": 0.5,
+          "r1_utility": 0.7786,
+          "r3_diversity": 0.5,
+          "r3_utility": 0.7786,
+          "utility_delta": 0.0,
+          "within_tolerance": true
+        },
+        "task_image_leaf_disease": {
+          "r1_diversity": 0.5,
+          "r1_utility": 0.7786,
+          "r3_diversity": 0.5,
+          "r3_utility": 0.7786,
+          "utility_delta": 0.0,
+          "within_tolerance": true
+        },
+        "task_news_multiclass": {
+          "r1_diversity": 0.5,
+          "r1_utility": 0.85,
+          "r3_diversity": 0.5,
+          "r3_utility": 0.85,
+          "utility_delta": 0.0,
+          "within_tolerance": true
+        },
+        "task_sentiment_binary": {
+          "r1_diversity": 0.5,
+          "r1_utility": 0.8929,
+          "r3_diversity": 0.5,
+          "r3_utility": 0.8929,
+          "utility_delta": 0.0,
+          "within_tolerance": true
+        },
+        "task_tabular_diabetes": {
+          "r1_diversity": 0.7222,
+          "r1_utility": 0.9045,
+          "r3_diversity": 0.7222,
+          "r3_utility": 0.9045,
+          "utility_delta": 0.0,
+          "within_tolerance": true
+        },
+        "task_tabular_iris": {
+          "r1_diversity": 0.5,
+          "r1_utility": 0.8809,
+          "r3_diversity": 0.5,
+          "r3_utility": 0.8809,
+          "utility_delta": 0.0,
+          "within_tolerance": true
+        },
+        "task_tabular_titanic": {
+          "r1_diversity": 0.5,
+          "r1_utility": 0.9283,
+          "r3_diversity": 0.5,
+          "r3_utility": 0.9283,
+          "utility_delta": 0.0,
+          "within_tolerance": true
+        },
+        "task_tabular_wine": {
+          "r1_diversity": 0.5,
+          "r1_utility": 0.8568,
+          "r3_diversity": 0.5,
+          "r3_utility": 0.8568,
+          "utility_delta": 0.0,
+          "within_tolerance": true
+        }
+      },
+      "utility_delta": 0.0
+    },
+    "h4_popularity_neutrality": {
+      "architectural_invariant_verified": true,
+      "criterion_met": true,
+      "details": "Popularity counters are strictly excluded from candidate scoring and ranking formulas.",
+      "hypothesis": "H4",
+      "mean_partial_spearman": null,
+      "name": "Popularity Neutrality Invariant",
+      "status": "supported",
+      "task_breakdown": {
+        "task_1f7158ba3551a158ab7a3e9f": {
+          "n": 2,
+          "reason": "Insufficient measured popularity points (|n| < 3 or constant)",
+          "status": "N/A"
+        },
+        "task_21010815ad7dc71a2798bec3": {
+          "n": 2,
+          "reason": "Insufficient measured popularity points (|n| < 3 or constant)",
+          "status": "N/A"
+        },
+        "task_4ec3bd8ba587c0a84210f1f9": {
+          "n": 0,
+          "reason": "Insufficient measured popularity points (|n| < 3 or constant)",
+          "status": "N/A"
+        },
+        "task_4f8bd3484d162b570b401ded": {
+          "n": 0,
+          "reason": "Insufficient measured popularity points (|n| < 3 or constant)",
+          "status": "N/A"
+        },
+        "task_58e9ab9acb8645ba4c435a96": {
+          "n": 0,
+          "reason": "Insufficient measured popularity points (|n| < 3 or constant)",
+          "status": "N/A"
+        },
+        "task_edf04f3ea9e6b500ff8feb65": {
+          "n": 0,
+          "reason": "Insufficient measured popularity points (|n| < 3 or constant)",
+          "status": "N/A"
+        },
+        "task_fa4814a65db472e5d308ff6e": {
+          "n": 2,
+          "reason": "Insufficient measured popularity points (|n| < 3 or constant)",
+          "status": "N/A"
+        },
+        "task_fb99dac2dd25b90db8778f6b": {
+          "n": 2,
+          "reason": "Insufficient measured popularity points (|n| < 3 or constant)",
+          "status": "N/A"
+        }
+      }
+    },
+    "h5_role_groundedness": {
+      "criterion_met": true,
+      "details": "20 of 20 assigned roles strictly satisfied empirical preconditions (0 violations).",
+      "grounded_roles_count": 20,
+      "hypothesis": "H5",
+      "name": "Role Instantiation Groundedness",
+      "roles_assigned_count": 20,
+      "status": "supported",
+      "total_cards_evaluated": 20,
+      "violations": [],
+      "violations_count": 0
+    }
+  },
+  "reproducibility": {
+    "environment": {
+      "machine": "arm64",
+      "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+      "python_version": "3.14.6",
+      "system": "Darwin"
+    },
+    "evaluation_id": "m8-frozen-offline-evaluation-v1",
+    "frozen_commits": {
+      "m7_implementation_freeze": "7d6172813e78afd15488ea8995b7365be66e215c",
+      "m8_benchmark_inputs_freeze": "7a2c774eecbd32f13abf26129cadd48dfae2f1b2",
+      "m8_corpus_preparation": "ee9171b4bff6f3522232f111d7f96120ad3741e4",
+      "m8_protocol_freeze": "3df1bae455c36e81d266b7c45edfc5465763d281"
+    },
+    "network_egress": "forbidden",
+    "observed_at": "2026-09-14T10:11:34.884619+00:00",
+    "random_seed": 20260902,
+    "runtime_metrics": {
+      "m0_memory_ceiling_bytes": 134217728,
+      "peak_rss_bytes": 34717696,
+      "peak_rss_mib": 33.11,
+      "per_task_latency_ceiling_ms": 20000,
+      "wall_clock_ms": 327.49,
+      "within_m0_memory_ceiling": true
+    },
+    "zero_egress_verified": true
+  },
+  "robustness": {
+    "crash_count": 0,
+    "crash_rate": 0.0,
+    "crash_rate_criterion_met": true,
+    "status": "robust",
+    "suite_summaries": [
+      {
+        "results_by_severity": [
+          {
+            "crashed": false,
+            "epistemic_state_transition_count": 0,
+            "false_positive_recommendation_count": 2,
+            "hard_gating_precision": 1.0,
+            "hard_gating_recall": 1.0,
+            "mean_utility_delta": 0.008925,
+            "set_jaccard_overlap": 1.0,
+            "severity_index": 0
+          },
+          {
+            "crashed": false,
+            "epistemic_state_transition_count": 0,
+            "false_positive_recommendation_count": 2,
+            "hard_gating_precision": 1.0,
+            "hard_gating_recall": 1.0,
+            "mean_utility_delta": 0.008925,
+            "set_jaccard_overlap": 1.0,
+            "severity_index": 1
+          },
+          {
+            "crashed": false,
+            "epistemic_state_transition_count": 0,
+            "false_positive_recommendation_count": 2,
+            "hard_gating_precision": 1.0,
+            "hard_gating_recall": 1.0,
+            "mean_utility_delta": 0.008925,
+            "set_jaccard_overlap": 1.0,
+            "severity_index": 2
+          }
+        ],
+        "severities_evaluated": 3,
+        "suite_id": "metadata_omission_v1",
+        "target_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_69f0f69749316e8b5768ef79",
+          "ds_49000bb270a1d3efdaae1743"
+        ]
+      },
+      {
+        "results_by_severity": [
+          {
+            "crashed": false,
+            "epistemic_state_transition_count": 16,
+            "false_positive_recommendation_count": 1,
+            "hard_gating_precision": 1.0,
+            "hard_gating_recall": 1.0,
+            "mean_utility_delta": 0.008925,
+            "set_jaccard_overlap": 1.0,
+            "severity_index": 0
+          },
+          {
+            "crashed": false,
+            "epistemic_state_transition_count": 16,
+            "false_positive_recommendation_count": 1,
+            "hard_gating_precision": 1.0,
+            "hard_gating_recall": 1.0,
+            "mean_utility_delta": 0.0,
+            "set_jaccard_overlap": 1.0,
+            "severity_index": 1
+          }
+        ],
+        "severities_evaluated": 2,
+        "suite_id": "license_conflict_v1",
+        "target_dataset_ids": [
+          "ds_c9a42d9bd6268ce4a4cf6061",
+          "ds_e6e9fa096aea2c1a71ea20d8"
+        ]
+      },
+      {
+        "results_by_severity": [
+          {
+            "crashed": false,
+            "epistemic_state_transition_count": 0,
+            "false_positive_recommendation_count": 2,
+            "hard_gating_precision": 1.0,
+            "hard_gating_recall": 0.6667,
+            "mean_utility_delta": 0.0,
+            "set_jaccard_overlap": 0.9375,
+            "severity_index": 0
+          },
+          {
+            "crashed": false,
+            "epistemic_state_transition_count": 0,
+            "false_positive_recommendation_count": 2,
+            "hard_gating_precision": 1.0,
+            "hard_gating_recall": 0.6667,
+            "mean_utility_delta": 0.0,
+            "set_jaccard_overlap": 0.9375,
+            "severity_index": 1
+          }
+        ],
+        "severities_evaluated": 2,
+        "suite_id": "modality_corruption_v1",
+        "target_dataset_ids": [
+          "ds_3e424a817c66aab45e96797a",
+          "ds_40356f676278cb9903556c6e",
+          "ds_69f0f69749316e8b5768ef79"
+        ]
+      },
+      {
+        "results_by_severity": [
+          {
+            "crashed": false,
+            "epistemic_state_transition_count": 16,
+            "false_positive_recommendation_count": 0,
+            "hard_gating_precision": 1.0,
+            "hard_gating_recall": 1.0,
+            "mean_utility_delta": -0.00415,
+            "set_jaccard_overlap": 0.9375,
+            "severity_index": 0
+          },
+          {
+            "crashed": false,
+            "epistemic_state_transition_count": 40,
+            "false_positive_recommendation_count": 0,
+            "hard_gating_precision": 1.0,
+            "hard_gating_recall": 1.0,
+            "mean_utility_delta": -0.00475,
+            "set_jaccard_overlap": 0.9375,
+            "severity_index": 1
+          },
+          {
+            "crashed": false,
+            "epistemic_state_transition_count": 40,
+            "false_positive_recommendation_count": 0,
+            "hard_gating_precision": 1.0,
+            "hard_gating_recall": 1.0,
+            "mean_utility_delta": -0.00475,
+            "set_jaccard_overlap": 0.9375,
+            "severity_index": 2
+          }
+        ],
+        "severities_evaluated": 3,
+        "suite_id": "endpoint_failure_v1",
+        "target_dataset_ids": [
+          "ds_571ff1a1d7ef99b2171e3852",
+          "ds_e6e9fa096aea2c1a71ea20d8",
+          "ds_49000bb270a1d3efdaae1743"
+        ]
+      }
+    ],
+    "total_trials": 10
+  },
+  "sensitivity": {
+    "jaccard_criterion_met": true,
+    "kendall_tau_criterion_met": true,
+    "lambda_div_sweep": [
+      {
+        "lambda_div": 0.0,
+        "mean_diversity": 0.5,
+        "mean_jaccard_vs_default": 0.9375,
+        "mean_utility": 0.858825,
+        "tasks": {
+          "task_image_cifar": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_image_leaf_disease": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_news_multiclass": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.85,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_sentiment_binary": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8929,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_diabetes": {
+            "jaccard_vs_default": 0.5,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9045,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_49000bb270a1d3efdaae1743"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_iris": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8809,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_titanic": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9283,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_wine": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8568,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "set_diversity": 0.5
+          }
+        },
+        "total_redundancy": 0
+      },
+      {
+        "lambda_div": 0.05,
+        "mean_diversity": 0.5,
+        "mean_jaccard_vs_default": 0.9375,
+        "mean_utility": 0.858825,
+        "tasks": {
+          "task_image_cifar": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_image_leaf_disease": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_news_multiclass": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.85,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_sentiment_binary": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8929,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_diabetes": {
+            "jaccard_vs_default": 0.5,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9045,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_49000bb270a1d3efdaae1743"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_iris": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8809,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_titanic": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9283,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_wine": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8568,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "set_diversity": 0.5
+          }
+        },
+        "total_redundancy": 0
+      },
+      {
+        "lambda_div": 0.1,
+        "mean_diversity": 0.5,
+        "mean_jaccard_vs_default": 0.9375,
+        "mean_utility": 0.858825,
+        "tasks": {
+          "task_image_cifar": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_image_leaf_disease": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_news_multiclass": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.85,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_sentiment_binary": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8929,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_diabetes": {
+            "jaccard_vs_default": 0.5,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9045,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_49000bb270a1d3efdaae1743"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_iris": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8809,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_titanic": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9283,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_wine": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8568,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "set_diversity": 0.5
+          }
+        },
+        "total_redundancy": 0
+      },
+      {
+        "lambda_div": 0.15,
+        "mean_diversity": 0.527775,
+        "mean_jaccard_vs_default": 1.0,
+        "mean_utility": 0.858825,
+        "tasks": {
+          "task_image_cifar": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_image_leaf_disease": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_news_multiclass": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.85,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_sentiment_binary": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8929,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_diabetes": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9045,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "set_diversity": 0.7222
+          },
+          "task_tabular_iris": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8809,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_titanic": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9283,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_wine": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8568,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "set_diversity": 0.5
+          }
+        },
+        "total_redundancy": 0
+      },
+      {
+        "lambda_div": 0.2,
+        "mean_diversity": 0.527775,
+        "mean_jaccard_vs_default": 1.0,
+        "mean_utility": 0.858825,
+        "tasks": {
+          "task_image_cifar": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_image_leaf_disease": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_news_multiclass": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.85,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_sentiment_binary": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8929,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_diabetes": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9045,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "set_diversity": 0.7222
+          },
+          "task_tabular_iris": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8809,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_titanic": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9283,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_wine": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8568,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "set_diversity": 0.5
+          }
+        },
+        "total_redundancy": 0
+      },
+      {
+        "lambda_div": 0.25,
+        "mean_diversity": 0.55555,
+        "mean_jaccard_vs_default": 0.9375,
+        "mean_utility": 0.85585,
+        "tasks": {
+          "task_image_cifar": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_image_leaf_disease": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_news_multiclass": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.85,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_sentiment_binary": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8929,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_diabetes": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9045,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "set_diversity": 0.7222
+          },
+          "task_tabular_iris": {
+            "jaccard_vs_default": 0.5,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8571,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a7472dc830bfc6394941b2f7",
+              "ds_a67e752b027f81f22083533c"
+            ],
+            "set_diversity": 0.7222
+          },
+          "task_tabular_titanic": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9283,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_wine": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8568,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "set_diversity": 0.5
+          }
+        },
+        "total_redundancy": 0
+      },
+      {
+        "lambda_div": 0.3,
+        "mean_diversity": 0.6111,
+        "mean_jaccard_vs_default": 0.8125,
+        "mean_utility": 0.84995,
+        "tasks": {
+          "task_image_cifar": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_image_leaf_disease": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_news_multiclass": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.85,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_sentiment_binary": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8929,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_diabetes": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9045,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "set_diversity": 0.7222
+          },
+          "task_tabular_iris": {
+            "jaccard_vs_default": 0.5,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8571,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a7472dc830bfc6394941b2f7",
+              "ds_a67e752b027f81f22083533c"
+            ],
+            "set_diversity": 0.7222
+          },
+          "task_tabular_titanic": {
+            "jaccard_vs_default": 0.5,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9045,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_a7472dc830bfc6394941b2f7",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "set_diversity": 0.7222
+          },
+          "task_tabular_wine": {
+            "jaccard_vs_default": 0.5,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8334,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_4c28476bb5533a360ee3656b",
+              "ds_49000bb270a1d3efdaae1743"
+            ],
+            "set_diversity": 0.7222
+          }
+        },
+        "total_redundancy": 0
+      },
+      {
+        "lambda_div": 0.4,
+        "mean_diversity": 0.6111,
+        "mean_jaccard_vs_default": 0.8125,
+        "mean_utility": 0.84995,
+        "tasks": {
+          "task_image_cifar": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_image_leaf_disease": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.7786,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_news_multiclass": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.85,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_sentiment_binary": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8929,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "set_diversity": 0.5
+          },
+          "task_tabular_diabetes": {
+            "jaccard_vs_default": 1.0,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9045,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "set_diversity": 0.7222
+          },
+          "task_tabular_iris": {
+            "jaccard_vs_default": 0.5,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8571,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a7472dc830bfc6394941b2f7",
+              "ds_a67e752b027f81f22083533c"
+            ],
+            "set_diversity": 0.7222
+          },
+          "task_tabular_titanic": {
+            "jaccard_vs_default": 0.5,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.9045,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_a7472dc830bfc6394941b2f7",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "set_diversity": 0.7222
+          },
+          "task_tabular_wine": {
+            "jaccard_vs_default": 0.5,
+            "kendall_tau_vs_default": 1.0,
+            "mean_utility": 0.8334,
+            "redundancy_count": 0,
+            "selected_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_4c28476bb5533a360ee3656b",
+              "ds_49000bb270a1d3efdaae1743"
+            ],
+            "set_diversity": 0.7222
+          }
+        },
+        "total_redundancy": 0
+      }
+    ],
+    "overall_mean_jaccard": 1.0,
+    "overall_mean_kendall_tau": 1.0,
+    "positive_weight_perturbations": [
+      {
+        "mean_jaccard": 1.0,
+        "mean_kendall_tau": 1.0,
+        "perturbed_weight": "w_fit",
+        "relative_delta": -0.2,
+        "tasks": {
+          "task_image_cifar": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_image_leaf_disease": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_news_multiclass": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_sentiment_binary": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_tabular_diabetes": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ]
+          },
+          "task_tabular_iris": {
+            "default_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ]
+          },
+          "task_tabular_titanic": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          },
+          "task_tabular_wine": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          }
+        },
+        "weights_used": {
+          "w_cov": 0.16129,
+          "w_evid": 0.16129,
+          "w_fit": 0.301075,
+          "w_risk": 0.15,
+          "w_util": 0.376344
+        }
+      },
+      {
+        "mean_jaccard": 1.0,
+        "mean_kendall_tau": 1.0,
+        "perturbed_weight": "w_fit",
+        "relative_delta": 0.2,
+        "tasks": {
+          "task_image_cifar": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_image_leaf_disease": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_news_multiclass": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_sentiment_binary": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_tabular_diabetes": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ]
+          },
+          "task_tabular_iris": {
+            "default_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ]
+          },
+          "task_tabular_titanic": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          },
+          "task_tabular_wine": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          }
+        },
+        "weights_used": {
+          "w_cov": 0.140187,
+          "w_evid": 0.140187,
+          "w_fit": 0.392523,
+          "w_risk": 0.15,
+          "w_util": 0.327103
+        }
+      },
+      {
+        "mean_jaccard": 1.0,
+        "mean_kendall_tau": 1.0,
+        "perturbed_weight": "w_util",
+        "relative_delta": -0.2,
+        "tasks": {
+          "task_image_cifar": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_image_leaf_disease": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_news_multiclass": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_sentiment_binary": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_tabular_diabetes": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ]
+          },
+          "task_tabular_iris": {
+            "default_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ]
+          },
+          "task_tabular_titanic": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          },
+          "task_tabular_wine": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          }
+        },
+        "weights_used": {
+          "w_cov": 0.16129,
+          "w_evid": 0.16129,
+          "w_fit": 0.376344,
+          "w_risk": 0.15,
+          "w_util": 0.301075
+        }
+      },
+      {
+        "mean_jaccard": 1.0,
+        "mean_kendall_tau": 1.0,
+        "perturbed_weight": "w_util",
+        "relative_delta": 0.2,
+        "tasks": {
+          "task_image_cifar": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_image_leaf_disease": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_news_multiclass": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_sentiment_binary": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_tabular_diabetes": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ]
+          },
+          "task_tabular_iris": {
+            "default_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ]
+          },
+          "task_tabular_titanic": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          },
+          "task_tabular_wine": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          }
+        },
+        "weights_used": {
+          "w_cov": 0.140187,
+          "w_evid": 0.140187,
+          "w_fit": 0.327103,
+          "w_risk": 0.15,
+          "w_util": 0.392523
+        }
+      },
+      {
+        "mean_jaccard": 1.0,
+        "mean_kendall_tau": 1.0,
+        "perturbed_weight": "w_evid",
+        "relative_delta": -0.2,
+        "tasks": {
+          "task_image_cifar": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_image_leaf_disease": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_news_multiclass": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_sentiment_binary": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_tabular_diabetes": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ]
+          },
+          "task_tabular_iris": {
+            "default_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ]
+          },
+          "task_tabular_titanic": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          },
+          "task_tabular_wine": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          }
+        },
+        "weights_used": {
+          "w_cov": 0.154639,
+          "w_evid": 0.123711,
+          "w_fit": 0.360825,
+          "w_risk": 0.15,
+          "w_util": 0.360825
+        }
+      },
+      {
+        "mean_jaccard": 1.0,
+        "mean_kendall_tau": 1.0,
+        "perturbed_weight": "w_evid",
+        "relative_delta": 0.2,
+        "tasks": {
+          "task_image_cifar": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_image_leaf_disease": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_news_multiclass": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_sentiment_binary": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_tabular_diabetes": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ]
+          },
+          "task_tabular_iris": {
+            "default_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ]
+          },
+          "task_tabular_titanic": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          },
+          "task_tabular_wine": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          }
+        },
+        "weights_used": {
+          "w_cov": 0.145631,
+          "w_evid": 0.174757,
+          "w_fit": 0.339806,
+          "w_risk": 0.15,
+          "w_util": 0.339806
+        }
+      },
+      {
+        "mean_jaccard": 1.0,
+        "mean_kendall_tau": 1.0,
+        "perturbed_weight": "w_cov",
+        "relative_delta": -0.2,
+        "tasks": {
+          "task_image_cifar": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_image_leaf_disease": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_news_multiclass": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_sentiment_binary": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_tabular_diabetes": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ]
+          },
+          "task_tabular_iris": {
+            "default_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ]
+          },
+          "task_tabular_titanic": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          },
+          "task_tabular_wine": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          }
+        },
+        "weights_used": {
+          "w_cov": 0.123711,
+          "w_evid": 0.154639,
+          "w_fit": 0.360825,
+          "w_risk": 0.15,
+          "w_util": 0.360825
+        }
+      },
+      {
+        "mean_jaccard": 1.0,
+        "mean_kendall_tau": 1.0,
+        "perturbed_weight": "w_cov",
+        "relative_delta": 0.2,
+        "tasks": {
+          "task_image_cifar": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_image_leaf_disease": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_news_multiclass": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_sentiment_binary": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_tabular_diabetes": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ]
+          },
+          "task_tabular_iris": {
+            "default_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ]
+          },
+          "task_tabular_titanic": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          },
+          "task_tabular_wine": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          }
+        },
+        "weights_used": {
+          "w_cov": 0.174757,
+          "w_evid": 0.145631,
+          "w_fit": 0.339806,
+          "w_risk": 0.15,
+          "w_util": 0.339806
+        }
+      }
+    ],
+    "risk_weight_perturbations": [
+      {
+        "mean_jaccard": 1.0,
+        "mean_kendall_tau": 1.0,
+        "tasks": {
+          "task_image_cifar": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_image_leaf_disease": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_news_multiclass": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_sentiment_binary": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_tabular_diabetes": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ]
+          },
+          "task_tabular_iris": {
+            "default_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ]
+          },
+          "task_tabular_titanic": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          },
+          "task_tabular_wine": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          }
+        },
+        "w_risk": 0.12
+      },
+      {
+        "mean_jaccard": 1.0,
+        "mean_kendall_tau": 1.0,
+        "tasks": {
+          "task_image_cifar": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_image_leaf_disease": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_news_multiclass": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_sentiment_binary": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_tabular_diabetes": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ]
+          },
+          "task_tabular_iris": {
+            "default_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ]
+          },
+          "task_tabular_titanic": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          },
+          "task_tabular_wine": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          }
+        },
+        "w_risk": 0.15
+      },
+      {
+        "mean_jaccard": 1.0,
+        "mean_kendall_tau": 1.0,
+        "tasks": {
+          "task_image_cifar": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_image_leaf_disease": {
+            "default_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_40356f676278cb9903556c6e",
+              "ds_4e61d125afd0915cf8dcb4c6"
+            ]
+          },
+          "task_news_multiclass": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_sentiment_binary": {
+            "default_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_3e424a817c66aab45e96797a",
+              "ds_c9a42d9bd6268ce4a4cf6061"
+            ]
+          },
+          "task_tabular_diabetes": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_bdf285c7cdab311e6bd061ed",
+              "ds_e6e9fa096aea2c1a71ea20d8"
+            ]
+          },
+          "task_tabular_iris": {
+            "default_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_773a4c155a583474a0222bdf",
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8"
+            ]
+          },
+          "task_tabular_titanic": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_9f128b3a604eed483953e7f8",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          },
+          "task_tabular_wine": {
+            "default_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ],
+            "jaccard": 1.0,
+            "kendall_tau": 1.0,
+            "perturbed_ids": [
+              "ds_a67e752b027f81f22083533c",
+              "ds_49000bb270a1d3efdaae1743",
+              "ds_bdf285c7cdab311e6bd061ed"
+            ]
+          }
+        },
+        "w_risk": 0.18
+      }
+    ],
+    "stability_criteria_met": true,
+    "status": "stable"
+  }
+}
