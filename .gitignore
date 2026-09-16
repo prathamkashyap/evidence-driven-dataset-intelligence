@@ -27,6 +27,8 @@ data/benchmarks/*
 !data/benchmarks/m8_human_eval_selection.json
 !data/benchmarks/m8_rubric.md
 !data/benchmarks/m8_annotation_protocol.md
+!data/benchmarks/m8_human_eval_protocol.md
+!data/benchmarks/m8_human_eval_instrument.md
 indexes/bm25/*
 !indexes/bm25/.gitkeep
 indexes/dense/*
