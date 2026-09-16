@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "manifest_id": "m8-human-eval-session-manifest-v1",
+  "status": "prepared_not_conducted",
+  "participant_data_status": "not_started",
+  "governing_freeze_commits": {
+    "protocol_freeze_commit": "3df1bae455c36e81d266b7c45edfc5465763d281",
+    "m8_benchmark_results_commit": "34eeb2b825ba57e518218f2f7fc3fd5f1a813fea",
+    "human_study_artifact_freeze_commit": "c5bdc0c1bd458c3d71a5181fa67232c831c3804c"
+  },
+  "governing_documents": [
+    "docs/PROJECT_SPEC.md §19/§21",
+    "docs/M8_EVALUATION.md §12",
+    "data/benchmarks/m8_human_eval_selection.json",
+    "data/benchmarks/m8_human_eval_protocol.md",
+    "data/benchmarks/m8_human_eval_instrument.md"
+  ],
+  "task_order": [
+    "task_sentiment_binary",
+    "task_tabular_titanic",
+    "task_image_cifar"
+  ],
+  "tasks": {
+    "task_sentiment_binary": {
+      "task_id": "task_21010815ad7dc71a2798bec3",
+      "modality": "text",
+      "comparison_count": 2,
+      "query_context": "movie review sentiment analysis binary classification text"
+    },
+    "task_tabular_titanic": {
+      "task_id": "task_4ec3bd8ba587c0a84210f1f9",
+      "modality": "tabular",
+      "comparison_count": 3,
+      "query_context": "tabular Titanic survival binary classification with demographic features"
+    },
+    "task_image_cifar": {
+      "task_id": "task_fb99dac2dd25b90db8778f6b",
+      "modality": "image",
+      "comparison_count": 2,
+      "query_context": "multiclass natural image classification"
+    }
+  },
+  "rater_cohort": {
+    "minimum_raters": 2,
+    "target_raters": 3,
+    "raters": [
+      {
+        "rater_id": "rater_1",
+        "role_disclosure": "project_author_non_blind",
+        "source_rule": "docs/M8_EVALUATION.md:413-415"
+      },
+      {
+        "rater_id": "rater_2",
+        "role_disclosure": "independent_external_blind",
+        "source_rule": "docs/M8_EVALUATION.md:413-415"
+      },
+      {
+        "rater_id": "rater_3",
+        "role_disclosure": "independent_external_blind",
+        "inferred_from": "docs/M8_EVALUATION.md:413-415"
+      }
+    ]
+  },
+  "randomization": {
+    "algorithm": "random.Random(seed).choice(['A_first', 'B_first'])",
+    "seed": 20260914,
+    "source_rule": "data/benchmarks/m8_human_eval_protocol.md §6"
+  },
+  "comparisons": [
+    {
+      "comparison_id": "comp_1",
+      "task_name": "task_sentiment_binary",
+      "task_id": "task_21010815ad7dc71a2798bec3",
+      "dataset_id": "ds_3e424a817c66aab45e96797a",
+      "dataset_name": "fancyzhx/ag_news",
+      "format_a": {
+        "name": "fancyzhx/ag_news",
+        "source": "huggingface",
+        "modality": "text",
+        "size": null
+      },
+      "format_b": {
+        "card_id": "card_a93bcbb8e77cce5a774971f6",
+        "final_rank": 1,
+        "assigned_role": "best_overall",
+        "raw_candidate_score": 0.8207,
+        "marginal_diversity_gain": 1.0
+      },
+      "presentation_order": {
+        "rater_1": "B_first",
+        "rater_2": "B_first",
+        "rater_3": "A_first"
+      }
+    },
+    {
+      "comparison_id": "comp_2",
+      "task_name": "task_sentiment_binary",
+      "task_id": "task_21010815ad7dc71a2798bec3",
+      "dataset_id": "ds_c9a42d9bd6268ce4a4cf6061",
+      "dataset_name": "cornell-movie-review-data/rotten_tomatoes",
+      "format_a": {
+        "name": "cornell-movie-review-data/rotten_tomatoes",
+        "source": "huggingface",
+        "modality": "text",
+        "size": null
+      },
+      "format_b": {
+        "card_id": "card_9bab425df9993a52e90d78d3",
+        "final_rank": 2,
+        "assigned_role": "hidden_gem",
+        "raw_candidate_score": 0.7622,
+        "marginal_diversity_gain": 0.5
+      },
+      "presentation_order": {
+        "rater_1": "B_first",
+        "rater_2": "A_first",
+        "rater_3": "B_first"
+      }
+    },
+    {
+      "comparison_id": "comp_3",
+      "task_name": "task_tabular_titanic",
+      "task_id": "task_4ec3bd8ba587c0a84210f1f9",
+      "dataset_id": "ds_a67e752b027f81f22083533c",
+      "dataset_name": "Breast Cancer Wisconsin (Diagnostic)",
+      "format_a": {
+        "name": "Breast Cancer Wisconsin (Diagnostic)",
+        "source": "uci",
+        "modality": "tabular",
+        "size": 569
+      },
+      "format_b": {
+        "card_id": "card_361fd57b208295a9e7232eca",
+        "final_rank": 1,
+        "assigned_role": "best_overall",
+        "raw_candidate_score": 0.879,
+        "marginal_diversity_gain": 1.0
+      },
+      "presentation_order": {
+        "rater_1": "B_first",
+        "rater_2": "B_first",
+        "rater_3": "B_first"
+      }
+    },
+    {
+      "comparison_id": "comp_4",
+      "task_name": "task_tabular_titanic",
+      "task_id": "task_4ec3bd8ba587c0a84210f1f9",
+      "dataset_id": "ds_9f128b3a604eed483953e7f8",
+      "dataset_name": "Wine",
+      "format_a": {
+        "name": "Wine",
+        "source": "uci",
+        "modality": "tabular",
+        "size": 178
+      },
+      "format_b": {
+        "card_id": "card_7ff4f846b481a729c4690d4f",
+        "final_rank": 2,
+        "assigned_role": "best_quality",
+        "raw_candidate_score": 0.879,
+        "marginal_diversity_gain": 0.5
+      },
+      "presentation_order": {
+        "rater_1": "A_first",
+        "rater_2": "A_first",
+        "rater_3": "B_first"
+      }
+    },
+    {
+      "comparison_id": "comp_5",
+      "task_name": "task_tabular_titanic",
+      "task_id": "task_4ec3bd8ba587c0a84210f1f9",
+      "dataset_id": "ds_bdf285c7cdab311e6bd061ed",
+      "dataset_name": "Adult",
+      "format_a": {
+        "name": "Adult",
+        "source": "uci",
+        "modality": "tabular",
+        "size": 48842
+      },
+      "format_b": {
+        "card_id": "card_82d36f9826c4a4e5cc598a8e",
+        "final_rank": 3,
+        "assigned_role": "best_efficient_option",
+        "raw_candidate_score": 0.8787,
+        "marginal_diversity_gain": 0.5
+      },
+      "presentation_order": {
+        "rater_1": "B_first",
+        "rater_2": "B_first",
+        "rater_3": "B_first"
+      }
+    },
+    {
+      "comparison_id": "comp_6",
+      "task_name": "task_image_cifar",
+      "task_id": "task_fb99dac2dd25b90db8778f6b",
+      "dataset_id": "ds_40356f676278cb9903556c6e",
+      "dataset_name": "uoft-cs/cifar100",
+      "format_a": {
+        "name": "uoft-cs/cifar100",
+        "source": "huggingface",
+        "modality": "image",
+        "size": null
+      },
+      "format_b": {
+        "card_id": "card_3b4323f785d2d8f7ac483136",
+        "final_rank": 1,
+        "assigned_role": "best_overall",
+        "raw_candidate_score": 0.829,
+        "marginal_diversity_gain": 1.0
+      },
+      "presentation_order": {
+        "rater_1": "B_first",
+        "rater_2": "A_first",
+        "rater_3": "A_first"
+      }
+    },
+    {
+      "comparison_id": "comp_7",
+      "task_name": "task_image_cifar",
+      "task_id": "task_fb99dac2dd25b90db8778f6b",
+      "dataset_id": "ds_4e61d125afd0915cf8dcb4c6",
+      "dataset_name": "AI-Lab-Makerere/beans",
+      "format_a": {
+        "name": "AI-Lab-Makerere/beans",
+        "source": "huggingface",
+        "modality": "image",
+        "size": null
+      },
+      "format_b": {
+        "card_id": "card_86fa51d3c6f375d05815a7d5",
+        "final_rank": 2,
+        "assigned_role": "best_alternative",
+        "raw_candidate_score": 0.718,
+        "marginal_diversity_gain": 0.5
+      },
+      "presentation_order": {
+        "rater_1": "A_first",
+        "rater_2": "A_first",
+        "rater_3": "B_first"
+      }
+    }
+  ],
+  "data_capture": {
+    "output_response_file": "data/benchmarks/m8_human_eval_responses.csv",
+    "required_csv_header": "rater_id,task_name,comparison_id,dataset_id,format_presented,presentation_order,trust_score,understanding_score,actionability_score,notes",
+    "likert_scale_range": [1, 5],
+    "dimensions": [
+      "trust",
+      "understanding",
+      "actionability"
+    ],
+    "response_accounting": {
+      "2_rater_case": {
+        "raters": 2,
+        "comparisons_per_rater": 7,
+        "cards_evaluated_per_rater": 14,
+        "total_card_rows": 28,
+        "total_likert_observations": 84
+      },
+      "3_rater_case": {
+        "raters": 3,
+        "comparisons_per_rater": 7,
+        "cards_evaluated_per_rater": 14,
+        "total_card_rows": 42,
+        "total_likert_observations": 126
+      }
+    }
+  }
+}
