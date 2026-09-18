@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0",
+  "study_identifier": "m8_human_evaluation_2026",
+  "protocol_reference": "data/benchmarks/m8_human_eval_protocol.md",
+  "instrument_reference": "data/benchmarks/m8_human_eval_instrument.md",
+  "analysis_source": "experiments/m8/results/m8_human_eval_summary.json",
+  "sampling_unit": "human_participant",
+  "n_participants_primary": 3,
+  "n_comparisons_per_participant": 7,
+  "n_primary_card_observations": 42,
+  "n_primary_likert_observations": 126,
+  "statistical_tests_performed": "none",
+  "rationale_no_significance_testing": "With N=3 independent participants, the minimum attainable two-sided p-value for any rank-based test is 0.25, which cannot reach conventional significance thresholds. All results are descriptive only.",
+  "presentation_order_realized": {
+    "schedule_used": "RATER_1_only",
+    "note": "All three primary participants completed the RATER_1 form schedule. Cross-participant order counterbalancing was not realized. Format B was shown first for comp_1, comp_2, comp_3, comp_5, comp_6; Format A was shown first for comp_4, comp_7.",
+    "b_first_comparisons": ["comp_1", "comp_2", "comp_3", "comp_5", "comp_6"],
+    "a_first_comparisons": ["comp_4", "comp_7"]
+  },
+  "primary_results": {
+    "card_level_format_means": {
+      "format_a": {
+        "trust_mean": 1.9524,
+        "trust_median": 2,
+        "understanding_mean": 1.619,
+        "understanding_median": 2,
+        "actionability_mean": 1.3333,
+        "actionability_median": 1
+      },
+      "format_b": {
+        "trust_mean": 3.7619,
+        "trust_median": 4,
+        "understanding_mean": 4.8095,
+        "understanding_median": 5,
+        "actionability_mean": 4.3333,
+        "actionability_median": 4
+      }
+    },
+    "paired_differences_b_minus_a": {
+      "trust": {
+        "mean": 1.8095,
+        "median": 2,
+        "min": 0,
+        "max": 3
+      },
+      "understanding": {
+        "mean": 3.1905,
+        "median": 3,
+        "min": 2,
+        "max": 4
+      },
+      "actionability": {
+        "mean": 3.0,
+        "median": 3,
+        "min": 2,
+        "max": 4
+      }
+    },
+    "participant_level_b_minus_a_means": {
+      "participant_1": {
+        "trust": 2.0,
+        "understanding": 3.5714,
+        "actionability": 3.1429
+      },
+      "participant_2": {
+        "trust": 1.2857,
+        "understanding": 2.2857,
+        "actionability": 2.2857
+      },
+      "participant_3": {
+        "trust": 2.1429,
+        "understanding": 3.7143,
+        "actionability": 3.5714
+      }
+    },
+    "direction_consistency": "Format B rated higher than Format A by all three participants on all three dimensions across all 7 comparisons, with one exception: comp_7, participant_2, trust dimension — both formats rated 2 (tied).",
+    "n_ties_trust": 1,
+    "n_ties_understanding": 0,
+    "n_ties_actionability": 0
+  },
+  "supplementary_repeat_exposure": {
+    "statement": "Non-independent exploratory only. Exposure 2 and 3 rows are from repeat form submissions not part of the primary analysis.",
+    "r3_provenance_caveat": "participant_1 and participant_3 E3 row assignment relies on timestamp adjacency only — not corroborated by rating content. participant_2 E3 assignment is fully corroborated (100% content agreement across all 42 ratings).",
+    "stability_summary": {
+      "participant_1": {
+        "e1_to_e2_agreement_pct": 92.86,
+        "all_3_agreement_pct": 40.48,
+        "linkage_status": "E3_identity_uncertain"
+      },
+      "participant_2": {
+        "e1_to_e2_agreement_pct": 100.0,
+        "all_3_agreement_pct": 100.0,
+        "linkage_status": "fully_corroborated"
+      },
+      "participant_3": {
+        "e1_to_e2_agreement_pct": 71.43,
+        "all_3_agreement_pct": 33.33,
+        "linkage_status": "E3_identity_uncertain"
+      }
+    }
+  },
+  "limitations": [
+    "N=3 independent participants; no inferential statistics possible",
+    "All primary participants used RATER_1 presentation schedule; cross-participant order counterbalancing not realized",
+    "Accidental repeated-measures design not pre-registered; repeat exposures are supplementary/exploratory only",
+    "participant_1 and participant_3 E3 identity assignments based on timestamp proximity only, not content corroboration",
+    "Rater 1 was one of the three participants (non-blind); disclosed in protocol"
+  ]
+}
