@@ -150,13 +150,14 @@ These observations are consistent with the hypothesis that evidence-augmented ca
 
 | Artifact | Path | Status |
 |---|---|---|
-| Protocol | `data/benchmarks/m8_human_eval_protocol.md` | Frozen at commit `c5bdc0c` |
-| Instrument | `data/benchmarks/m8_human_eval_instrument.md` | Frozen at commit `c5bdc0c` |
-| Session manifest | `data/benchmarks/m8_human_eval_session_manifest.json` | Frozen |
-| Raw RATER_1 CSV | `data/raw/m8_initial_collection/rater1_form.csv` | Gitignored; SHA256 `f19fc1fb…` |
-| Raw RATER_2 CSV | `data/raw/m8_initial_collection/rater2_form.csv` | Gitignored; SHA256 `0c77480f…` |
-| Raw RATER_3 CSV | `data/raw/m8_initial_collection/rater3_form.csv` | Gitignored; SHA256 `a7a988ee…` |
-| Primary dataset | `data/benchmarks/m8_human_eval_primary.csv` | 42 rows; gitignored |
-| Repeat-exposure dataset | `data/benchmarks/m8_human_eval_repeat_exposure.csv` | 84 rows; gitignored |
-| Analysis summary | `experiments/m8/results/m8_human_eval_summary.json` | Untracked |
-| This document | `docs/M8_RESEARCH_FINDINGS.md` | — |
+| Protocol | `data/benchmarks/m8_human_eval_protocol.md` | Tracked; frozen at commit `c5bdc0c` |
+| Instrument | `data/benchmarks/m8_human_eval_instrument.md` | Tracked; frozen at commit `c5bdc0c` |
+| Session manifest | `data/benchmarks/m8_human_eval_session_manifest.json` | Tracked; frozen at commit `517e689` |
+| Raw RATER_1 CSV | `data/raw/m8_initial_collection/rater1_form.csv` | Raw export; intentionally gitignored; SHA256 `f19fc1fb…` |
+| Raw RATER_2 CSV | `data/raw/m8_initial_collection/rater2_form.csv` | Raw export; intentionally gitignored; SHA256 `0c77480f…` |
+| Raw RATER_3 CSV | `data/raw/m8_initial_collection/rater3_form.csv` | Raw export; intentionally gitignored; SHA256 `a7a988ee…` |
+| Primary dataset | `data/benchmarks/m8_human_eval_primary.csv` | Derived dataset; 42 rows; intentionally gitignored |
+| Repeat-exposure dataset | `data/benchmarks/m8_human_eval_repeat_exposure.csv` | Derived dataset; 84 rows; intentionally gitignored |
+| Analysis summary | `experiments/m8/results/m8_human_eval_summary.json` | Derived analysis output; local-only (untracked) |
+| Machine-readable results | `experiments/m8/human_eval/m8_human_eval_results.json` | Tracked; frozen at commit `cbedb58` |
+| This document | `docs/M8_RESEARCH_FINDINGS.md` | Tracked; frozen at commit `cbedb58` |
