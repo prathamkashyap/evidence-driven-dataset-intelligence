@@ -106,7 +106,7 @@ Eligible for exploration additions (up to $M \le 5$ candidates) iff:
 | Boundary Dimension | Milestone 6 (Popularity Audit & Long-Tail Exploration) | Milestone 7 (Recommendation & Multi-Objective Ranking) |
 |---|---|---|
 | **Core Objective** | Audit retrieval bias; construct bounded under-exposed exploration candidate pool | Produce final diversified set recommendations with assigned roles |
-| **Output Type** | Popularity audit report & augmented candidate pool | Ranked recommendation list with CLI explanation cards |
+| **Output Type** | Popularity audit report & augmented candidate pool | Ranked recommendation set with structured JSON explanation cards (no CLI entry point; CLI deferred) |
 | **Role Assignment** | Tests hidden-gem *eligibility predicate* | Formally assigns recommendation roles (*Best overall*, *Hidden gem*, *Best quality*) |
 | **Ranking Score** | Computes M6 exposure statistics only; M5 utility is unmodified | Evaluates multi-objective formulation: $R(D \mid Q) = \alpha \text{Fit} + \beta \text{Utility} + \gamma \text{Evidence} + \dots$ |
-| **Diversity Optimization** | Filters exact family mirrors | Applies bounded GIST / submodular facility location for subset selection |
+| **Diversity Optimization** | Filters exact family mirrors | Applies family-aware greedy subset selection (GIST / submodular facility location was a design alternative; not adopted) |

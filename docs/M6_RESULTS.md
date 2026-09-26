@@ -61,4 +61,4 @@ Across the 10 canonical datasets:
 
 1. **Development Simulation Scope:** The exploration pool was constructed over a 10-dataset local development corpus. It demonstrates the correctness of the multi-pool selection and audit algorithms, but does **not** constitute proof of web-scale dataset discovery.
 2. **Platform Opacity:** Because OpenML and UCI API responses do not expose download/star metrics, 50% of the corpus remains `under_observed`.
-3. **No Multi-Objective Ranking in M6:** Milestone 7 will consume these augmented candidate pools to perform multi-objective set selection, GIST/submodular diversity optimization, and role assignment.
+3. **No Multi-Objective Ranking in M6:** Multi-objective set selection, diversity optimization, and role assignment were the planned responsibility of Milestone 7. As implemented, M7 applies a family-aware greedy diversity selector (the GIST/submodular alternatives in the original design were not adopted) to its upstream ranked candidate pool. The M6 exploration pools are not an M7 input; they remain a standalone exposure-bias audit and simulation artifact.

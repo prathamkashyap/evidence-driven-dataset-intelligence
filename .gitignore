@@ -10,6 +10,10 @@ dist/
 
 # Cached or generated research artifacts are local by default; curated, frozen
 # benchmark fixtures may be added deliberately in a later milestone.
+# M8 human-evaluation capture files follow the same rule: raw exports and
+# derived participant CSVs are intentionally gitignored, and the analysis
+# summary is local-only (untracked). See docs/M8_RESEARCH_FINDINGS.md
+# (artifact inventory). Do not whitelist participant data.
 data/raw/*
 !data/raw/.gitkeep
 data/normalized/*

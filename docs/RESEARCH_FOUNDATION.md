@@ -4,6 +4,8 @@
 
 This document contains the research foundation used to justify the project architecture. It separates established prior work from adaptations and proposed experiments.
 
+**Status:** Research proposal baseline (pre-implementation). M0–M8 are implemented and evaluated; sections describing mechanisms that were not implemented carry inline *Deferred* / *Future work* annotations. See `README.md` for the implemented system.
+
 ---
 
 ## 1. Executive Synthesis
@@ -35,6 +37,8 @@ Explainable recommendation
 ```
 
 The important research shift is from **retrieval** to **selection under evidence and uncertainty**.
+
+> **Implementation status:** this is the original proposal pipeline. In the implemented system, task requirements enter as structured `TaskSpecification` fixtures (no natural-language parsing); candidate retrieval is the benchmarked M2 component and an M8 ablation rung; evidence resolution is the categorical rule-based resolver (not confidence fusion); and the output is structured JSON recommendation cards (no CLI).
 
 ---
 
@@ -137,7 +141,7 @@ Therefore:
 
 ### Role in project
 
-Cleanlab-style analysis is a content-evidence module that strengthens ranking when reliable, not the definition of dataset quality.
+Cleanlab-style analysis is a content-evidence module that strengthens ranking when reliable, not the definition of dataset quality. **Deferred in the current implementation:** it was not integrated; the implemented content-evidence path is the bounded-sample fingerprinting of M4.
 
 ---
 
@@ -253,7 +257,7 @@ A single flat canonical field would hide the disagreement. The ledger preserves 
 
 ## 9. Dempster–Shafer Evidence Fusion
 
-The project evaluates Dempster–Shafer theory for formal evidence resolution because it provides an explicit representation of uncertainty/ignorance distinct from conflict.
+**Deferred — not implemented.** The proposal positioned Dempster–Shafer theory as a candidate for formal evidence resolution because it provides an explicit representation of uncertainty/ignorance distinct from conflict. The implemented system instead uses a categorical rule-based resolver (see `docs/PROJECT_SPEC.md` §10). The specification below is preserved for design traceability.
 
 For a binary claim:
 
@@ -448,7 +452,7 @@ This separates the major concepts:
 | Novelty | Useful long-tail discovery. |
 | Risk | Uncertainty, contradictions, governance gaps and operational issues. |
 
-The coefficients are not universal constants. Start with transparent prototype weights and later test learning-to-rank if enough relevance judgments are available.
+The coefficients are not universal constants. Start with transparent prototype weights and later test learning-to-rank if enough relevance judgments are available. **Future work — not implemented:** the fixed prototype weights were implemented and evaluated (fit 0.35, utility 0.35, evidence 0.15, coverage 0.15, risk −0.15); no learning-to-rank stage was implemented.
 
 ---
 
@@ -538,6 +542,8 @@ The research foundation recommends the following ladder:
 This ordering answers the most important causal question:
 
 > Which additions actually improve recommendation quality?
+
+> **Implementation status:** the M8 ablation ladder (`experiments/m8/results/m8_summary.json`, key `ablation_ladder`) executed nine rungs: corpus-order baseline, BM25-only, dense-only, hybrid RRF, hybrid + hard gating, utility-only (R1), multi-objective linear (R2), farthest-first without family logic, and the full system with family-aware diversification (R3). The original ladder's LLM zero-shot recommendation and DataFinder-style trained bi-encoder rungs were not executed.
 
 ---
 

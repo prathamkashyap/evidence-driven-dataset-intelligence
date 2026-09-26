@@ -2,7 +2,7 @@
 
 ## Project Specification for Implementation
 
-**Status:** Implementation-ready specification  
+**Status:** Original design specification (proposal baseline). M0–M8 are implemented and evaluated; where the implementation differs from this document, the inline status notes below and the repository `README.md` are authoritative.\
 **Domain:** Machine Learning, Deep Learning, Computer Vision, dataset discovery and selection  
 **Primary objective:** Move from dataset retrieval toward evidence-driven, task-specific dataset selection.
 
@@ -98,6 +98,8 @@ The contribution must be established experimentally through integration and eval
 - CLI demonstration artifact.
 - Evaluation, ablation, robustness, calibration and efficiency measurement.
 
+> **Implementation status (M0–M8 complete):** every in-scope item is implemented, with two deferred items: *natural-language requirement extraction* (the evaluated pipeline consumes structured `TaskSpecification` fixtures) and the *CLI demonstration artifact* (outputs are structured JSON recommendation cards; no CLI entry point exists). Dense and hybrid retrieval are implemented and benchmarked in M2 and serve as the candidate-generation/ablation component of the M8 evaluation rather than a live web-search path.
+
 ### Out of scope for the core system
 
 - Training a large language model from scratch.
@@ -171,6 +173,8 @@ USER PROJECT DESCRIPTION
 
 The 50–100 candidate range is a starting hypothesis only. Final pool size and probe depth are determined by the M0 compute-budget experiment.
 
+> **Implementation status:** this diagram is the original proposal architecture. As implemented: the pipeline is driven by structured `TaskSpecification` fixtures (no LLM requirement analyst); candidate retrieval (M2 BM25/dense/hybrid) is a benchmarked component and M8 ablation rung rather than a live search path; evidence resolution is the categorical rule-based resolver (belief/plausibility fusion not implemented); and the final output is structured JSON recommendation cards (no CLI). See `README.md` and `docs/IMPLEMENTATION_PLAN.md`.
+
 ---
 
 ## 6. Canonical Dataset Representation
@@ -194,6 +198,8 @@ Use Croissant where available as a standards-aligned representation, but retain 
 ---
 
 ## 7. Requirement Extraction Contract
+
+> **Implementation status:** the requirement parser itself was deferred; the evaluated pipeline consumes structured `TaskSpecification` fixtures whose schema matches this contract.
 
 The requirement parser must produce a constrained schema such as:
 
@@ -277,9 +283,13 @@ Belief / plausibility (when fusion is used)
 
 `Unknown` is not a neutral positive value.
 
+> **Implementation status:** the implemented system uses a two-layer state model — five ledger observation states (`observed`, `single_source_claim`, `unsupported`, `failed`, `unknown`) plus four categorical resolution states (`corroborated`, `conflicting`, `unresolved`, `unknown`). The proposal-era flat list above was not implemented as a single enumeration; see `docs/M3_EVIDENCE.md` and `docs/M3_RESULTS.md`.
+
 ---
 
 ## 10. Formal Evidence Resolution
+
+> **Implementation status (Deferred — not implemented):** formal Dempster–Shafer combination was not implemented. The implemented resolution is a categorical rule-based provisional resolver (see §9 and `docs/M3_EVIDENCE.md`); belief/plausibility quantities are not computed.
 
 Dempster–Shafer evidence fusion is an **experimental methodology**, not an automatic novelty claim.
 
@@ -350,6 +360,8 @@ Record sample size, acquisition method, selection/randomization procedure and me
 ---
 
 ## 12. Data Quality Analysis
+
+> **Implementation status (Deferred — not implemented):** the Cleanlab-style workflow below was not implemented. The implemented content-evidence pathway is bounded sample fingerprinting (§11, M4: null rate, duplicate rate, constant-column and type-consistency diagnostics).
 
 Cleanlab-style analysis is evidence, not ground truth.
 
@@ -441,6 +453,8 @@ Avoid multiple slots being consumed by:
 
 GIST is used as a guiding principle for utility + diversity. A bounded GIST-inspired greedy procedure, farthest-first selection, or submodular facility-location alternative may be selected after the M0 compute test.
 
+> **Implementation status:** the implemented selection is the family-aware greedy procedure (M7/M8); the farthest-first and submodular facility-location alternatives were not adopted, and no GIST/submodularity library is a dependency.
+
 ---
 
 ## 16. Multi-Objective Ranking
@@ -469,6 +483,8 @@ Interpretation:
 Popularity is excluded from the core suitability term.
 
 Initial weights may be hand-designed. Later, where enough judgments exist, tune them using pairwise relevance data and a simple learning-to-rank model.
+
+> **Implementation status (Future work):** fixed hand-designed weights were implemented (fit 0.35, utility 0.35, evidence 0.15, coverage 0.15, risk −0.15); the learning-to-rank step was not implemented. The M8 sensitivity analysis perturbed these weights by ±20% with no change in recommendation sets or rank orders.
 
 ---
 
@@ -504,6 +520,8 @@ Sources and timestamps
 
 Do not let the LLM invent unsupported facts.
 
+> **Implementation status:** as implemented, explanation cards are generated deterministically from ledger entries, fingerprints, and utility estimates by `ranking/explanation.py`; no LLM is involved. The rule above governs any future LLM-assisted frontend (deferred).
+
 ---
 
 ## 18. Local Implementation Policy
@@ -523,6 +541,8 @@ The system is local-first, CPU-conscious, memory-aware and cache-heavy.
 - mlcroissant
 - pyserini (optional)
 - submodlib (optional)
+
+> **Implementation status:** the list above is the proposal's initial dependency direction. The implemented environment is pinned in `requirements.txt`; the proposed cleanlab, faiss-cpu, mlcroissant, pyserini and submodlib packages are not present in the pinned environment and are not used by the implemented pipeline. `sentence-transformers`/`torch` are present solely for the optional dense-retrieval benchmark component (M2/M8 ablations).
 
 Exact package versions are pinned after the first stable environment build.
 
@@ -589,6 +609,8 @@ Each source adapter must track terms/rate limits/access policy and the acquisiti
 - Brier score;
 - conflict detection accuracy.
 
+> **Implementation status:** implemented evidence diagnostics are claim-correctness and conflict-state detection. M8 reports Brier and ECE strictly as an internal Option-C consistency audit against the M5 design rubric, not as probabilistic calibration. See `docs/M8_EVALUATION.md`.
+
 ### Human evaluation
 
 Compare plain metadata cards with evidence-backed recommendation cards on trust, understanding and actionability.
@@ -630,6 +652,8 @@ Implement and evaluate progressively:
 10. Full system with long-tail exploration + diversified reranking.
 
 No component should be described as beneficial until the corresponding ablation demonstrates its effect.
+
+> **Implementation status:** the M8 ablation ladder executed the rungs: corpus-order baseline (rung 0), BM25-only (1), dense-only (2), hybrid RRF (3), hybrid + hard gating (4), utility-only R1 (5), multi-objective R2 (6), farthest-first without family logic (7), and the full system with family-aware diversification R3 (8). Rung 1 of the original list (LLM zero-shot recommendation) and rung 4 (DataFinder-style trained bi-encoder) were not executed; they remain out of the current scope.
 
 ---
 
@@ -694,6 +718,8 @@ No component should be described as beneficial until the corresponding ablation 
 - multi-objective ranker;
 - recommendation cards;
 - CLI output.
+
+> **Implementation status:** implemented M7 deliverables are the multi-objective ranker and structured JSON recommendation cards; CLI output was deferred.
 
 ### M8 — Research evaluation
 

@@ -15,4 +15,4 @@ This directory contains empirical artifacts produced by Milestone 7 (`scripts/ru
 
 - `results/ranking_comparison.json`: Task-by-task quantitative comparison across Baselines R1, R2, and R3.
 - `results/recommendation_sets.jsonl`: 12 complete `RecommendationSet` outputs containing fully traceable `RecommendationCard` instances.
-- `results/m7_summary.json`: Aggregated comparative metrics and runtime measurements (25.48 MiB peak RSS vs 128 MiB ceiling).
+- `results/m7_summary.json`: Aggregated comparative metrics and runtime measurements (25.88 MiB peak RSS vs 128 MiB ceiling).

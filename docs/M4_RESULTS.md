@@ -94,3 +94,5 @@ Explicitly preserved operational realities:
 1. **Development Corpus Size:** Evaluated across 10 canonical datasets. Full-scale corpus evaluation will process larger candidate pools in M8.
 2. **Slice Bias in Bounded Samples:** Non-shuffled contiguous samples (e.g. first 32 records of a sorted dataset) may exhibit class imbalance or constant labels. M5 task utility estimation must account for sample scope and sample acquisition method when interpreting label distributions.
 3. **No Suitability Interpretation in M4:** M4 output is descriptive evidence only. Determining whether a dataset fits a user's task requirements (e.g. sequence length compatibility, class cardinality match, feature alignment) is the responsibility of M5.
+
+> **Status note (post-M8 documentation sync):** Forward-looking statements in this section describe the milestone as of its original write-up. M8 frozen evaluation (including the bounded human-evaluation pilot), the M9 consolidated freeze, and research/report preparation are now complete. See `docs/M8_EVALUATION.md`, `docs/M8_RESEARCH_FINDINGS.md`, and `experiments/m8/results/m8_summary.json`.

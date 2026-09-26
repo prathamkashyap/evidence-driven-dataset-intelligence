@@ -20,11 +20,11 @@
 
 | Metric | Measured Value | M0 Provision Limit | Status |
 |---|---:|---:|---|
-| **Peak Process RSS** | **24.67 MiB** (25,866,240 bytes) | 128.00 MiB (134,217,728 bytes) | **Compliant** (19.3% of ceiling) |
-| **Total Wall-clock Runtime** | **28.47 ms** (for all 120 evaluations) | 20,000 ms per-query budget | **Compliant** |
-| **Per-Evaluation Latency** | **0.237 ms** | N/A | **Sub-millisecond** |
+| **Peak Process RSS** | **25.00 MiB** (26,214,400 bytes) | 128.00 MiB (134,217,728 bytes) | **Compliant** (19.5% of ceiling) |
+| **Total Wall-clock Runtime** | **26.06 ms** (for all 120 evaluations) | 20,000 ms per-query budget | **Compliant** |
+| **Per-Evaluation Latency** | **0.217 ms** | N/A | **Sub-millisecond** |
 
-The pure-Python utility estimator executes in under 30 milliseconds with negligible memory overhead (24.67 MiB peak RSS).
+The pure-Python utility estimator executes in under 30 milliseconds with negligible memory overhead (25.00 MiB peak RSS).
 
 ---
 
@@ -66,3 +66,5 @@ The pure-Python utility estimator executes in under 30 milliseconds with negligi
 2. **Equal-Weight Baseline:** Baseline weights ($w_k = 1/7$) are an interpretable default baseline, not a learned optimal model.
 3. **No Popularity Bias Correction in M5:** M5 estimates intrinsic utility only. Milestone 6 will introduce exposure disparity audits and long-tail exploration.
 4. **No Multi-Objective Ranking in M5:** Milestone 7 will combine utility estimates with fit, evidence, novelty, coverage, and risk into the unified $R(D \mid Q)$ ranking term.
+
+> **Status note (post-M8 documentation sync):** Forward-looking statements in this section describe the milestone as of its original write-up. M8 frozen evaluation (including the bounded human-evaluation pilot), the M9 consolidated freeze, and research/report preparation are now complete. See `docs/M8_EVALUATION.md`, `docs/M8_RESEARCH_FINDINGS.md`, and `experiments/m8/results/m8_summary.json`.

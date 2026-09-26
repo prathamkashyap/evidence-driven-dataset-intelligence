@@ -1,5 +1,7 @@
 # Implementation Architecture and Roadmap
 
+**Status:** Original architecture roadmap and module contracts (proposal baseline; M0–M8 are complete). Where the implementation differs: `probing` is implemented as the `fingerprinting` module; there is no standalone `reporting` module — explanation cards are emitted by `ranking/explanation.py` as structured JSON; requirement extraction uses structured `TaskSpecification` fixtures rather than an LLM parser; and retrieval serves as a benchmarked candidate-generation/ablation component in the M8 evaluation rather than a live web-search path. See `README.md` for the current module map.
+
 ## Architecture boundary
 
 The system is a local, reproducible decision pipeline. It separates source-specific acquisition from downstream reasoning so a repository's field names, popularity metrics, or API quirks never become ranking logic.
@@ -15,7 +17,7 @@ task description -> requirement contract -> hybrid candidate pool
                                              |
                   long-tail exploration -> family-aware diversified set
                                              |
-                                  evidence-backed CLI/report + evaluation
+                                   evidence-backed JSON report + evaluation
 ```
 
 ## Module contracts
@@ -48,5 +50,5 @@ task description -> requirement contract -> hybrid candidate pool
 | M4 | Bounded sample acquisition and fingerprints | Feasible, scoped observations. |
 | M5 | Lightweight direct/transfer utility estimates | Stable, measured probe protocol. |
 | M6 | Long-tail exploration and diversified selection | Exposure and redundancy audit. |
-| M7 | Ranking and evidence-backed CLI cards | Explanations trace to records/ledger. |
+| M7 | Ranking and evidence-backed cards (structured JSON; CLI deferred) | Explanations trace to records/ledger. |
 | M8 | Frozen evaluation, ablations, robustness and calibration | Research claims supported by results. |

@@ -21,9 +21,9 @@
 
 | Metric | Measured Value | M0 Provision Limit | Status |
 |---|---:|---:|---|
-| **Peak Process RSS** | **25.48 MiB** (26,718,208 bytes) | 128.00 MiB (134,217,728 bytes) | **Compliant** (19.9% of ceiling) |
-| **Total Wall-clock Runtime** | **13.43 ms** (for all 12 evaluations) | 20,000 ms per-query budget | **Compliant** |
-| **Per-Set Selection Latency** | **1.12 ms** | N/A | **Approximately 1.12 ms per recommendation-set selection** |
+| **Peak Process RSS** | **25.88 MiB** (27,131,904 bytes) | 128.00 MiB (134,217,728 bytes) | **Compliant** (20.2% of ceiling) |
+| **Total Wall-clock Runtime** | **13.66 ms** (for all 12 evaluations) | 20,000 ms per-query budget | **Compliant** |
+| **Per-Set Selection Latency** | **≈ 1.14 ms (derived: 13.66 ms / 12 sets)** | N/A | **Derived value; `m7_summary.json` records total wall-clock only, not per-set timing** |
 
 ---
 
@@ -80,3 +80,5 @@ Across the 12 generated recommendation sets:
 
 1. **Development Simulation Scope:** The evaluation was conducted on 10 datasets across 4 tasks. It demonstrates the correctness and algorithmic efficacy of family-aware set selection and multi-objective balancing, but does not claim web-scale statistical generalization.
 2. **Readiness for Milestone 8:** With M0–M7 complete and validated, Milestone 8 will perform the frozen evaluation, benchmark expansion, sensitivity analysis, parameter stability sweeps, and final research defense.
+
+> **Status note (post-M8 documentation sync):** Forward-looking statements in this section describe the milestone as of its original write-up. M8 frozen evaluation (including the bounded human-evaluation pilot), the M9 consolidated freeze, and research/report preparation are now complete. See `docs/M8_EVALUATION.md`, `docs/M8_RESEARCH_FINDINGS.md`, and `experiments/m8/results/m8_summary.json`.
