@@ -8,6 +8,17 @@ build/
 dist/
 *.egg-info/
 
+# LaTeX build products from report compilation are not report source.
+*.aux
+*.log
+*.toc
+*.out
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
 # Cached or generated research artifacts are local by default; curated, frozen
 # benchmark fixtures may be added deliberately in a later milestone.
 # M8 human-evaluation capture files follow the same rule: raw exports and
@@ -37,5 +48,9 @@ indexes/bm25/*
 !indexes/bm25/.gitkeep
 indexes/dense/*
 !indexes/dense/.gitkeep
+# The M2 build directory is indexes/retrieval/m2 (see configs/m2_retrieval.json).
+# Only the small index provenance record is tracked; generated payloads are local.
+indexes/retrieval/*
+!indexes/retrieval/m2/metadata.json
 experiments/m0/cache/*
 !experiments/m0/cache/.gitkeep
