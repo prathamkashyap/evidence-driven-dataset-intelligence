@@ -5,6 +5,13 @@
 **Repository working tree:** clean except unstaged PDF modification in `docs/v3/` (non-code, non-blocking)
 **Test suite at freeze point:** 125 tests, all passing, 0.106 s
 
+> **Supersession note (added 2026-09-27):** This document is a historical pre-implementation
+> audit dated 2026-09-11 and inspected commit `7d61728`. Its "125 tests" figure, planned
+> artifact paths, and "not yet created" status statements describe that date's repository state
+> only. The current baseline is `9e2ba99`, where M0–M8 are complete and the suite is
+> 208/208 passing; the executed result artifacts are listed in `docs/FINAL_REPORT_EVIDENCE_MAP.md`.
+> Nothing below has been rewritten.
+
 ---
 
 ## A. Actual Repository / Freeze-Point Findings
