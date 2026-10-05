@@ -18,6 +18,7 @@ The read-only reviewer recommended **major revision**, principally because (1) t
 - Citation-key audit: all eight cited keys have matching entries in both `references.bib` and the synchronized inline bibliography; no unused or unresolved keys were found.
 - Equation layout was split across aligned lines. Wide tables use `tabularx` to constrain them to the two-column text width.
 - The built-in LaTeX editor compiler reports successful compilation of `paper/main.tex`.
-- Page-by-page visual inspection, final PDF page count, and PDF text extraction remain unverified in this session: the built-in compiler returned a success status but no PDF/rendered-page artifact, and creating a separate PDF is outside the current document workflow. Keep the editor's live preview open for that final human visual check.
+- The desktop editor compiler and external XeLaTeX build both succeeded. The final PDF is 10 pages on Letter paper. Every rendered page was visually inspected: the two-column layout, Figure 1, six tables, equations, and references are legible, with no clipping or overfull boxes. PDF text extraction found all nine numbered sections, Figure 1, Tables I--VI, and eight bibliography entries; no placeholder or unresolved-reference markers were found.
+- The final rendered PDF is `paper/main.pdf`. Only mechanical table-header wording was adjusted during visual QA; no research claims or the evidence map changed.
 
 The evidence map was not changed.

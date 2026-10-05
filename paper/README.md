@@ -14,6 +14,7 @@ The old paper directory and the capstone report are read-only inputs to this wor
 ## Current contents
 
 - `main.tex`: complete Sections I--IX, abstract, index terms, architecture figure, evidence tables, provisional author block, and synchronized IEEE bibliography.
+- `main.pdf`: final 10-page Letter PDF, externally built with XeLaTeX and visually inspected page by page.
 - `references.bib`: eight selected references whose bibliographic metadata was checked against primary publication records.
 - `evidence/claim_map.json`: claim-level authoritative evidence, status, and intended section.
 - `notes/authorship_basis.md`: source-based authorship and affiliation recommendation with open decisions.
@@ -36,5 +37,5 @@ The old paper directory and the capstone report are read-only inputs to this wor
 - Scientific scope is frozen as a bounded systems/evaluation contribution; no independent-effectiveness experiment is claimed.
 - The scientific consistency and claim-inflation audits are recorded in `notes/`.
 - The independent reviewer recommended major revision because the evidence is bounded and not independent; ablation denominator and audit-attribution clarifications have been incorporated.
-- The desktop LaTeX compiler has successfully compiled `main.tex`. Final page-by-page PDF visual inspection and text extraction remain pending.
+- Both the desktop LaTeX compiler and external XeLaTeX build succeeded. The final 10-page PDF was rendered and visually inspected page by page; text extraction confirmed all sections, Figure 1, Tables I--VI, and eight bibliography entries, with no placeholders or unresolved references. No clipping or overfull boxes were found.
 - The author block remains provisional pending confirmation of paper contributions, order, official school wording, and current corresponding-author details.

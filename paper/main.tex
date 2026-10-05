@@ -226,7 +226,7 @@ On the ten-record, four-query M2 development benchmark, BM25, dense retrieval, a
 \footnotesize
 \begin{tabularx}{\textwidth}{p{0.42in}p{0.90in}X p{1.45in}}
 \toprule
-Milestone & Evaluation scope & Observed result & Evidence boundary \\
+Stage & Evaluation scope & Observed result & Evidence boundary \\
 \midrule
 M2 & 10 records; four queries & Recall@1 0.875 and Recall@3 1.000 for all methods; mean latency BM25 0.0602~ms, dense 700.1929~ms, hybrid 15.0808~ms; dense index build 81{,}000.40~ms, embeddings 5{,}038.56~ms, peak RSS 453.22~MiB & Five metadata-derived relevance pairs; BM25 RSS not separately recorded \\
 M3 & 10 records & 107 ledger entries: 54 metadata, 20 access, 13 Croissant, 10 documentation, 10 content; 67 single-source claims (62.6\%); 90/106 unresolved resolutions and one conflict & Ledger composition, not evidence of dataset quality \\
@@ -287,7 +287,7 @@ Rung & Candidate path & Mean set utility \\
 \footnotesize
 \begin{tabularx}{\textwidth}{p{0.45in}p{0.85in}X p{2.00in}}
 \toprule
-Hypothesis & Status & Observed outcome & Interpretation boundary \\
+Hyp. & Status & Observed outcome & Interpretation boundary \\
 \midrule
 H1 & N/A & Zero qualifying R1 sets contained a same-family pair & No M8 case exercised the redundancy-elimination criterion \\
 H2 & Exploratory & 3 of 33 divergent pairs reordered (9.1\%); pairs spanned 6/8 tasks & Descriptive frequency; not a general disambiguation rate \\
@@ -333,15 +333,15 @@ Across the primary first-exposure ratings, Format B had higher descriptive means
 \label{tab:human-pilot}
 \centering
 \footnotesize
-\begin{tabular}{lccc}
+\begin{tabularx}{\columnwidth}{p{0.88in}*{3}{>{\centering\arraybackslash}X}}
 \toprule
-Dimension & A mean (median) & B mean (median) & B$-$A mean (median) \\
+Dimension & A mean (med.) & B mean (med.) & B$-$A mean (med.) \\
 \midrule
 Trust & 1.9524 (2) & 3.7619 (4) & +1.8095 (+2) \\
 Understanding & 1.6190 (2) & 4.8095 (5) & +3.1905 (+3) \\
 Actionability & 1.3333 (1) & 4.3333 (4) & +3.0000 (+3) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 \section{Discussion}
