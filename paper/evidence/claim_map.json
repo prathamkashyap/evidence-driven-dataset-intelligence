@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Authoritative claim map for the research paper; all values are copied from project result artifacts or the final report evidence map.",
+  "source_precedence": [
+    "implemented repository code",
+    "canonical experiment artifacts",
+    "final capstone report",
+    "V5 research draft",
+    "original proposal"
+  ],
+  "claims": [
+    {
+      "id": "m0_resource_envelope",
+      "claim": "The compute envelope was measured before downstream system design and set a 128 MiB process ceiling and 20,000 ms cold per-task budget.",
+      "source_artifacts": ["experiments/m0/results/summary.json", "experiments/m0/results/budget_decision.json", "configs/m0_compute_budget.json"],
+      "exact_result": {"observed_peak_rss_bytes": 37994496, "derived_memory_ceiling_bytes": 134217728, "cold_network_requests": 25, "warm_network_requests": 0, "cold_per_task_budget_ms": 20000, "sample_record_cap": 32, "sample_hard_byte_cap": 67108864},
+      "evidence_status": "measured_m0_run_and_derived_budget",
+      "scope": "development_and_resource_design",
+      "paper_section": "V-A; VI-A"
+    },
+    {
+      "id": "m2_retrieval",
+      "claim": "BM25 met the tested resource objective; retrieval quality did not distinguish methods on the small saturated query set.",
+      "source_artifacts": ["experiments/m2/results/benchmark.json", "docs/M2_RESULTS.md", "docs/FINAL_REPORT_EVIDENCE_MAP.md"],
+      "exact_result": {"query_count": 4, "candidate_records": 10, "recall_at_1_all_methods": 0.875, "recall_at_3_all_methods": 1.0, "bm25_mean_latency_ms": 0.0602, "bm25_separate_peak_rss": "not separately recorded; report characterizes it as within the M0 envelope and <=30 MiB", "dense_mean_latency_ms": 700.1929, "hybrid_rrf_mean_latency_ms": 15.0808, "dense_and_hybrid_shared_index_peak_rss_mib": 453.22, "m0_memory_ceiling_mib": 128.0},
+      "evidence_status": "measured_small_saturated_benchmark",
+      "scope": "development_component_benchmark",
+      "paper_section": "VI-A"
+    },
+    {
+      "id": "m3_evidence_ledger",
+      "claim": "The two-layer ledger retained source claims and disagreement without resolving most single-source claim types as corroborated.",
+      "source_artifacts": ["experiments/m3/results/resolution_summary.json", "experiments/m3/results/evidence_ledger.jsonl", "docs/M3_RESULTS.md"],
+      "exact_result": {"datasets": 10, "ledger_entries": 107, "single_source_claim_entries": 67, "resolution_claim_types": 106, "unresolved_resolutions": 90, "conflicts": 1, "conflict_example": "Rotten Tomatoes repository MIT license claim versus a Croissant license URI"},
+      "evidence_status": "measured_development_corpus_observation",
+      "scope": "10-record_development_corpus",
+      "paper_section": "VI-B"
+    },
+    {
+      "id": "m4_bounded_fingerprinting",
+      "claim": "Bounded inspection produced sample-scoped structural observations and preserved unsupported or failed access outcomes.",
+      "source_artifacts": ["experiments/m4/results/fingerprint_summary.json", "docs/M4_RESULTS.md"],
+      "exact_result": {"records_processed": 10, "samples_evaluated": 7, "failed": 1, "unsupported": 2, "sample_record_cap": 32, "constant_columns_detected": 2, "rotten_tomatoes_observed_rows_with_label_1": 32, "rotten_tomatoes_sample_rows": 32, "beans_sample_endpoint": "HTTP 502"},
+      "evidence_status": "measured_bounded_sample_observations",
+      "scope": "development_corpus; sample-level only; not full-dataset claims",
+      "paper_section": "VI-B"
+    },
+    {
+      "id": "m5_utility_and_gating",
+      "claim": "The full evidence/utility configuration had a small increase in mean rank correlation versus fit-only; NDCG values were unchanged, and hard gating removed three quarters of candidate-task evaluations.",
+      "source_artifacts": ["experiments/m5/results/utility_summary.json", "experiments/m5/results/baseline_ablation.json", "docs/M5_RESULTS.md"],
+      "exact_result": {"tasks": 4, "datasets": 10, "evaluations": 120, "baseline_a_mean_spearman": 0.9576, "baseline_b_mean_spearman": 0.9576, "baseline_c_mean_spearman": 0.9667, "delta_c_minus_a": 0.0091, "all_baselines_ndcg_at_3": 0.5421, "all_baselines_ndcg_at_5": 0.6094, "all_baselines_ndcg_at_10": 0.6766, "hard_gated_evaluations": 90, "hard_gated_fraction": 0.75},
+      "evidence_status": "measured_development_rubric_comparison",
+      "scope": "10-record_development_corpus; reference rubric is human-authored and not independent external ground truth",
+      "paper_section": "VI-C"
+    },
+    {
+      "id": "m6_long_tail_exploration",
+      "claim": "The exploration simulation added two under-observed candidates in one development query; no strict hidden gems were found.",
+      "source_artifacts": ["experiments/m6/results/m6_summary.json", "experiments/m6/results/popularity_audit.json", "docs/M6_RESULTS.md"],
+      "exact_result": {"queries": 4, "query_with_added_candidates": "q_tabular_wine", "under_observed_candidates_added": 2, "mean_utility_before": 0.5476, "mean_utility_after": 0.6857, "relative_change_percent": 25.2, "strict_hidden_gems_found": 0, "other_queries_with_gain": 0},
+      "evidence_status": "exploratory_development_simulation",
+      "scope": "10-record_development_corpus; not web-scale; separate from M7/M8 ranking input",
+      "paper_section": "VI-D; VII"
+    },
+    {
+      "id": "m7_development_diversification",
+      "claim": "Family-aware greedy selection removed one same-family Iris pair in development evaluation without reducing aggregate utility.",
+      "source_artifacts": ["experiments/m7/results/ranking_comparison.json", "experiments/m7/results/m7_summary.json", "docs/M7_RESULTS.md"],
+      "exact_result": {"r1_same_family_redundant_pairs": 1, "r3_same_family_redundant_pairs": 0, "r1_mean_set_utility": 0.8506, "r3_mean_set_utility": 0.8536, "redundant_pair": "UCI Iris and OpenML Iris"},
+      "evidence_status": "measured_development_result",
+      "scope": "10-record_development_corpus; one observed redundancy case",
+      "paper_section": "VI-D"
+    },
+    {
+      "id": "m8_frozen_benchmark",
+      "claim": "The frozen offline evaluation used 24 dataset records and eight structured tasks and stayed within the M0 resource ceiling with verified zero network egress.",
+      "source_artifacts": ["experiments/m8/results/m8_summary.json", "configs/m8_evaluation.json", "data/benchmarks/m8_benchmark_manifest.json"],
+      "exact_result": {"datasets": 24, "tasks": 8, "task_dataset_pairs": 192, "network_egress": "forbidden", "zero_egress_verified": true, "peak_rss_bytes": 34717696, "peak_rss_mib": 33.11, "wall_clock_ms": 327.49, "memory_ceiling_bytes": 134217728, "random_seed": 20260902, "python_version": "3.14.6", "platform": "macOS-26.6.2-arm64"},
+      "evidence_status": "measured_frozen_offline_benchmark",
+      "scope": "single recorded machine and deterministic offline run; development results remain separate",
+      "paper_section": "V-B; VI-E"
+    },
+    {
+      "id": "m8_hypotheses_h1_h5",
+      "claim": "The five registered hypotheses had distinct evidence statuses; not all were statistical tests or positive findings.",
+      "source_artifacts": ["experiments/m8/results/m8_summary.json", "docs/M8_EVALUATION.md", "docs/FINAL_REPORT_EVIDENCE_MAP.md"],
+      "exact_result": {
+        "H1": {"status": "N/A", "detail": "No task had same-family redundancy under R1; zero qualifying tasks."},
+        "H2": {"canonical_status": "exploratory_characterized", "reported_summary": "exploratory", "reordered_pairs": 3, "divergent_pairs": 33, "reported_percent": 9.1},
+        "H3": {"canonical_status": "supported", "interpretation_caveat": "M8 had no mirror pairs whose removal would exercise diversification; utility equality is a corpus-geometry result.", "mean_utility_r1": 0.8588, "mean_utility_r3": 0.8588, "mean_delta": 0.0, "tolerance": -0.03},
+        "H4": {"canonical_status": "supported", "support_type": "architectural_invariant_verified", "popularity_excluded_from_scoring": true, "empirical_per_task_association": "N/A: insufficient measured popularity observations"},
+        "H5": {"canonical_status": "supported", "assigned_roles_grounded": 20, "roles_evaluated": 20, "violations": 0}
+      },
+      "evidence_status": "mixed_NA_exploratory_architectural_and_measured_outcomes",
+      "scope": "frozen_M8_benchmark; H1 not exercisable under realized corpus geometry",
+      "paper_section": "VI-E"
+    },
+    {
+      "id": "m8_ablation",
+      "claim": "The cumulative nine-rung ablation showed the largest aggregate set-utility increase at hard gating and no aggregate increase after the utility-only rung on this corpus.",
+      "source_artifacts": ["experiments/m8/results/m8_summary.json#ablation_ladder", "docs/M8_EVALUATION.md"],
+      "exact_result": {"rungs": ["corpus_order", "BM25_only", "dense_only", "hybrid_RRF", "hybrid_plus_hard_gating", "utility_only", "multiobjective_linear", "farthest_first_without_family_check", "full_system"], "mean_utility_by_rung": [0.2191, 0.4684, 0.4085, 0.4414, 0.8189, 0.8588, 0.8588, 0.8588, 0.8588]},
+      "evidence_status": "measured_frozen_benchmark_ablation",
+      "scope": "eight fixed tasks and frozen corpus; ablation does not establish general component superiority",
+      "paper_section": "VI-E"
+    },
+    {
+      "id": "m8_robustness",
+      "claim": "The corruption harness completed ten trials across four suites without a crash.",
+      "source_artifacts": ["experiments/m8/results/m8_summary.json#robustness", "data/benchmarks/m8_corruption_fixtures.json", "docs/M8_EVALUATION.md"],
+      "exact_result": {"suites": 4, "trials": 10, "crashes": 0, "crash_rate": 0.0, "modality_corruption_hard_gating_recall": 0.6667, "modality_corruption_set_jaccard_overlap": 0.9375, "endpoint_failure_utility_delta_range": [-0.00475, -0.00415], "endpoint_failure_set_jaccard_overlap": 0.9375},
+      "evidence_status": "measured_frozen_fixture_robustness",
+      "scope": "specified synthetic corruption fixtures; not broad field reliability",
+      "paper_section": "VI-F"
+    },
+    {
+      "id": "m8_sensitivity",
+      "claim": "The default rankings were unchanged in the registered positive-weight perturbations; the diversification sweep showed more set change at higher lambda values.",
+      "source_artifacts": ["experiments/m8/results/m8_summary.json#sensitivity", "configs/m8_evaluation.json", "docs/M8_EVALUATION.md"],
+      "exact_result": {"positive_weight_perturbation_relative_range": [-0.2, 0.2], "overall_mean_jaccard": 1.0, "overall_mean_kendall_tau": 1.0, "lambda_div_values": [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4], "lambda_div_0_15_mean_jaccard_vs_default": 1.0, "lambda_div_0_2_mean_jaccard_vs_default": 1.0, "lambda_div_0_3_mean_jaccard_vs_default": 0.8125, "lambda_div_0_4_mean_jaccard_vs_default": 0.8125},
+      "evidence_status": "measured_frozen_benchmark_sensitivity",
+      "scope": "registered weights and finite lambda sweep; does not establish universal stability",
+      "paper_section": "VI-F"
+    },
+    {
+      "id": "m8_human_pilot",
+      "claim": "Evidence-augmented cards received higher descriptive first-exposure ratings than minimal cards in the realized three-participant pilot.",
+      "source_artifacts": ["experiments/m8/results/m8_human_eval_summary.json", "experiments/m8/human_eval/m8_human_eval_results.json", "docs/M8_RESEARCH_FINDINGS.md", "data/benchmarks/m8_human_eval_protocol.md"],
+      "exact_result": {"independent_participants": 3, "comparison_pairs": 7, "card_observations": 42, "likert_observations": 126, "format_a_mean": {"trust": 1.9524, "understanding": 1.619, "actionability": 1.3333}, "format_b_mean": {"trust": 3.7619, "understanding": 4.8095, "actionability": 4.3333}, "mean_difference_b_minus_a": {"trust": 1.8095, "understanding": 3.1905, "actionability": 3.0}, "inferential_tests": "none"},
+      "evidence_status": "exploratory_descriptive_human_pilot",
+      "scope": "N=3; one author-participant; all used RATER_1 order, so planned counterbalancing was not realized",
+      "paper_section": "VI-G; VIII"
+    }
+  ]
+}
