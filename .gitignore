@@ -21,10 +21,10 @@ dist/
 
 # Cached or generated research artifacts are local by default; curated, frozen
 # benchmark fixtures may be added deliberately in a later milestone.
-# M8 human-evaluation capture files follow the same rule: raw exports and
-# derived participant CSVs are intentionally gitignored, and the analysis
-# summary is local-only (untracked). See docs/M8_RESEARCH_FINDINGS.md
-# (artifact inventory). Do not whitelist participant data.
+# M8 human-evaluation capture files and derived participant data remain local.
+# The analysis summary and selected pilot visualizations are explicitly ignored
+# below. See docs/M8_RESEARCH_FINDINGS.md (artifact inventory). Do not whitelist
+# participant data.
 data/raw/*
 !data/raw/.gitkeep
 data/normalized/*
@@ -54,3 +54,13 @@ indexes/retrieval/*
 !indexes/retrieval/m2/metadata.json
 experiments/m0/cache/*
 !experiments/m0/cache/.gitkeep
+
+# M8 human-evaluation summary and pilot visualizations remain local-only.
+/experiments/m8/results/m8_human_eval_summary.json
+/experiments/m8/plots/participant2_repeat_trajectory.svg
+/experiments/m8/plots/per_comparison_differences_n3.svg
+/experiments/m8/plots/primary_paired_ratings_n3.svg
+
+# Generated bibliography outputs for the final-submission paper build.
+/paper/final_submission/main.bbl
+/paper/final_submission/main.blg

@@ -157,7 +157,7 @@ Robustness suites: 4 corruption suites (fixtures: `data/benchmarks/m8_corruption
 - **Human evaluation pilot:** conducted as a documented exploratory pilot with N = 3 across 7 comparison pairs; all primary results are first-exposure descriptive ratings; an order confound is documented; no inferential statistics or generalizability claims are made.
 - **Development-corpus scope (M1–M7):** milestone results on the 10-dataset development corpus are scoped observations under the tested conditions, not population-level findings.
 - **Known documentation exception:** the status header of `docs/M8_EVALUATION.md` predates execution and is intentionally preserved for hash-contract integrity (`data/benchmarks/m8_benchmark_manifest.json`). See `docs/M8_RESEARCH_FINDINGS.md` for the completed, frozen results.
-- **Human-study capture files are gitignored:** a subset of tests (33 of 208) and the human-evaluation analysis require local capture files excluded by `.gitignore` (`data/benchmarks/m8_human_eval_*.csv`, `data/benchmarks/m8_google_forms_specification.md`, `experiments/m8/results/m8_human_eval_summary.json`). On a fresh clone those tests error until the capture files are restored from the local working copy.
+- **Human-study capture files and pilot analysis artifacts are kept local:** `.gitignore` excludes raw capture files and derived participant data under `data/benchmarks/`, plus `experiments/m8/results/m8_human_eval_summary.json` and the three identified pilot visualizations under `experiments/m8/plots/`. A subset of tests (33 of 208) and the human-evaluation analysis require local capture files; on a fresh clone those tests error until the files are restored from the local working copy.
 
 ## 12. Documentation Index
 
