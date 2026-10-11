@@ -1,5 +1,7 @@
 # Source-to-final merge record
 
+> **Publication status:** This record documents the synthesis of the approved six-author manuscript in this directory. The package was committed in `60d24f595c07af945ffae21f0619f27f52e16d52`; cleanup commit `094e11903c13de6a9ea88c67f00639ed774ac60c` removed superseded paper artifacts from the published tree. References below to earlier manuscripts and PDF candidates are historical provenance, not current package files or build dependencies.
+
 | Final section or element | Primary source | Adopted material | Editorial treatment |
 |---|---|---|---|
 | Abstract and contribution framing | `paper/main.tex` | Evidence semantics, constraints, bounded observations, traceable cards, resource scope | Rewritten around hard-gating jump, post-gating plateau, and diversity trade-off; avoids general-effectiveness claims. |
@@ -14,16 +16,16 @@
 | Human pilot | Tracked source, dossier, and human summary | Format A and B means, paired mean and median differences | Adds realized 5 B-first / 2 A-first split, author participation, repeat-exposure caveat, and descriptive-only interpretation. Table VIII follows the pilot discussion. |
 | Author block and acknowledgment | Project-supplied roster and supervisor details | Six author addresses and acknowledgment | Uses one unified 3-by-2 author block and one shared SCAI affiliation; no individual corresponding-author designation; acknowledges Dr. Pradeep Kumar Mishra with an ORCID link and does not presume co-authorship. |
 | Architecture / plots | Main inline TikZ and alternate `fig2`--`fig4` | Conceptual pipeline from canonicalization through cards; result plots inspected | Recreates a functional pipeline diagram in TikZ; tables carry key quantitative results instead of duplicating the alternate plots. |
-| PDF presentation | Three compiled PDF candidates | Candidate PDFs inspected for technical content and presentation | Retains IEEE two-column Letter presentation, uses descriptive tables and a functional architecture diagram, and revises author metadata, results flow, and bibliography layout without modifying prior candidates. |
-| Third PDF candidate | `paper/Evidence-Driven-Dataset-Intelligence-IEEE-rev2-21ba31d1.pdf` | Presentation inspected only | No technical text copied; editable source is unidentified and the PDF contains an unsupported transfer estimate. |
+| PDF presentation | Three earlier compiled PDF candidates | Earlier candidates inspected for technical content and presentation | The approved PDF retains IEEE two-column Letter presentation, uses descriptive tables and a functional architecture diagram, and revises author metadata, results flow, and bibliography layout. The earlier candidates are not in the current tree. |
+| Historical third PDF candidate (not retained) | `paper/Evidence-Driven-Dataset-Intelligence-IEEE-rev2-21ba31d1.pdf` in the original audit checkout | Presentation inspected only | No technical text copied; editable source was unidentified and the PDF contained an unsupported transfer estimate. This path records a historical review input, not a current file or build dependency. |
 
 ## Verified facts versus editorial judgments
 
-Verified against the checkout and recorded artifacts: candidate file existence and dimensions; TeX source section structures; M8 summary hash and result values; M2 recorded metrics; M7 historical/current artifact difference; and human-pilot summary values. PDF checks confirm ten pages, all six supplied email strings, no corresponding-author marker, and no overfull-box or unresolved-reference warnings. Editorial judgments: using the tracked source as the factual spine, suppressing duplicate graphics in favor of tables, ordering results around the principal M8 finding, and retaining the third PDF only as a visual/presentation reference.
+Verification recorded during the original synthesis audit at `8613d9ea8233984e4b63dff16a1a50b78f10f18d`: candidate file existence and dimensions; TeX source section structures; M8 summary hash and result values; M2 recorded metrics; the historical M7 worktree difference; and human-pilot summary values. PDF checks at that time confirmed ten pages, all six supplied email strings, no corresponding-author marker, and no overfull-box or unresolved-reference warnings. Editorial judgments: using the tracked source as the factual spine, suppressing duplicate graphics in favor of tables, and ordering results around the principal M8 finding.
 
-## Unresolved before submission
+## Publication status and recorded limitations
 
-- The supplied student email convention and each mailbox's validity should be confirmed by the team before submission. No corresponding author is designated in this candidate.
-- The supervisor is acknowledged, not listed as an author. The team and supervisor should resolve co-authorship if they believe substantive scholarly contributions warrant it.
-- The current repository has unrelated dirty/untracked state, including a modified M7 worktree summary. The manuscript identifies the historical M7 artifact used.
+- All six authors approved the final manuscript. The supplied email addresses follow the project roster convention; mailbox reachability was not independently tested. No corresponding author is designated in the manuscript.
+- The manuscript acknowledges the supervisor and does not list him as an author. This record does not make an independent contribution or authorship determination.
+- The original audit checkout at `8613d9ea8233984e4b63dff16a1a50b78f10f18d` had unrelated local changes, including a modified M7 summary. That local measurement was not used; the paper reports the historical M7 result committed at `bff07673cc05c638d227d4dc297f6672c611c6cf`. The statement describes the original audit state, not the current published tree.
 - A clean-environment build is not established because the TeX distribution and package versions are not pinned.

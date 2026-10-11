@@ -130,7 +130,7 @@ source ~/croissant_env/bin/activate
 # Update pip
 pip install --upgrade pip
 ```
-To utilize Apple Silicon’s performance, install [miniforge](/docs) or use `conda-forge`. Next, install core libraries:  
+To utilize Apple Silicon’s performance, install [Miniforge](https://conda-forge.org/download/) or use `conda-forge`. Next, install core libraries:
 ```bash
 pip install sentence-transformers   # for query/dataset embeddings
 pip install pyserini                 # BM25 / anserini search

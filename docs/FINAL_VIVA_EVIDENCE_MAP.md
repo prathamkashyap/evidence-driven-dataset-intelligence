@@ -2,8 +2,10 @@
 
 **Document Role:** Comprehensive Technical Defense & Viva Voce Guide\
 **Project:** Evidence-Driven Dataset Intelligence and Recommendation System\
-**Commit Anchor:** `77120e4` (M9 Consolidated Freeze)\
-**Evaluation Baseline:** M0–M8 Complete, 208/208 Tests Passing; M9 Consolidated Freeze Complete (research/report-preparation phase; not a production system)\
+**Historical Commit Anchor:** `77120e4` (M9 Consolidated Freeze; this is the evidence-map baseline, not the current repository HEAD)\
+**Evaluation Baseline:** M0–M8 Complete; 208/208 tests passed at the M9 freeze.\
+**Published-Tree Baseline Inspected for This Audit:** The final Phase I report and approved final-submission manuscript were present in the published `main` tree at `094e11903c13de6a9ea88c67f00639ed774ac60c`. The system remains a research artifact, not a production system.\
+**Final Deliverables:** [Phase I report PDF](../final_report/DSN4091_Capstone_Phase-I_Final_Report.pdf), [report DOCX](../final_report/DSN4091_Capstone_Phase-I_Final_Report.docx), [approved manuscript PDF](../paper/final_submission/main.pdf).\
 **Date:** 2026-09-23\
 
 ---

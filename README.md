@@ -4,7 +4,7 @@ This repository implements an evidence-driven, local-first dataset intelligence 
 
 The project adheres to [docs/PROJECT_SPEC.md](docs/PROJECT_SPEC.md), [docs/RESEARCH_FOUNDATION.md](docs/RESEARCH_FOUNDATION.md), and the repository working agreement in [AGENTS.md](AGENTS.md).
 
-**Current status:** M0–M8 evaluation completed; M8 human evaluation completed as an exploratory pilot; M9 documentation consolidation completed. The repository is at research-complete / report-preparation stage. This is a research artifact, not a production system.
+**Current status:** M0–M8 evaluation and M9 documentation consolidation are complete. The M8 human evaluation is an exploratory N=3 pilot, not a confirmatory or generalizable study. The final Phase I report and the six-author-approved final-submission manuscript are committed on `main`. This repository is a research artifact, not a production system.
 
 ---
 
@@ -88,6 +88,9 @@ scripts/                    # per-milestone runners and analysis scripts
 experiments/                # frozen result artifacts (m0–m8)
 data/benchmarks/            # hash-manifested M8 benchmark inputs
 docs/                       # specifications, milestone results, evidence maps
+final_report/               # committed final Phase I report (PDF + DOCX)
+paper/final_submission/     # approved manuscript, source, and build inputs
+paper/main.tex              # retained historical manuscript source; not the approved submission
 tests/                      # unit + integration tests and fixtures
 indexes/                    # build-time retrieval indexes
 ```
@@ -143,7 +146,7 @@ All values below are measured results from the committed experiment artifacts; f
 | **M6** | Popularity audit & exploration analysis | `q_tabular_wine` mean pool utility 0.5476 → 0.6857 (+25.2%); 0 strict hidden gems across 4 audited queries | `docs/M6_RESULTS.md`, `experiments/m6/` |
 | **M7** | Multi-objective ranking & diversification | Same-family redundancy R1 = 1 → R3 = 0; mean set utility 0.8506 → 0.8536; on `task_tabular_iris` specifically, 0.8809 → 0.8928 | `docs/M7_RESULTS.md`, `experiments/m7/` |
 | **M8 benchmark** | Frozen offline benchmark, 24 datasets × 8 tasks = 192 evaluations | 327.49 ms wall clock, 33.11 MiB peak RSS, zero network egress; 0 crashes / 10 robustness trials; mean Jaccard = 1.0 and mean Kendall τ = 1.0 under ±20% weight perturbation; H1 N/A (no same-family redundancy under R1), H2 exploratory, H3 observed utility delta 0.000, H4 architectural invariant, H5 20/20 roles grounded; Brier = 0.259314, ECE = 0.428503 (internal consistency audit) | `docs/M8_EVALUATION.md`, `experiments/m8/results/m8_summary.json` |
-| **M8 human pilot** | Exploratory format-comparison pilot | N = 3 participants, 7 comparisons; Format B − Format A: Trust +1.81, Understanding +3.19, Actionability +3.00 (descriptive, exploratory only) | `docs/M8_RESEARCH_FINDINGS.md`, `experiments/m8/results/m8_human_eval_summary.json` |
+| **M8 human pilot** | Exploratory format-comparison pilot | N = 3 participants, 7 comparisons; Format B − Format A: Trust +1.81, Understanding +3.19, Actionability +3.00 (descriptive, exploratory only) | `docs/M8_RESEARCH_FINDINGS.md`; participant-level captures and derived summary are local-only |
 
 Robustness suites: 4 corruption suites (fixtures: `data/benchmarks/m8_corruption_fixtures.json`), 10 trials total.
 
@@ -179,7 +182,10 @@ Robustness suites: 4 corruption suites (fixtures: `data/benchmarks/m8_corruption
 
 ## 13. Research & Report Artifacts
 
-- [docs/FINAL_REPORT_EVIDENCE_MAP.md](docs/FINAL_REPORT_EVIDENCE_MAP.md) — claim-to-artifact map for the final report
-- [docs/FINAL_VIVA_EVIDENCE_MAP.md](docs/FINAL_VIVA_EVIDENCE_MAP.md) — claim-to-artifact map for the viva/defense
-- `docs/v5/` — current report draft; `docs/v4/` — superseded draft; `docs/v1/`–`docs/v3/` — preserved proposal history (never regenerated, per `AGENTS.md`)
-- `experiments/m8/plots/` — generated human-evaluation figures; `experiments/m8/human_eval/` — frozen human-evaluation inputs
+- **Final Phase I report:** [PDF](final_report/DSN4091_Capstone_Phase-I_Final_Report.pdf) · [DOCX](final_report/DSN4091_Capstone_Phase-I_Final_Report.docx)
+- **Approved manuscript:** [package and build guide](paper/final_submission/README.md) · [approved PDF](paper/final_submission/main.pdf) · [LaTeX source](paper/final_submission/main.tex)
+- [docs/FINAL_REPORT_EVIDENCE_MAP.md](docs/FINAL_REPORT_EVIDENCE_MAP.md) — claim-to-artifact traceability for the delivered report
+- [docs/FINAL_VIVA_EVIDENCE_MAP.md](docs/FINAL_VIVA_EVIDENCE_MAP.md) — viva/defense reference
+- [paper/README.md](paper/README.md) — distinguishes the approved manuscript from the retained historical source
+- [docs/v1/](docs/v1/), [docs/v2/](docs/v2/), and [docs/v3/](docs/v3/) — versioned proposal history; not current report drafts
+- Human-study captures and participant-level analysis outputs are intentionally excluded from Git; see Section 11 and [M8 findings](docs/M8_RESEARCH_FINDINGS.md) for the published aggregate account.

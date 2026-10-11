@@ -1,15 +1,17 @@
 # Final Report Evidence Map: Evidence-Driven Dataset Intelligence and Recommendation System
 
-**Document Role:** Master Evidence Architecture & Source Register for Final Capstone Project 1 Report\
-**Authoritative Commit Baseline:** `77120e4` (M9 Consolidated Freeze)\
-**Evaluation Baseline:** M0–M8 Complete, 208/208 Tests Passing; M9 Consolidated Freeze Complete (repository is in the research/report-preparation phase; this is not a production system)\
+**Document Role:** Claim-to-artifact traceability record for the delivered final Capstone Project 1 report\
+**Historical Evidence Freeze Anchor:** `77120e4` (M9 consolidated freeze; not the current published HEAD)\
+**Evaluation State Recorded at Freeze:** M0–M8 complete; 208/208 tests passed at that freeze; the M8 human evaluation is an exploratory N=3 pilot\
+**Published-Tree Baseline Inspected for This Audit:** Final Phase I report and approved six-author manuscript were present on `main` at `094e11903c13de6a9ea88c67f00639ed774ac60c`; this remains a research artifact, not a production system\
+**Delivered Report:** [PDF](../final_report/DSN4091_Capstone_Phase-I_Final_Report.pdf) · [DOCX](../final_report/DSN4091_Capstone_Phase-I_Final_Report.docx)\
 **Date:** 2026-09-23\
 
 ---
 
 ## 1. Executive Summary & Purpose
 
-This document provides the authoritative, exhaustive evidence mapping for the final Capstone Project 1 report (*Evidence-Driven Dataset Intelligence and Recommendation System*). It anchors every proposed section, qualitative assertion, and quantitative metric directly to verified repository artifacts, test contracts, and experimental logs.
+This document records the claim-to-artifact mapping prepared for the delivered final Capstone Project 1 report (*Evidence-Driven Dataset Intelligence and Recommendation System*). It maps report claims and proposed sections to repository artifacts, test contracts, and experimental logs. The structure and drafting rules below preserve planning and review guidance; they do not assert that every proposed element appears verbatim in the delivered report. The report files linked above are the record of what was delivered.
 
 By enforcing strict epistemic discipline, this evidence map is intended to ensure that:
 1. No exploratory or preliminary development result is inflated into a generalized research claim.
@@ -52,9 +54,9 @@ By enforcing strict epistemic discipline, this evidence map is intended to ensur
 
 ---
 
-## 3. Recommended Final Report Structure
+## 3. Historical Planning Record: Recommended Final Report Structure
 
-The proposed structure is tailored to the VIT Bhopal Capstone Project 1 format, mapping each section directly to repository evidence and noting required framing boundaries.
+This was the recommended structure during report preparation, tailored to the VIT Bhopal Capstone Project 1 format. It maps proposed sections to repository evidence and framing boundaries; consult the delivered PDF/DOCX for the actual report structure.
 
 ```
 1. Title Page & Certificate
@@ -119,9 +121,9 @@ The proposed structure is tailored to the VIT Bhopal Capstone Project 1 format, 
 
 ---
 
-## 4. Claim Discipline & Epistemic Boundaries
+## 4. Claim Discipline & Epistemic Boundaries (Report-Preparation Guidance)
 
-To withstand external academic examination, the final report must strictly observe the following classification and framing rules:
+These are the claim-classification and framing rules used during report preparation. They preserve the review constraints applied to the delivered report and are not a substitute for inspecting its final wording.
 
 ### A. Strict Classification Register
 
@@ -159,9 +161,9 @@ To withstand external academic examination, the final report must strictly obser
 
 ---
 
-## 5. Architectural Accuracy & Scope Disclosures
+## 5. Architectural Accuracy & Scope Disclosures (Drafting Guidance)
 
-When drafting the architecture and methodology chapters, the report must describe the code as implemented in `src/dataset_intelligence/` rather than the broader aspirational vision from early proposals:
+This section records the architectural framing used while drafting the report: describe code as implemented in `src/dataset_intelligence/`, distinguishing it from the broader early proposals.
 
 | Component | Proposal / Spec Language | Actual Implemented State | Mandatory Report Framing |
 |---|---|---|---|
@@ -223,9 +225,9 @@ This register compiles every major quantitative result in the repository to supp
 
 ---
 
-## 7. Figure & Table Visualization Plan
+## 7. Historical Figure & Table Visualization Plan
 
-The report must feature clear, informative figures and tables that illustrate empirical behavior without misrepresenting statistical power:
+This plan records the figures and tables proposed during report preparation. The delivered report is authoritative for which visualizations were actually included.
 
 | Figure / Table | Title & Description | Purpose & Key Finding | Underlying Data Artifact | Status | Recommendation |
 |---|---|---|---|---|---|
@@ -246,9 +248,9 @@ The report must feature clear, informative figures and tables that illustrate em
 
 ---
 
-## 8. Report Conclusion Outline
+## 8. Historical Report Conclusion Outline
 
-The conclusion must synthesize the completed research grounded strictly in empirical findings:
+The proposed conclusion outline required synthesis of the completed research grounded strictly in empirical findings:
 
 1. **What was built:**
    - A fully local, evidence-driven public dataset recommendation pipeline operating within a 128 MiB process ceiling.
