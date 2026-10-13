@@ -3,7 +3,7 @@
 ## 1. Experiment Setup
 
 - **Script:** `scripts/run_m3_ledger.py`
-- **Input Corpus:** 10 deterministic canonical records from Milestone 1 (`experiments/m1/results/development_corpus.jsonl`)
+- **Input Corpus:** 10 deterministic canonical records from Milestone 1 (`experiments/m1/results/development_corpus.jsonl`), produced from a controlled fixture/cache-backed development corpus; this was not a live comprehensive catalog crawl.
   - 4 Hugging Face, 2 OpenML, 2 UCI, 2 Kaggle (metadata-only)
 - **Cache / Fixtures:** `experiments/m0/cache` and `tests/fixtures/m3_fixtures.json`
 - **Output Artifacts:**
@@ -24,7 +24,7 @@ Unlike M2 dense retrieval with PyTorch/MiniLM (which reached 453 MiB), the M3 ev
 
 ## 3. Evidence Yield Breakdown
 
-The harvester produced **107 immutable ledger entries** across the 10 canonical dataset records (mean 10.7 entries/dataset):
+The ledger contains **107 immutable entries** across the 10 canonical dataset records (mean 10.7 entries/dataset), produced from the controlled fixture/cache-backed development corpus:
 
 ### By Evidence Type
 | Evidence Type | Count | % of Ledger | Description |
@@ -45,7 +45,7 @@ The harvester produced **107 immutable ledger entries** across the 10 canonical 
 | `unsupported` | 2 | 1.9% | Policy-bounded exclusions (Kaggle sample acquisition without credentials) |
 
 ### By Source
-| Source | Entries Harvested | Sample Path Feasibility |
+| Source | Entries Recorded | Sample Path Feasibility |
 |---|---:|---|
 | `huggingface` | 44 | Supported via Viewer (Beans failed with 502; Rotten Tomatoes, CIFAR, AG News observed) |
 | `openml` | 22 | Supported via REST and ARFF streams |
@@ -60,15 +60,15 @@ The non-numerical resolver evaluated **106 discrete claim types** across the 10 
 |---|---:|---:|---|
 | `unresolved` | 90 | 84.9% | Single substantive observation; uncorroborated by independent sources |
 | `unknown` | 15 | 14.2% | Claim property was unstated or all observations failed |
-| `conflicting` | 1 | 0.9% | Multiple observations asserted contradictory values |
+| `conflicting` | 1 | 0.9% | The resolver did not reconcile two textual representations |
 | `corroborated` | 0 | 0.0% | In this single-source dataset corpus, no cross-repository merging was performed |
 
-### Qualitative Analysis of Conflicting Claim
-A real-world conflict was detected on `ds_c9a42d9bd6268ce4a4cf6061` (Rotten Tomatoes):
-- **Metadata claim (from `cardData.license`):** `"MIT"`
-- **Croissant claim (from `@graph[license]`):** `"https://opensource.org/licenses/MIT"`
-- **Resolution:** Marked as `conflicting` with references to both immutable entry IDs.
-- **Epistemic significance:** Without domain-specific URI-to-SPDX normalization, string identifiers and URI references conflict textually. M3 surfaces this conflict explicitly rather than silently coercing or discarding claims.
+### Qualitative Analysis of the Resolver-Classified Conflict
+One resolver-classified conflict was recorded for `ds_c9a42d9bd6268ce4a4cf6061` (Rotten Tomatoes), using Hugging Face fixture-backed observations:
+- **Metadata claim (`cardData.license`):** `MIT`
+- **Croissant claim (`croissant.license`):** `https://opensource.org/licenses/MIT`
+- **Resolution:** The resolver marked the two entries `conflicting` because it did not normalize the URI to a license identifier.
+- **Interpretation:** This is a textual representation mismatch. Semantic equivalence was not established by the resolver, so the recorded state is not evidence that the underlying license terms were incompatible. No resolutions were classified as corroborated.
 
 ## 5. Limitations and Boundaries
 

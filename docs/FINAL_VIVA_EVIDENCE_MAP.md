@@ -31,10 +31,10 @@ The defensive posture of this capstone is **epistemic honesty and architectural 
 > *"How is your system fundamentally different from Google Dataset Search, Kaggle Search, or Hugging Face Dataset Hub? Why is standard keyword or dense retrieval insufficient?"*
 
 - **Best Concise Answer:**
-  > Existing catalog search engines treat dataset metadata (tags, descriptions, task labels) as unquestioned ground truth and rank primarily by keyword overlap and catalog popularity. Our research demonstrates that repository metadata is frequently incomplete, unverified, and sometimes contradictory (e.g., text vs URI license clashes). Furthermore, catalog popularity introduces severe exposure bias. Our system decouples candidate retrieval from empirical verification: it uses fast retrieval only to generate candidates, then employs a two-layer evidence ledger (five observation states plus a four-state categorical resolution layer), bounded content sample probes, hard task compatibility gating, and family-aware set diversification to produce non-redundant, evidence-backed recommendation sets.
+  > Existing catalog search engines treat dataset metadata (tags, descriptions, task labels) as unquestioned ground truth and rank primarily by keyword overlap and catalog popularity. In the controlled M3 development corpus, the resolver recorded one license text/URI representation mismatch (`MIT` versus an MIT URI); this did not establish incompatible license terms. Furthermore, catalog popularity introduces severe exposure bias. Our system decouples candidate retrieval from empirical verification: it uses fast retrieval only to generate candidates, then employs a two-layer evidence ledger (five observation states plus a four-state categorical resolution layer), bounded content sample probes, hard task compatibility gating, and family-aware set diversification to produce non-redundant, evidence-backed recommendation sets.
 - **Supporting Evidence Artifact:**
   - `docs/PROJECT_SPEC.md` Section 3.
-  - `docs/M3_RESULTS.md` Section 4 (detection of Rotten Tomatoes license conflict).
+  - `docs/M3_RESULTS.md` Section 4 (the resolver-classified Rotten Tomatoes license text/URI mismatch).
   - `docs/M4_RESULTS.md` Section 5 (demonstration of sample slice bias).
 - **Limitation to Acknowledge:**
   - Evaluated on a curated benchmark corpus (24 datasets); we have not deployed a web-scale crawler across millions of repositories.

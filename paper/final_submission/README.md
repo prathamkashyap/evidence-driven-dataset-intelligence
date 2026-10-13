@@ -25,7 +25,7 @@ This build succeeded in the recorded environment. TeX Live packages and fonts ar
 
 ## Historical sources and audit context
 
-The root-level [`paper/main.tex`](../main.tex) is an earlier working manuscript retained for provenance because the merge record documents how it informed this synthesis. It is not the approved paper, and `paper/main.pdf` is absent from the current tree. The comparison in `main.tex` to a “current dirty worktree copy” describes the historical audit checkout at commit `8613d9ea8233984e4b63dff16a1a50b78f10f18d`, not the current published repository.
+The root-level [`paper/main.tex`](../main.tex) is an earlier working manuscript retained for provenance because the merge record documents how it informed this synthesis. It is not the approved paper, and `paper/main.pdf` is absent from the current tree. The “current dirty worktree copy” comparison appeared in the historical audit copy at commit `8613d9ea8233984e4b63dff16a1a50b78f10f18d`; it has been removed from the approved manuscript and does not describe the current repository.
 
 The synthesis audit began from that historical commit while the checkout had pre-existing local changes. This package was later approved, committed, and pushed. References in the merge record to other inspected PDF candidates describe historical review inputs; those files are not package contents or build dependencies. No experiments were rerun to create this package, and the frozen results were not edited.
 

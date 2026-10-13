@@ -3,8 +3,8 @@
 **Study identifier:** `m8_human_evaluation_2026`
 **Protocol:** [`data/benchmarks/m8_human_eval_protocol.md`](../data/benchmarks/m8_human_eval_protocol.md)
 **Instrument:** [`data/benchmarks/m8_human_eval_instrument.md`](../data/benchmarks/m8_human_eval_instrument.md)
-**Analysis source:** [`experiments/m8/results/m8_human_eval_summary.json`](../experiments/m8/results/m8_human_eval_summary.json)
-**Machine-readable results:** [`experiments/m8/human_eval/m8_human_eval_results.json`](../experiments/m8/human_eval/m8_human_eval_results.json)
+**Analysis source:** `experiments/m8/results/m8_human_eval_summary.json` (derived, local-only, intentionally ignored, and unavailable in the public tree; this source path is unresolved for a clean clone).
+**Tracked machine-readable results:** [`experiments/m8/human_eval/m8_human_eval_results.json`](../experiments/m8/human_eval/m8_human_eval_results.json)
 **Analysis date:** 2026-09-18
 
 ---
