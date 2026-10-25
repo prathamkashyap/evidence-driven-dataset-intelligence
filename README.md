@@ -114,11 +114,20 @@ pip install -r requirements.txt
 
 ## 8. Running Tests
 
-The test suite contains 208 unit and integration tests covering all pipeline modules and benchmark contracts:
+The standard test command discovers all 208 unit and integration tests:
 
 ```bash
 python3 -m unittest discover -s tests -v
 ```
+
+With the Python requirements and Node.js installed, a clean clone runs 175 tests and reports 33 tests that need ignored M8 human-evaluation captures, derived datasets, analysis output, or the locally generated Google Forms specification as **skipped with a reason**. Skipped tests are not counted as passing. If Node.js is unavailable, its JavaScript syntax check is also visibly skipped. When the required local files are available, run the research-data-dependent tests directly:
+
+```bash
+python3 -m unittest discover -s tests -p 'test_m8_human_eval_*.py' -v
+python3 -m unittest discover -s tests -p 'test_m8_google_forms.py' -v
+```
+
+Those optional tests require `data/raw/m8_initial_collection/rater*_form.csv`, `data/benchmarks/m8_human_eval_primary.csv`, `data/benchmarks/m8_human_eval_repeat_exposure.csv`, `data/benchmarks/m8_human_eval_responses.csv`, `data/benchmarks/m8_human_eval_responses_long.csv`, `data/benchmarks/m8_human_eval_raw_collection_manifest.json`, `data/benchmarks/m8_human_eval_session_manifest.json`, `experiments/m8/results/m8_human_eval_summary.json`, and `data/benchmarks/m8_google_forms_specification.md`. These ignored inputs and generated files are not included in a fresh clone.
 
 ## 9. Running the Benchmark
 
@@ -133,7 +142,7 @@ python3 scripts/run_m8_benchmark.py --check-only
 python3 scripts/analyze_m8_human_eval.py
 ```
 
-Note: a subset of the test suite and the human-evaluation analysis depend on human-study capture files that are gitignored (`data/benchmarks/m8_human_eval_*.csv` and related capture outputs). See Section 11.
+The human-evaluation analysis command requires the local primary and repeat-exposure CSVs listed in Section 8. It writes a derived summary and plots to ignored paths; it does not modify the frozen, tracked results file.
 
 ## 10. M0–M8 Evaluation Summary
 
@@ -150,7 +159,7 @@ All values below are measured results from the committed experiment artifacts; f
 | **M6** | Popularity audit & exploration analysis | `q_tabular_wine` mean pool utility 0.5476 → 0.6857 (+25.2%); 0 strict hidden gems across 4 audited queries | `docs/M6_RESULTS.md`, `experiments/m6/` |
 | **M7** | Multi-objective ranking & diversification | Same-family redundancy R1 = 1 → R3 = 0; mean set utility 0.8506 → 0.8536; on `task_tabular_iris` specifically, 0.8809 → 0.8928 | `docs/M7_RESULTS.md`, `experiments/m7/` |
 | **M8 benchmark** | Frozen offline benchmark, 24 datasets × 8 tasks = 192 evaluations | 327.49 ms wall clock, 33.11 MiB peak RSS, zero network egress; 0 crashes / 10 robustness trials; mean Jaccard = 1.0 and mean Kendall τ = 1.0 under ±20% weight perturbation; H1 N/A (no same-family redundancy under R1), H2 exploratory, H3 observed utility delta 0.000, H4 architectural invariant, H5 20/20 roles grounded; Brier = 0.259314, ECE = 0.428503 (internal consistency audit) | `docs/M8_EVALUATION.md`, `experiments/m8/results/m8_summary.json` |
-| **M8 human pilot** | Exploratory format-comparison pilot | N = 3 participants, 7 comparisons; Format B − Format A: Trust +1.81, Understanding +3.19, Actionability +3.00 (descriptive, exploratory only) | `docs/M8_RESEARCH_FINDINGS.md`; participant-level captures and derived summary are local-only |
+| **M8 human pilot** | Exploratory format-comparison pilot | N = 3 participants, 7 comparisons; Format B − Format A: Trust +1.81, Understanding +3.19, Actionability +3.00 (descriptive, exploratory only) | [`docs/M8_RESEARCH_FINDINGS.md`](docs/M8_RESEARCH_FINDINGS.md); consent-approved participant-level summaries and repeat-exposure metadata in [`experiments/m8/human_eval/m8_human_eval_results.json`](experiments/m8/human_eval/m8_human_eval_results.json); raw captures and derived analysis files are local-only |
 
 Robustness suites: 4 corruption suites (fixtures: `data/benchmarks/m8_corruption_fixtures.json`), 10 trials total.
 
@@ -164,7 +173,7 @@ Robustness suites: 4 corruption suites (fixtures: `data/benchmarks/m8_corruption
 - **Human evaluation pilot:** conducted as a documented exploratory pilot with N = 3 across 7 comparison pairs; all primary results are first-exposure descriptive ratings; an order confound is documented; no inferential statistics or generalizability claims are made.
 - **Development-corpus scope (M1–M7):** milestone results on the 10-dataset development corpus are scoped observations under the tested conditions, not population-level findings.
 - **Known documentation exception:** the status header of `docs/M8_EVALUATION.md` predates execution and is intentionally preserved for hash-contract integrity (`data/benchmarks/m8_benchmark_manifest.json`). See `docs/M8_RESEARCH_FINDINGS.md` for the completed, frozen results.
-- **Human-study capture files and pilot analysis artifacts are kept local:** `.gitignore` excludes raw capture files and derived participant data under `data/benchmarks/`, plus `experiments/m8/results/m8_human_eval_summary.json` and the three identified pilot visualizations under `experiments/m8/plots/`. A subset of tests (33 of 208) and the human-evaluation analysis require local capture files; on a fresh clone those tests error until the files are restored from the local working copy.
+- **Human-evaluation disclosure and reproducibility:** the consent-approved, tracked `experiments/m8/human_eval/m8_human_eval_results.json` contains per-participant summary statistics and repeat-exposure metadata. Raw form exports, row-level response and analysis datasets, the derived `experiments/m8/results/m8_human_eval_summary.json`, and selected pilot plots remain ignored local files. The ordinary test command reports the dependent tests as skipped when their local inputs are absent; it does not count those tests as passed.
 
 ## 12. Documentation Index
 
@@ -192,4 +201,4 @@ Robustness suites: 4 corruption suites (fixtures: `data/benchmarks/m8_corruption
 - [docs/FINAL_VIVA_EVIDENCE_MAP.md](docs/FINAL_VIVA_EVIDENCE_MAP.md) — viva/defense reference
 - [paper/README.md](paper/README.md) — distinguishes the approved manuscript from the retained historical source
 - [docs/v1/](docs/v1/), [docs/v2/](docs/v2/), and [docs/v3/](docs/v3/) — versioned proposal history; not current report drafts
-- Human-study captures and participant-level analysis outputs are intentionally excluded from Git; see Section 11 and [M8 findings](docs/M8_RESEARCH_FINDINGS.md) for the published aggregate account.
+- Raw human-study captures and generated analysis datasets are intentionally excluded from Git. The consent-approved machine-readable result summary is tracked at `experiments/m8/human_eval/m8_human_eval_results.json`; see Section 11 and [M8 findings](docs/M8_RESEARCH_FINDINGS.md) for scope and limitations.

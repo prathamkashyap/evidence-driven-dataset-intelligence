@@ -21,8 +21,20 @@ BLANK_RESPONSES_CSV_PATH = (
 SESSION_MANIFEST_PATH = (
     REPO_ROOT / "data" / "benchmarks" / "m8_human_eval_session_manifest.json"
 )
+LOCAL_INGESTION_INPUTS = (
+    *(RAW_DIR / fname for fname in ("rater1_form.csv", "rater2_form.csv", "rater3_form.csv")),
+    PROVENANCE_MANIFEST_PATH,
+    LONG_CSV_PATH,
+    BLANK_RESPONSES_CSV_PATH,
+    SESSION_MANIFEST_PATH,
+)
+INGESTION_INPUTS_AVAILABLE = all(path.is_file() for path in LOCAL_INGESTION_INPUTS)
 
 
+@unittest.skipUnless(
+    INGESTION_INPUTS_AVAILABLE,
+    "requires local M8 raw human-evaluation exports and derived ingestion files; see README Section 8",
+)
 class TestM8HumanEvalIngestion(unittest.TestCase):
     """Verify integrity of raw data preservation and derived provenance dataset."""
 
