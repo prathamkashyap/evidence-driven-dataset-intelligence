@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101211">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="description" content="An interactive companion to research on evidence-driven dataset recommendation: explore the pipeline, compatibility gates, and frozen M8 results.">
+  <title>Dataset Intelligence — Research, made explorable</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
+  <header class="topbar">
+    <a class="wordmark" href="#top" aria-label="Dataset Intelligence home"><span class="mark">D<span>·</span>I</span><span class="wordmark-copy">RESEARCH<br>COMPANION</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#system">System</a><a href="#evidence">Evidence</a><a href="#results">Results</a><a href="#scope">Scope</a>
+    </nav>
+    <a class="nav-paper" href="paper.pdf" target="_blank" rel="noreferrer">Read the paper <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+    <a href="#system">System</a><a href="#evidence">Evidence</a><a href="#results">Results</a><a href="#scope">Scope</a><a href="paper.pdf">Read the paper ↗</a>
+  </nav>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> SYSTEMS RESEARCH <span class="eyebrow-divider">/</span> DATASET INTELLIGENCE</div>
+        <h1>Finding the right data takes <em>more than a search.</em></h1>
+        <p class="hero-lede">A local-first research system for deciding whether a dataset fits a task, what evidence supports that decision, and what is still unknown.</p>
+        <div class="hero-actions"><a class="button button-bright" href="#system">Explore the system <span>↓</span></a><a class="button button-quiet" href="paper.pdf" target="_blank" rel="noreferrer">Read the paper <span>↗</span></a></div>
+      </div>
+      <div class="hero-visual" aria-label="Abstract illustration of dataset records passing through evidence and compatibility checks">
+        <div class="visual-caption mono">M8 · FROZEN OFFLINE RUN</div>
+        <svg class="network-svg" viewBox="0 0 620 430" role="img" aria-labelledby="network-title network-desc">
+          <title id="network-title">Dataset evidence network</title><desc id="network-desc">Dataset nodes connect to evidence and compatibility stages before reaching a recommendation set.</desc>
+          <defs><radialGradient id="orb"><stop stop-color="#b6ff46" stop-opacity=".32"/><stop offset="1" stop-color="#b6ff46" stop-opacity="0"/></radialGradient><filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+          <circle cx="328" cy="215" r="175" fill="url(#orb)"/>
+          <g class="network-lines" fill="none" stroke="#52604c" stroke-width="1"><path d="M82 96 204 164 314 99 441 146 545 91"/><path d="M82 96 150 293 204 164 281 335 314 99 441 146 483 286 545 91"/><path d="M150 293 281 335 394 249 483 286 545 91"/><path d="M204 164 394 249 441 146"/><path d="M82 96 314 99 483 286"/></g>
+          <g class="network-pulse" fill="none" stroke="#b6ff46" stroke-width="2"><path d="M82 96 204 164 314 99 441 146 545 91"/></g>
+          <g class="network-nodes" font-family="DM Mono, monospace" text-anchor="middle"><g><circle cx="82" cy="96" r="21"/><text x="82" y="101">D01</text></g><g><circle cx="204" cy="164" r="27"/><text x="204" y="169">D07</text></g><g><circle cx="314" cy="99" r="18"/><text x="314" y="104">E</text></g><g><circle cx="441" cy="146" r="26"/><text x="441" y="151">GATE</text></g><g><circle cx="545" cy="91" r="20"/><text x="545" y="96">SET</text></g><g class="node-muted"><circle cx="150" cy="293" r="15"/><text x="150" y="298">D12</text></g><g class="node-muted"><circle cx="281" cy="335" r="15"/><text x="281" y="340">D19</text></g><g class="node-muted"><circle cx="394" cy="249" r="18"/><text x="394" y="254">?</text></g><g class="node-muted"><circle cx="483" cy="286" r="14"/><text x="483" y="291">D23</text></g></g>
+          <g class="visual-labels mono"><text x="43" y="53">CANDIDATES</text><text x="276" y="55">EVIDENCE</text><text x="402" y="104">ELIGIBILITY</text><text x="508" y="52">OUTPUT</text></g>
+        </svg>
+        <div class="hero-visual-footer"><span><i class="legend-dot lime"></i> evidence-linked</span><span><i class="legend-dot muted"></i> unknown / unselected</span><span class="mono">ILLUSTRATIVE SYSTEM MAP</span></div>
+      </div>
+      <div class="hero-stats" id="hero-stats" aria-label="M8 benchmark scope">
+        <div><strong data-stat="datasets">24</strong><span>frozen dataset records</span></div><div><strong data-stat="tasks">8</strong><span>structured tasks</span></div><div><strong data-stat="pairs">192</strong><span>task–dataset pairs</span></div><div><strong>33.11 <small>MiB</small></strong><span>peak memory · M8 run</span></div>
+      </div>
+      <p class="source-note">Benchmark scope and resource figures are from the frozen M8 run. The network visual is illustrative.</p>
+      <a class="scroll-cue" href="#problem" aria-label="Scroll to the research problem"><span></span> SCROLL TO EXPLORE</a>
+    </section>
+
+    <section class="section-shell problem-section" id="problem">
+      <div class="section-kicker"><span>01</span> THE PROBLEM</div>
+      <div class="problem-grid"><h2>A match in text<br>isn’t a match for <em>your task.</em></h2><div class="problem-copy"><p>Catalogs mix publisher claims, incomplete metadata, and observations made on small samples. A search result can look relevant and still fail a confirmed requirement.</p><p>This research moves the decision from <b>“Does the description sound right?”</b> to <b>“What makes this dataset suitable, what evidence supports that, and what remains unknown?”</b></p><div class="micro-proof"><span class="micro-line"></span><span>Hard constraints are checked before ranking.</span></div></div></div>
+      <div class="problem-strip"><div><span class="strip-index">A</span><b>RETRIEVAL</b><p>Find plausible candidates.</p></div><div class="strip-arrow" aria-hidden="true">→</div><div><span class="strip-index">B</span><b>VERIFICATION</b><p>Separate evidence from claims.</p></div><div class="strip-arrow" aria-hidden="true">→</div><div><span class="strip-index">C</span><b>SELECTION</b><p>Choose a useful, traceable set.</p></div></div>
+    </section>
+
+    <section class="section-shell system-section" id="system">
+      <div class="section-head"><div><div class="section-kicker"><span>02</span> SYSTEM WALKTHROUGH</div><h2>Watch a recommendation <em>take shape.</em></h2></div><p>The implemented pipeline takes structured task specifications and a candidate pool through evidence, hard gates, and family-aware set selection.</p></div>
+      <div class="pipeline-layout">
+        <div class="pipeline-list" role="tablist" aria-label="Recommendation pipeline stages">
+          <button class="pipeline-step active" id="stage-tab-0" role="tab" aria-selected="true" aria-controls="stage-panel" data-stage="0"><span class="step-index">01</span><span><b>Task + candidate pool</b><small>Define the question</small></span><span class="step-arrow">↘</span></button>
+          <button class="pipeline-step" id="stage-tab-1" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="1"><span class="step-index">02</span><span><b>Canonical records</b><small>Preserve provenance</small></span><span class="step-arrow">↘</span></button>
+          <button class="pipeline-step" id="stage-tab-2" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="2"><span class="step-index">03</span><span><b>Evidence + bounded probe</b><small>Record what is known</small></span><span class="step-arrow">↘</span></button>
+          <button class="pipeline-step" id="stage-tab-3" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="3"><span class="step-index">04</span><span><b>Hard compatibility gates</b><small>Exclude confirmed conflicts</small></span><span class="step-arrow">↘</span></button>
+          <button class="pipeline-step" id="stage-tab-4" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="4"><span class="step-index">05</span><span><b>Score + diversify</b><small>Build a useful set</small></span><span class="step-arrow">↘</span></button>
+          <button class="pipeline-step" id="stage-tab-5" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="5"><span class="step-index">06</span><span><b>Traceable cards</b><small>Explain the decision</small></span><span class="step-arrow">↗</span></button>
+        </div>
+        <div class="pipeline-detail" id="stage-panel" role="tabpanel" aria-labelledby="stage-tab-0" tabindex="0">
+          <div class="detail-topline mono"><span id="stage-label">STAGE 01 / 06</span><span class="detail-indicator"><i></i> IMPLEMENTED PATH</span></div>
+          <div class="detail-visual" id="pipeline-visual" aria-hidden="true"><div class="flow-chip">TASK <b>image classification</b></div><span class="flow-arrow">→</span><div class="pool-dots"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="flow-arrow">→</span><div class="flow-chip output">POOL <b>24 records</b></div></div>
+          <h3 id="stage-title">A task frames the decision.</h3><p id="stage-description">The evaluated system receives a structured TaskSpecification and a supplied pool. M8 reuses the same frozen 24-record pool for every task; it does not measure live search recall.</p>
+          <div class="detail-meta"><span class="mono">RESEARCH REFERENCE</span><a href="paper.pdf#page=4" target="_blank" rel="noreferrer">System and method ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell gate-section" id="gates">
+      <div class="section-head"><div><div class="section-kicker"><span>03</span> INTERACTIVE DEMO</div><h2>Eligibility comes <em>before score.</em></h2></div><p>Try a small, fabricated candidate pool. Confirmed incompatibilities leave the ranking path; missing modality evidence stays visible as unknown.</p></div>
+      <div class="demo-label"><span class="tag tag-illustrative">ILLUSTRATIVE EXAMPLE</span><span class="mono">NOT AN M8 REPLAY</span></div>
+      <div class="gate-demo">
+        <div class="gate-controls"><div><span class="mono">TASK REQUIREMENT</span><label for="required-modality">Required modality</label></div><select id="required-modality"><option value="image">Image</option><option value="tabular">Tabular</option><option value="text">Text</option></select><label class="toggle-wrap"><input id="gate-toggle" type="checkbox" checked aria-controls="candidate-list"><span class="toggle-ui" aria-hidden="true"></span><span><b>Apply confirmed modality gate</b><small id="gate-toggle-help">Filter only known incompatibilities</small></span></label><div class="gate-legend"><span><i class="status-dot eligible"></i> Eligible</span><span><i class="status-dot excluded"></i> Confirmed mismatch</span><span><i class="status-dot unknown"></i> Evidence unknown</span></div></div>
+        <div class="candidate-side"><div class="pool-heading"><span>ILLUSTRATIVE CANDIDATES</span><span id="pool-count" class="mono">5 RECORDS</span></div><div class="candidate-list" id="candidate-list" aria-live="polite"></div><div class="gate-summary" aria-live="polite"><span id="gate-summary">2 eligible · 2 excluded · 1 unknown</span><span class="mono">NEXT → RANKING</span></div></div>
+      </div>
+      <p class="caption-note">Illustrative cards are fabricated to explain gate behavior. In the research implementation, gates distinguish a confirmed conflict from unknown evidence; unknown modality is not automatically a mismatch.</p>
+    </section>
+
+    <section class="section-shell evidence-section" id="evidence">
+      <div class="section-kicker"><span>04</span> EVIDENCE MODEL</div><div class="section-head evidence-head"><h2>Keep “what we saw”<br>separate from <em>“what agrees.”</em></h2><p>The ledger has two categorical state layers. Neither is a calibrated confidence score.</p></div>
+      <div class="evidence-model">
+        <div class="evidence-layer"><div class="layer-label"><span class="layer-number">A</span><span><b>OBSERVATION</b><small>One evidence entry</small></span></div><div class="state-grid"><button class="state-chip selected" data-state="observed" aria-pressed="true"><b>observed</b><small>directly inspected</small></button><button class="state-chip" data-state="single_source_claim" aria-pressed="false"><b>single-source claim</b><small>reported by one source</small></button><button class="state-chip" data-state="unsupported" aria-pressed="false"><b>unsupported</b><small>operation unavailable by policy or capability</small></button><button class="state-chip" data-state="failed" aria-pressed="false"><b>failed</b><small>supported attempt encountered a failure</small></button><button class="state-chip" data-state="unknown" aria-pressed="false"><b>unknown</b><small>property not established</small></button></div></div>
+        <div class="layer-connector"><span></span><b id="evidence-example">A sample probe observed 32 records.</b><span></span></div>
+        <div class="evidence-layer resolution-layer"><div class="layer-label"><span class="layer-number blue">B</span><span><b>RESOLUTION</b><small>Agreement across entries</small></span></div><div class="state-grid resolution-grid"><button class="state-chip selected" data-resolution="corroborated" aria-pressed="true"><b>corroborated</b><small>sources align</small></button><button class="state-chip" data-resolution="conflicting" aria-pressed="false"><b>conflicting</b><small>sources disagree</small></button><button class="state-chip" data-resolution="unresolved" aria-pressed="false"><b>unresolved</b><small>not reconciled</small></button><button class="state-chip" data-resolution="unknown" aria-pressed="false"><b>unknown</b><small>insufficient basis</small></button></div></div>
+      </div>
+      <div class="evidence-explainer" aria-live="polite"><span class="explainer-mark">↳</span><p id="evidence-explainer-text">An observation describes one evidence entry. A resolution describes the relation between entries; the two answers different questions.</p><a href="https://github.com/prathamkashyap/evidence-driven-dataset-intelligence/blob/main/src/dataset_intelligence/evidence/statuses.py">See implementation ↗</a></div>
+    </section>
+
+    <section class="section-shell equation-section" id="equation">
+      <div class="equation-intro"><div class="section-kicker"><span>05</span> EQUATION PLAYGROUND</div><h2>How does diversity change <em>the next pick?</em></h2><p>The greedy selector combines a candidate’s score with its diversity contribution. Move the slider to inspect the multiplier.</p></div>
+      <div class="equation-card"><div class="eq-card-top"><span class="mono">EQUATION 7 · SELECTION STEP</span><span class="tag tag-illustrative">ILLUSTRATIVE ONLY</span></div><div class="formula" aria-label="candidate score plus diversity weight times diversity contribution">s(q, d) <span>+</span> <b>λ</b><sub>div</sub> · δ(d | S<sub>t</sub>)</div><div class="slider-heading"><label for="diversity-slider">Diversity weight, λ<sub>div</sub></label><output id="diversity-value" for="diversity-slider">0.20</output></div><input id="diversity-slider" type="range" min="0" max="0.4" step="0.05" value="0.2" aria-describedby="slider-caption"><div class="slider-ticks mono"><span>0.00</span><span>0.20 · M8 default</span><span>0.40</span></div><div class="multiplier-row"><span><small>UTILITY SCORE</small><b>fixed for this example</b></span><span class="multiplier-sign">+</span><span><small>DIVERSITY CONTRIBUTION</small><b id="diversity-multiplier">0.20 × δ</b></span></div><div class="bar-compare" aria-label="Illustrative score contribution comparison"><div><span>Utility term</span><span class="term-track"><i class="utility-fill"></i></span><b>0.72</b></div><div><span>Diversity term</span><span class="term-track"><i class="diversity-fill" id="diversity-fill"></i></span><b id="diversity-term-value">0.04</b></div></div><p class="fine-print" id="slider-caption">Illustrative example holds δ = 0.20 fixed to show the multiplier. Slider values change this display, not the paper’s recorded M8 experiment or results.</p></div>
+    </section>
+
+    <section class="section-shell results-section" id="results">
+      <div class="section-head results-head"><div><div class="section-kicker"><span>06</span> FROZEN M8 RESULTS</div><h2>What changed in the <em>tested setup?</em></h2></div><p>Twenty-four fixed dataset records × eight structured tasks. The values below are measured results from the approved manuscript.</p></div>
+      <div class="result-callout"><div class="callout-number">+0.3775</div><div><b>Largest observed step in the cumulative ablation: hybrid RRF → hybrid plus hard gates</b><p>Mean set utility rose from 0.4414 to 0.8189; this cumulative comparison does not isolate an independent causal effect of gating. The modality gate excluded 140 of 192 task–dataset evaluations in this run.</p></div><span class="callout-mark" aria-hidden="true">↗</span></div>
+      <div class="chart-card"><div class="chart-heading"><div><span class="mono">TABLE III · CUMULATIVE ABLATION</span><h3>Mean set utility by condition</h3></div><span class="axis-note">HEURISTIC UTILITY · 0–1</span></div><p class="chart-subtitle">Select a bar to inspect the cumulative condition. This is the system’s own heuristic utility measure, not independent recommendation quality.</p><div class="ablation-chart" id="ablation-chart" role="group" aria-label="Interactive bar chart of the nine cumulative M8 ablation conditions"></div><div class="ablation-detail" id="ablation-detail" aria-live="polite"><div class="detail-value">0.8588</div><div><b>Full system · R3</b><p>Family-aware greedy diversification and traceable cards.</p></div><span class="tag">SELECTED CONDITION</span></div><div class="chart-source">Source: approved manuscript, Table III. Fixed pool of 24 records; eight tasks; target set size k = 3. <a href="paper.pdf#page=6" target="_blank" rel="noreferrer">Paper ↗</a></div></div>
+      <div class="tradeoff-head"><div><span class="mono">TABLE IV · DIVERSITY WEIGHT SWEEP</span><h3>Utility & diversity move on <em>separate scales.</em></h3></div><p>At higher tested weights, the measured diversity statistic rises while mean utility falls slightly. Separate plots preserve each metric’s scale.</p></div>
+      <div class="tradeoff-grid"><div class="line-chart-card"><div class="chart-heading"><div><span class="chart-index">A</span><h4>Mean set utility</h4></div><span class="axis-note">NORMALIZED · 0–1</span></div><svg id="utility-chart" class="line-chart" role="group" aria-label="Interactive mean set utility chart. Focus a point to hear its exact value; use the data table below for all values."></svg><div class="chart-data-label" id="utility-selected">λ 0.20 · utility 0.858825</div></div><div class="line-chart-card"><div class="chart-heading"><div><span class="chart-index blue-index">B</span><h4>Mean set diversity</h4></div><span class="axis-note">SEPARATE SCALE · 0–0.70</span></div><svg id="diversity-chart" class="line-chart" role="group" aria-label="Interactive mean set diversity chart. Focus a point to hear its exact value; use the data table below for all values."></svg><div class="chart-data-label" id="diversity-selected">λ 0.20 · diversity 0.527775</div></div></div>
+      <div class="chart-legend"><span><i class="legend-line lime-line"></i>Mean across eight fixed tasks</span><span class="mono">CHOOSE A POINT TO INSPECT BOTH METRICS</span></div>
+      <div class="tradeoff-footnote"><span class="footnote-icon">!</span><p>At λ = 0.30–0.40, mean diversity is +0.1111 and mean utility is −0.008875 from the low-weight settings. Membership changed despite zero qualifying same-family pairs. The result describes this corpus and rubric.</p></div>
+      <details class="task-table"><summary>See task-level values at λ = 0.20 and λ = 0.40 <span aria-hidden="true">＋</span></summary><div class="table-wrap"><table><thead><tr><th>Task</th><th>Utility · 0.20</th><th>Diversity · 0.20</th><th>Utility · 0.40</th><th>Diversity · 0.40</th><th>Jaccard · 0.40</th></tr></thead><tbody id="task-table-body"></tbody></table></div><p>At λ = 0.40, the utility cost was concentrated in Iris, Titanic, and wine; the other five task utilities were unchanged.</p></details>
+      <details class="task-table sweep-table"><summary>Inspect all eight diversity-sweep values <span aria-hidden="true">＋</span></summary><div class="table-wrap"><table><thead><tr><th>λdiv</th><th>Mean utility</th><th>Mean diversity</th><th>Mean Jaccard vs. 0.20</th></tr></thead><tbody id="sweep-table-body"></tbody></table></div><p>Exact values are retained from the machine-readable M8 summary. The plot uses separate scales for the two measures.</p></details>
+      <div class="resource-strip"><div><span class="mono">M8 OFFLINE PATH</span><b>327.49 <small>ms</small></b><span>wall-clock time</span></div><div><span class="mono">PEAK PROCESS MEMORY</span><b>33.11 <small>MiB</small></b><span>on this recorded run</span></div><div><span class="mono">NETWORK EGRESS</span><b>ZERO</b><span>verified for the run</span></div><div><span class="mono">M8 SEED</span><b>20260902</b><span>configured random seed</span></div></div>
+      <p class="caption-note">These measurements apply to the frozen M8 path on the recorded environment. They do not establish portability across machines or resource use of every optional component.</p>
+    </section>
+
+    <section class="section-shell boundaries-section" id="scope">
+      <div class="section-head"><div><div class="section-kicker"><span>07</span> CLAIMS & BOUNDARIES</div><h2>Strong research shows <em>its edges.</em></h2></div><p>Here’s what the evidence supports in the tested setup—and which questions need a different study.</p></div>
+      <div class="boundary-grid"><article class="boundary-card established"><div class="boundary-icon">✓</div><span class="mono">DEMONSTRATED IN THE TESTED SETUP</span><h3>Evidence to explanation</h3><p>The implemented path combines categorical evidence states, bounded inspection, compatibility gates, heuristic scoring, and traceable set selection.</p><a href="paper.pdf#page=4">System and method ↗</a></article><article class="boundary-card measured"><div class="boundary-icon">⌁</div><span class="mono">MEASURED ON FROZEN M8</span><h3>Local and offline</h3><p>The 24-record, eight-task run completed in 327.49 ms, used 33.11 MiB peak memory, and verified zero network egress.</p><a href="paper.pdf#page=6">Evaluation settings ↗</a></article><article class="boundary-card open"><div class="boundary-icon">?</div><span class="mono">NOT ESTABLISHED</span><h3>Quality beyond the rubric</h3><p>Independent recommendation quality, general user benefit, web-scale discovery performance, and downstream model gains remain open.</p><a href="paper.pdf#page=9">Threats to validity ↗</a></article></div>
+      <div class="pilot-panel"><div class="pilot-title"><span class="mono">HUMAN CARD PILOT · EXPLORATORY</span><span class="pilot-n">N = 3</span></div><div class="pilot-copy"><h3>Evidence cards were rated higher in this small pilot.</h3><p>Three participants compared minimal and evidence-augmented cards across seven pairs. These are descriptive 5-point Likert differences, not a confirmatory test.</p></div><div class="pilot-metrics"><div><b>+1.81</b><span>Trust</span></div><div><b>+3.19</b><span>Understanding</span></div><div><b>+3.00</b><span>Actionability</span></div></div><div class="pilot-caveat">Order was not counterbalanced; one participant was a project author, and repeat-exposure linkage is uncertain for two participants. The pilot does not independently validate recommendation correctness.</div></div>
+      <div class="timeline-block"><div class="timeline-heading"><div><span class="mono">DEVELOPMENT ARC</span><h3>M0 → M8</h3></div><p>Select a milestone to see the component question it explored.</p></div><div class="timeline" id="timeline" role="tablist" aria-label="Research milestone timeline"></div><div class="timeline-detail" id="timeline-detail" aria-live="polite"><span class="mono">M8 · FROZEN BENCHMARK</span><p>Evaluate the integrated offline path, robustness, sensitivity, and evidence-card format under a fixed protocol.</p></div></div>
+    </section>
+
+    <section class="section-shell artifacts-section" id="artifacts">
+      <div class="section-kicker"><span>08</span> RESEARCH ARTIFACTS</div><div class="artifacts-layout"><div><h2>Read the evidence.<br><em>Follow the source.</em></h2><p>The website is an explorable companion to the paper. The manuscript and experiment artifacts remain the authoritative record.</p></div><div class="artifact-links"><a href="paper.pdf" target="_blank" rel="noreferrer"><span><small>01 / MANUSCRIPT</small><b>Approved research paper</b></span><i>↗</i></a><a href="https://github.com/prathamkashyap/evidence-driven-dataset-intelligence/blob/main/src/dataset_intelligence/evidence/statuses.py"><span><small>02 / IMPLEMENTATION</small><b>Evidence state definitions</b></span><i>↗</i></a><a href="https://github.com/prathamkashyap/evidence-driven-dataset-intelligence/blob/main/docs/M8_EVALUATION.md"><span><small>03 / PROTOCOL</small><b>M8 evaluation details</b></span><i>↗</i></a><a href="https://github.com/prathamkashyap/evidence-driven-dataset-intelligence/blob/main/experiments/m8/results/m8_summary.json"><span><small>04 / MACHINE-READABLE RESULTS</small><b>Frozen M8 summary</b></span><i>↗</i></a></div></div>
+    </section>
+  </main>
+  <footer class="footer section-shell"><a class="wordmark" href="#top"><span class="mark">D<span>·</span>I</span><span class="wordmark-copy">RESEARCH<br>COMPANION</span></a><p>Evidence-driven dataset recommendation<br><span>Research companion · static and local-first</span></p><a class="back-top mono" href="#top">BACK TO TOP ↑</a></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>
