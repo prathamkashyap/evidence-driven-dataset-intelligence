@@ -63,7 +63,7 @@
     },
     "task": {
       "type": "object", "additionalProperties": false,
-      "required": ["task_id", "task_version", "task_type", "primary_modality", "domain", "query_text", "structured_spec_sha256", "sampling_stratum", "split", "source_provenance_ids"],
+      "required": ["task_id", "task_version", "task_type", "primary_modality", "domain", "query_text", "structured_spec_sha256", "sampling_stratum", "split", "source_provenance_ids", "candidate_ids"],
       "properties": {
         "task_id": {"type": "string", "pattern": "^p2_task_[A-Za-z0-9._-]+$"},
         "task_version": {"type": "string", "minLength": 1},
@@ -75,7 +75,7 @@
         "sampling_stratum": {"type": "string", "minLength": 1},
         "split": {"enum": ["train", "development", "test"]},
         "source_provenance_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
-        "candidate_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+        "candidate_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}}
       }
     },
     "candidate": {
@@ -101,8 +101,8 @@
         "pair_id": {"type": "string", "pattern": "^p2_pair_[A-Za-z0-9._-]+$"},
         "task_id": {"type": "string"},
         "candidate_id": {"type": "string"},
-        "pool_inclusion_reasons": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["bm25_top10", "dense_top10", "rrf_top10", "source_stratified_screen", "other_preregistered"]}},
-        "eligibility_state": {"enum": ["eligible", "ineligible", "unknown", "unresolved"]},
+        "pool_inclusion_reasons": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["bm25_top6", "dense_top6", "rrf_top6", "source_stratified_screen", "other_preregistered"]}},
+        "eligibility_state": {"enum": ["eligible", "eligible_with_unknown", "ineligible_confirmed_violation", "ineligible_unverified_required", "unresolved"]},
         "constraint_evidence_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
       }
     },

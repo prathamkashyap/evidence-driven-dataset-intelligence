@@ -44,7 +44,7 @@ This deliberately favors a small, auditable model over LambdaMART: the proposed 
 ## Status language
 
 - **Implemented:** Phase I structured task specifications, source adapters, evidence states, hard gates, utility components, candidate signals, BM25/dense/RRF baselines, R1/R2/R3, and frozen M8 evaluation artifacts.
-- **Proposed here:** 30 new task briefs, 36 candidates per task, relevance rubric, blinded dual annotation, 12/6/12 task split, evaluation metrics, and one pairwise linear ranker.
+- **Proposed here:** 36 new task briefs, 36 candidates per task, relevance rubric, blinded dual annotation, 12/6/18 task split, evaluation metrics, and one pairwise linear ranker.
 - **Requires human work:** task/query curation, candidate-source review, two independent annotations per pair, reliability reporting, disagreement adjudication, and test-set custody.
 - **Future evaluation:** baseline comparison, the one learned-ranker comparison, gate/evidence ablations, uncertainty intervals, and resource measurements.
 

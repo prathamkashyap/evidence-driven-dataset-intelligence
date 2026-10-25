@@ -7,26 +7,26 @@
   "annotation_state": "not_started",
   "test_label_custody": "not_created",
   "targets": {
-    "task_count": 30,
+    "task_count": 36,
     "tasks_per_modality": {
-      "text": 10,
-      "tabular": 10,
-      "image": 10
+      "text": 12,
+      "tabular": 12,
+      "image": 12
     },
     "tasks_per_type": {
-      "classification": 12,
-      "regression": 6,
-      "clustering": 6,
-      "detection": 6
+      "classification": 14,
+      "regression": 8,
+      "clustering": 7,
+      "detection": 7
     },
     "candidates_per_task": 36,
-    "task_candidate_pair_count": 1080,
+    "task_candidate_pair_count": 1296,
     "independent_judgments_per_pair": 2,
-    "primary_judgment_count": 2160,
+    "primary_judgment_count": 2592,
     "split_task_counts": {
       "train": 12,
       "development": 6,
-      "test": 12
+      "test": 18
     }
   },
   "seeds": {
