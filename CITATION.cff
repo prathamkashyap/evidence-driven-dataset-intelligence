@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this research prototype, please cite the accompanying paper."
+type: software
+title: "Evidence-Driven Dataset Intelligence and Recommendation System"
+repository-code: "https://github.com/prathamkashyap/evidence-driven-dataset-intelligence"
+authors:
+  - family-names: Kashyap
+    given-names: Pratham
+  - family-names: Rastogi
+    given-names: Anvesha
+  - family-names: Gupta
+    given-names: Harsh
+  - family-names: Dhoriyani
+    given-names: Harsh
+  - family-names: Ranjan
+    given-names: Priyanshu
+  - family-names: Shrish
+preferred-citation:
+  type: article
+  title: "Evidence-Driven Dataset Recommendation under Local Resource Constraints"
+  authors:
+    - family-names: Kashyap
+      given-names: Pratham
+    - family-names: Rastogi
+      given-names: Anvesha
+    - family-names: Gupta
+      given-names: Harsh
+    - family-names: Dhoriyani
+      given-names: Harsh
+    - family-names: Ranjan
+      given-names: Priyanshu
+    - family-names: Shrish
+  url: "https://github.com/prathamkashyap/evidence-driven-dataset-intelligence/blob/main/paper/final_submission/main.pdf"
