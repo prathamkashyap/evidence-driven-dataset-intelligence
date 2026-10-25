@@ -127,7 +127,7 @@ python3 -m unittest discover -s tests -p 'test_m8_human_eval_*.py' -v
 python3 -m unittest discover -s tests -p 'test_m8_google_forms.py' -v
 ```
 
-Those optional tests require `data/raw/m8_initial_collection/rater*_form.csv`, `data/benchmarks/m8_human_eval_primary.csv`, `data/benchmarks/m8_human_eval_repeat_exposure.csv`, `data/benchmarks/m8_human_eval_responses.csv`, `data/benchmarks/m8_human_eval_responses_long.csv`, `data/benchmarks/m8_human_eval_raw_collection_manifest.json`, `experiments/m8/results/m8_human_eval_summary.json`, and `data/benchmarks/m8_google_forms_specification.md`. These ignored inputs and generated files are not included in a fresh clone.
+Those optional tests require `data/raw/m8_initial_collection/rater*_form.csv`, `data/benchmarks/m8_human_eval_primary.csv`, `data/benchmarks/m8_human_eval_repeat_exposure.csv`, `data/benchmarks/m8_human_eval_responses.csv`, `data/benchmarks/m8_human_eval_responses_long.csv`, `data/benchmarks/m8_human_eval_raw_collection_manifest.json`, `data/benchmarks/m8_human_eval_session_manifest.json`, `experiments/m8/results/m8_human_eval_summary.json`, and `data/benchmarks/m8_google_forms_specification.md`. These ignored inputs and generated files are not included in a fresh clone.
 
 ## 9. Running the Benchmark
 
