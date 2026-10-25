@@ -26,6 +26,9 @@ ANALYSIS_JSON = PROJECT_ROOT / "experiments" / "m8" / "results" / "m8_human_eval
 RESULTS_JSON = PROJECT_ROOT / "experiments" / "m8" / "human_eval" / "m8_human_eval_results.json"
 FINDINGS_DOC = PROJECT_ROOT / "docs" / "M8_RESEARCH_FINDINGS.md"
 
+LOCAL_ANALYSIS_SUMMARY = (ANALYSIS_JSON,)
+ANALYSIS_SUMMARY_AVAILABLE = all(path.is_file() for path in LOCAL_ANALYSIS_SUMMARY)
+
 EXPECTED_PRIMARY_SCHEMA = {
     "participant_id",
     "submission_id",
@@ -69,6 +72,10 @@ def _read_json(path):
 # Primary dataset tests
 # ---------------------------------------------------------------------------
 
+@unittest.skipUnless(
+    PRIMARY_CSV.is_file(),
+    "requires local M8 primary human-evaluation data; see README Section 8",
+)
 class TestPrimaryDataset(unittest.TestCase):
 
     def test_file_exists(self):
@@ -121,6 +128,10 @@ class TestPrimaryDataset(unittest.TestCase):
 # Repeat-exposure dataset tests
 # ---------------------------------------------------------------------------
 
+@unittest.skipUnless(
+    REPEAT_CSV.is_file(),
+    "requires local M8 repeat-exposure human-evaluation data; see README Section 8",
+)
 class TestRepeatDataset(unittest.TestCase):
 
     def test_file_exists(self):
@@ -158,6 +169,10 @@ class TestRepeatDataset(unittest.TestCase):
 # Analysis JSON tests
 # ---------------------------------------------------------------------------
 
+@unittest.skipUnless(
+    ANALYSIS_SUMMARY_AVAILABLE,
+    "requires the local derived M8 human-evaluation summary; see README Section 8",
+)
 class TestAnalysisJSON(unittest.TestCase):
 
     def setUp(self):
