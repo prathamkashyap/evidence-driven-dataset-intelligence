@@ -1,0 +1,204 @@
+{
+  "sources": [
+    {
+      "path": "paper/final_submission/main.tex",
+      "covers": "Benchmark scope, Table III cumulative ablation, Table V task-level sensitivity endpoints, resource measurements, and human pilot."
+    },
+    {
+      "path": "experiments/m8/results/m8_summary.json",
+      "covers": "Machine-readable M8 benchmark scope, resource measurements, diversity-weight sweep, and aggregate sensitivity values."
+    }
+  ],
+  "benchmark": {
+    "datasets": 24,
+    "tasks": 8,
+    "pairs": 192,
+    "targetSetSize": 3,
+    "seed": 20260902,
+    "memoryMiB": 33.11,
+    "wallTimeMs": 327.49,
+    "zeroEgress": true,
+    "modalityExclusions": 140
+  },
+  "ablation": [
+    {
+      "rung": 0,
+      "name": "Corpus order",
+      "value": 0.2191,
+      "components": "Reference ordering over the fixed corpus."
+    },
+    {
+      "rung": 1,
+      "name": "BM25",
+      "value": 0.4684,
+      "components": "Lexical ordering over the same fixed candidate pool."
+    },
+    {
+      "rung": 2,
+      "name": "Dense",
+      "value": 0.4085,
+      "components": "Dense ordering over the same fixed candidate pool."
+    },
+    {
+      "rung": 3,
+      "name": "Hybrid RRF",
+      "value": 0.4414,
+      "components": "Reciprocal-rank fusion of lexical and dense ordering."
+    },
+    {
+      "rung": 4,
+      "name": "Hybrid + gates",
+      "value": 0.8189,
+      "components": "Hybrid ordering with hard compatibility gates."
+    },
+    {
+      "rung": 5,
+      "name": "Utility only",
+      "value": 0.8588,
+      "components": "R1 heuristic task-utility ranking."
+    },
+    {
+      "rung": 6,
+      "name": "Multi-objective",
+      "value": 0.8588,
+      "components": "R2 fixed-weight multi-objective scoring."
+    },
+    {
+      "rung": 7,
+      "name": "Farthest-first",
+      "value": 0.8588,
+      "components": "Farthest-first selection without a family check."
+    },
+    {
+      "rung": 8,
+      "name": "Full system",
+      "value": 0.8588,
+      "components": "R3 family-aware greedy diversification and traceable cards."
+    }
+  ],
+  "diversitySweep": [
+    {
+      "weight": 0.0,
+      "utility": 0.858825,
+      "diversity": 0.5,
+      "jaccard": 0.9375
+    },
+    {
+      "weight": 0.05,
+      "utility": 0.858825,
+      "diversity": 0.5,
+      "jaccard": 0.9375
+    },
+    {
+      "weight": 0.1,
+      "utility": 0.858825,
+      "diversity": 0.5,
+      "jaccard": 0.9375
+    },
+    {
+      "weight": 0.15,
+      "utility": 0.858825,
+      "diversity": 0.527775,
+      "jaccard": 1.0
+    },
+    {
+      "weight": 0.2,
+      "utility": 0.858825,
+      "diversity": 0.527775,
+      "jaccard": 1.0
+    },
+    {
+      "weight": 0.25,
+      "utility": 0.85585,
+      "diversity": 0.55555,
+      "jaccard": 0.9375
+    },
+    {
+      "weight": 0.3,
+      "utility": 0.84995,
+      "diversity": 0.6111,
+      "jaccard": 0.8125
+    },
+    {
+      "weight": 0.4,
+      "utility": 0.84995,
+      "diversity": 0.6111,
+      "jaccard": 0.8125
+    }
+  ],
+  "taskAttribution": [
+    {
+      "task": "Image · CIFAR",
+      "utilityAtDefault": 0.7786,
+      "diversityAtDefault": 0.5,
+      "utilityAtHigh": 0.7786,
+      "diversityAtHigh": 0.5,
+      "jaccard": 1.0
+    },
+    {
+      "task": "Image · leaf disease",
+      "utilityAtDefault": 0.7786,
+      "diversityAtDefault": 0.5,
+      "utilityAtHigh": 0.7786,
+      "diversityAtHigh": 0.5,
+      "jaccard": 1.0
+    },
+    {
+      "task": "News · multiclass",
+      "utilityAtDefault": 0.85,
+      "diversityAtDefault": 0.5,
+      "utilityAtHigh": 0.85,
+      "diversityAtHigh": 0.5,
+      "jaccard": 1.0
+    },
+    {
+      "task": "Sentiment · binary",
+      "utilityAtDefault": 0.8929,
+      "diversityAtDefault": 0.5,
+      "utilityAtHigh": 0.8929,
+      "diversityAtHigh": 0.5,
+      "jaccard": 1.0
+    },
+    {
+      "task": "Tabular · diabetes",
+      "utilityAtDefault": 0.9045,
+      "diversityAtDefault": 0.7222,
+      "utilityAtHigh": 0.9045,
+      "diversityAtHigh": 0.7222,
+      "jaccard": 1.0
+    },
+    {
+      "task": "Tabular · Iris",
+      "utilityAtDefault": 0.8809,
+      "diversityAtDefault": 0.5,
+      "utilityAtHigh": 0.8571,
+      "diversityAtHigh": 0.7222,
+      "jaccard": 0.5
+    },
+    {
+      "task": "Tabular · Titanic",
+      "utilityAtDefault": 0.9283,
+      "diversityAtDefault": 0.5,
+      "utilityAtHigh": 0.9045,
+      "diversityAtHigh": 0.7222,
+      "jaccard": 0.5
+    },
+    {
+      "task": "Tabular · wine",
+      "utilityAtDefault": 0.8568,
+      "diversityAtDefault": 0.5,
+      "utilityAtHigh": 0.8334,
+      "diversityAtHigh": 0.7222,
+      "jaccard": 0.5
+    }
+  ],
+  "humanPilot": {
+    "participants": 3,
+    "comparisons": 7,
+    "trustDifference": 1.81,
+    "understandingDifference": 3.19,
+    "actionabilityDifference": 3.0,
+    "scale": "5-point Likert",
+    "status": "Exploratory descriptive pilot; not confirmatory or generalizable."
+  }
+}
