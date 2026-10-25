@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/prathamkashyap/evidence-driven-dataset-intelligence/blob/main/docs/phase2/schemas/benchmark-manifest.schema.json",
+  "title": "Phase II independent relevance benchmark manifest",
+  "description": "Schema for a proposed, versioned benchmark manifest. Empty arrays are valid for the design-only template; no example rows or judgments are supplied.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "status", "benchmark_id", "protocol_version",
+    "collection_state", "annotation_state", "test_label_custody", "targets",
+    "seeds", "artifact_hashes", "tasks", "candidates", "task_candidate_pairs",
+    "annotations", "provenance_records", "exclusions"
+  ],
+  "properties": {
+    "schema_version": {"const": "phase2-benchmark-1.0"},
+    "status": {"enum": ["proposed", "frozen", "annotated", "evaluated"]},
+    "benchmark_id": {"type": "string", "minLength": 1},
+    "protocol_version": {"type": "string", "minLength": 1},
+    "collection_state": {"enum": ["not_started", "collecting", "frozen"]},
+    "annotation_state": {"enum": ["not_started", "in_progress", "sealed", "released"]},
+    "test_label_custody": {"enum": ["not_created", "sealed_external", "sealed_local_custodian", "released_after_evaluation"]},
+    "targets": {"$ref": "#/$defs/targets"},
+    "seeds": {"type": "object", "additionalProperties": {"type": "integer"}},
+    "artifact_hashes": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/sha256"}
+    },
+    "tasks": {"type": "array", "items": {"$ref": "#/$defs/task"}},
+    "candidates": {"type": "array", "items": {"$ref": "#/$defs/candidate"}},
+    "task_candidate_pairs": {"type": "array", "items": {"$ref": "#/$defs/taskCandidatePair"}},
+    "annotations": {"type": "array", "items": {"$ref": "#/$defs/annotation"}},
+    "provenance_records": {"type": "array", "items": {"$ref": "#/$defs/provenance"}},
+    "exclusions": {"type": "array", "items": {"$ref": "#/$defs/exclusion"}}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "targets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_count", "tasks_per_modality", "tasks_per_type", "candidates_per_task", "task_candidate_pair_count", "independent_judgments_per_pair", "primary_judgment_count", "split_task_counts"],
+      "properties": {
+        "task_count": {"type": "integer", "minimum": 1},
+        "tasks_per_modality": {
+          "type": "object", "additionalProperties": false,
+          "required": ["text", "tabular", "image"],
+          "properties": {"text": {"type": "integer", "minimum": 0}, "tabular": {"type": "integer", "minimum": 0}, "image": {"type": "integer", "minimum": 0}}
+        },
+        "tasks_per_type": {
+          "type": "object", "additionalProperties": false,
+          "required": ["classification", "regression", "clustering", "detection"],
+          "properties": {"classification": {"type": "integer", "minimum": 0}, "regression": {"type": "integer", "minimum": 0}, "clustering": {"type": "integer", "minimum": 0}, "detection": {"type": "integer", "minimum": 0}}
+        },
+        "candidates_per_task": {"type": "integer", "minimum": 1},
+        "task_candidate_pair_count": {"type": "integer", "minimum": 1},
+        "independent_judgments_per_pair": {"type": "integer", "minimum": 2},
+        "primary_judgment_count": {"type": "integer", "minimum": 2},
+        "split_task_counts": {
+          "type": "object", "additionalProperties": false,
+          "required": ["train", "development", "test"],
+          "properties": {"train": {"type": "integer", "minimum": 1}, "development": {"type": "integer", "minimum": 1}, "test": {"type": "integer", "minimum": 1}}
+        }
+      }
+    },
+    "task": {
+      "type": "object", "additionalProperties": false,
+      "required": ["task_id", "task_version", "task_type", "primary_modality", "domain", "query_text", "structured_spec_sha256", "sampling_stratum", "split", "source_provenance_ids"],
+      "properties": {
+        "task_id": {"type": "string", "pattern": "^p2_task_[A-Za-z0-9._-]+$"},
+        "task_version": {"type": "string", "minLength": 1},
+        "task_type": {"enum": ["classification", "regression", "clustering", "detection"]},
+        "primary_modality": {"enum": ["text", "tabular", "image"]},
+        "domain": {"type": "string", "minLength": 1},
+        "query_text": {"type": "string", "minLength": 1},
+        "structured_spec_sha256": {"$ref": "#/$defs/sha256"},
+        "sampling_stratum": {"type": "string", "minLength": 1},
+        "split": {"enum": ["train", "development", "test"]},
+        "source_provenance_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "candidate_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "candidate": {
+      "type": "object", "additionalProperties": false,
+      "required": ["candidate_id", "source_name", "native_source_id", "dataset_name", "canonical_url", "snapshot_version", "snapshot_sha256", "family_id", "provenance_ids"],
+      "properties": {
+        "candidate_id": {"type": "string", "pattern": "^p2_candidate_[A-Za-z0-9._-]+$"},
+        "source_name": {"type": "string", "minLength": 1},
+        "native_source_id": {"type": "string", "minLength": 1},
+        "dataset_name": {"type": "string", "minLength": 1},
+        "canonical_url": {"type": "string", "format": "uri"},
+        "snapshot_version": {"type": "string", "minLength": 1},
+        "snapshot_sha256": {"$ref": "#/$defs/sha256"},
+        "family_id": {"type": ["string", "null"]},
+        "provenance_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "collection_strata": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "taskCandidatePair": {
+      "type": "object", "additionalProperties": false,
+      "required": ["pair_id", "task_id", "candidate_id", "pool_inclusion_reasons", "eligibility_state"],
+      "properties": {
+        "pair_id": {"type": "string", "pattern": "^p2_pair_[A-Za-z0-9._-]+$"},
+        "task_id": {"type": "string"},
+        "candidate_id": {"type": "string"},
+        "pool_inclusion_reasons": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["bm25_top10", "dense_top10", "rrf_top10", "source_stratified_screen", "other_preregistered"]}},
+        "eligibility_state": {"enum": ["eligible", "ineligible", "unknown", "unresolved"]},
+        "constraint_evidence_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "annotation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["annotation_id", "pair_id", "assessor_id", "judgment_role", "rubric_version", "assessability", "relevance_grade", "constraint_assessments", "reason_codes", "provenance_ids", "annotated_at"],
+      "properties": {
+        "annotation_id": {"type": "string", "pattern": "^p2_annotation_[A-Za-z0-9._-]+$"},
+        "pair_id": {"type": "string"},
+        "assessor_id": {"type": "string", "minLength": 1},
+        "judgment_role": {"enum": ["primary", "adjudication"]},
+        "rubric_version": {"type": "string", "minLength": 1},
+        "assessability": {"enum": ["assessable", "unassessable"]},
+        "relevance_grade": {"type": ["integer", "null"], "minimum": 0, "maximum": 3},
+        "constraint_assessments": {"type": "array", "items": {"$ref": "#/$defs/constraintAssessment"}},
+        "reason_codes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "note": {"type": "string"},
+        "provenance_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "resolves_annotation_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "annotated_at": {"type": "string", "format": "date-time"}
+      },
+      "allOf": [
+        {"if": {"properties": {"assessability": {"const": "assessable"}}, "required": ["assessability"]}, "then": {"properties": {"relevance_grade": {"type": "integer", "minimum": 0, "maximum": 3}}}},
+        {"if": {"properties": {"assessability": {"const": "unassessable"}}, "required": ["assessability"]}, "then": {"properties": {"relevance_grade": {"type": "null"}}}}
+      ]
+    },
+    "provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["provenance_id", "record_type", "source_uri", "retrieved_at", "content_sha256", "capture_method"],
+      "properties": {
+        "provenance_id": {"type": "string", "minLength": 1},
+        "record_type": {"enum": ["catalog_record", "dataset_card", "documentation", "paper", "api_response", "bounded_observation", "access_check", "other"]},
+        "source_uri": {"type": "string", "format": "uri"},
+        "retrieved_at": {"type": "string", "format": "date-time"},
+        "source_version": {"type": ["string", "null"]},
+        "content_sha256": {"$ref": "#/$defs/sha256"},
+        "capture_method": {"type": "string", "minLength": 1},
+        "license_claim": {"type": ["string", "null"]},
+        "notes": {"type": "string"}
+      }
+    },
+    "constraintAssessment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["constraint_id", "state", "reason_codes", "provenance_ids"],
+      "properties": {
+        "constraint_id": {"type": "string", "minLength": 1},
+        "state": {"enum": ["satisfied", "violated", "unknown", "not_applicable"]},
+        "reason_codes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "provenance_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "exclusion": {
+      "type": "object", "additionalProperties": false,
+      "required": ["record_type", "record_id", "reason_code", "recorded_at"],
+      "properties": {
+        "record_type": {"enum": ["task", "candidate", "task_candidate_pair", "annotation"]},
+        "record_id": {"type": "string", "minLength": 1},
+        "reason_code": {"type": "string", "minLength": 1},
+        "detail": {"type": "string"},
+        "recorded_at": {"type": "string", "format": "date-time"}
+      }
+    }
+  }
+}

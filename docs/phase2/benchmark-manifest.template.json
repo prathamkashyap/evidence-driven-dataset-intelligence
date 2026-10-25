@@ -1,0 +1,46 @@
+{
+  "schema_version": "phase2-benchmark-1.0",
+  "status": "proposed",
+  "benchmark_id": "phase2-independent-dataset-relevance",
+  "protocol_version": "1.0-proposed",
+  "collection_state": "not_started",
+  "annotation_state": "not_started",
+  "test_label_custody": "not_created",
+  "targets": {
+    "task_count": 30,
+    "tasks_per_modality": {
+      "text": 10,
+      "tabular": 10,
+      "image": 10
+    },
+    "tasks_per_type": {
+      "classification": 12,
+      "regression": 6,
+      "clustering": 6,
+      "detection": 6
+    },
+    "candidates_per_task": 36,
+    "task_candidate_pair_count": 1080,
+    "independent_judgments_per_pair": 2,
+    "primary_judgment_count": 2160,
+    "split_task_counts": {
+      "train": 12,
+      "development": 6,
+      "test": 12
+    }
+  },
+  "seeds": {
+    "task_frame_sampling": 20261025,
+    "task_split": 20261026,
+    "candidate_pool_fill": 20261027,
+    "pairwise_ranker": 20261028,
+    "cluster_bootstrap": 20261029
+  },
+  "artifact_hashes": {},
+  "tasks": [],
+  "candidates": [],
+  "task_candidate_pairs": [],
+  "annotations": [],
+  "provenance_records": [],
+  "exclusions": []
+}
