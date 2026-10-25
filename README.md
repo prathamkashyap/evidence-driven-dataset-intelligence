@@ -10,6 +10,8 @@ The project adheres to [docs/PROJECT_SPEC.md](docs/PROJECT_SPEC.md), [docs/RESEA
 
 **Current status:** M0–M8 evaluation and M9 documentation consolidation are complete. The M8 human evaluation is an exploratory N=3 pilot, not a confirmatory or generalizable study. The final Phase I report and the six-author-approved final-submission manuscript are committed on `main`. This repository is a research artifact, not a production system.
 
+**Software licensing:** Project-authored software is licensed under the [MIT License](LICENSE). The license scope and exclusions for research documents, data, and third-party material are described in [LICENSES.md](LICENSES.md).
+
 ---
 
 ## 1. Project Overview
