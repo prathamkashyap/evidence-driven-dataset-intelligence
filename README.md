@@ -1,5 +1,9 @@
 # Evidence-Driven Dataset Intelligence and Recommendation System
 
+Research prototype for evidence-aware, local-first dataset recommendation, combining provenance tracking, hard compatibility gates, bounded dataset inspection, and diversity-aware selection.
+
+[Explore the interactive research companion](https://evidence-driven-research-companion.vercel.app/) · [Read the approved paper](https://github.com/prathamkashyap/evidence-driven-dataset-intelligence/blob/main/paper/final_submission/main.pdf) · [Explore the M8 evaluation](https://github.com/prathamkashyap/evidence-driven-dataset-intelligence/blob/main/docs/M8_EVALUATION.md)
+
 This repository implements an evidence-driven, local-first dataset intelligence and recommendation system for public machine learning datasets. Rather than treating metadata claims as unquestioned truth or relying on popularity-driven heuristics, the system separates candidate retrieval from empirical evidence verification, explicit uncertainty modeling, task-specific utility estimation, and family-aware recommendation set diversification.
 
 The project adheres to [docs/PROJECT_SPEC.md](docs/PROJECT_SPEC.md), [docs/RESEARCH_FOUNDATION.md](docs/RESEARCH_FOUNDATION.md), and the repository working agreement in [AGENTS.md](AGENTS.md).
@@ -10,14 +14,14 @@ The project adheres to [docs/PROJECT_SPEC.md](docs/PROJECT_SPEC.md), [docs/RESEA
 
 ## 1. Project Overview
 
-A local-first pipeline that ingests public dataset metadata from four sources, verifies claims against bounded empirical evidence, estimates task-specific dataset utility under hard compatibility constraints, and emits small, non-redundant, evidence-grounded recommendation sets — all inside a measured 128 MiB / 20 s compute envelope with zero network egress during evaluation. The system is evaluated through frozen milestones M0–M8, including an exploratory N = 3 human pilot.
+A local-first pipeline ingests public dataset metadata from four sources, verifies claims against bounded empirical evidence, estimates task-specific utility under hard compatibility constraints, and emits small, traceable recommendation sets. The frozen M8 offline recommendation path used 33.11 MiB peak RSS and 327.49 ms wall time with verified zero network egress, within the M0 design ceilings of 128 MiB and 20 s per task. Retrieval experiments are separate: the shared M2 benchmark process (BM25, dense MiniLM, and hybrid) reached 453.22 MiB peak RSS (3.54× the memory ceiling), and memory was not isolated to one backend. Optional dense MiniLM is not part of the constrained M8 path. Results are scoped to their recorded experiments. The project is evaluated through frozen milestones M0–M8, including an exploratory N = 3 human pilot.
 
 ## 2. Research Problem
 
 Public dataset catalogs mix verifiable measurements with publisher assertions, and ranking systems frequently optimize for popularity rather than task fit. This project asks whether a local, offline pipeline can:
 
 1. Separate metadata **claims** from directly **observed** evidence, and model missing or conflicting information explicitly instead of defaulting to it.
-2. Estimate task-specific dataset utility under hard compatibility constraints while staying inside a strict local compute envelope (128 MiB process ceiling, 20 s per-task ceiling, measured in M0).
+2. Estimate task-specific dataset utility under hard compatibility constraints and evaluate the frozen M8 offline path against the M0 design ceilings (128 MiB process memory, 20 s per task), while reporting optional components that exceed those limits separately.
 3. Produce small, non-redundant, evidence-grounded recommendation sets whose behavior is measured against frozen benchmark hypotheses rather than asserted.
 
 ## 3. Key Principles
@@ -75,7 +79,7 @@ The implemented pipeline (all modules under `src/dataset_intelligence/`) is:
 - Formal Dempster–Shafer evidence fusion
 - Cleanlab-style label-error analysis
 - Learned learning-to-rank (LTR) models or learned/optimized ranking weights
-- A trained bi-encoder (e.g. DataFinder) as the default retrieval backend; dense MiniLM is an optional, budget-exceeding backend only
+- A trained bi-encoder (e.g. DataFinder) as the default retrieval backend; dense MiniLM is optional, and the shared M2 retrieval-benchmark process exceeded the 128 MiB ceiling without isolating memory to one backend
 - Interactive CLI wrapper
 
 ## 6. Repository Structure
@@ -139,7 +143,7 @@ All values below are measured results from the committed experiment artifacts; f
 |---|---|---|---|
 | **M0** | Local compute & access envelope | 128 MiB process ceiling, 20 s per-task ceiling; Kaggle metadata-only route; 32-record / 64 MiB sample cap | `configs/m0_compute_budget.json`, `docs/M0_COMPUTE_BUDGET_PLAN.md`, `experiments/m0/` |
 | **M1** | Canonical schema & source adapters | 10-record multi-source development corpus (HF, OpenML, UCI, Kaggle) | `docs/M1_RESULTS.md`, `experiments/m1/` |
-| **M2** | BM25 / dense / hybrid retrieval baselines | BM25 Recall@1 = 0.875, Recall@3 = 1.000, latency ≈ 0.06 ms; dense MiniLM peak RSS = 453.22 MiB (3.54× the 128 MiB ceiling) | `docs/M2_RESULTS.md`, `experiments/m2/results/benchmark.json` |
+| **M2** | BM25 / dense / hybrid retrieval baselines | BM25 Recall@1 = 0.875, Recall@3 = 1.000, latency ≈ 0.06 ms; shared retrieval-benchmark process peak RSS = 453.22 MiB (3.54× the 128 MiB ceiling; not isolated to one backend) | `docs/M2_RESULTS.md`, `experiments/m2/results/benchmark.json` |
 | **M3** | Multi-facet evidence ledger | 107 ledger entries; 67 single-source claims (62.6%); 90/106 unresolved (84.9%); 1 resolver-classified license text/URI mismatch (0 corroborated) | `docs/M3_RESULTS.md`, `experiments/m3/` |
 | **M4** | Bounded dataset fingerprinting | 9.31 ms, 24.20 MiB peak RSS; 7 sample-accessible datasets; Rotten Tomatoes 32/32 single-class slice flagged as bounded-sample observation | `docs/M4_RESULTS.md`, `experiments/m4/` |
 | **M5** | Task utility estimation & ablations | Spearman ρ (A/B/C) = 0.9576 / 0.9576 / 0.9667 (+0.0091 from evidence + fingerprints); 75% of evaluations hard-gated | `docs/M5_RESULTS.md`, `experiments/m5/` |
