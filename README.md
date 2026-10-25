@@ -18,6 +18,8 @@ The project adheres to [docs/PROJECT_SPEC.md](docs/PROJECT_SPEC.md), [docs/RESEA
 
 A local-first pipeline ingests public dataset metadata from four sources, verifies claims against bounded empirical evidence, estimates task-specific utility under hard compatibility constraints, and emits small, traceable recommendation sets. The frozen M8 offline recommendation path used 33.11 MiB peak RSS and 327.49 ms wall time with verified zero network egress, within the M0 design ceilings of 128 MiB and 20 s per task. Retrieval experiments are separate: the shared M2 benchmark process (BM25, dense MiniLM, and hybrid) reached 453.22 MiB peak RSS (3.54× the memory ceiling), and memory was not isolated to one backend. Optional dense MiniLM is not part of the constrained M8 path. Results are scoped to their recorded experiments. The project is evaluated through frozen milestones M0–M8, including an exploratory N = 3 human pilot.
 
+**Phase II design (proposed):** [Independent relevance benchmark and evaluation protocol](docs/phase2/README.md). Collection, annotation, model implementation, and Phase II evaluation have not started.
+
 ## 2. Research Problem
 
 Public dataset catalogs mix verifiable measurements with publisher assertions, and ranking systems frequently optimize for popularity rather than task fit. This project asks whether a local, offline pipeline can:
