@@ -1,0 +1,78 @@
+name: Public clean-clone CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  public-python:
+    name: Public Python verification
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python 3.14
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.14"
+
+      - name: Run public-safe unit tests
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Validate frozen M8 inputs without running evaluation
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python3 scripts/run_m8_benchmark.py --check-only
+
+  public-manuscript:
+    name: Build public 10-page manuscript
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Prepare isolated manuscript build directory
+        shell: bash
+        run: |
+          set -euo pipefail
+          build_dir="$(mktemp -d "${RUNNER_TEMP}/public-paper-build.XXXXXX")"
+          echo "BUILD_DIR=${build_dir}" >> "${GITHUB_ENV}"
+          cp paper/final_submission/main.tex \
+            paper/final_submission/references.bib \
+            paper/final_submission/IEEEtran.cls \
+            paper/final_submission/IEEEtran.bst \
+            paper/final_submission/build.sh \
+            "${build_dir}/"
+
+      - name: Build and validate with pinned TeX Live 2024
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker run --rm --network none \
+            --volume "${BUILD_DIR}:/work" \
+            --workdir /work \
+            texlive/texlive@sha256:fb0fed9b911b4836314f8041d27d7ff75dd1544d12ee359a2a91f765609c072d \
+            sh -c '
+              set -eu
+              sh build.sh
+              if grep -E "LaTeX Warning: (Reference|Citation).*undefined|There were undefined (references|citations)|LaTeX Warning: File .* not found|! LaTeX Error:" main.log; then
+                echo "Undefined references/citations or missing LaTeX assets found."
+                exit 1
+              fi
+              grep -Fq "Output written on main.pdf (10 pages," main.log
+              echo "Public baseline manuscript compiled successfully: 10 pages."
+            '
