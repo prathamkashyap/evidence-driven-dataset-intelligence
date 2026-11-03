@@ -4,7 +4,7 @@
 
 ## Purpose and boundary
 
-Phase I is the frozen reference implementation and benchmark. Phase II asks whether its fixed heuristic ranking is useful against independent, blinded relevance judgments and whether one small learned ranker improves ranking quality without weakening explicit constraints or exceeding the measured local resource envelope. The benchmark and analysis plan must be frozen before the ranker is implemented or final-test labels are opened.
+Phase I is the frozen reference implementation and benchmark. Phase II asks whether its fixed heuristic ranking is useful against independent, blinded relevance judgments and whether one small learned ranker improves relevance ranking under a clearly labeled oracle-filtered condition. A separate native-system track evaluates Phase I gates and outputs without oracle prefiltering. The benchmark and analysis plan must be frozen before the ranker is implemented or final-test labels are opened.
 
 This is a benchmark-design milestone, not a claim of novelty or permission to change Phase I. Do not edit the approved manuscript, frozen M0–M8 inputs/results, participant files, or production website. Keep future Phase II inputs, manifests, configurations, and results under Phase II-specific paths.
 
@@ -25,13 +25,15 @@ The old `docs/M8_EVALUATION.md` contains historical status text that predates th
 
 ## Proposed research questions
 
-**RQ1 — Independent ranking quality.** On a frozen, independently judged candidate pool, does one regularized pairwise linear ranker trained on development queries improve held-out graded relevance ranking over the frozen Phase I R3 recommendation order?
+**RQ1 — Conditional ranking quality.** On a common pool restricted using independent adjudicated eligibility labels, does one regularized pairwise linear ranker fitted on training-task judgments and tuned on development tasks improve held-out graded relevance ranking over frozen Phase I R2 static scoring?
 
-**RQ2 — Evidence feature contribution.** Does adding the existing evidence-support feature to that same pairwise model improve held-out relevance ranking over the identical model trained without that feature?
+**RQ2 — Evidence feature contribution.** On the same oracle-filtered Track B pools and cluster-disjoint train/development/test split, does adding the existing evidence-support feature to that pairwise model improve held-out relevance ranking over the identical model trained without that feature?
 
-**RQ3 — Candidate coverage and safety.** How much of the independently judged relevant candidate pool is represented by BM25, dense MiniLM, and reciprocal-rank fusion, and how often do gate-on recommendation outputs violate adjudicated mandatory constraints?
+**RQ3a — Judged-pool candidate coverage.** How much of the independently judged relevant candidate pool is represented by BM25, dense MiniLM, and reciprocal-rank fusion?
 
-RQ3 is descriptive and pool-bounded. A fixed, judged pool cannot establish recall over all public datasets or web-scale discovery.
+**RQ3b — Native gate and constraint behavior.** How do unmodified Phase I gate-on R3 outputs compare with independently adjudicated mandatory constraints when the system receives the unfiltered candidate pool?
+
+RQ1 and RQ2 are conditional on oracle-filtered eligibility and do not assess native gate accuracy. RQ3a is descriptive and pool-bounded: a fixed, mixed judged pool cannot establish recall over all public datasets or web-scale discovery. RQ3b describes native behavior on the evaluated input pools and cannot establish universal safety. The proposed RQ1 comparator changes the original PR proposal, which compared the learned ranker with R3's recommendation order; this is a scientific decision supported in review but still requires author/supervisor approval before protocol freeze, not an approved preregistration.
 
 ## Proposed learned-ranking path
 
@@ -44,8 +46,8 @@ This deliberately favors a small, auditable model over LambdaMART: the proposed 
 ## Status language
 
 - **Implemented:** Phase I structured task specifications, source adapters, evidence states, hard gates, utility components, candidate signals, BM25/dense/RRF baselines, R1/R2/R3, and frozen M8 evaluation artifacts.
-- **Proposed here:** 36 new task briefs, 36 candidates per task, relevance rubric, blinded dual annotation, 12/6/18 task split, evaluation metrics, and one pairwise linear ranker.
+- **Proposed here:** 36 new task briefs, either 24 or 36 candidates per task (choice pending), grouped 12/6/18 task split, relevance rubric, calibration and blinded dual annotation, evaluation metrics, and one pairwise linear ranker.
 - **Requires human work:** task/query curation, candidate-source review, two independent annotations per pair, reliability reporting, disagreement adjudication, and test-set custody.
-- **Future evaluation:** baseline comparison, the one learned-ranker comparison, gate/evidence ablations, uncertainty intervals, and resource measurements.
+- **Future evaluation:** matched static-score and matched-selector comparisons, native R3 operational evaluation, native-gate diagnostics, retrieval coverage, evidence-feature ablation, uncertainty intervals, and resource measurements.
 
 No Phase II result, judgment, or performance improvement is claimed in this package.

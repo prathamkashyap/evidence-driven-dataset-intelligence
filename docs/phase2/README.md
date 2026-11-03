@@ -1,14 +1,17 @@
 # Phase II research design
 
-**Status: proposed protocol; no Phase II benchmark data, annotations, or model results exist.**
+**Status: proposed protocol. No Phase II benchmark data, annotations, trained models, or evaluation results exist.**
 
-This package specifies the next research milestone before any learned ranker or final benchmark is built. It keeps the frozen Phase I artifacts as the baseline and separates proposed choices from completed work.
+This package describes a future independent relevance study for the evidence-driven dataset recommendation system. It does not authorize data collection, assessor recruitment, annotation, model fitting, or held-out evaluation.
 
-- [Research plan](RESEARCH_PLAN.md) — questions, baseline audit, scope, and the proposed ranking approach.
-- [Independent relevance benchmark](INDEPENDENT_RELEVANCE_BENCHMARK.md) — task and candidate sampling, snapshots, splits, annotation, and budget.
-- [Judgment rubric](JUDGMENT_RUBRIC.md) — relevance grades, assessability, constraint judgments, and adjudication.
-- [Evaluation protocol](EVALUATION_PROTOCOL.md) — baselines, metrics, hypotheses, ablations, uncertainty, and decision rules.
-- [Roadmap](ROADMAP.md) — staged entry and exit criteria.
-- [Manifest schema](schemas/benchmark-manifest.schema.json), [empty proposed manifest template](benchmark-manifest.template.json), and the standard-library [cross-record validator](validate_manifest.py).
+- [Research plan](RESEARCH_PLAN.md) — research questions, baseline scope, and proposed comparisons.
+- [Independent relevance benchmark](INDEPENDENT_RELEVANCE_BENCHMARK.md) — task and candidate sampling, two study-size alternatives, annotation custody, and workload scenarios.
+- [Judgment rubric](JUDGMENT_RUBRIC.md) — relevance grades, assessability, constraint judgments, calibration examples, and packet corrections.
+- [Evaluation protocol](EVALUATION_PROTOCOL.md) — native Track A and oracle-filtered Track B, proposed metrics, and statistical decision rules.
+- [Roadmap](ROADMAP.md) — proposed approval gates and future work.
 
-The files are design artifacts only. The manifest template has no task, candidate, provenance, or annotation rows. Human annotation, dataset collection, model implementation, and experiments remain future work. The validator checks referential integrity and target-count consistency after records are added; it does not replace JSON Schema validation or human provenance review.
+The primary learned-static versus frozen R2-static comparison, optional normalized selector, study size, and statistical analysis remain proposals requiring author and supervisor approval. Both 36 tasks × 36 candidates and 36 tasks × 24 candidates remain under consideration. The proposed H1 cluster bootstrap is also subject to approval. Agreement-statistics weighting and uncertainty estimation remain unresolved.
+
+**Scope of this PR:** PR #5 establishes the proposed research and evaluation design. It does not include or approve executable Phase II tooling. A separate future implementation review may cover manifest design, structural and cross-record validation, annotation lifecycle support, candidate-pool replay, native R2/R3 fidelity, bootstrap verification, custody and reviewer authorization, and public-release claim verification. No implementation or verification capability is implied by this document package.
+
+Before any study proceeds, authors and the supervisor must approve the protocol and sample-size option, statistical plan, source permissions, independent assessor and adjudicator arrangements, reviewer and custodian authority, consent/privacy and retention rules, and available resources. Public release must use an externally authorized review process; matching hashes or self-declared manifest roles alone cannot establish approval authenticity.

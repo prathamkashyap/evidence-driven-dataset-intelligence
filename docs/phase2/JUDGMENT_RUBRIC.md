@@ -1,61 +1,84 @@
 # Dataset–task relevance judgment rubric
 
-**Version: proposed 1.0.** Ratings are independent human judgments planned for Phase II; none have been collected. The hypothetical examples below teach the rubric and are not benchmark rows or observed judgments.
+**Version: proposed 1.1.** Ratings are independent human judgments planned for Phase II; none have been collected. Examples below are explicitly hypothetical and are not benchmark rows or observed judgments. Apply the rubric to the frozen packet version supplied for the task–candidate pair.
 
 ## What is being judged
 
-Judge whether the documented dataset, as frozen in its source packet, is a defensible candidate for the stated task. Consider task objective, input modality, target/label or structure, population/domain, scale and explicit requirements. Judge relevance from cited dataset/task evidence, not from rank, popularity, presumed model performance, or the Phase I utility score. Do not infer unseen contents from a name alone.
+Judge whether the documented dataset, as represented by its frozen packet, is a defensible candidate for the stated task. Consider objective, primary input modality, target/label or structure, population/domain, scale, and explicit task requirements. Do not use rank, popularity, system score, or presumed downstream model performance. Do not infer unobserved content from a name alone.
 
-Record three separate outputs:
+Record separately:
 
-1. **Relevance grade** (`0`–`3`) when enough evidence exists.
-2. **Assessability** (`assessable` or `unassessable`) and reason. Unassessable is missing evidence, not a relevance grade.
-3. **Mandatory-constraint state** for each task constraint (`satisfied`, `violated`, `unknown`, `not_applicable`) with evidence and source.
+1. **Relevance grade** (`0`–`3`) only when assessable.
+2. **Assessability** (`assessable` or `unassessable`) and reason.
+3. **Each registered mandatory-constraint state** (`satisfied`, `violated`, `unknown`, `unassessable`, or `not_applicable`) with evidence and source, plus an explicit applicability state.
+4. Short reason codes, packet version, and source references.
 
-Also record a short reason code and source references. Do not provide a numeric confidence rating; uncertainty is captured through assessability, constraint, and evidence fields.
+Do not give a numeric confidence score. A license or policy field is a source claim, not legal advice. Relevance and mandatory-constraint eligibility are different judgments: a highly relevant dataset can violate a task constraint; an unknown constraint does not by itself make relevance zero.
 
-## Ordinal relevance scale
+## Operational relevance scale
 
-| Grade | Operational definition |
+Use the lowest grade that fits the documented evidence and task. A grade of 0 requires affirmative evidence of non-relevance or a decisive mismatch; missing documentation alone is unassessable, not grade 0. A grade of 1 requires some evidenced task/domain adjacency; uncertainty alone is not grade 1.
+
+| Grade | Operational boundary |
 |---:|---|
-| **3 — Strong fit** | Direct documentation or bounded, permitted observation supports the requested modality and central task/target. The dataset can plausibly be used for the stated task with ordinary preprocessing; no material mismatch is found. |
-| **2 — Plausible fit** | The central task and modality align, but a material caveat remains (for example, target/label mapping needs work, documentation is incomplete, or the dataset covers only part of the requested population). It remains a reasonable candidate for further inspection. |
-| **1 — Weak/adjacent fit** | There is some domain or concept overlap, but a major task, target, modality, population, or structural mismatch means substantial transformation or unsupported assumptions would be needed. Do not award 1 for uncertainty alone. |
-| **0 — Not relevant or contradicted** | Available evidence shows that the dataset does not address the task or has a decisive task/modality/target mismatch. Use only when evidence supports a negative relevance judgment, not merely because documentation is missing. |
+| **3 — Strong fit** | Direct evidence supports the primary modality, central objective, target/annotation structure, and requested population. Only ordinary preprocessing or a documented, mechanical label mapping is needed. No material scope or documentation caveat remains. |
+| **2 — Plausible fit** | The central modality and task/target are supported, and a straightforward task-preserving mapping is documented, but a material caveat remains: limited population or domain coverage, partial target coverage, a nontrivial but bounded label mapping, or incomplete documentation on a noncentral detail. It remains a reasonable candidate without creating missing labels or redefining the task. |
+| **1 — Weak/adjacent fit** | Some task-relevant content or adjacent domain is affirmatively documented, but a major input, target, population, or structure mismatch means substantial transformation, new annotation, proxy inference, or unsupported assumptions would be needed. It is only an exploratory adjacent candidate, not a direct task solution. |
+| **0 — Not relevant or contradicted** | Available evidence affirmatively shows no meaningful task relation or a decisive mismatch that cannot be repaired while preserving the task—for example, the data are from an unrelated domain and lack the required input and target. Do not use 0 solely because a source is unavailable or an important property is unknown. |
 
-The scale is ordinal. Do not interpret a one-grade difference as a fixed amount of utility. nDCG uses prespecified graded gains only as a ranking metric.
+### Boundary rules
 
-## Assessability and evidence state
+- **Grade 0 vs. 1:** choose 1 only when evidence establishes meaningful adjacency or relevant content despite the mismatch. Choose 0 when evidence establishes no meaningful relation or a decisive incompatibility with no task-preserving adaptation. A modality mismatch is not automatically 0 or 1; inspect whether relevant target/content exists and what repair would require.
+- **Grade 1 vs. 2:** if the candidate requires creating missing labels, extensive manual annotation, proxy-target inference, reconstructing the dataset structure, or redefining the objective, it cannot exceed 1. Grade 2 requires the central task and target to be present or supported by a documented straightforward mapping that preserves the objective.
+- **Grade 2 vs. 3:** choose 2 when partial population/target coverage, a material caveat, or incomplete documentation remains. Choose 3 only when evidence supports the requested scope and only routine preprocessing or mechanical mapping remains.
+- **Ordinary preprocessing:** cleaning documented malformed records, standard tokenization, deterministic resizing/rescaling, format conversion, or a transparent mapping between documented equivalent labels. It must not manufacture supervision or change the outcome of interest.
+- **Substantial transformation:** creating labels, manual annotation, inferring a target from a proxy, discarding a material part of the requested population, or changing the task objective. Do not call these ordinary preprocessing.
+- **Partial population coverage:** use 2 when the dataset provides a supported and useful subset of the requested population but does not establish the full requested scope. Use 1 if the subset is too narrow to address the principal task without major assumptions; use 0 only if evidence shows the requested population/task is absent.
+- **Unknown mandatory constraint:** record `unknown` (and apply the frozen eligibility policy separately). Do not infer `violated` from missing documentation or lower the relevance grade merely because the constraint is unknown.
 
-Choose `unassessable` if neither the frozen packet nor a permitted, logged source check supports a defensible grade. Select a reason such as `source_unavailable`, `insufficient_task_or_target_documentation`, `conflicting_material_claims`, or `access_blocked`. Keep any known conflict or access failure in provenance. If partial evidence supports a judgment, assign the grade and mark the limiting evidence in the rationale; do not replace uncertainty with a zero.
+## Assessability and missing evidence
+
+Mark `unassessable` when neither the frozen packet nor a permitted, logged source check supports a defensible relevance grade. Use reasons such as `source_unavailable`, `insufficient_task_or_target_documentation`, `conflicting_material_claims`, or `access_blocked`. If partial evidence does support a grade, assign that grade and record its limitations; do not replace uncertainty with zero.
+
+If evidence shows that a required target is absent, that is negative evidence and may support grade 0 or 1 depending on documented adjacency. If the packet simply fails to say whether the target exists, use unassessable or a supported partial grade; do not treat silence as proof of absence. A failed request is a provenance/access failure, not a negative fact about the dataset.
 
 ## Mandatory constraints
 
-Assess each explicit constraint independently of relevance:
+Assess every explicit mandatory constraint independently:
 
 - `satisfied`: evidence supports meeting the stated requirement;
 - `violated`: evidence directly establishes a mismatch;
-- `unknown`: evidence does not establish either outcome or contains unresolved conflict;
-- `not_applicable`: the task has no such requirement.
+- `unknown`: the constraint applies, but evidence establishes neither outcome or contains unresolved conflict;
+- `unassessable`: the constraint applies, but permitted evidence is insufficient to make a state judgment. Preserve this separately from `unknown`; both follow the preregistered unknown policy for eligibility;
+- `not_applicable`: permitted evidence establishes that a preregistered conditional requirement does not apply to this candidate. This is not available for a task constraint registered as always applicable. Record the conditional rule and supporting applicability provenance. Do not use it to bypass a mandatory requirement.
 
-Examples include a required modality, a required target format, anonymous access, a specific license condition, or an explicit minimum sample scale. A publisher license field is a source claim, not legal advice. Assessors record what the source says and whether it meets the task's stated condition; they do not make a legal determination.
+Examples include required modality, target format, anonymous access, a stated license condition, or minimum sample scale. Keep conflicting source claims visible. `unknown` is not a confirmed violation; eligibility is derived separately under the task's predeclared policy. Do not turn a license claim into a legal conclusion.
 
-## Hypothetical training examples
+## Hypothetical calibration examples
 
-These are invented, generic rubric examples only. They are not records from M8 or Phase II.
+These examples are invented solely to clarify boundaries; they are not Phase I records, M8 candidates, calibration judgments, or benchmark labels.
 
-| Hypothetical task and source packet | Grade / state | Why |
+| Hypothetical task and packet | Proposed judgment | Boundary rationale |
 |---|---|---|
-| “Classify plant disease from leaf photographs”; dataset documentation explicitly describes labeled leaf images and the same disease target. | 3 / assessable | Direct task, modality, and target alignment. |
-| Same task; packet confirms plant images and disease labels, but covers only one crop and does not establish the requested multi-crop scope. | 2 / assessable | Core task fits, with a material population limitation. |
-| Same task; packet mentions plant health but describes only tabular soil chemistry and no image or disease target. | 1 / assessable | Domain adjacency, but major input/target mismatch. |
-| Same task; documentation explicitly states the records are unlabeled landscape photographs. | 0 / assessable | Available evidence contradicts the required input/target combination. |
-| Same task; source and documentation are unavailable and the only evidence is the dataset name “Plant Health.” | no grade / unassessable | Missing evidence cannot support either a positive or negative relevance claim. |
+| Predict sentiment labels from customer-review text. Packet documents labeled reviews, the sentiment target, and broad population coverage; routine tokenization is needed. | **3 / assessable** | Direct input/target match; ordinary preprocessing only. |
+| Predict sentiment labels from customer-review text. Packet documents labeled reviews, but only one language/region is covered while the task requests a broader population. | **2 / assessable** | Relevant supported subset, but material scope limitation. |
+| Predict sentiment labels from customer-review text. Packet documents relevant review text but no labels; the target would require new human annotation. | **1 / assessable** | Relevant content exists, but substantial new labels are needed. |
+| Predict sentiment labels from customer-review text. Packet confirms the candidate contains only unlabeled landscape photographs and no review or sentiment material. | **0 / assessable** | Evidence affirmatively establishes a decisive task/input mismatch. |
+| Predict disease class from leaf photographs. Packet confirms leaf images and documented disease labels, but covers one crop while the task requests all major crops. | **2 / assessable** | Supported task and target for a limited population; not full scope. |
+| Predict disease class from leaf photographs. Packet confirms relevant plant images but no disease labels or supported proxy; new annotation is required. | **1 / assessable** | Adjacent evidence, but target construction would be substantial. |
+| Predict disease class from leaf photographs. The source is unavailable and the packet contains only a dataset title with no modality or target details. | **No grade / unassessable** | Missing evidence cannot establish either fit or mismatch. |
+| Predict disease class from leaf photographs. Packet documents labeled leaf images, the full requested population, and the target; only routine resizing is needed, but the source does not state whether its license permits the task's explicitly required commercial use. | **3 / assessable; constraint `unknown`** | Relevance is directly supported; the separate license requirement remains unknown. |
 
-## Reasons and source recording
+Calibration sets must include cases that test these boundaries, including positive adjacency versus unrelated data, present labels versus missing labels, partial population coverage, missing documentation, and unknown mandatory constraints. Calibration composition and acceptance criteria are specified in [`INDEPENDENT_RELEVANCE_BENCHMARK.md`](INDEPENDENT_RELEVANCE_BENCHMARK.md). Do not create benchmark-like labels or add calibration cases to a benchmark split.
 
-Use concise codes where applicable: `task_match`, `modality_match`, `target_match`, `domain_match`, `scale_match`, `partial_scope`, `target_mismatch`, `modality_mismatch`, `task_mismatch`, `insufficient_documentation`, `source_conflict`, `access_failure`, `mandatory_constraint_violation`, `mandatory_constraint_unknown`. A free-text note may add context but cannot substitute for a source reference. Record source URI, source type, retrieval time, snapshot/hash where available, and the exact claim or bounded observation supporting the judgment.
+## Supplementary source checks and packet corrections
 
-## Training and adjudication
+Assessors may consult only public sources listed in the frozen source registry. For each check, log the URI, source type, access/retrieval time, version or hash, exact supporting claim/observation, and reason, linked to the pair and pseudonymous assessor ID. Do not search for rankings, model outputs, or other assessor responses.
 
-Train assessors on hypothetical cases and a separate, non-benchmark calibration set. The calibration set must not contain M8 candidates or any final train/development/test candidate. Agree the interpretation of grade boundaries before the benchmark annotations begin; version and hash the rubric and packet template. During annotation, preserve first-pass labels. Identical first-pass relevance grades are retained; any disagreement is adjudicated. The adjudicator follows the trigger rules in the benchmark protocol, records a final grade/state and reason, and does not erase disagreements.
+If a material packet omission or error is found, submit a packet-correction request without editing the first-pass judgment. A separate packet custodian verifies and versions the correction, then distributes the same corrected packet to both assessors without disclosing who raised it or any rating. Any future annotation records should represent each packet/rubric-specific round separately; original first-pass records are immutable, and revised ratings by the same two assessors are new records linked to the corrected round. Supersede only an unfinished round, record the correction reason and approved review, and select one current round per pair. A finalized pair cannot be silently reopened by a later packet correction; reopening requires a protocol amendment and is outside this proposed lifecycle. Adjudication resolves only the two first-pass judgments in the same current round. A pair may be finalized while other pairs remain in annotation. For held-out test pairs, the custodian must prevent any label or outcome feedback from reaching developers before authorized one-shot evaluation.
+
+## Training, adjudication, and records
+
+Calibration uses the separate nonbenchmark cases defined in the benchmark protocol. Record first-pass labels unchanged. For benchmark pairs, any grade disagreement, assessability disagreement, or applicable constraint-state disagreement triggers a separate third-adjudicator record. The adjudicator sees both rationales but remains blind to methods, ranks, scores, native gate decisions, and hypothesis direction. Preserve all original judgments and the final adjudication; do not overwrite, downgrade, or silently discard disagreements.
+
+Record rubric version, task/pair/candidate IDs, packet version, pseudonymous assessor ID, assessability, grade or null, each applicable constraint state, reason codes, sources consulted, and the required provenance. Do not collect names or unnecessary personal data. Reliability summaries use the untouched first-pass labels and are reported separately from adjudicated values.
