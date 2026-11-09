@@ -14,11 +14,15 @@
     "tasks": 8,
     "pairs": 192,
     "targetSetSize": 3,
-    "seed": 20260902,
-    "memoryMiB": 33.11,
-    "wallTimeMs": 327.49,
-    "zeroEgress": true,
-    "modalityExclusions": 140
+    "modalityExclusions": 140,
+    "applicationSeed": 20260902,
+    "processPeakRssMiB": 33.11,
+    "harnessWallTimeMs": 327.49,
+    "harnessTimingScope": "Eight-task harness, including frozen-input loading and evaluation; excludes startup, initial preflight and output serialization.",
+    "offlineExecutionPolicy": "Configured for offline execution using frozen local inputs.",
+    "socketTestCoverage": "Harness construction and input loading.",
+    "wholeRunNetworkTelemetryAvailable": false,
+    "historicalPythonHashSeedKnown": false
   },
   "ablation": [
     {
@@ -35,19 +39,19 @@
     },
     {
       "rung": 2,
-      "name": "Dense",
+      "name": "Test-vector dense",
       "value": 0.4085,
-      "components": "Dense ordering over the same fixed candidate pool."
+      "components": "A lightweight 64-bin token-count test encoder orders the fixed pool; it is not the M2 MiniLM backend."
     },
     {
       "rung": 3,
-      "name": "Hybrid RRF",
+      "name": "BM25 + test-vector RRF",
       "value": 0.4414,
-      "components": "Reciprocal-rank fusion of lexical and dense ordering."
+      "components": "Reciprocal-rank fusion of BM25 and test-vector dense orderings over the fixed pool."
     },
     {
       "rung": 4,
-      "name": "Hybrid + gates",
+      "name": "RRF + gates",
       "value": 0.8189,
       "components": "Hybrid ordering with hard compatibility gates."
     },
@@ -200,5 +204,11 @@
     "actionabilityDifference": 3.0,
     "scale": "5-point Likert",
     "status": "Exploratory descriptive pilot; not confirmatory or generalizable."
+  },
+  "storedTaskAggregateContrast": {
+    "source": "M8 summary task-level stored utilities; equal-weight mean over eight tasks",
+    "preGate": 0.44135,
+    "postGate": 0.81895,
+    "difference": 0.3776
   }
 }
