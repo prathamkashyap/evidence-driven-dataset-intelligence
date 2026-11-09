@@ -24,7 +24,7 @@ const milestones = [
   ["M5", "Task utility", "Estimate task fit and apply confirmed hard constraints before ranking."],
   ["M6", "Popularity audit", "Audit exposure and analyze a popularity-neutral exploration pool."],
   ["M7", "Set selection", "Compare heuristic scoring and family-aware greedy diversification."],
-  ["M8", "Frozen benchmark", "Evaluate the integrated offline path, robustness, sensitivity, and an exploratory card pilot."]
+  ["M8", "Frozen benchmark", "Evaluate frozen inputs with an offline policy, robustness, sensitivity, and an exploratory card pilot."]
 ];
 
 const byId = (id) => document.getElementById(id);
@@ -160,7 +160,7 @@ function initCharts(data) {
     const entry = data.ablation[index];
     chart.querySelectorAll(".bar-item").forEach((bar, i) => { bar.classList.toggle("selected", i === index); bar.setAttribute("aria-pressed", String(i === index)); });
     detail.querySelector(".detail-value").textContent = entry.value.toFixed(4);
-    detail.querySelector("b").textContent = `${entry.name} · R${entry.rung}`;
+    detail.querySelector("b").textContent = `${entry.name} · rung ${entry.rung}`;
     detail.querySelector("p").textContent = entry.components;
   };
   chart.innerHTML = data.ablation.map((entry, index) => `<button class="bar-item ${entry.rung === 8 ? "selected" : ""}" type="button" aria-label="Rung ${entry.rung}, ${safeText(entry.name)}, mean set utility ${entry.value.toFixed(4)}" aria-pressed="${entry.rung === 8}" data-index="${index}"><span class="bar-value">${entry.value.toFixed(2)}</span><span class="bar-shape" style="height:${entry.value * 146}px"></span><span class="bar-label">${safeText(entry.name)}</span></button>`).join("");
@@ -220,6 +220,11 @@ async function init() {
   document.querySelector('[data-stat="datasets"]').textContent = data.benchmark.datasets;
   document.querySelector('[data-stat="tasks"]').textContent = data.benchmark.tasks;
   document.querySelector('[data-stat="pairs"]').textContent = data.benchmark.pairs;
+  document.querySelectorAll("[data-resource]").forEach((node) => { node.textContent = data.benchmark[node.dataset.resource]; });
+  document.querySelectorAll("[data-contrast]").forEach((node) => {
+    const value = data.storedTaskAggregateContrast[node.dataset.contrast];
+    node.textContent = `${node.dataset.contrast === "difference" ? "+" : ""}${value.toFixed(6)}`;
+  });
   initCharts(data);
 }
 
