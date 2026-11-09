@@ -2,7 +2,7 @@
 
 Research prototype for evidence-aware, local-first dataset recommendation, combining provenance tracking, hard compatibility gates, bounded dataset inspection, and diversity-aware selection.
 
-[Explore the interactive research companion](https://evidence-driven-research-companion.vercel.app/) · [Read the approved paper](https://github.com/prathamkashyap/evidence-driven-dataset-intelligence/blob/main/paper/final_submission/main.pdf) · [Explore the M8 evaluation](https://github.com/prathamkashyap/evidence-driven-dataset-intelligence/blob/main/docs/M8_EVALUATION.md)
+[Explore the interactive research companion](https://evidence-driven-research-companion.vercel.app/) · [Read the approved paper](https://github.com/prathamkashyap/evidence-driven-dataset-intelligence/blob/main/paper/final_submission/main.pdf) · [Explore the frozen M8 results](experiments/m8/results/m8_summary.json) · [Phase I reporting corrections](docs/PHASE1_REPORTING_CORRECTIONS.md)
 
 This repository implements an evidence-driven, local-first dataset intelligence and recommendation system for public machine learning datasets. Rather than treating metadata claims as unquestioned truth or relying on popularity-driven heuristics, the system separates candidate retrieval from empirical evidence verification, explicit uncertainty modeling, task-specific utility estimation, and family-aware recommendation set diversification.
 
@@ -16,7 +16,9 @@ The project adheres to [docs/PROJECT_SPEC.md](docs/PROJECT_SPEC.md), [docs/RESEA
 
 ## 1. Project Overview
 
-A local-first pipeline ingests public dataset metadata from four sources, verifies claims against bounded empirical evidence, estimates task-specific utility under hard compatibility constraints, and emits small, traceable recommendation sets. The frozen M8 offline recommendation path used 33.11 MiB peak RSS and 327.49 ms wall time with verified zero network egress, within the M0 design ceilings of 128 MiB and 20 s per task. Retrieval experiments are separate: the shared M2 benchmark process (BM25, dense MiniLM, and hybrid) reached 453.22 MiB peak RSS (3.54× the memory ceiling), and memory was not isolated to one backend. Optional dense MiniLM is not part of the constrained M8 path. Results are scoped to their recorded experiments. The project is evaluated through frozen milestones M0–M8, including an exploratory N = 3 human pilot.
+A local-first pipeline ingests public dataset metadata from four sources, checks claims against bounded empirical evidence, estimates task-specific utility under hard compatibility constraints, and emits small, traceable recommendation sets. The recorded M8 evaluation harness took 327.49 ms for the eight-task suite, with a process-lifetime peak RSS of 33.11 MiB. The 20 s per-task design budget and the suite timer measure different scopes. M8 was configured to use frozen local inputs. The socket-blocking test covers input loading, and whole-run network telemetry is unavailable.
+
+M2 is a separate retrieval study using MiniLM. Its shared BM25, dense, and hybrid process reached 453.22 MiB peak RSS, about 3.54× the 128 MiB design ceiling. Individual backend peaks are unavailable. Each query used the fixed BM25 → dense → hybrid sequence with one call per method and query, so the timings do not establish a controlled dense-versus-hybrid speed comparison. M8's dense and hybrid ablations instead use a lightweight test-vector encoder on the fixed candidate pool.
 
 **Phase II design (proposed):** [Independent relevance benchmark and evaluation protocol](docs/phase2/README.md). Collection, annotation, model implementation, and Phase II evaluation have not started.
 
@@ -25,7 +27,7 @@ A local-first pipeline ingests public dataset metadata from four sources, verifi
 Public dataset catalogs mix verifiable measurements with publisher assertions, and ranking systems frequently optimize for popularity rather than task fit. This project asks whether a local, offline pipeline can:
 
 1. Separate metadata **claims** from directly **observed** evidence, and model missing or conflicting information explicitly instead of defaulting to it.
-2. Estimate task-specific dataset utility under hard compatibility constraints and evaluate the frozen M8 offline path against the M0 design ceilings (128 MiB process memory, 20 s per task), while reporting optional components that exceed those limits separately.
+2. Estimate task-specific dataset utility under hard compatibility constraints and report the measured resource scope of each study against the M0 design context (128 MiB process memory, 20 s per task).
 3. Produce small, non-redundant, evidence-grounded recommendation sets whose behavior is measured against frozen benchmark hypotheses rather than asserted.
 
 ## 3. Key Principles
@@ -34,8 +36,8 @@ Public dataset catalogs mix verifiable measurements with publisher assertions, a
 - **Missing information is explicit.** `unknown`, `unsupported`, and `failed` are first-class states, distinct from negative findings.
 - **Claims are not facts.** License and availability metadata are recorded as claims with provenance, not as legal advice or conclusive facts.
 - **Popularity is context only.** Popularity counters are excluded from candidate scoring and ranking formulas; this is architecturally enforced and checked as hypothesis H4 in M8.
-- **Bounded everything.** Samples, probes, runtimes, and memory are capped; results are scoped observations on the tested corpora, not full-dataset or web-scale facts.
-- **Deterministic and offline.** Fixed seeds, cached inputs, no network egress during evaluation, structured JSON/JSONL outputs.
+- **Bounded inspection.** Sampling and probing use explicit limits. Runtime and memory measurements describe the recorded study processes.
+- **Frozen local inputs.** M8 records its application seed and structured JSON/JSONL outputs. The test-vector encoder uses Python token hashing, and the historical `PYTHONHASHSEED` was not recorded. Exact replay of hash-dependent dense and hybrid orderings is unestablished.
 
 ## 4. Actual Architecture
 
@@ -47,7 +49,7 @@ The implemented pipeline (all modules under `src/dataset_intelligence/`) is:
    - **Observation states** (per observation): `observed`, `single_source_claim`, `unsupported`, `failed`, `unknown`
    - **Resolution states** (cross-evidence): `unresolved`, `corroborated`, `conflicting`, `unknown`
 
-     The `ProvisionalResolver` computes resolution states for the ledger record itself; downstream utility and ranking consume the underlying ledger observation states (e.g. `conflicting` observations), not a resolver score.
+     The `ProvisionalResolver` records agreement or disagreement among observations without independently verifying source independence. M8 ranking derives evidence-support features from precomputed utility-component states and fingerprints. `conflicting` is a resolution state.
 4. **Bounded fingerprinting (M4, `fingerprinting/`)** — descriptive slice diagnostics (null rates, class distribution, constant columns) over samples capped at 32 records / 64 MiB, without full-dataset ingestion. Fingerprint output is evidence, not a utility score.
 5. **Utility estimation & hard gates (M5, `utility/`)** — `check_hard_gates()` implements exactly three hard constraints before any soft scoring:
    - **Modality clash** — task requires a modality the dataset is confirmed not to have.
@@ -61,7 +63,7 @@ The implemented pipeline (all modules under `src/dataset_intelligence/`) is:
    - **R1:** utility-only baseline.
    - **R2:** linear multi-objective score with fixed heuristic weights (fit 0.35, utility 0.35, evidence 0.15, coverage 0.15, risk 0.15).
    - **R3:** family-aware greedy diversification. The selector (`diversification.py`) is a deterministic greedy loop that strictly excludes same-family mirrors of already-accepted datasets (`detect_family_redundancy`) and picks the candidate maximizing `intrinsic score + λ_div × min pairwise attribute distance` (λ_div = 0.20) with deterministic tie-breaking. It is described as **family-aware greedy diversification**; no formal submodularity property is claimed.
-8. **Evaluation harness (M8, `evaluation/`)** — frozen offline benchmark that feeds the frozen corpus **directly** to the `RecommendationEngine`. M2 retrieval (BM25, dense MiniLM, hybrid RRF) remains implemented and benchmarked as an evaluation/ablation component (`evaluation/ablations.py`); retrieval methods are not on the main M8 recommendation path.
+8. **Evaluation harness (M8, `evaluation/`)** — fixed-pool benchmark that loads frozen corpus, evidence, fingerprint, and utility records. Its main recommendation path receives the pool directly. Separate ablation rungs compare BM25, dense test-vector ordering, and reciprocal rank fusion (RRF) of the two within that pool.
 
 ## 5. Implemented Components & Current Scope
 
@@ -75,7 +77,7 @@ The implemented pipeline (all modules under `src/dataset_intelligence/`) is:
 - Heuristic task-utility estimation with the three hard gates above
 - Multi-objective ranking (R1/R2/R3) with family-aware greedy diversification and post-selection roles
 - Structured JSON/JSONL output (`RecommendationCard`, `RecommendationSet`)
-- Reproducible offline evaluation harness with zero network egress
+- Offline evaluation harness with hash-checked frozen inputs and archived outputs
 
 **Current scope exclusions / deferred extensions** (not failures; simply not part of this implementation):
 
@@ -133,12 +135,9 @@ python3 -m unittest discover -s tests -p 'test_m8_google_forms.py' -v
 
 Those optional tests require `data/raw/m8_initial_collection/rater*_form.csv`, `data/benchmarks/m8_human_eval_primary.csv`, `data/benchmarks/m8_human_eval_repeat_exposure.csv`, `data/benchmarks/m8_human_eval_responses.csv`, `data/benchmarks/m8_human_eval_responses_long.csv`, `data/benchmarks/m8_human_eval_raw_collection_manifest.json`, `data/benchmarks/m8_human_eval_session_manifest.json`, `experiments/m8/results/m8_human_eval_summary.json`, and `data/benchmarks/m8_google_forms_specification.md`. These ignored inputs and generated files are not included in a fresh clone.
 
-## 9. Running the Benchmark
+## 9. Checking the Frozen Benchmark
 
 ```bash
-# Frozen M8 offline benchmark (zero network egress)
-python3 scripts/run_m8_benchmark.py
-
 # Offline input/label integrity check only (no outputs written)
 python3 scripts/run_m8_benchmark.py --check-only
 
@@ -150,20 +149,20 @@ The human-evaluation analysis command requires the local primary and repeat-expo
 
 ## 10. M0–M8 Evaluation Summary
 
-All values below are measured results from the committed experiment artifacts; full tables and boundaries live in the linked documents.
+The table summarizes the committed experiment artifacts and M0 design limits. See the [Phase I reporting corrections](docs/PHASE1_REPORTING_CORRECTIONS.md) for measurement scope and limits.
 
 | Milestone | Scope | Key measured result | Primary artifacts |
 |---|---|---|---|
 | **M0** | Local compute & access envelope | 128 MiB process ceiling, 20 s per-task ceiling; Kaggle metadata-only route; 32-record / 64 MiB sample cap | `configs/m0_compute_budget.json`, `docs/M0_COMPUTE_BUDGET_PLAN.md`, `experiments/m0/` |
 | **M1** | Canonical schema & source adapters | 10-record multi-source development corpus (HF, OpenML, UCI, Kaggle) | `docs/M1_RESULTS.md`, `experiments/m1/` |
-| **M2** | BM25 / dense / hybrid retrieval baselines | BM25 Recall@1 = 0.875, Recall@3 = 1.000, latency ≈ 0.06 ms; shared retrieval-benchmark process peak RSS = 453.22 MiB (3.54× the 128 MiB ceiling; not isolated to one backend) | `docs/M2_RESULTS.md`, `experiments/m2/results/benchmark.json` |
+| **M2** | BM25 / MiniLM / hybrid retrieval on four development queries | BM25 Recall@1 = 0.875, Recall@3 = 1.000, mean query call ≈ 0.06 ms. Shared process peak RSS = 453.22 MiB. Each query was measured once in fixed method order. | `docs/M2_RESULTS.md`, `experiments/m2/results/benchmark.json` |
 | **M3** | Multi-facet evidence ledger | 107 ledger entries; 67 single-source claims (62.6%); 90/106 unresolved (84.9%); 1 resolver-classified license text/URI mismatch (0 corroborated) | `docs/M3_RESULTS.md`, `experiments/m3/` |
 | **M4** | Bounded dataset fingerprinting | 9.31 ms, 24.20 MiB peak RSS; 7 sample-accessible datasets; Rotten Tomatoes 32/32 single-class slice flagged as bounded-sample observation | `docs/M4_RESULTS.md`, `experiments/m4/` |
-| **M5** | Task utility estimation & ablations | Spearman ρ (A/B/C) = 0.9576 / 0.9576 / 0.9667 (+0.0091 from evidence + fingerprints); 75% of evaluations hard-gated | `docs/M5_RESULTS.md`, `experiments/m5/` |
+| **M5** | Task utility estimation on four tasks and ten records | 75% of task–dataset evaluations hard-gated. Historical nDCG used corpus order, and correlation broke ties by dataset identifier. The recorded metrics do not establish comparative ranking effectiveness. | `docs/M5_RESULTS.md`, `experiments/m5/` |
 | **M6** | Popularity audit & exploration analysis | `q_tabular_wine` mean pool utility 0.5476 → 0.6857 (+25.2%); 0 strict hidden gems across 4 audited queries | `docs/M6_RESULTS.md`, `experiments/m6/` |
 | **M7** | Multi-objective ranking & diversification | Same-family redundancy R1 = 1 → R3 = 0; mean set utility 0.8506 → 0.8536; on `task_tabular_iris` specifically, 0.8809 → 0.8928 | `docs/M7_RESULTS.md`, `experiments/m7/` |
-| **M8 benchmark** | Frozen offline benchmark, 24 datasets × 8 tasks = 192 evaluations | 327.49 ms wall clock, 33.11 MiB peak RSS, zero network egress; 0 crashes / 10 robustness trials; mean Jaccard = 1.0 and mean Kendall τ = 1.0 under ±20% weight perturbation; H1 N/A (no same-family redundancy under R1), H2 exploratory, H3 observed utility delta 0.000, H4 architectural invariant, H5 20/20 roles grounded; Brier = 0.259314, ECE = 0.428503 (internal consistency audit) | `docs/M8_EVALUATION.md`, `experiments/m8/results/m8_summary.json` |
-| **M8 human pilot** | Exploratory format-comparison pilot | N = 3 participants, 7 comparisons; Format B − Format A: Trust +1.81, Understanding +3.19, Actionability +3.00 (descriptive, exploratory only) | [`docs/M8_RESEARCH_FINDINGS.md`](docs/M8_RESEARCH_FINDINGS.md); consent-approved participant-level summaries and repeat-exposure metadata in [`experiments/m8/human_eval/m8_human_eval_results.json`](experiments/m8/human_eval/m8_human_eval_results.json); raw captures and derived analysis files are local-only |
+| **M8 benchmark** | Frozen offline benchmark, 24 datasets × 8 tasks = 192 evaluations | 327.49 ms evaluation-harness interval and 33.11 MiB process peak RSS. 0 crashes in 10 fixture trials. H1 N/A under its R1 trigger, H2 exploratory, H3 observed utility delta 0.000, H4 architectural invariant, H5 20/20 roles met grounding preconditions. Brier = 0.259314 and ECE = 0.428503 are internal consistency diagnostics. | [Frozen M8 summary](experiments/m8/results/m8_summary.json), [historical protocol](docs/M8_EVALUATION.md) |
+| **M8 human pilot** | Exploratory format comparison, three participants and seven paired comparisons per participant | Descriptive B − A mean ratings: Trust +1.81, Understanding +3.19, Actionability +3.00. Presentation order and author participation limit interpretation. | [Recorded pilot findings](docs/M8_RESEARCH_FINDINGS.md) |
 
 Robustness suites: 4 corruption suites (fixtures: `data/benchmarks/m8_corruption_fixtures.json`), 10 trials total.
 
@@ -171,12 +170,12 @@ Robustness suites: 4 corruption suites (fixtures: `data/benchmarks/m8_corruption
 
 - **Input interface:** the evaluated pipeline is driven by structured `TaskSpecification` fixtures. No natural-language requirement parser is implemented.
 - **Output interface:** recommendations and explanations are emitted as structured JSON data structures. There is no interactive CLI.
-- **Scoring weights:** ranking weights (0.35 / 0.35 / 0.15 / 0.15 / 0.15) and λ_div = 0.20 are fixed heuristic values; they are not learned and are not asserted as best-possible. Sensitivity analysis measured recommendation stability at ±20% perturbation (mean Jaccard = 1.0 under the tested conditions).
+- **Scoring and diversity weights.** R2/R3 use fixed heuristic scoring weights (0.35 / 0.35 / 0.15 / 0.15 / 0.15). The positive-weight (±20%) and risk-weight perturbations did not reach the recommendation scorer, so their unchanged outputs do not establish scoring-weight robustness. The separate diversity-weight sweep varied λ_div at the selector, whose default is 0.20.
 - **Popularity neutrality:** popularity metrics are recorded for context and exposure audits, but are excluded from scoring formulas (architecturally enforced; checked as H4).
-- **Consistency metrics:** Brier (0.259314) and ECE (0.428503) in M8 are internal consistency audits against task-compatibility reference levels — not independent probabilistic calibration, and not claims that the scores are true probabilities.
-- **Human evaluation pilot:** conducted as a documented exploratory pilot with N = 3 across 7 comparison pairs; all primary results are first-exposure descriptive ratings; an order confound is documented; no inferential statistics or generalizability claims are made.
+- **Reference labels and heuristic utility.** M5 and M8 reference judgments were authored within the project. M8 ablations summarize internal heuristic utility. Brier (0.259314) and ECE (0.428503) describe agreement with the project rubric and do not establish independent relevance or probability calibration.
+- **Human evaluation pilot.** The primary N = 3 ratings are first-exposure observations. All participants used the same schedule (five B-first and two A-first pairs), one was a project author, and repeat-exposure linkage is uncertain for two participants. The results are descriptive.
 - **Development-corpus scope (M1–M7):** milestone results on the 10-dataset development corpus are scoped observations under the tested conditions, not population-level findings.
-- **Known documentation exception:** the status header of `docs/M8_EVALUATION.md` predates execution and is intentionally preserved for hash-contract integrity (`data/benchmarks/m8_benchmark_manifest.json`). See `docs/M8_RESEARCH_FINDINGS.md` for the completed, frozen results.
+- **Historical protocol.** The status header in [M8 evaluation](docs/M8_EVALUATION.md) predates execution. Its exact bytes are registered in the [benchmark manifest](data/benchmarks/m8_benchmark_manifest.json). See the [frozen benchmark summary](experiments/m8/results/m8_summary.json) and [recorded pilot findings](docs/M8_RESEARCH_FINDINGS.md) for completed results.
 - **Human-evaluation disclosure and reproducibility:** the consent-approved, tracked `experiments/m8/human_eval/m8_human_eval_results.json` contains per-participant summary statistics and repeat-exposure metadata. Raw form exports, row-level response and analysis datasets, the derived `experiments/m8/results/m8_human_eval_summary.json`, and selected pilot plots remain ignored local files. The ordinary test command reports the dependent tests as skipped when their local inputs are absent; it does not count those tests as passed.
 
 ## 12. Documentation Index
@@ -186,6 +185,7 @@ Robustness suites: 4 corruption suites (fixtures: `data/benchmarks/m8_corruption
   - [docs/RESEARCH_FOUNDATION.md](docs/RESEARCH_FOUNDATION.md) — research foundation, problem framing, claims
   - [AGENTS.md](AGENTS.md) — repository engineering rules and working agreements
 - **Milestone results & protocols:**
+  - [Phase I reporting corrections](docs/PHASE1_REPORTING_CORRECTIONS.md) — corrected interpretations and source evidence for the frozen studies
   - [docs/M0_COMPUTE_BUDGET_PLAN.md](docs/M0_COMPUTE_BUDGET_PLAN.md) — M0 compute budget
   - [docs/M1_RESULTS.md](docs/M1_RESULTS.md) — M1 canonical corpus
   - [docs/M2_RESULTS.md](docs/M2_RESULTS.md) — M2 retrieval baselines
