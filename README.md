@@ -201,8 +201,10 @@ Robustness suites: 4 corruption suites (fixtures: `data/benchmarks/m8_corruption
 
 - **Final Phase I report:** [PDF](final_report/DSN4091_Capstone_Phase-I_Final_Report.pdf) · [DOCX](final_report/DSN4091_Capstone_Phase-I_Final_Report.docx)
 - **Approved manuscript:** [package and build guide](paper/final_submission/README.md) · [approved PDF](paper/final_submission/main.pdf) · [LaTeX source](paper/final_submission/main.tex)
-- [docs/FINAL_REPORT_EVIDENCE_MAP.md](docs/FINAL_REPORT_EVIDENCE_MAP.md) — claim-to-artifact traceability for the delivered report
-- [docs/FINAL_VIVA_EVIDENCE_MAP.md](docs/FINAL_VIVA_EVIDENCE_MAP.md) — viva/defense reference
+- [Current research status](docs/CURRENT_RESEARCH_STATUS.md) — recorded evidence and current interpretation
+- [Current defense brief](docs/DEFENSE_BRIEF_CURRENT.md) — corrected viva guidance
+- [docs/FINAL_REPORT_EVIDENCE_MAP.md](docs/FINAL_REPORT_EVIDENCE_MAP.md) — historical claim-to-artifact map; some interpretations are superseded
+- [docs/FINAL_VIVA_EVIDENCE_MAP.md](docs/FINAL_VIVA_EVIDENCE_MAP.md) — historical viva map; some interpretations are superseded
 - [paper/README.md](paper/README.md) — distinguishes the approved manuscript from the retained historical source
 - [docs/v1/](docs/v1/), [docs/v2/](docs/v2/), and [docs/v3/](docs/v3/) — versioned proposal history; not current report drafts
 - Raw human-study captures and generated analysis datasets are intentionally excluded from Git. The consent-approved machine-readable result summary is tracked at `experiments/m8/human_eval/m8_human_eval_results.json`; see Section 11 and [M8 findings](docs/M8_RESEARCH_FINDINGS.md) for scope and limitations.
